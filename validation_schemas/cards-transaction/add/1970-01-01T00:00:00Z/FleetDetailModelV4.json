@@ -1,0 +1,74 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "FleetDetailModelV4.json",
+	"type": "object",
+	"definitions": {
+		"FleetQuantityModelV4": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"unit": {
+					"type": ["string","null"],
+					"example": "KGM",
+					"description": "Fuel unit of measure (preferred values: LTR, GLI, GLL, KGM, LBR, KWH",
+					"dataClassification": []
+				},
+				"value": {
+					"type": ["number","null"],
+					"example": 11.08,
+					"description": "Quantity value",
+					"dataClassification": []
+				}
+			},
+			"title": "FleetQuantityModelV4",
+			"additionalProperties": false
+		}
+	},
+	"properties": {
+		"description": {
+			"type": ["string","null"],
+			"example": "Super Unleaded (92 octane)",
+			"description": "Description",
+			"dataClassification": []
+		},
+		"extendedAmount": {
+			"description": "Extended Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"quantity": {
+			"description": "Quantity",
+			"$ref": "#/definitions/FleetQuantityModelV4"
+		},
+		"totalAmount": {
+			"description": "Total Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"unitAmount": {
+			"description": "Unit Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"commodityCode": {
+			"type": "string",
+			"example": "120-00",
+			"description": "Standard coding structure for the description of goods and services",
+			"dataClassification": []
+		},
+		"discountAmount": {
+			"description": "Discount Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"discountApplied": {
+			"type": "boolean",
+			"description": "Indicating whether a discount is granted",
+			"dataClassification": []
+		},
+		"sequenceNumber": {
+			"type": "integer",
+			"format": "int32",
+			"example": 1,
+			"description": "Sequence Number",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

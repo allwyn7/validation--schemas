@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "cancellation-data-rail.json",
+  "additionalProperties": false,
+  "type": "object",
+  "x-java-type": "com.concur.t2.schema.RailCancellationData",
+  "goType": "RailCancellationData",
+  "definitions": {},
+  "properties": {
+    "additionalMessageType": {
+      "type": "string",
+      "enum": [
+        "TRAINLINE_KIOSK_RETURN_REQUIRED",
+        "TRAINLINE_REFUND_REQUIRES_TIME"
+      ],
+      "description": "Specifies which type of additional message should be shown",
+      "dataClassification": [],
+      "classification": "none"
+    }
+  }
+}

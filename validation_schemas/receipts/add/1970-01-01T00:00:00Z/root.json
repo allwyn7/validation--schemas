@@ -1,0 +1,43 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "receipt.json",
+    "type": "object",
+    "properties": {
+        "receiptData": {
+            "$ref": "receipt.data.schema.json#",
+            "group": "external",
+            "classification": "none",
+            "description": "A parent element that contains Receipt data schema. This includes the data fields on a receipt.",
+            "dataClassification":[]
+        },
+        "documents": {
+            "type": "array",
+            "items": {
+                "$ref": "receipt.document.schema.json#"
+            },
+            "group": "external",
+            "classification": "none",
+            "description": "A parent element that contains a Receipt document schema. This includes various representations of the document(Eg: Original, Display and/or Compliance ).",
+            "dataClassification":[]
+        },
+        "metadata": {
+            "$ref": "receipt.metadata.schema.json#",
+            "group": "external",
+            "classification": "none",
+            "description": "A parent element that contains a Receipt Meta data schema. This includes the metadata fields for a receipt.",
+            "dataClassification":[]
+        },
+        "enrichmentData": {
+            "$ref": "receipt.enrichment.data.schema.json#",
+            "group": "external",
+            "classification": "none",
+            "description": "A parent element that contains a Receipt Enrichment schema, Required to be present when query param includeEnrichmentData=true in GET API call",
+            "dataClassification":[]
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "metadata",
+        "enrichmentData"
+    ]
+}

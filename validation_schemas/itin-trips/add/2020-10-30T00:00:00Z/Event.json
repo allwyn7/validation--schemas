@@ -1,0 +1,186 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Event.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			}
+		},
+		"CreditCardId": {
+			"type": "integer"
+		},
+		"AllowDelete": {
+			"type": "boolean"
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			}
+		},
+		"Name": {
+			"type": "string",
+			"maxLength": 80
+		},
+		"StartAddress": {
+			"type": "string",
+			"maxLength": 80
+		},
+		"StartAddress2": {
+			"type": "string",
+			"maxLength": 80
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"StartPostalCode": {
+			"type": "string",
+			"maxLength": 24
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2
+		},
+		"StartLatitude": {
+			"type": "number"
+		},
+		"StartLongitude": {
+			"type": "number"
+		},
+		"PhoneNumber": {
+			"type": "string"
+		},
+		"NumPersons": {
+			"type": "integer"
+		},
+		"TotalRate": {
+			"type": "number"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"Type": {
+			"type": "string"
+		},
+		"IsRefundable": {
+			"type": "boolean"
+		},
+		"IsOnline": {
+			"type": "boolean"
+		},
+		"SegmentKey": {
+			"type": "string"
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#"
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks"
+		},
+		"IsT2Segment": {
+			"type": "boolean"
+		},
+		"ClientLocator": {
+			"type": "string"
+		},
+		"Vendor": {
+			"type": "string"
+		},
+		"VendorName": {
+			"type": "string"
+		},
+		"OperatedByVendorName": {
+			"type": "string"
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2
+		},
+		"TimeZoneId": {
+			"type": "integer"
+		},
+		"TimeZone": {
+			"type": "string"
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"Notes": {
+			"type": "string"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"EReceiptStatus": {
+			"type": "integer"
+		},
+		"SentToAirplus": {
+			"type": "boolean"
+		},
+		"CliqbookId": {
+			"type": "integer"
+		},
+		"TransientSegmentNumber": {
+			"type": "integer"
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean"
+		},
+		"IsPreferredVendor": {
+			"type": "integer"
+		},
+		"VendorFlags": {
+			"type": "string"
+		},
+		"VirtualCreditCardType": {
+			"type": "string"
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3
+		}
+	},
+	"additionalProperties": false
+}

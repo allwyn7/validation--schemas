@@ -1,0 +1,57 @@
+{
+    "event_name": "expense-reports",
+    "ident_field_names": [
+        "$.companyId",
+        "$.reportId"
+    ],
+    "timestamp_field_name": "$.revisionTimestamp",
+    "event_types": {
+        "add": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        },
+        "delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        },
+        "regulatory_delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        }
+    },
+    "team": {
+        "slack": "#ask-interstellar_formerly-ask-ekipazh",
+        "email": "DL_6F42EA40A9AC4D01918F954907C2E453@global.corp.sap",
+        "name": "ekipazh"
+    },
+    "validation_exceptions": {
+        "always_fail": "all",
+        "required_paths_non_null": "2024-06-21T00:00:00Z",
+        "dp_fields_validator": "2024-07-23T00:00:00Z",
+        "detect_breaking_changes": {
+            "add": "2024-06-21T00:00:00Z"
+        }
+    },
+    "uri_format": "http://us2.api.concursolutions.com/expensedatalake/v4/companies/%s/reports/%s",
+    "uri_format_json_paths": [
+        "facts.companyId",
+        "facts.reportId"
+    ],
+    "spark": {
+        "delete_behaviors":{
+            "delete": ["soft_delete", "hard_delete"],
+            "regulatory_delete": ["soft_delete", "hard_delete"]
+        }
+    },
+    "dataset": {
+        "type": "update",
+        "classification": "customer_data",
+        "source": "streaming"
+    }
+}

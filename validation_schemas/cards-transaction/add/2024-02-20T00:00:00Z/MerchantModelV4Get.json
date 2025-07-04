@@ -1,0 +1,51 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "MerchantModelV4Get.json",
+	"type": "object",
+	"required": [
+		"name"
+	],
+	"properties": {
+		"address": {
+			"description": "Merchant's Address",
+			"$ref": "AddressModelV4.json#"
+		},
+		"categoryCode": {
+			"type": ["string","null"],
+			"example": 3008,
+			"description": "Merchant category code (VISA MERCHANT CATEGORY CLASSIFICATION)",
+			"dataClassification": []
+		},
+		"doingBusinessAs": {
+			"type": ["string","null"],
+			"example": "Flight Carrier",
+			"description": "Name of the business the merchant is doing (preferred for display purposes over merchant name)",
+			"dataClassification": []
+		},
+		"id": {
+			"type": ["string","null"],
+			"example": 158326704,
+			"description": "Merchant identifier",
+			"dataClassification": []
+		},
+		"name": {
+			"type": "string",
+			"example": "Lufthansa",
+			"description": "Merchant Name",
+			"dataClassification": []
+		},
+		"standardCategoryCode": {
+			"type": ["string","null"],
+			"example": 3008,
+			"description": "Standardized Merchant Category Code",
+			"dataClassification": []
+		},
+		"vatNumber": {
+			"type": ["string","null"],
+			"example": 5187495268,
+			"description": "Merchant's VAT number",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

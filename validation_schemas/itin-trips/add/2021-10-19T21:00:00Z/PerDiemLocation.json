@@ -1,0 +1,41 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "PerDiemLocation.json",
+	"type": "object",
+	"properties": {
+		"Name": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"StateCountry": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"County": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"Zip": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"Conus": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler location at a date/time"
+		},
+		"PerDiemRates": {
+			"type": "array",
+			"items": {
+				"$ref": "PerDiemRate.json#"
+			},
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

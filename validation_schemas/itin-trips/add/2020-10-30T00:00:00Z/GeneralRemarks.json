@@ -1,0 +1,14 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "GeneralRemarks.json",
+	"type": "object",
+	"properties": {
+		"GeneralRemark": {
+			"type": "array",
+			"items": {
+				"$ref": "GeneralRemark.json#"
+			}
+		}
+	},
+	"additionalProperties": false
+}

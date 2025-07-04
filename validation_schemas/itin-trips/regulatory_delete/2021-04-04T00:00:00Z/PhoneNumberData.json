@@ -1,0 +1,30 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "PhoneNumberData.json",
+	"type": "object",
+	"properties": {
+		"PhoneNumberId": {
+			"type": "integer"
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"Type": {
+			"type": "string",
+			"maxLength": 1,
+			"group": "external"
+		},
+		"Description": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"PassengerRPH": {
+			"type": "integer",
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,69 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirlineTicketCoupon.json",
+	"type": "object",
+	"properties": {
+		"CouponNumber": {
+			"type": "integer",
+			"group": "external"
+		},
+		"Vendor": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"FlightNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"ClassOfService": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external"
+		},
+		"RateCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"TicketDesignator": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external"
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external"
+		},
+		"CouponStatus": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external"
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 8,
+			"group": "external"
+		},
+		"NotValidBeforeDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"NotValidAfterDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

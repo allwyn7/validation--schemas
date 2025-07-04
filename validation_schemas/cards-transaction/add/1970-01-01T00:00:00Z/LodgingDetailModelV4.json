@@ -1,0 +1,63 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "LodgingDetailModelV4.json",
+	"type": "object",
+	"required": [
+		"folioLineItemType"
+	],
+	"properties": {
+		"folioLineItemType": {
+			"type": "string",
+			"example": "RMRAT",
+			"description": "Line item type\nBZCNT - Business center charges (copies, faxes, etc.)\nCAADV - Cash advances charged against the folio\nCONFR - Conference charges\nCTTAX - County Room Tax\nFDTAX - Federal Room Tax\nFOODX - Food charges (excludes mini-bar)\nGIFTX - Gift shop charges\nGNTAX - General Taxes\nHELTH - Health club, pool, court, golf charges\nINTNT - Internet charges, online fees\nLNDRY - Laundry charges\nMNBAR - In room mini-bar charges\nMNTAX - Municipal Room Tax\nMOVIE - Movie/in room entertainment\nOTHER - Other miscellaneous charges\nPRKNG - Parking/Valet charges\nPSTAX - Provincial Room Tax\nPYMNT - Payments/Discounts received\nRMRAT - Room Rate\nRMTAX - Room Tax\nTIPSX - Charges for Gratuities and Tips\nTLPHN - Telephone charges",
+			"enum": [
+				"BZCNT",
+				"CAADV",
+				"CONFR",
+				"CTTAX",
+				"FDTAX",
+				"FOODX",
+				"GIFTX",
+				"GNTAX",
+				"HELTH",
+				"INTNT",
+				"LNDRY",
+				"MNBAR",
+				"MNTAX",
+				"MOVIE",
+				"OTHER",
+				"PRKNG",
+				"PSTAX",
+				"PYMNT",
+				"RMRAT",
+				"RMTAX",
+				"TIPSX",
+				"TLPHN"
+			],
+			"dataClassification": []
+		},
+		"transactionAmount": {
+			"description": "Transaction Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"transactionDate": {
+			"type": ["string","null"],
+			"example": "2018-08-15",
+			"description": "Transaction date of the line item",
+			"dataClassification": []
+		},
+		"sequenceNumber": {
+			"type": "integer",
+			"format": "int32",
+			"example": 1,
+			"description": "Sequence Number",
+			"dataClassification": []
+		},
+		"description": {
+			"type": "string",
+			"description": "Description",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

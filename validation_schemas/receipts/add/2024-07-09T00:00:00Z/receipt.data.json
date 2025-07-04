@@ -1,0 +1,394 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "receipt.data.json",
+  "title": "Receipt Data Schema Definitions",
+  "type": "object",
+  "description": "Receipt data schema. This includes the data fields on a receipt",
+  "properties": {
+    "receiveDateTime": {
+      "type": "string",
+      "description": "Date/Time of the document received by Customer",
+      "dataClassification": []
+    },
+    "transactionDateTime": {
+      "type": "string",
+      "description": "date time of transaction",
+      "dataClassification": []
+    },
+    "amount": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "string",
+          "description": "Transaction Amount - Total",
+          "dataClassification": []
+        },
+        "currency": {
+          "type": "string",
+          "description": "Transaction Currency Code",
+          "dataClassification": []
+        },
+        "netAmount": {
+          "type": "string",
+          "description": "Total Net Amount",
+          "dataClassification": []
+        },
+        "subTotal": {
+          "type": "string",
+          "description": "Transaction Amount - Sub Total",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "vendor": {
+      "type": "object",
+      "description": "Vendor details",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name",
+          "dataClassification": []
+        },
+        "taxId": {
+          "type": "string",
+          "description": "Tax Id of the company/vendor",
+          "dataClassification": []
+        },
+        "addressLine": {
+          "type": "string",
+          "description": "Address Line",
+          "dataClassification": []
+        },
+        "city": {
+          "type": "string",
+          "description": "City",
+          "dataClassification": []
+        },
+        "state": {
+          "type": "string",
+          "description": "State",
+          "dataClassification": []
+        },
+        "country": {
+          "type": "string",
+          "description": "Country",
+          "dataClassification": []
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Postal Code",
+          "dataClassification": []
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "comments": {
+      "type": "string",
+      "description": "comments can be added here for any receipt",
+      "dataClassification": []
+    },
+    "paymentType": {
+      "type": "object",
+      "description": "Supported Payment types based on the data on the Receipt",
+      "properties": {
+        "method": {
+          "type": "string",
+          "description": "Payment type method",
+          "enum": [
+            "Cash",
+            "Credit Card",
+            "Digital Wallet"
+          ],
+          "dataClassification": []
+        },
+        "creditCard": {
+          "type": "object",
+          "description": "Credit card type if the payment method is credit card",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Name of the card type ex: American Express, MasterCard,Discover etc..",
+              "dataClassification": []
+            },
+            "lastFour": {
+              "type": "string",
+              "description": "Last 4 digits of credit card number if the payment method is credit card",
+              "dataClassification": []
+            }
+          },
+          "additionalProperties": false
+        },
+        "digitalWallet": {
+          "type": "string",
+          "description": "if the payment method is digitalWallet, type of digital wallet. ex: ApplePay, PayTM, Rupay, GooglePay etc",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "documentCompliance": {
+      "type": "object",
+      "description": "Document Compliance information",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "UUID of the Document ",
+          "dataClassification": []
+        },
+        "formatVersion": {
+          "type": "string",
+          "description": "Version of the document format",
+          "dataClassification": []
+        },
+        "number": {
+          "type": "string",
+          "description": "Additional identified for the document",
+          "dataClassification": []
+        },
+        "typeCode": {
+          "type": "string",
+          "description": "Document Type (only code)",
+          "dataClassification": []
+        },
+        "type": {
+          "type": "string",
+          "description": "Codes supported by the document",
+          "dataClassification": []
+        },
+        "verificationCode": {
+          "type": "string",
+          "description": "Verification or Certificate Code ",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "lineItems": {
+      "type": "array",
+      "description": "Array of LineItems",
+      "items": {
+        "type": "object",
+        "description": "LineItem details",
+        "properties": {
+          "itemId": {
+            "type": "string",
+            "description": "Line Identifier",
+            "dataClassification": []
+          },
+          "productCode": {
+            "type": "string",
+            "description": "Product Code of goods and services",
+            "dataClassification": []
+          },
+          "quantity": {
+            "type": "string",
+            "description": "Item Quantity",
+            "dataClassification": []
+          },
+          "unitPrice": {
+            "type": "string",
+            "description": "Item Unit Price",
+            "dataClassification": []
+          },
+          "taxRate": {
+            "type": "string",
+            "description": "Item Tax Rate",
+            "optional": "true",
+            "dataClassification": []
+          },
+          "subTotal": {
+            "type": "string",
+            "description": "Item Sub Total",
+            "optional": "true",
+            "dataClassification": []
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "dataClassification": []
+          },
+          "date": {
+            "type": "string",
+            "description": "Date",
+            "dataClassification": []
+          },
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "dataClassification": []
+          },
+          "amount": {
+            "type": "string",
+            "description": "Amount",
+            "dataClassification": []
+          },
+          "taxes": {
+            "type": "array",
+            "description": "The taxes applied on this LineItem transaction.",
+            "items": {
+              "$ref": "tax.json",
+              "dataClassification":[]
+            }
+          },
+          "discounts": {
+            "type": "array",
+            "description": "The discounts offered on this LineItem transaction.",
+            "items": {
+              "$ref": "discount.json"
+            }
+          },
+          "additionalDescription": {
+            "type": "string",
+            "description": "Additional Description",
+            "dataClassification": []
+          },
+          "semanticsCode": {
+            "type": "string",
+            "description": "Indicates the charge category for the line item. Example.. 'MOVIE', 'PARKING', 'OTHER' etc.",
+            "dataClassification": []
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "expenseData": {
+      "type": "object",
+      "description": "Expense Data",
+      "properties": {
+        "expenseType": {
+          "type": "string",
+          "description": "Expense Type for Expense reimbursement",
+          "dataClassification": []
+        },
+        "expensePaymentType": {
+          "type": "string",
+          "description": "Payment type for Expense reimbursement",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "referenceNumber": {
+      "type": "string",
+      "description": "The unique receipt provider or vendor identifier for this receipt. This value can also be referred to as transaction number, check number, order ID or similar.",
+      "dataClassification": []
+    },
+    "discounts": {
+      "type": "array",
+      "description": "The discounts offered on this transaction.",
+      "items": {
+        "$ref": "discount.json"
+      }
+    },
+    "discountsTotal": {
+      "type": "string",
+      "description": "Discounts Total",
+      "dataClassification": []
+    },
+    "taxesTotal": {
+      "type": "string",
+      "description": "Taxes Total",
+      "dataClassification": []
+    },
+    "tripDetails": {
+      "type": "object",
+      "description": "Trip details, This includes all the trip/travel related information specific to different eReceipt category.",
+      "properties": {
+        "itineraryLocator": {
+          "type": "string",
+          "description": "Unique identifier of an itinerary (also know as a trip) in Concur Itinerary Service. An itinerary can contain one or more bookings from various sources.",
+          "dataClassification": []
+        },
+        "driverNumber": {
+          "type": "string",
+          "description": "Unique identifier assigned by the ride company to a driver.",
+          "dataClassification": []
+        },
+        "travelDuration": {
+          "type": "string",
+          "description": "Duration of the ride, This will get converted to iso format hh:mm:ss. Example.. 'PT21M22S' will be '00:21:25'",
+          "dataClassification": []
+        },
+        "mapUrl": {
+          "type": "string",
+          "description": "Google Map url documenting the route taken.",
+          "pattern": "^https://(www|maps).(googleapis|google).[a-z]+/maps/",
+          "dataClassification": []
+        },
+        "startDate": {
+          "type": "string",
+          "description": "Trip starting Date/Time",
+          "dataClassification": []
+        },
+        "endDate": {
+          "type": "string",
+          "description": "Trip ending Date/Time",
+          "dataClassification": []
+        },
+        "classOfService": {
+          "type": "string",
+          "description": "The class of the booking",
+          "dataClassification": []
+        },
+        "distance": {
+          "type": "object",
+          "description": "Trip Distance",
+          "properties": {
+            "totalDistance": {
+              "type": "number",
+              "description": "Total Distance",
+              "dataClassification": []
+            },
+            "unit": {
+              "type": "string",
+              "description": "Unit of distance",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "dataClassification": []
+            }
+          },
+          "additionalProperties": false
+        },
+        "source": {
+          "description": "Source address which can be pickup location, departure etc.",
+          "$ref": "address.json",
+          "dataClassification":[]
+        },
+        "destination": {
+          "description": "Destination address which can be drop location, arrival etc.",
+          "$ref": "address.json",
+          "dataClassification":[]
+        }
+      },
+      "additionalProperties": false
+    },
+    "programName": {
+      "type": "string",
+      "description": "Name of the program applied to the Receipt.",
+      "dataClassification": []
+    },
+    "networkTransactionId": {
+      "type": "string",
+      "description": "The network transaction id for the payment.",
+      "dataClassification": []
+    },
+    "taxes": {
+      "type": "array",
+      "description": "The taxes applied on this transaction.",
+      "items": {
+        "$ref": "tax.json",
+        "dataClassification":[]
+      }
+    }
+  },
+  "additionalProperties": false
+}
+

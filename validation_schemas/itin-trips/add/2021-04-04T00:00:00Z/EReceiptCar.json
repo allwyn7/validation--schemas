@@ -1,0 +1,229 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "EReceiptCar.json",
+	"type": "object",
+	"properties": {
+		"CarDetail": {
+			"type": "array",
+			"items": {
+				"$ref": "CarDetail.json#"
+			}
+		},
+		"ReceiptDate": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"Status": {
+			"type": "integer"
+		},
+		"UserId": {
+			"type": "integer"
+		},
+		"CompanyId": {
+			"type": "integer"
+		},
+		"LastModifiedUTC": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"LastModBy": {
+			"type": "integer"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"ReceiptType": {
+			"type": "string"
+		},
+		"SpendCategoryCode": {
+			"type": "string"
+		},
+		"ConfirmationNumber": {
+			"type": "string"
+		},
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"RentalAgreementNumber": {
+			"type": "string"
+		},
+		"NumberOfUnits": {
+			"type": "integer"
+		},
+		"VendorCode": {
+			"type": "string"
+		},
+		"ProviderId": {
+			"type": "integer"
+		},
+		"ProviderStatus": {
+			"type": "integer"
+		},
+		"Brand": {
+			"type": "string"
+		},
+		"PrimaryLocationCode": {
+			"type": "string"
+		},
+		"PrimaryLocationDescription": {
+			"type": "string"
+		},
+		"PrimaryLocationAddress": {
+			"type": "string"
+		},
+		"PrimaryLocationAddress2": {
+			"type": "string"
+		},
+		"PrimaryLocationCity": {
+			"type": "string"
+		},
+		"PrimaryLocationState": {
+			"type": "string"
+		},
+		"PrimaryLocationZip": {
+			"type": "string"
+		},
+		"PrimaryLocationCountry": {
+			"type": "string"
+		},
+		"IsPrimaryLocationInAirport": {
+			"type": "boolean"
+		},
+		"PrimaryLocationAirportCode": {
+			"type": "string"
+		},
+		"PrimaryLocationPhone": {
+			"type": "string"
+		},
+		"PrimaryLocationFax": {
+			"type": "string"
+		},
+		"PrimaryLocationEmail": {
+			"type": "string"
+		},
+		"PrimaryLocationUrl": {
+			"type": "string"
+		},
+		"UserPnrId": {
+			"type": "integer"
+		},
+		"GuestId": {
+			"type": "string"
+		},
+		"GuestFirstName": {
+			"type": "string"
+		},
+		"GuestLastName": {
+			"type": "string"
+		},
+		"GuestAddress": {
+			"type": "string"
+		},
+		"GuestAddress2": {
+			"type": "string"
+		},
+		"GuestCity": {
+			"type": "string"
+		},
+		"GuestState": {
+			"type": "string"
+		},
+		"GuestZip": {
+			"type": "string"
+		},
+		"GuestCountry": {
+			"type": "string"
+		},
+		"CommentValue": {
+			"type": "string"
+		},
+		"CommentLabel": {
+			"type": "string"
+		},
+		"CardLastFour": {
+			"type": "string"
+		},
+		"CardAuthCode": {
+			"type": "string"
+		},
+		"CardExpiration": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"CreditCardType": {
+			"type": "string"
+		},
+		"MaskedCreditCardNumber": {
+			"type": "string"
+		},
+		"MerchantTaxId": {
+			"type": "string"
+		},
+		"FOP": {
+			"type": "integer"
+		},
+		"InvoiceNumber": {
+			"type": "string"
+		},
+		"InvoiceAmount": {
+			"type": "number"
+		},
+		"CurrencyCode": {
+			"type": "string"
+		},
+		"ReceiptImageId": {
+			"type": "string"
+		},
+		"TripId": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"ReceiptLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"SegmentId": {
+			"type": "integer"
+		},
+		"LineItems": {
+			"type": "array",
+			"items": {
+				"$ref": "LineItem.json#"
+			}
+		},
+		"OtherDetails": {
+			"type": "array",
+			"items": {
+				"$ref": "EReceiptOtherDetail.json#"
+			}
+		},
+		"ItinLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"Fob": {
+			"type": "string",
+			"maxLength": 128
+		},
+		"PurchaseOrderNumber": {
+			"type": "string",
+			"maxLength": 128
+		},
+		"Terms": {
+			"type": "string",
+			"maxLength": 256
+		},
+		"VendorName": {
+			"type": "string",
+			"maxLength": 128
+		},
+		"IsPersonal": {
+			"type": "boolean"
+		},
+		"ReceiptSourceId": {
+			"type": "integer"
+		},
+		"ExternalId": {
+			"type": "string"
+		}
+	},
+	"additionalProperties": false
+}

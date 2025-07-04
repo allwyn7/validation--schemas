@@ -1,0 +1,36 @@
+{
+    "event_name": "itin-trips_metadata",
+    "ident_field_names": [
+        "$.id"
+    ],
+    "timestamp_field_name": "$.timeStamp",
+    "event_types": {
+        "delete": {
+            "company_id": {
+                "kind": "outtaskCompanyId",
+                "property": "CompanyId"
+            }
+        }
+    },
+    "team": {
+        "slack": "#ask-travel-itin-tripstore",
+        "email": "DL_5D8D1E4A90C824029E5103AF@global.corp.sap",
+        "name": "Itinservices/Tripstore"
+    },
+    "validation_exceptions": {
+        "always_fail": "all",
+        "dp_fields_validator": "2024-07-23T00:00:00Z",
+        "valid_company_uuid": "1970-01-01T00:00:00Z",
+        "single_uri_format": "all"
+    },
+    "spark": {
+        "delete_behaviors":{
+            "regulatory_delete": ["soft_delete", "hard_delete"]
+        }
+    },
+    "dataset": {
+        "type": "update",
+        "classification": "customer_data",
+        "source": "streaming"
+    }
+}

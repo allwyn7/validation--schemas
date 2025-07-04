@@ -1,0 +1,53 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "CustomAttribute.json",
+	"type": "object",
+	"properties": {
+		"ExternalId": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The internal reference to the definition of the custom attribute definition."
+		},
+		"DataType": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The type of the custom attribute like numeric, string, etc."
+		},
+		"Name": {
+			"type": "string",
+			"maxLength": 128,
+			"group": "external",
+			"classification": "none",
+			"description": "Work the Concur Travel Administrator for the company to get a list of configured custom trip attributes (known as Custom Trip Fields in the Concur documentation, not to be confused with Custom Profile fields). This is the name of the custom attribute configured by the admin."
+		},
+		"DisplayTitle": {
+			"type": "string",
+			"maxLength": 128,
+			"group": "external",
+			"classification": "none",
+			"description": "ignore this - this is the title of the custom attribute to display on the Concur-UI."
+		},
+		"Data": {
+			"type": "string",
+			"maxLength": 255,
+			"group": "external",
+			"classification": "personal",
+			"description": "The value set for the custom attribute."
+		},
+		"DisplayValue": {
+			"type": "string",
+			"maxLength": 255,
+			"classification": "none",
+			"description": "Field name for a client-configured custom field"
+		},
+		"DisplayOnItinerary": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "The condition that determines whether the attribute is displayed on the itinerary."
+		}
+	},
+	"additionalProperties": false
+}

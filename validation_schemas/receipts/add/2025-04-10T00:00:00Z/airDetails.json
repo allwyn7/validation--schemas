@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "airDetails.json",
+  "title": "air details",
+  "type": "object",
+  "description": "Air details within this transaction.",
+    "properties": {
+      "bookingId": {
+        "type": "string",
+        "description": "Id of the booking",
+        "dataClassification": []
+      },
+      "ticket": {
+        "type": "object",
+        "properties": {
+          "coupons": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "couponNumber": {
+                  "type": "string",
+                  "description": "Coupon number.",
+                  "dataClassification": []
+                },
+                "segments": {
+                  "type": "array",
+                  "description": "Segments associated with this coupon.",
+                  "items": {
+                    "description": "Air segment.",
+                    "$ref": "airSegment.json",
+                    "dataClassification": []
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+}

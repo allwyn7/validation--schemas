@@ -1,0 +1,98 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Passenger.json",
+	"$defs": {},
+	"type": "object",
+	"properties": {
+		"FrequentTravelerPrograms": {
+			"$ref": "Booking.json#/$defs/FrequentTravelerProgram",
+			"group": "external"
+		},
+		"PassengerKey": {
+			"type": "integer"
+		},
+		"TextName": {
+			"type": "string",
+			"maxLength": 250,
+			"group": "external"
+		},
+		"NameFirst": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"NameLast": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"NameMiddle": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"NamePrefix": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"NameSuffix": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"NameRemark": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"NameIdentifier": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"LastNameNumber": {
+			"type": "integer",
+			"group": "external"
+		},
+		"FirstNameNumber": {
+			"type": "integer",
+			"group": "external"
+		},
+		"StreetAddress": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external"
+		},
+		"StreetAddress2": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external"
+		},
+		"City": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"PostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"State": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"Country": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"NameTitle": {
+			"type": "string",
+			"group": "external"
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "PassengerKey" ]
+}

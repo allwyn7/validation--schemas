@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "trip.delete.json",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "dataClassification": []
+        },
+        "tripId": {
+            "type": "string",
+            "dataClassification": []
+        },
+        "userId": {
+            "type": "string",
+            "dataClassification": ["PII"]
+        },
+        "companyId": {
+            "type": "string",
+            "dataClassification": []
+        },
+        "bookingContext": {
+            "type": "object",
+            "properties": {
+                "companyId": {
+                    "type": "string",
+                    "dataClassification": []
+                }
+            },
+            "required": ["companyId"],
+            "additionalProperties": false
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "lastModifiedTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "dataClassification": []
+                }
+            },
+            "required": [
+                "lastModifiedTime"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "required": [
+        "id",
+        "companyId",
+        "meta"
+    ],
+    "additionalProperties": false
+}

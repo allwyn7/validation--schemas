@@ -1,0 +1,27 @@
+{
+    "event_name": "expense-automation-stats",
+    "ident_field_names": ["$.id"],
+    "timestamp_field_name": "$.lastModifiedDate",
+    "event_types": {
+        "add": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        }
+    },
+    "team": {
+        "slack": "#ask-inception",
+        "email": "DL_474ECAAEE71441E7AC3B81E2C73C5D2E@global.corp.sap",
+        "name": "inception"
+    },
+    "validation_exceptions": {
+        "always_fail": "all",
+        "single_uri_format": "all"
+    },
+    "dataset": {
+        "type": "append",
+        "classification": "customer_data",
+        "source": "streaming"
+    }
+}

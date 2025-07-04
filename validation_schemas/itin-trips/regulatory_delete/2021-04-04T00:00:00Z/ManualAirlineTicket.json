@@ -1,0 +1,55 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "ManualAirlineTicket.json",
+	"type": "object",
+	"properties": {
+		"Taxes": {
+			"type": "array",
+			"items": {
+				"$ref": "Tax.json#"
+			},
+			"group": "external"
+		},
+		"AirlineCharges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external"
+		},
+		"BaseFare": {
+			"type": "number",
+			"group": "external"
+		},
+		"BaseFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		},
+		"TotalFare": {
+			"type": "number",
+			"group": "external"
+		},
+		"TotalFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"ChargeLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"UseCurrentRailPayment": {
+			"type": "boolean"
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "PurchaseQuantityModelV4.json",
+	"type": "object",
+	"properties": {
+		"unit": {
+			"type": ["string","null"],
+			"example": "EA",
+			"description": "Unit of measure (preferably use codes from https://www.unece.org/cefact/codesfortrade/codes_index.html, for example 'EA', 'KGM', 'LTR'),",
+			"dataClassification": []
+		},
+		"value": {
+			"type": "number",
+			"example": 10,
+			"description": "Quantity value",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

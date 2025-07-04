@@ -1,0 +1,97 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "RailAdjustment.json",
+	"type": "object",
+	"properties": {
+		"Taxes": {
+			"type": "array",
+			"items": {
+				"$ref": "Tax.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "Taxes on the adjustment."
+		},
+		"RailCharges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "List of charges for this rail booking."
+		},
+		"TicketDocumentIdentifier": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "none",
+			"description": "Not used."
+		},
+		"TotalAdjustment": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Total cost of the adjustment."
+		},
+		"TotalAdjustmentCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the total adjustment."
+		},
+		"AdjustmentDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "Timestamp for the adjustment."
+		},
+		"AdjustmentDateTimeUTC": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp for the adjustment."
+		},
+		"AdjustmentType": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 1,
+			"pattern": "[1CRAO]",
+			"group": "external",
+			"classification": "none",
+			"description": "Type of adjustment."
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Map to Expense"
+		},
+		"EreceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"ChargeLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp for adjustment creation."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp for adjustment modification."
+		},
+		"UseCurrentRailPayment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

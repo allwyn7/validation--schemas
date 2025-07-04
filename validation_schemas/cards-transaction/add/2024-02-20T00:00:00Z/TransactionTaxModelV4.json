@@ -1,0 +1,29 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "TransactionTaxModelV4.json",
+	"type": "object",
+	"required": [
+		"amount",
+		"type"
+	],
+	"properties": {
+		"amount": {
+			"description": "Tax amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"type": {
+			"type": "string",
+			"example": "VAT_OR_GST",
+			"description": "Tax type\nLOCAL - Local tax\nVAT_OR_GST - Value-added Tax (VAT) or Goods and Services Tax (GST)\nSALES - Sales Tax\nPST_OR_QST - Provincial Sales Tax (PST) or Quebec Sales Tax (QST)\nOTHER - Other taxes",
+			"enum": [
+				"LOCAL",
+				"OTHER",
+				"PST_OR_QST",
+				"SALES",
+				"VAT_OR_GST"
+			],
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,200 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "newloginstats-failure",
+  "type": "object",
+  "properties": {
+    "actorid": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "actor_uuid": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "actor_company_id": {
+      "default": null,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "actor_company_uuid": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "app_id": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "application_id": {
+      "default": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "browser_info": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "company_id": {
+      "default": null,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "company_uuid": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "corr_id": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expected_scopes": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "grant_type": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "login_id": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "login_type": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "principal_id": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "permission": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "real_ip": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resolution": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "referer": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "session_id": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "travel_config_id": {
+      "default": null,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "when": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "failure_reason": {
+      "type": [
+        "string",
+        "integer",
+        "null"
+      ]
+    },
+    "failure_reason_desc": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "failure_reason_estr": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "companyId": {
+      "default": null,
+      "type": ["string","null"]
+    }
+  },
+  "required": [
+    "id",
+    "when"
+  ],
+  "patternProperties": {
+    "\\?$": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

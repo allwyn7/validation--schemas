@@ -1,0 +1,231 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "trip-cost.json",
+    "definitions": {
+        "cost": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "amount": {
+                    "type": "number",
+                    "classification": "none"
+                },
+                "currency": {
+                    "$ref": "shared.json#/definitions/currency",
+                    "classification": "none"
+                }
+            },
+            "classification": "none",
+            "required": [
+                "amount",
+                "currency"
+            ]
+        },
+        "tripCosts": {
+            "type": "object",
+            "description": "Contains all data related to total trip costs",
+            "additionalProperties": false,
+            "properties": {
+                "tripCurrency": {
+                    "description": "Currency used at the time of trip creation, set by trip operations",
+                    "$ref": "shared.json#/definitions/currency",
+                    "classification": "none"
+                },
+                "costBreakdowns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/costBreakdown"
+                    },
+                    "classification": "none"
+                },
+                "totalCosts": {
+                    "$ref": "#/definitions/totalCosts",
+                    "classification": "none"
+                }
+            },
+            "classification": "none",
+            "required": [
+                "tripCurrency",
+                "costBreakdowns",
+                "totalCosts"
+            ]
+        },
+        "totalCosts": {
+            "type": "object",
+            "description": "Aggregated costs of costBreakdowns items",
+            "additionalProperties": false,
+            "properties": {
+                "inTripCurrency": {
+                    "$ref": "#/definitions/cost",
+                    "classification": "none"
+                }
+            },
+            "classification": "none"
+        },
+        "costBreakdown": {
+            "type": "object",
+            "description": "Cost breakdown for one booking (or one ticket in a booking if possible)",
+            "additionalProperties": false,
+            "properties": {
+                "bookingId": {
+                    "description": "ID of the booking this breakdown relates to",
+                    "$ref": "shared.json#/definitions/uuid",
+                    "classification": "none"
+                },
+                "ticketReference": {
+                    "type": "string",
+                    "description": "(Optional) reference to the ticket this breakdown relates to",
+                    "classification": "personal"
+                },
+                "bookingType": {
+                    "type": "string",
+                    "classification": "none",
+                    "enum": [
+                        "car",
+                        "hotel",
+                        "air",
+                        "rail",
+                        "misc"
+                    ]
+                },
+                "subTotalCost": {
+                    "type": "object",
+                    "description": "Aggregated cost of this breakdown",
+                    "additionalProperties": false,
+                    "properties": {
+                        "inPointOfSaleCurrency": {
+                            "description": "Sub total cost in point of sale currency used by the vendor",
+                            "$ref": "#/definitions/cost",
+                            "classification": "none"
+                        },
+                        "inTripCurrency": {
+                            "description": "Sub total cost in tripCurrency",
+                            "$ref": "#/definitions/cost",
+                            "classification": "none"
+                        }
+                    },
+                    "classification": "none"
+                },
+                "bookingCosts": {
+                    "type": "array",
+                    "description": "List of all cost items",
+                    "items": {
+                        "$ref": "#/definitions/bookingCost"
+                    },
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "bookingId",
+                "bookingType",
+                "subTotalCost"
+            ]
+        },
+        "bookingCost": {
+            "type": "object",
+            "description": "Single item in cost breakdown of a booking",
+            "additionalProperties": false,
+            "properties": {
+                "costId": {
+                    "description": "ID of this line item",
+                    "$ref": "shared.json#/definitions/uuid",
+                    "classification": "none"
+                },
+                "parentCostId": {
+                    "description": "(Optional) ID of the parent of this line item if it should be grouped under it",
+                    "$ref": "shared.json#/definitions/uuid",
+                    "classification": "none"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Cost type of this line item",
+                    "enum": [
+                        "fee",
+                        "tax",
+                        "baseAmount",
+                        "ancillary",
+                        "group",
+                        "refund",
+                        "penalty",
+                        "section"
+                    ],
+                    "classification": "none"
+                },
+                "code": {
+                    "type": "string",
+                    "description": "Code to identify the cost type, e.g. tax code",
+                    "classification": "none"
+                },
+                "localization": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "Text reference for translation (referring to t1/shared-localization). Format: category.userMessage.ID",
+                            "classification": "none"
+                        },
+                        "messageParams": {
+                            "type": "array",
+                            "description": "Parameters that are used in the localized text",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Parameter name",
+                                        "classification": "none"
+                                    },
+                                    "value": {
+                                        "type": "string",
+                                        "description": "Parameter value, will be localized with user's profile if type is not 'string'",
+                                        "classification": "none"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "Type of the parameter",
+                                        "enum": [
+                                            "string",
+                                            "date",
+                                            "datetime",
+                                            "number"
+                                        ],
+                                        "classification": "none"
+                                    }
+                                }
+                            },
+                            "classification": "none"
+                        },
+                        "localizedText": {
+                            "type": "string",
+                            "description": "Already localized and formatted text provided by the bookingSource. Fallback (if available) in case translation via t1/shared-localization failed",
+                            "classification": "none"
+                        }
+                    },
+                    "classification": "none"
+                },
+                "included": {
+                    "type": "boolean",
+                    "description": "Flag indicating whether this cost is included in the base-amount or parent",
+                    "classification": "none"
+                },
+                "inPointOfSaleCurrency": {
+                    "description": "Cost of this line item in point of sale currency",
+                    "$ref": "#/definitions/cost",
+                    "classification": "none"
+                },
+                "inTripCurrency": {
+                    "description": "Cost of this line item in trip currency",
+                    "$ref": "#/definitions/cost",
+                    "classification": "none"
+                }
+            },
+            "classification": "none",
+            "required": [
+                "costId",
+                "type"
+            ]
+        }
+    }
+}

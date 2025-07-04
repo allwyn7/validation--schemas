@@ -1,0 +1,31 @@
+{
+    "event_name": "list-item",
+    "ident_field_names": [
+        "$.companyId",
+        "$.id"
+    ],
+    "timestamp_field_name": "$.lastModifiedDate",
+    "event_types": {
+        "add": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        }
+    },
+    "team": {
+        "slack": "#ask-wizards",
+        "email": "DL_060444FE8A22450B88BED1DFB62807D6@global.corp.sap",
+        "name": "wizards"
+    },
+    "validation_exceptions": {
+        "always_fail": "all",
+        "dp_fields_validator": "2024-07-23T00:00:00Z",
+        "single_uri_format": "all"
+    },
+    "dataset": {
+        "type": "update",
+        "classification": "customer_data",
+        "source": "streaming"
+    }
+}

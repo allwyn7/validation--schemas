@@ -1,0 +1,26 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Warning.json",
+	"type": "object",
+	"properties": {
+		"Text": {
+			"type": [ "string", "null" ],
+			"group": "external",
+			"classification": "none",
+			"description": "Warning text."
+		},
+		"Code": {
+			"type": [ "string", "null" ],
+			"group": "external",
+			"classification": "none",
+			"description": "Warning code."
+		},
+		"Type": {
+			"type": [ "string", "null" ],
+			"group": "external",
+			"classification": "none",
+			"description": "Warning type."
+		}
+	},
+	"additionalProperties": false
+}

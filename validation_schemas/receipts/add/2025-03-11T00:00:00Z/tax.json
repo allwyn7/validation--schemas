@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "taxjson",
+  "title": "Tax",
+  "description": "Schema for discounts, such as coupons or discount codes, that could be part of a transaction.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Tax Name",
+      "dataClassification": []
+    },
+    "amount": {
+      "type": "string",
+      "format": "currency-amount",
+      "description": "Amount, required for receipt, String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+      "dataClassification": []
+    },
+    "rate": {
+      "type": "number",
+      "description": "Tax rate",
+      "dataClassification": []
+    },
+    "rateType": {
+      "type": "string",
+      "description": "The rate type for the tax charged. For value added tax this could be Zero, Standard, Reduced, etc.",
+      "dataClassification": []
+    },
+    "authority": {
+      "type": "object",
+      "description": "The country or subdivision that charged the tax as per ISO 3166-2:2013.",
+      "properties": {
+        "addressCountry": {
+          "type": "string",
+          "format": "country-code",
+          "description": "Tax authority country, required for receipt, 2-char or 3-char country code from ISO 3166",
+          "dataClassification": []
+        },
+        "addressRegion": {
+          "type" : "string",
+          "description": "Tax authority region",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

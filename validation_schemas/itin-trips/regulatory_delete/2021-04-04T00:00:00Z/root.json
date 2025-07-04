@@ -1,0 +1,260 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Itinerary.json",
+	"type": "object",
+	"properties": {
+		"meta": {
+			"type": "object",
+			"goType": "Meta",
+			"properties": {
+				"schema": {
+					"type": "integer"
+				}
+			},
+			"required": [ "schema" ]
+		},
+		"Bookings": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#"
+			},
+			"group": "external"
+		},
+		"CompanyId": {
+			"type": "integer"
+		},
+		"TripTotal": {
+			"type": "array",
+			"items": {
+				"$ref": "CurrencyAmount.json#"
+			}
+		},
+		"TransientId": {
+			"type": "string"
+		},
+		"CustomAttributes": {
+			"type": "array",
+			"items": {
+				"$ref": "CustomAttribute.json#"
+			},
+			"group": "external"
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			}
+		},
+		"EReceipts": {
+			"$ref": "EReceipt.json#"
+		},
+		"ExternalLinks": {
+			"type": "array",
+			"items": {
+				"$ref": "ExternalLink.json#"
+			}
+		},
+		"FormsOfId": {
+			"type": "array",
+			"items": {
+				"$ref": "FormOfId.json#"
+			}
+		},
+		"ItinLocator": {
+			"type": "integer",
+			"format": "int64",
+			"group": "external"
+		},
+		"ClientLocator": {
+			"type": "string",
+			"group": "external"
+		},
+		"TripLinkLocator": {
+			"type": "string",
+			"group": "external"
+		},
+		"ItinSourceId": {
+			"type": "integer"
+		},
+		"ItinSourceName": {
+			"type": "string"
+		},
+		"BookedById": {
+			"type": "integer"
+		},
+		"GuestId": {
+			"type": "integer"
+		},
+		"RuleClassId": {
+			"type": "integer"
+		},
+		"TripName": {
+			"type": "string",
+			"maxLength": 255,
+			"group": "external"
+		},
+		"OrgUnitName": {
+			"type": "string",
+			"maxLength": 60
+		},
+		"Description": {
+			"type": "string",
+			"maxLength": 512,
+			"group": "external"
+		},
+		"Comments": {
+			"type": "string",
+			"maxLength": 512,
+			"group": "external"
+		},
+		"CancelComments": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"IsPersonal": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"IsPrivate": {
+			"type": "boolean"
+		},
+		"TripStatus": {
+			"type": "integer",
+			"group": "external"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"IsDemoTrip": {
+			"type": "boolean"
+		},
+		"ReminderEmailSent": {
+			"type": "boolean"
+		},
+		"ApprovalStatus": {
+			"type": "integer"
+		},
+		"ApproverUserId": {
+			"type": "integer"
+		},
+		"ApproverName": {
+			"type": "string"
+		},
+		"ApprovalStatusLastUpdatedUTC": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"BookedVia": {
+			"type": "string",
+			"group": "external"
+		},
+		"MeetingId": {
+			"type": "integer"
+		},
+		"MeetingAttendeeId": {
+			"type": "integer"
+		},
+		"TravelRequestId": {
+			"type": "string",
+			"group": "external"
+		},
+		"OrgUnitId": {
+			"type": "integer"
+		},
+		"BookedByFirstName": {
+			"type": "string",
+			"group": "external"
+		},
+		"BookedByLastName": {
+			"type": "string",
+			"group": "external"
+		},
+		"IsBillable": {
+			"type": "boolean"
+		},
+		"ProjectName": {
+			"type": "string",
+			"maxLength": 255,
+			"group": "external"
+		},
+		"BillingCode": {
+			"type": "string",
+			"maxLength": 100
+		},
+		"AuthorizationNumber": {
+			"type": "string"
+		},
+		"DateBookedLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"PrimaryItineraryLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"HasOpenBookingPassive": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"CrossFundedOrg": {
+			"type": "string"
+		},
+		"RetrievedVia": {
+			"type": "string"
+		},
+		"RetrievedDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"LastModBy": {
+			"type": "integer"
+		},
+		"CliqbookState": {
+			"type": "integer"
+		},
+		"RefreshableFromUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"UserId": {
+			"type": "integer"
+		},
+		"id": {
+			"type": "string",
+			"group": "external"
+		},
+		"xmlns": {
+			"type": "string",
+			"group": "external"
+		},
+		"UserLoginId": {
+			"type": "string",
+			"group": "external"
+		}
+	},
+	"additionalProperties": false,
+	"required": [
+		"CompanyId",
+		"ItinSourceId",
+		"IsPrivate"
+	]
+}

@@ -1,0 +1,615 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Hotel.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"CreditCardId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Internal reference to OUTTASK_CREDIT_CARD"
+		},
+		"AllowDelete": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"FrequentTravelerId": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The traveler’s ID for the frequent traveler reward program."
+		},
+		"RateCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "none",
+			"description": "The rate code for the booking."
+		},
+		"RateDescription": {
+			"type": "string",
+			"maxLength": 300,
+			"classification": "none",
+			"description": ""
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "personal",
+			"description": "The IATA airport code for the starting address for the booking."
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "personal",
+			"description": ""
+		},
+		"Name": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "personal",
+			"description": "The hotel name for the booking."
+		},
+		"HotelPropertyId": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "none",
+			"description": "The hotel’s property ID."
+		},
+		"RoomType": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "none",
+			"description": "The room type for the booking."
+		},
+		"CheckinTime": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The check in time for the hotel booking."
+		},
+		"CheckoutTime": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The check out time for the hotel booking."
+		},
+		"StartAddress": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartAddress2": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartLatitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "The latitude for the starting location of the booking."
+		},
+		"StartLongitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "The longitude for the starting location of the booking."
+		},
+		"SearchLocationLatitude": {
+			"type": "number",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"SearchLocationLongitude": {
+			"type": "number",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The phone number for the booking."
+		},
+		"NumPersons": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The number of people the booking is for."
+		},
+		"NumRooms": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The number of rooms the booking is for."
+		},
+		"DiscountCode": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external",
+			"classification": "personal",
+			"description": "The discount code for the booking."
+		},
+		"PartnerMembershipId": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external",
+			"classification": "personal",
+			"description": "The membership ID of the partner associated with the booking."
+		},
+		"CancellationPolicy": {
+			"type": "string",
+			"maxLength": 1024,
+			"group": "external",
+			"classification": "none",
+			"description": "The cancellation policy from the vendor."
+		},
+		"SpecialInstructions": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external",
+			"classification": "personal",
+			"description": "Additional instructions regarding the booking. Maximum length: 256"
+		},
+		"PassiveType": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The type of the booking."
+		},
+		"DailyRate": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Average per day rate for the hotel. If the rate varies over the duration, it can be specified using the charges model."
+		},
+		"TotalRate": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The total rate amount of the booking."
+		},
+		"RateType": {
+			"type": "string",
+			"maxLength": 1,
+			"group": "external",
+			"classification": "none",
+			"description": "The rate type for the booking."
+		},
+		"ComparisonRate": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"ComparisonRateCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"classification": "none",
+			"description": ""
+		},
+		"RealRate": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"RealRateCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"classification": "none",
+			"description": ""
+		},
+		"IsGhostCard": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "Indicates if a payment was made using a shared corporate credit card."
+		},
+		"CreditCardLastFour": {
+			"type": "string",
+			"classification": "sensitive",
+			"description": "The last four digits of the credit card."
+		},
+		"CreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "personal",
+			"description": "The booking starting time and date, in the booking location’s local time."
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking ending time and date, in the booking location’s local time."
+		},
+		"RoomDescription": {
+			"type": "string",
+			"maxLength": 200,
+			"group": "external",
+			"classification": "none",
+			"description": "The room description for the booking. Maximum length: 200"
+		},
+		"OriginalRoomType": {
+			"type": "string",
+			"maxLength": 24,
+			"classification": "none",
+			"description": "Can include information like smoking / accessibile room"
+		},
+		"OriginalRoomDescription": {
+			"type": "string",
+			"maxLength": 200,
+			"classification": "none",
+			"description": "Can include information like smoking / accessibile room"
+		},
+		"EquipmentCode": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Not used."
+		},
+		"ViolationReasonCode": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"ModificationCode": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The code for the modification to the booking."
+		},
+		"HadDeposit": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"RateAccess": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The rate access for the booking."
+		},
+		"HotelServiceVendorName": {
+			"type": "string",
+			"classification": "none",
+			"description": "Internal reference to Concur partner reservation system"
+		},
+		"HotelServiceLocalizedVendorName": {
+			"type": "string",
+			"classification": "none",
+			"description": "Internal reference to Concur partner reservation system"
+		},
+		"DirectBill": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "Indicates the hotel will bill the company directly."
+		},
+		"Wifi": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "Indicates if hotel reservation includes WIFI."
+		},
+		"Parking": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "Indicates if the hotel reservation includes parking."
+		},
+		"Breakfast": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "Indicates if breakfast is included with hotel stay."
+		},
+		"FaxNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Fax number for the hotel."
+		},
+		"Email": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Email for the hotel."
+		},
+		"IncludedCustomAmenities": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Not used."
+		},
+		"AdjustedPriceToBeatRate": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"AdjustedPriceToBeatCurrency": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"IsRefundable": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"IsOnline": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"SegmentKey": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"IsUserSuppliedHotel": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "List of charges for this booking."
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"EReceiptHotel": {
+			"$ref": "EReceiptHotel.json#",
+			"classification": "none",
+			"description": ""
+		},
+		"PerDiemLocation": {
+			"$ref": "PerDiemLocation.json#",
+			"classification": "none",
+			"description": ""
+		},
+		"FrequentFlyer": {
+			"$ref": "FrequentFlyer.json#",
+			"classification": "personal",
+			"description": "Loyalty program ID"
+		},
+		"HasRedeemedTravelPoints": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"IsT2Segment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"ClientLocator": {
+			"type": "string",
+			"classification": "none",
+			"description": "internal id"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The two letter GDS vendor code."
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary."
+		},
+		"OperatedByVendorName": {
+			"type": "string",
+			"classification": "none",
+			"description": "Merchant / supplier name"
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": "The booking status."
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The ID for the time zone of the booking."
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The time zone of the booking."
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "personal",
+			"description": "The booking starting time and date, in UTC."
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking ending time and date, in UTC."
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The confirmation number from the vendor."
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was created, in UTC."
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was cancelled, in UTC."
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The cancellation number from the vendor. This field should be set when you cancel a segment."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was modified, in UTC."
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Additional information about the booking."
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Map to Expense"
+		},
+		"EReceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"SentToAirplus": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"CliqbookId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"TransientSegmentNumber": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date and time the booking was upgraded."
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the booking can be upgraded."
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the hotel is marked as a preferred property by the company."
+		},
+		"VendorFlags": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Not used."
+		},
+		"VirtualCreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": "Internal reference to a virtual payment provider (AirPlus, Conferma, etc)"
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128,
+			"classification": "none",
+			"description": ""
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the booking."
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,77 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "ManualAirlineTicket.json",
+	"type": "object",
+	"properties": {
+		"Taxes": {
+			"type": "array",
+			"items": {
+				"$ref": "Tax.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "Taxes on the ticket."
+		},
+		"AirlineCharges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "Charges associated to the ticket."
+		},
+		"BaseFare": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Fare without any tax penalties."
+		},
+		"BaseFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the base fare."
+		},
+		"TotalFare": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Total cost of ticket."
+		},
+		"TotalFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code of the ticket."
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Map to Expense"
+		},
+		"ChargeLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp of ticket creation."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp of ticket modification."
+		},
+		"UseCurrentRailPayment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

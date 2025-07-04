@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "FieldError.json",
+	"type": "object",
+	"properties": {
+		"Type": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Name": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Text": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

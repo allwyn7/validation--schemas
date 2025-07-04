@@ -1,0 +1,68 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "WaitListSegments.json",
+    "type": "object",
+    "$defs": {
+        "SegmentOptionItem": {
+            "type": "object",
+            "properties": {
+                "SegmentIndex": {
+                    "type": "string",
+                    "group": "external"
+                },
+                "StatusCode": {
+                    "type": "string",
+                    "group": "external"
+                },
+                "Flight": {
+                    "type": "array",
+                    "group": "external",
+                    "items": {
+                        "$ref": "WaitListSegments.json#/$defs/SegmentOptionFlightType"
+                    }
+                },
+                "TimeStamp": {
+                    "type": "string",
+                    "group": "external"
+                }
+            },
+            "additionalProperties": false
+        },
+        "SegmentOptionFlightType": {
+            "type": "object",
+            "properties": {
+                "Carrier": {
+                    "type": "string",
+                    "group": "external"
+                },
+                "FlightNum": {
+                    "type": "string",
+                    "group": "external"
+                },
+                "DepAirp": {
+                    "type": "string",
+                    "group": "external"
+                },
+                "ArrAirp": {
+                    "type": "string",
+                    "group": "external"
+                },
+                "Cabin": {
+                    "type": "string",
+                    "group": "external"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "properties": {
+        "SegmentOption": {
+            "type": "array",
+            "group": "external",
+            "items": {
+                "$ref": "WaitListSegments.json#/$defs/SegmentOptionItem"
+            }
+        }
+    },
+    "additionalProperties": false
+}

@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "base.receipt.json",
+    "title": "Receipt Schema Definitions",
+    "type": "object",
+    "description": "Receipt API schema for metadata, receipt-data, enrichmentData and document (& representations)",
+    "properties": {
+        "metadata": {
+            "$ref": "metadata.json",
+            "dataClassification":[]
+        },
+        "receiptData": {
+            "$ref": "receipt.data.json",
+            "dataClassification":[]
+        },
+        "enrichmentData": {
+            "$ref": "enrichment.data.json",
+            "description": "Required to be present when query param includeEnrichmentData=true in GET API call",
+            "dataClassification":[],
+            "group": "internalOnly"
+        },
+        "documents": {
+            "type": "array",
+            "items": {
+                "$ref": "document.json"
+            },
+            "dataClassification":[]
+        }
+    },
+    "required": [
+        "metadata"
+    ],
+    "additionalProperties": false
+}

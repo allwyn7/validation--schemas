@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "CustomDataSemanticsModelV4.json",
+	"type": "object",
+	"properties": {
+		"employeeId": {
+			"type": ["string","null"],
+			"example": "E001234",
+			"description": "Potential employee ID (derived via custom field configuration)",
+			"dataClassification": []
+		},
+		"requestId": {
+			"type": ["string","null"],
+			"example": "ABC1Z",
+			"description": "Potential request ID (derived via custom field configuration)",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

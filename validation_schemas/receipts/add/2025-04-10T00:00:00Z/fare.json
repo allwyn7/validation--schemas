@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "fare.json",
+  "title": "Fare",
+  "type": "object",
+  "description": "Schema for Fare details.",
+  "properties": {
+    "amount": {
+      "type": "string",
+      "format": "currency-amount",
+      "description": "Fare amount.",
+      "dataClassification": []
+    },
+    "currency": {
+      "type": "string",
+      "format": "currency-code",
+      "description": "Currency code.",
+      "dataClassification": []
+    }
+  },
+  "additionalProperties": false
+}

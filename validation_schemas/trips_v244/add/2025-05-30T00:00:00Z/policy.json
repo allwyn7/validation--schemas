@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "policy.json",
+  "definitions": {
+    "ruleMatch": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.inventory.RuleMatch",
+      "goType": "RuleMatch",
+      "properties": {
+        "action": {
+          "type": "string",
+          "description": "Action to apply to rate.",
+          "enum": [
+            "ALLOW",
+            "REQUIRE_APPROVAL",
+            "REQUIRE_PRE_APPROVAL_N_LOG",
+            "REQUIRE_PRE_APPROVAL_N_NOTIFY",
+            "REQUIRE_PASSIVE_APPROVAL",
+            "NOTIFY_MANAGER",
+            "LOG_FOR_REPORTS",
+            "HIDE_RESULTS",
+            "DISPLAY_MESSAGE",
+            "SHOW_DO_NOT_ALLOW"
+          ],
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "ruleValueId": {
+          "$ref": "shared.json#/definitions/uuid",
+          "description": "ruleValueId of rule that this rate matched",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message associated with the rule. This is needed often, even if rate is not selected (displayed by UI).",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "action",
+        "ruleValueId"
+      ]
+    },
+    "policyCompliance": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.inventory.PolicyCompliance",
+      "goType": "PolicyCompliance",
+      "properties": {
+        "batchId": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none",
+          "description": "Id added by policy to denote the batch of inventory evaluated. Default value implies no corresponding batch.",
+          "default": "00000000-0000-0000-0000-000000000000"
+        },
+        "ruleMatches": {
+          "type": "array",
+          "dataClassification": [],
+          "classification": "none",
+          "description": "Array of rules that matched the rate. If a rules action overrides another rule the rule that is overridden will not be in this array. ruleMatches will not be defined if no rules match.",
+          "items": {
+            "$ref": "#/definitions/ruleMatch"
+          }
+        },
+        "skipViolationReason": {
+          "type": "boolean",
+          "dataClassification": [],
+          "classification": "none",
+          "default": false,
+          "description": "Whether skip violation reason"
+        }
+      },
+      "required": [
+        "batchId",
+        "skipViolationReason"
+      ]
+    },
+    "journeyFareCompliance": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.inventory.JourneyFareCompliance",
+      "goType": "JourneyFareCompliance",
+      "properties": {
+        "batchId": {
+          "$ref": "shared.json#/definitions/uuid",
+          "description": "Id added by policy to denote the batch of inventory evaluated. Default value implies no corresponding batch.",
+          "default": "00000000-0000-0000-0000-000000000000",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fares": {
+          "type": "array",
+          "dataClassification": [],
+          "classification": "none",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "fareId": {
+                "$ref": "shared.json#/definitions/uuid",
+                "description": "The id of the fare which is one of the permissible fares that can be purchased for this journey",
+                "default": "00000000-0000-0000-0000-000000000000",
+                "dataClassification": [],
+                "classification": "none"
+              },
+              "ruleMatches": {
+                "type": "array",
+                "description": "Array of rules that matched the journey fare. If a rules action overrides another rule the rule that is overridden will not be in this array. ruleMatches will not be defined if no rules match.",
+                "items": {
+                  "$ref": "#/definitions/ruleMatch"
+                },
+                "dataClassification": [],
+                "classification": "none"
+              }
+            },
+            "required": [
+              "fareId",
+              "ruleMatches"
+            ]
+          }
+        },
+        "skipViolationReason": {
+          "type": "boolean",
+          "dataClassification": [],
+          "classification": "none",
+          "default": false,
+          "description": "Whether skip violation reason"
+        }
+      },
+      "required": [
+        "batchId",
+        "fares",
+        "skipViolationReason"
+      ]
+    }
+  }
+}

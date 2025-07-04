@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "address.json",
+  "title": "Address",
+  "description": "Common address object used by all receipt types.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name for the location.",
+      "dataClassification": []
+    },
+    "addressLine": {
+      "type": "string",
+      "description": "Address Line",
+      "dataClassification": []
+    },
+    "city": {
+      "type": "string",
+      "description": "City",
+      "dataClassification": []
+    },
+    "state": {
+      "type" : "string",
+      "description": "State",
+      "dataClassification": []
+    },
+    "country": {
+      "type": "string",
+      "format": "country-code",
+      "description": "Country, required for groundTransport category, 2-char or 3-char country code from ISO 3166",
+      "dataClassification": []
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Postal Code",
+      "dataClassification": []
+    }
+  },
+  "additionalProperties": false
+}

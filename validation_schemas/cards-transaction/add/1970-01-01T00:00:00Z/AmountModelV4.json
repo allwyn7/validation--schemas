@@ -1,0 +1,27 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AmountModelV4.json",
+	"type": [
+		"object",
+		"null"
+	],
+	"required": [
+		"currencyCode",
+		"value"
+	],
+	"properties": {
+		"currencyCode": {
+			"type": "string",
+			"example": "USD",
+			"description": "Currency of the amount (3-letter ISO 4217 currency code)",
+			"dataClassification": []
+		},
+		"value": {
+			"type": "number",
+			"example": 420,
+			"description": "Amount value",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

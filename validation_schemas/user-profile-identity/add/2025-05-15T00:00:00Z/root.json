@@ -1,0 +1,329 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "$id" : "user-profile-identity-add",
+  "type" : "object",
+  "properties" : {
+    "schemas" : {
+      "type" : "array",
+      "description" : "List of available schemas and schema extensions",
+      "dataClassification" : [ ],
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "timezone" : {
+      "type" : "string",
+      "description" : "The User's time zone in the 'Olson' time zone database format, e.g., 'America/Los_Angeles'.",
+      "dataClassification" : [ ]
+    },
+    "displayName" : {
+      "type" : [
+        "string",
+        "null"
+      ],
+      "description" : "The name of the User, suitable for display to end-users.",
+      "dataClassification" : [ ]
+    },
+    "id" : {
+      "type" : "string",
+      "description" : "Unique identifier for the user - a uuid",
+      "dataClassification" : [ ]
+    },
+    "dateOfBirth" : {
+      "type" : [
+        "string",
+        "null"
+      ],
+      "description" : "The user's date of birth, in YYYY-MM-DD format",
+      "dataClassification" : [
+        "sensitive"
+      ]
+    },
+    "name" : {
+      "type" : "object",
+      "description" : "The user's name",
+      "dataClassification" : [ ],
+      "additionalProperties" : false,
+      "required" : [
+        "familyName",
+        "givenName"
+      ],
+      "properties" : {
+        "middleName" : {
+          "type" : [
+            "string",
+            "null"
+          ],
+          "description" : "The middle name(s) of the User (e.g., 'Jane' given the full name 'Ms. Barbara J Jensen, III').",
+          "dataClassification" : [ ]
+        },
+        "familyName" : {
+          "type" : "string",
+          "description" : "The family name of the User, or last name in most Western languages (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III').",
+          "dataClassification" : [ ]
+        },
+        "givenName" : {
+          "type" : "string",
+          "description" : "The given name of the User, or first name in most Western languages (e.g., 'Barbara' given the full name 'Ms. Barbara J Jensen, III').",
+          "dataClassification" : [ ]
+        }
+      }
+    },
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" : {
+      "type" : "object",
+      "description" : "Enterprise extension for a Concur user account for CTE",
+      "dataClassification" : [ ],
+      "additionalProperties" : false,
+      "required" : [
+        "companyId",
+        "startDate"
+      ],
+      "properties" : {
+        "employeeNumber" : {
+          "type" : [
+            "string",
+            "null"
+          ],
+          "description" : "Client supplied employee's number within the company, unique for the company",
+          "dataClassification" : [ ]
+        },
+        "companyId" : {
+          "type" : "string",
+          "description" : "Concur ID of the company",
+          "dataClassification" : [ ]
+        },
+        "startDate" : {
+          "type" : "string",
+          "description" : "Start Date, in YYYY-MM-DD'T'hh:mm:ss'Z' format. Date range is from 1900-01-01 to 2079-06-06.",
+          "dataClassification" : [ ]
+        },
+        "terminationDate" : {
+          "type" : [
+            "string",
+            "null"
+          ],
+          "description" : "Termination Date, in YYYY-MM-DD'T'hh:mm:ss'Z' format. If the employee is terminated, this can also be used to calculate the data retention period. Date range is from 1900-01-01 to 2079-06-06.",
+          "dataClassification" : [ ]
+        }
+      }
+    },
+    "userName" : {
+      "type" : "string",
+      "description" : "The name that can be used to login to CTE",
+      "dataClassification" : [ ]
+    },
+    "addresses" : {
+      "type" : "array",
+      "description" : "Physical mailing addresses for the User.",
+      "dataClassification" : [ ],
+      "items" : {
+        "additionalProperties" : false,
+        "type" : "object",
+        "properties" : {
+          "streetAddress" : {
+            "type" : [
+              "string",
+              "null"
+            ],
+            "description" : "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines.",
+            "dataClassification" : [ ]
+          },
+          "locality" : {
+            "type" : [
+              "string",
+              "null"
+            ],
+            "description" : "The city or locality.",
+            "dataClassification" : [ ]
+          },
+          "region" : {
+            "type" : [
+              "string",
+              "null"
+            ],
+            "description" : "The state or region.",
+            "dataClassification" : [ ]
+          },
+          "country" : {
+            "type" : [
+              "string",
+              "null"
+            ],
+            "description" : "A two-letter country code defined in ISO 3166-1 alpha-2",
+            "dataClassification" : [ ]
+          },
+          "type" : {
+            "type" : [
+              "string",
+              "null"
+            ],
+            "description" : "A label indicating the function of the address, e.g., 'work' or 'home'.",
+            "dataClassification" : [ ],
+            "enum" : [
+              "work",
+              "home",
+              "other",
+              "billing",
+              "bank",
+              "shipping"
+            ]
+          }
+        },
+        "required" : [ ]
+      }
+    },
+    "meta" : {
+      "type" : "object",
+      "description" : "Read only information about the User",
+      "dataClassification" : [ ],
+      "additionalProperties" : false,
+      "required" : [
+        "created",
+        "lastModified",
+        "resourceType",
+        "version",
+        "location"
+      ],
+      "properties" : {
+        "created" : {
+          "type" : "string",
+          "description" : "Timestamp of creation",
+          "dataClassification" : [ ]
+        },
+        "lastModified" : {
+          "type" : "string",
+          "description" : "Timestamp of change",
+          "dataClassification" : [ ]
+        },
+        "resourceType" : {
+          "type" : "string",
+          "description" : "Type of schema",
+          "dataClassification" : [ ]
+        },
+        "version" : {
+          "type" : "integer",
+          "description" : "Number of changes",
+          "dataClassification" : [ ]
+        },
+        "location" : {
+          "type" : "string",
+          "description" : "URL of resource",
+          "dataClassification" : [ ]
+        }
+      }
+    },
+    "emails" : {
+      "type" : "array",
+      "description" : "Email addresses for the user.",
+      "dataClassification" : [ ],
+      "items" : {
+        "additionalProperties" : false,
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "string",
+            "description" : "Email address value",
+            "dataClassification" : [ ]
+          },
+          "verified" : {
+            "type" : [
+              "boolean",
+              "null"
+            ],
+            "description" : "flag to note which email has been verified by the user.",
+            "dataClassification" : [ ]
+          },
+          "type" : {
+            "type" : "string",
+            "description" : "A label indicating the function of the address, e.g., 'work' or 'home'.",
+            "dataClassification" : [ ],
+            "enum" : [
+              "work",
+              "home",
+              "work2",
+              "other",
+              "other2"
+            ]
+          }
+        },
+        "required" : [
+          "value",
+          "type"
+        ]
+      }
+    },
+    "active" : {
+      "type" : "boolean",
+      "description" : "A Boolean value indicating whether the User is active.",
+      "dataClassification" : [ ]
+    },
+    "nickName" : {
+      "type" : [
+        "string",
+        "null"
+      ],
+      "description" : "The casual way to address the user in real life, e.g., 'Bob' or 'Bobby' instead of 'Robert'.  This attribute SHOULD NOT be used to represent a User's username (e.g., 'bjensen' or 'mpepperidge').",
+      "dataClassification" : [ ]
+    },
+    "phoneNumbers" : {
+      "type" : "array",
+      "description" : "Phone numbers for the user",
+      "dataClassification" : [ ],
+      "items" : {
+        "additionalProperties" : false,
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "string",
+            "description" : "Phone number value",
+            "dataClassification" : [ ]
+          },
+          "type" : {
+            "type" : "string",
+            "description" : "A label indicating the phone number's function, e.g., 'work', 'home'.",
+            "dataClassification" : [ ],
+            "enum" : [
+              "work",
+              "home",
+              "mobile",
+              "fax",
+              "pager",
+              "other",
+              "work2"
+            ]
+          },
+          "notifications" : {
+            "type" : [
+              "boolean",
+              "null"
+            ],
+            "description" : "LNA Opt-in for mobile devices (type=mobile)",
+            "dataClassification" : [ ]
+          }
+        },
+        "required" : [
+          "value",
+          "type"
+        ]
+      }
+    },
+    "externalId" : {
+      "type" : [
+        "string",
+        "null"
+      ],
+      "description" : "User identifier from the provisioning client",
+      "dataClassification" : [ ]
+    }
+  },
+  "required" : [
+    "timezone",
+    "meta",
+    "name",
+    "active",
+    "id",
+    "userName",
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  ],
+  "additionalProperties" : false
+}

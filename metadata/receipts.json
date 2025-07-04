@@ -1,0 +1,52 @@
+{
+    "event_name": "receipts",
+    "ident_field_names": [
+        "$.metadata.companyId",
+        "$.metadata.id"
+    ],
+    "timestamp_field_name": "$.enrichmentData.dateTimeUpdated",
+    "event_types": {
+        "add": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "metadata.companyId"
+            }
+        },
+        "delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "metadata.companyId"
+            }
+        },
+        "regulatory_delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "metadata.companyId"
+            }
+        }
+    },
+    "team": {
+        "slack": "#receipts-datalake-integration",
+        "email": "DL_65D4EC239B5BD3013314A1DA@global.corp.sap",
+        "name": "receipts"
+    },
+    "validation_exceptions": {
+        "always_fail": "all",
+        "dp_fields_validator": "2024-07-23T00:00:00Z",
+        "detect_breaking_changes": {
+            "add": "2025-03-11T00:00:00Z"
+        }
+    },
+    "uri_json_path": "receiptUrl",
+    "spark": {
+        "delete_behaviors":{
+            "delete": ["soft_delete", "hard_delete"],
+            "regulatory_delete": ["soft_delete", "hard_delete"]
+        }
+    },
+    "dataset": {
+        "type": "update",
+        "classification": "customer_data",
+        "source": "streaming"
+    }
+}

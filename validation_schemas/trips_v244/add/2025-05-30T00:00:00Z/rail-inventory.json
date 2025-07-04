@@ -1,0 +1,560 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "rail-inventory.json",
+  "additionalProperties": false,
+  "type": "object",
+  "x-java-type": "com.concur.t2.schema.inventory.RailInventory",
+  "goType": "RailInventory",
+  "definitions": {
+    "railCard": {
+      "additionalProperties": false,
+      "type": "object",
+      "description": "Rail card details",
+      "x-java-type": "com.concur.t2.schema.inventory.rail.RailCard",
+      "goType": "RailInventoryCard",
+      "properties": {
+        "accountNumber": {
+          "type": "string",
+          "description": "The rail card Account Number associated with the provider",
+          "dataClassification": [
+            "sensitive"
+          ],
+          "classification": "sensitive"
+        },
+        "program": {
+          "type": "string",
+          "description": "Rail card program name associated with the provider",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "accountNumber"
+      ]
+    },
+    "railSearch": {
+      "additionalProperties": false,
+      "type": "object",
+      "description": "Rail search criteria",
+      "x-java-type": "com.concur.t2.schema.inventory.rail.SearchCriteria",
+      "goType": "RailSearchCriteria",
+      "properties": {
+        "journeys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/journeySearchCriteria"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "railCards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/railCard"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "journeys",
+        "railCards"
+      ]
+    },
+    "journeySearchCriteria": {
+      "additionalProperties": false,
+      "type": "object",
+      "description": "Rail search criteria for a single journey in a trip (e.g. outbound journey)",
+      "x-java-type": "com.concur.t2.schema.inventory.rail.JourneySearchCriteria",
+      "goType": "RailJourneySearchCriteria",
+      "properties": {
+        "from": {
+          "$ref": "shared.json#/definitions/uuid",
+          "description": "The origin station represented by a reference to places store",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "to": {
+          "$ref": "shared.json#/definitions/uuid",
+          "description": "The destination station represented by a reference to places store",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "dateTime": {
+          "$ref": "shared.json#/definitions/local-date-time",
+          "description": "The desired departure time from origin station (search by arrival to be added later)",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "dateTime"
+      ]
+    },
+    "journey": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.inventory.rail.Journey",
+      "goType": "RailInventoryJourney",
+      "description": "Describes a way to get from an origin to a destination across one or more segments",
+      "properties": {
+        "id": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "departureDateTime": {
+          "$ref": "shared.json#/definitions/local-date-time",
+          "description": "The date this journey begins",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "arrivalDateTime": {
+          "$ref": "shared.json#/definitions/local-date-time",
+          "description": "The date this leg ends",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "origin": {
+          "$ref": "rail-shared.json#/definitions/railStation",
+          "description": "The origin station",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "destination": {
+          "$ref": "rail-shared.json#/definitions/railStation",
+          "description": "The destination station",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/segment"
+          },
+          "description": "The list of connecting segments that compose this journey",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "policyCompliance": {
+          "$ref": "policy.json#/definitions/journeyFareCompliance",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "id",
+        "departureDateTime",
+        "arrivalDateTime",
+        "origin",
+        "destination",
+        "segments"
+      ]
+    },
+    "segment": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.inventory.rail.Segment",
+      "goType": "RailInventorySegment",
+      "description": "Describes a direct (no switching of equipment) way to get from an origin to a destination",
+      "properties": {
+        "id": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "segmentNumber": {
+          "type": "integer",
+          "description": "The segment sequence number, starting from 1",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "departureDateTime": {
+          "$ref": "shared.json#/definitions/local-date-time",
+          "description": "The date this segment begins",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "arrivalDateTime": {
+          "$ref": "shared.json#/definitions/local-date-time",
+          "description": "The date this segment ends",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "origin": {
+          "$ref": "rail-shared.json#/definitions/railStation",
+          "description": "The origin station",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "destination": {
+          "$ref": "rail-shared.json#/definitions/railStation",
+          "description": "The destination station",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fareCodes": {
+          "type": "array",
+          "description": "identifiers of available fare codes on the segment",
+          "items": {
+            "$ref": "shared.json#/definitions/uuid"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "carrier": {
+          "type": "string",
+          "description": "The code of the company operating the train on this segment",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "carrierName": {
+          "type": "string",
+          "description": "The human readable name of the carrier",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "equipmentType": {
+          "type": "string",
+          "description": "Type of train serving this segment (ICE/Re/High-speed...)",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "trainNumber": {
+          "type": "string",
+          "description": "Train reporting number as specified by the operator",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "duration": {
+          "type": "number",
+          "description": "duration of the segment in minutes",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "id",
+        "segmentNumber",
+        "departureDateTime",
+        "arrivalDateTime",
+        "origin",
+        "destination",
+        "fareCodes",
+        "duration"
+      ]
+    },
+    "fareCode": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.inventory.rail.FareCode",
+      "goType": "RailInventoryFareCode",
+      "description": "Describes what can be purchased (class of service, ancillaries, etc.) for one segment",
+      "properties": {
+        "id": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "serviceClass": {
+          "$ref": "rail-shared.json#/definitions/railServiceClass",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fareCode": {
+          "type": "string",
+          "description": "The fare code as presented by the supplier",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fareClass": {
+          "type": "string",
+          "description": "The carrier specific class of service",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "supplierClassCode": {
+          "type": "string",
+          "description": "The supplier specific code for class of service",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "id",
+        "fareCode",
+        "serviceClass",
+        "fareClass"
+      ]
+    },
+    "fare": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.inventory.rail.Fare",
+      "goType": "RailInventoryFare",
+      "description": "Describes the cost and conditions for what can be purchased for one or more segments",
+      "properties": {
+        "id": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "source": {
+          "$ref": "shared.json#/definitions/source",
+          "description": "The supplier we obtained this fare from",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fareCodeIds": {
+          "type": "array",
+          "items": {
+            "$ref": "shared.json#/definitions/uuid"
+          },
+          "description": "fare codes which can be reserved",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The fare name as defined by the supplier and displayed to end-user",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "supplierCode": {
+          "type": "string",
+          "description": "Identifier of the fare used in external system",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency used in this fare",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "taxAmount": {
+          "type": "number",
+          "description": "The total tax amount for the fare",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "surchargeAmount": {
+          "type": "number",
+          "description": "The total surcharge amount for the fare",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "baseAmount": {
+          "type": "number",
+          "description": "The base amount for the fare",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "The total amount for the fare",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "discountCode": {
+          "type": "string",
+          "description": "The discount code on the fare",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "restrictedToFaresIds": {
+          "type": "array",
+          "items": {
+            "$ref": "shared.json#/definitions/uuid"
+          },
+          "description": "List of fares that can be combined with this fare. When null, no restrictions apply",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "ruleId": {
+          "$ref": "shared.json#/definitions/uuid",
+          "description": "Reference to a FareRule applicable to this particular fare",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "displayName",
+        "fareCodeIds",
+        "currency",
+        "totalAmount",
+        "restrictedToFaresIds"
+      ]
+    },
+    "userSelections": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.inventory.rail.UserSelections",
+      "goType": "RailUserSelections",
+      "description": "single journey and fare selected by the user",
+      "properties": {
+        "journeySelections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/journeySelection"
+          },
+          "description": "References to journeys and fares selected by the user",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "loyaltyId": {
+          "type": "string",
+          "description": "customer loyalty account ID selected by the user",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "seatPreference": {
+          "$ref": "rail-shared.json#/definitions/seatPreference",
+          "description": "References user's seat preferences",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "seatSelections": {
+          "type": "array",
+          "items": {
+            "$ref": "rail-shared.json#/definitions/seatSelection"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "travelerRuleViolations": {
+          "type": "array",
+          "items": {
+            "$ref": "shared.json#/definitions/travelerRuleViolation"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fopId": {
+          "type": "string",
+          "description": "The token corresponding to the form of payment selected for booking",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fopUuid": {
+          "$ref": "shared.json#/definitions/uuid",
+          "description": "The uuid of the form of payment selected for booking",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "journeySelections",
+        "seatSelections",
+        "travelerRuleViolations"
+      ]
+    },
+    "journeySelection": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.inventory.rail.JourneySelection",
+      "goType": "RailJourneySelection",
+      "description": "single journey and fare selected by the user",
+      "properties": {
+        "journeyId": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fareIds": {
+          "type": "array",
+          "items": {
+            "$ref": "shared.json#/definitions/uuid"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "fareIds"
+      ]
+    }
+  },
+  "properties": {
+    "searchCriteria": {
+      "$ref": "#/definitions/railSearch",
+      "description": "The search criteria elected by the user",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "journeys": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/journey"
+        }
+      },
+      "description": "Available journeys grouped by leg",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "fares": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/fare"
+      },
+      "description": "All available fares",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "fareCodes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/fareCode"
+      },
+      "description": "FareCodes comprising the fares",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "selections": {
+      "$ref": "#/definitions/userSelections",
+      "description": "User selections",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "fareRule": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.rail.RailInventoryFareRule",
+      "goType": "RailInventoryFareRule",
+      "description": "generic and specific fare rules",
+      "dataClassification": [],
+      "classification": "none",
+      "properties": {
+        "generic": {
+          "description": "generic fare rule",
+          "$ref": "rail-shared.json#/definitions/additionalRulesText",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fares": {
+          "type": "array",
+          "description": "Fare rules applicable to fares in this inventory",
+          "items": {
+            "$ref": "rail-shared.json#/definitions/fareRule"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "fares"
+      ]
+    }
+  },
+  "required": [
+    "journeys",
+    "fares",
+    "fareCodes"
+  ]
+}

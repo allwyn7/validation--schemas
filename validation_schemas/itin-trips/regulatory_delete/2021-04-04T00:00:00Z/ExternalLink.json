@@ -1,0 +1,17 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "ExternalLink.json",
+	"type": "object",
+	"properties": {
+		"ExternalSystemCode": {
+			"type": "string",
+			"maxLength": 8
+		},
+		"LinkExternalValue": {
+			"type": "string",
+			"maxLength": 255
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "ExternalSystemCode" ]
+}

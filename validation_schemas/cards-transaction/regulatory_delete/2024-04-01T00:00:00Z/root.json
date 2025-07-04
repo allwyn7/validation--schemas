@@ -1,0 +1,33 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "cards-transaction-regulatory-delete.json",
+    "version": "v1",
+    "description":"Cards Transaction Regulatory Delete JSON Schema",
+    "type": "object",
+    "properties": {
+        "companyId": {
+            "dataClassification":[],
+            "type": "string"
+        },
+        "timestamp": {
+            "dataClassification":[],
+            "type": "string",
+            "format": "date-time"
+        },
+        "dataRetentionPolicyId": {
+            "dataClassification":[],
+            "type": "string"
+        },
+        "id": {
+            "dataClassification":[],
+            "type": "string"
+        }        
+    },
+    "additionalProperties": false,
+    "required": [
+        "id",
+        "timestamp",
+        "companyId"
+    ]
+}
+

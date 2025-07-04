@@ -1,0 +1,1253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "request.json",
+  "title": "Request",
+  "description": "Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "creationTimestamp",
+    "revisionTimestamp",
+    "requestName",
+    "requestOwner",
+    "requestId",
+    "approvalStatus",
+    "reimbursementCurrency",
+    "companyId"
+  ],
+  "properties": {
+    "creationTimestamp": {
+      "dataClassification": [],
+      "description": "UTC timestamp of Request creation",
+      "type": "string",
+      "format": "date-time"
+    },
+    "revisionTimestamp": {
+      "dataClassification": [],
+      "description": "UTC timestamp of Request modification",
+      "type": "string",
+      "format": "date-time"
+    },
+    "companyId": {
+      "dataClassification": [],
+      "description": "Unique identifier of the company of the Request in UUID format",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "requestName": {
+      "dataClassification": [],
+      "description": "Request name",
+      "type": "string"
+    },
+    "requestOwner": {
+      "dataClassification": [
+        "PII"
+      ],
+      "description": "Unique identifier of the Request owner in UUID format",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "requestId": {
+      "dataClassification": [],
+      "description": "Unique identifier of the Request",
+      "maxLength": 32,
+      "type": "string"
+    },
+    "requestShortId": {
+      "dataClassification": [],
+      "description": "Short identifier of the Request, unique within one company",
+      "type": "string"
+    },
+    "requestType": {
+      "dataClassification": [],
+      "description": "Type of the Request",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "policy": {
+      "dataClassification": [],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "dataClassification": [],
+          "description": "Policy unique identifier of the Request",
+          "maxLength": 32,
+          "type": "string"
+        }
+      }
+    },
+    "tripId": {
+      "dataClassification": [],
+      "description": "Unique identifier of the trip in Travel associated to the Request in UUID format",
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "submitTimestamp": {
+      "dataClassification": [],
+      "description": "Date when the Request was last submitted",
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "firstSubmitTimestamp": {
+      "dataClassification": [],
+      "description": "Date the Request was first submitted",
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "firstApprovedTimestamp": {
+      "dataClassification": [],
+      "description": "Date when the Request was first approved",
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "processorEntryTimestamp": {
+      "dataClassification": [],
+      "description": "Date when the Request entered processor queue",
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "authorizedTimestamp": {
+      "dataClassification": [],
+      "description": "For an approved Request, the date at which the approval process was completed",
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "approvalLimitTimestamp": {
+      "dataClassification": [],
+      "description": "The date by which the Request must be approved",
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "totalApprovedAmount": {
+      "dataClassification": [],
+      "description": "Amount approved",
+      "type": "number"
+    },
+    "totalPostedAmount": {
+      "dataClassification": [],
+      "description": "Total Request amount",
+      "type": "number"
+    },
+    "totalRemainingAmount": {
+      "dataClassification": [],
+      "description": "Total Request remaining amount",
+      "type": "number"
+    },
+    "totalPostApprovedAmount": {
+      "dataClassification": [],
+      "description": "Total Request amount updated after approval",
+      "type": "number"
+    },
+    "approvalStatus": {
+      "dataClassification": [],
+      "description": "Request approval status",
+      "type": "string"
+    },
+    "businessPurpose": {
+      "dataClassification": [],
+      "description": "Business purpose of Request",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fromLocation": {
+      "dataClassification": [],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "dataClassification": [],
+          "description": "Departure location identifier of the Request in UUID format",
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        }
+      }
+    },
+    "toLocation": {
+      "dataClassification": [],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "dataClassification": [],
+          "description": "Destination location identifier of the Request in UUID format",
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        }
+      }
+    },
+    "country": {
+      "dataClassification": [
+        "PII"
+      ],
+      "description": "Destination country of travel request. Required if city or name is used The ISO 3166-1 country code.",
+      "type": "string",
+      "maxLength": 2
+    },
+    "countrySubdivision": {
+      "dataClassification": [
+        "PII"
+      ],
+      "description": "Destination country's sub code of travel request. The ISO 3166-2 country sub code.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reimbursementCurrency": {
+      "dataClassification": [],
+      "description": "3 letter ISO currency code. This is related to reimbursement amount",
+      "maxLength": 3,
+      "type": "string"
+    },
+    "limitApproved": {
+      "dataClassification": [],
+      "description": "Flag indicating if the Request limit has been approved against the total amount",
+      "type": "boolean"
+    },
+    "exceptionApproved": {
+      "dataClassification": [],
+      "description": "Flag indicating if the Request been approved by an authorized approver with exception authority",
+      "type": "boolean"
+    },
+    "startDate": {
+      "dataClassification": [],
+      "description": "The start date of the Request",
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date",
+      "customDatePattern": "yyyy-MM-dd",
+      "pattern": "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))"
+    },
+    "startTime": {
+      "dataClassification": [],
+      "description": "Start time of the Request (in the format HH:MM). It is expressed in the local time of the departure location",
+      "type": "string",
+      "format": "localTime",
+      "pattern": "HH:mm"
+    },
+    "endDate": {
+      "dataClassification": [],
+      "description": "End date of the Request",
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date",
+      "customDatePattern": "yyyy-MM-dd",
+      "pattern": "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))"
+    },
+    "endTime": {
+      "dataClassification": [],
+      "description": "End time of the Request. It is expressed in the local time of the destination location",
+      "type": "string",
+      "format": "localTime",
+      "pattern": "HH:mm"
+    },
+    "delegateSubmitted": {
+      "dataClassification": [],
+      "description": "Flag indicating if the Request was submitted by delegate",
+      "type": "boolean"
+    },
+    "delegateApproved": {
+      "dataClassification": [],
+      "description": "Flag indicating if the Request was approved by delegate",
+      "type": "boolean"
+    },
+    "delegateCreated": {
+      "dataClassification": [],
+      "description": "Flag indicating if the Request was created by delegate",
+      "type": "boolean"
+    },
+    "isFinancialIntegrationEnabled": {
+      "dataClassification": [],
+      "description": "Flag indicating that the Request can be integrated with SAP FI",
+      "type": "boolean"
+    },
+    "isReceiptImageAvailable": {
+      "dataClassification": [],
+      "description": "Flag indicating that the Request has receipt images available",
+      "type": "boolean"
+    },
+    "hasReceipts": {
+      "dataClassification": [],
+      "description": "Flag indicating that the receipts been received for this Request",
+      "type": "boolean"
+    },
+    "isClosed": {
+      "dataClassification": [],
+      "description": "Flag indicating that the Request is closed",
+      "type": "boolean"
+    },
+    "everSentBack": {
+      "dataClassification": [],
+      "description": "Flag indicating that the Request has been sent back",
+      "type": "boolean"
+    },
+    "everRecalledAfterApproval": {
+      "dataClassification": [],
+      "description": "Flag indicating that the Request has been recalled after approval",
+      "type": "boolean"
+    },
+    "travelAgency": {
+      "dataClassification": [],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "dataClassification": [],
+          "description": "Unique identifier of the travel agency attached to the Request",
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        }
+      }
+    },
+    "reportingGroup": {
+      "dataClassification": [],
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "dataClassification": [],
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        }
+      }
+    },
+    "customFields": {
+      "dataClassification": [],
+      "description": "List of Request header custom fields. The value is unique identifier of the list item if the field is a list field",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "value"
+        ]
+      }
+    },
+    "exceptions": {
+      "dataClassification": [],
+      "description": "List of exceptions attached to the Request",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "dataClassification": [],
+            "description": "The unique identifier of the exception",
+            "type": "string"
+          },
+          "cleared": {
+            "description": "Flag indicating that the exception is cleared",
+            "dataClassification": [],
+            "type": "boolean"
+          },
+          "code": {
+            "description": "The system exception code defined for the exception. Example: BADCODE",
+            "dataClassification": [],
+            "type": "string"
+          },
+          "level": {
+            "dataClassification": [],
+            "description": "The numeric level associated with the exception. Example: 99",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "cleared",
+          "id"
+        ]
+      }
+    },
+    "comments": {
+      "description": "List of comments attached to the Request",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "commentText": {
+            "dataClassification": [],
+            "maxLength": 4000,
+            "type": "string"
+          },
+          "creationTimestamp": {
+            "dataClassification": [],
+            "type": "string",
+            "format": "date-time"
+          },
+          "addedBy": {
+            "dataClassification": [
+              "PII"
+            ],
+            "description": "Unique identifier of the comment author in UUID format",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "addedFor": {
+            "dataClassification": [
+              "PII"
+            ],
+            "description": "Unique identifier of the person for whom the comment has been added in UUID format",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "commentText",
+          "creationTimestamp"
+        ]
+      }
+    },
+    "expenses": {
+      "description": "List of expenses attached to the Request",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "exchangeRate",
+          "expenseType",
+          "transactionDate",
+          "transactionAmount",
+          "transactionCurrencyCode"
+        ],
+        "properties": {
+          "id": {
+            "dataClassification": [],
+            "type": "string"
+          },
+          "expenseType": {
+            "dataClassification": [],
+            "type": "string"
+          },
+          "businessPurpose": {
+            "dataClassification": [],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "transactionDate": {
+            "dataClassification": [],
+            "type": "string",
+            "format": "date-time"
+          },
+          "budgetAccrualDate": {
+            "dataClassification": [],
+            "type": "string",
+            "format": "date-time"
+          },
+          "transactionAmount": {
+            "dataClassification": [],
+            "type": "number"
+          },
+          "transactionCurrencyCode": {
+            "dataClassification": [],
+            "description": "3 letter ISO currency code. This is related to transaction amount",
+            "type": "string",
+            "maxLength": 3
+          },
+          "exchangeRate": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "value": {
+                "dataClassification": [],
+                "type": "number"
+              },
+              "direction": {
+                "dataClassification": [],
+                "type": "string",
+                "enum": [
+                  "M",
+                  "D"
+                ]
+              }
+            },
+            "required": [
+              "value",
+              "direction"
+            ]
+          },
+          "postedAmount": {
+            "dataClassification": [],
+            "type": "number"
+          },
+          "approvedAmount": {
+            "dataClassification": [],
+            "type": "number"
+          },
+          "calculatedAmount": {
+            "dataClassification": [],
+            "type": "number"
+          },
+          "remainingAmount": {
+            "dataClassification": [],
+            "type": "number"
+          },
+          "spendCategory": {
+            "dataClassification": [],
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "ADVTG",
+              "AIRFR",
+              "CARRT",
+              "CASHA",
+              "CASHN",
+              "COCAR",
+              "COCRM",
+              "COMPU",
+              "ENTER",
+              "FEESD",
+              "GASXX",
+              "GRTRN",
+              "JGTRN",
+              "LODGA",
+              "LODGN",
+              "MEALA",
+              "MEALN",
+              "MEALS",
+              "MEETG",
+              "MFUEL",
+              "OFFIC",
+              "OTHER",
+              "PRCAR",
+              "PRCRM",
+              "PRKNG",
+              "RAILX",
+              "SHIPG",
+              "SUBSC",
+              "TELEC",
+              "TRADE",
+              "TRAIN",
+              "ACCNT",
+              "ABFEE",
+              "CARXX",
+              "DONAT",
+              "CONSL",
+              "FACLT",
+              "FINAN",
+              "GIFTS",
+              "INSUR",
+              "JANTR",
+              "LEGAL",
+              "LODGT",
+              "LODGX",
+              "OSUPP",
+              "PRNTG",
+              "PROFS",
+              "RENTL",
+              "STAFF",
+              "UTLTS",
+              "AIRFE",
+              "GOODW",
+              "INCTA",
+              null
+            ]
+          },
+          "vendor": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "dataClassification": [],
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                "description": "Unique identifier of the vendor list item in UUID format"
+              }
+            }
+          },
+          "location": {
+            "dataClassification": [],
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "dataClassification": [],
+                "description": "Location unique identifier of Request expense in UUID format",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+              }
+            }
+          },
+          "country": {
+            "dataClassification": [
+              "PII"
+            ],
+            "description": "Country of the Expense. Required if city or name is used The ISO 3166-1 country code.",
+            "type": "string",
+            "maxLength": 2
+          },
+          "attendeeCount": {
+            "dataClassification": [],
+            "type": "integer"
+          },
+          "paymentType": {
+            "dataClassification": [],
+            "type": "string"
+          },
+          "paymentTypeCode": {
+            "dataClassification": [],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "isCardRelated": {
+            "dataClassification": [],
+            "type": "boolean"
+          },
+          "jptRouteId": {
+            "description": "Japan Public Transportation route identifier in UUID format",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "allocations": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "percentage": {
+                  "dataClassification": [],
+                  "type": "number"
+                },
+                "customFields": {
+                  "description": "List of Request expense allocation custom fields. The value is long code if the field is a list field",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "dataClassification": [],
+                        "type": "string"
+                      },
+                      "value": {
+                        "dataClassification": [],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "value"
+                    ]
+                  }
+                },
+                "exceptions": {
+                  "description": "List of exceptions attached to the Request expense allocation",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "dataClassification": [],
+                        "description": "The unique identifier of the exception",
+                        "type": "string"
+                      },
+                      "cleared": {
+                        "description": "Flag indicating that the exception is cleared",
+                        "dataClassification": [],
+                        "type": "boolean"
+                      },
+                      "code": {
+                        "description": "The system exception code defined for the exception. Example: BADCODE",
+                        "dataClassification": [],
+                        "type": "string"
+                      },
+                      "level": {
+                        "dataClassification": [],
+                        "description": "The numeric level associated with the exception. Example: 99",
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "cleared",
+                      "id"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "customFields": {
+            "description": "List of Request expense custom fields. The value is long code if the field is a list field",
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "dataClassification": [],
+                  "type": "string"
+                },
+                "value": {
+                  "dataClassification": [],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "value"
+              ]
+            }
+          },
+          "exceptions": {
+            "dataClassification": [],
+            "description": "List of exceptions attached to the Request expense",
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "dataClassification": [],
+                  "description": "The unique identifier of the exception",
+                  "type": "string"
+                },
+                "cleared": {
+                  "description": "Flag indicating that the exception is cleared",
+                  "dataClassification": [],
+                  "type": "boolean"
+                },
+                "code": {
+                  "description": "The system exception code defined for the exception. Example: BADCODE",
+                  "dataClassification": [],
+                  "type": "string"
+                },
+                "level": {
+                  "dataClassification": [],
+                  "description": "The numeric level associated with the exception. Example: 99",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "cleared",
+                "id"
+              ]
+            }
+          },
+          "comments": {
+            "description": "List of comments attached to the Request expense",
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "commentText": {
+                  "dataClassification": [],
+                  "maxLength": 4000,
+                  "type": "string"
+                },
+                "creationTimestamp": {
+                  "dataClassification": [],
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "addedBy": {
+                  "dataClassification": [
+                    "PII"
+                  ],
+                  "description": "Unique identifier of the comment author in UUID format",
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                  "type": "string"
+                },
+                "addedFor": {
+                  "dataClassification": [
+                    "PII"
+                  ],
+                  "description": "Unique identifier of the person for whom the comment has been added in UUID format",
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "commentText",
+                "creationTimestamp"
+              ]
+            }
+          },
+          "tripData": {
+            "description": "The description of the trip booking corresponding to the expense. Not empty for segments (AIR, CAR, HOTEL, ...)",
+            "dataClassification": [],
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "segmentType"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "tripId": {
+                "dataClassification": [],
+                "description": "Unique identifier of the trip in Travel associated to the Request in UUID format",
+                "type": "string",
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+              },
+              "tripType": {
+                "description": "Flag indicating if the segment is one way, roundtrip or multi stop",
+                "dataClassification": [],
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "enum": [
+                  "ONE_WAY",
+                  "ROUND_TRIP",
+                  "MULTI_STOPS"
+                ]
+              },
+              "isAgencyBooked": {
+                "dataClassification": [],
+                "description": "Flag indicating that the Request segment is agency booked",
+                "type": "boolean"
+              },
+              "isSelfBooked": {
+                "dataClassification": [],
+                "description": "Flag indicating that the Request segment is self booked",
+                "type": "boolean"
+              },
+              "segmentType": {
+                "dataClassification": [],
+                "description": "Segment type of the Request segment",
+                "type": "string"
+              },
+              "segmentLegs": {
+                "description": "List of Request segment legs attached to the Request expense",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "dataClassification": [],
+                      "type": "string"
+                    },
+                    "returnLeg": {
+                      "dataClassification": [],
+                      "description": "Flag indicating if this is a return leg in the case of a roundtrip Request segment",
+                      "type": "boolean"
+                    },
+                    "startDate": {
+                      "dataClassification": [],
+                      "description": "Start date of the Request segment leg",
+                      "type": "string",
+                      "format": "date",
+                      "customDatePattern": "yyyy-MM-dd",
+                      "pattern": "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))"
+                    },
+                    "startTime": {
+                      "dataClassification": [],
+                      "description": "Start time of the Request segment leg (in the format HH:MM). It is expressed in the local time of the start location",
+                      "type": "string",
+                      "format": "localTime",
+                      "pattern": "HH:mm"
+                    },
+                    "endDate": {
+                      "dataClassification": [],
+                      "description": "End date of the segment leg",
+                      "type": "string",
+                      "format": "date",
+                      "customDatePattern": "yyyy-MM-dd",
+                      "pattern": "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))"
+                    },
+                    "endTime": {
+                      "dataClassification": [],
+                      "description": "End time of the Request segment leg. It is expressed in the local time of the end location",
+                      "type": "string",
+                      "format": "localTime",
+                      "pattern": "HH:mm"
+                    },
+                    "fromLocation": {
+                      "dataClassification": [],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "dataClassification": [],
+                          "description": "Origin location unique identifier of Request segment leg in UUID format",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+                        }
+                      }
+                    },
+                    "fromLocationDetails": {
+                      "dataClassification": [],
+                      "description": "Origin location details of the Request segment leg",
+                      "type": "string"
+                    },
+                    "toLocation": {
+                      "dataClassification": [],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "dataClassification": [],
+                          "description": "Destination location unique identifier of Request segment leg in UUID format",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+                        }
+                      }
+                    },
+                    "toLocationDetails": {
+                      "dataClassification": [],
+                      "description": "Destination location details of the Request segment leg",
+                      "type": "string"
+                    },
+                    "workLocation": {
+                      "dataClassification": [],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "dataClassification": [],
+                          "description": "Work location unique identifier of Request segment leg in UUID format",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+                        }
+                      }
+                    },
+                    "vendorName": {
+                      "dataClassification": [],
+                      "description": "Name of the vendor of the Request segment leg",
+                      "type": "string"
+                    },
+                    "classOfService": {
+                      "dataClassification": [],
+                      "description": "The class of service of the Request segment leg",
+                      "type": "string"
+                    },
+                    "duration": {
+                      "dataClassification": [],
+                      "description": "Duration of the Request segment leg in minutes",
+                      "type": "integer"
+                    },
+                    "aircraft": {
+                      "dataClassification": [],
+                      "type": "string"
+                    },
+                    "isCarAirportDropOff": {
+                      "dataClassification": [],
+                      "type": "boolean"
+                    },
+                    "isCarAirportPickUp": {
+                      "dataClassification": [],
+                      "type": "boolean"
+                    },
+                    "class": {
+                      "dataClassification": [],
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "description": "Class list item unique identifier of the Request segment leg in UUID format",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+                        }
+                      }
+                    },
+                    "confirmationNumber": {
+                      "dataClassification": [],
+                      "type": "string"
+                    },
+                    "directFlight": {
+                      "dataClassification": [],
+                      "type": "boolean"
+                    },
+                    "bookingOrigin": {
+                      "dataClassification": [],
+                      "type": "string"
+                    },
+                    "departureTerminal": {
+                      "dataClassification": [],
+                      "type": "string"
+                    },
+                    "departureSlot": {
+                      "dataClassification": [],
+                      "type": "string"
+                    },
+                    "arrivalTerminal": {
+                      "dataClassification": [],
+                      "type": "string"
+                    },
+                    "arrivalSlot": {
+                      "dataClassification": [],
+                      "type": "string"
+                    },
+                    "hotelLateCheckIn": {
+                      "dataClassification": [],
+                      "type": "boolean"
+                    },
+                    "travelExceptionReasonCodes": {
+                      "description": "List of Travel reason codes attached to the Request segment leg.",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "customFields": {
+                      "description": "List of Request segment leg custom fields. The value is long code if the field is a list field",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "id": {
+                            "dataClassification": [],
+                            "type": "string"
+                          },
+                          "value": {
+                            "dataClassification": [],
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "value"
+                        ]
+                      }
+                    },
+                    "exceptions": {
+                      "dataClassification": [],
+                      "description": "List of exceptions attached to the Request segment leg",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "id": {
+                            "dataClassification": [],
+                            "description": "The unique identifier of the exception",
+                            "type": "string"
+                          },
+                          "cleared": {
+                            "description": "Flag indicating that the exception is cleared",
+                            "dataClassification": [],
+                            "type": "boolean"
+                          },
+                          "code": {
+                            "description": "The system exception code defined for the exception. Example: BADCODE",
+                            "dataClassification": [],
+                            "type": "string"
+                          },
+                          "level": {
+                            "dataClassification": [],
+                            "description": "The numeric level associated with the exception. Example: 99",
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "cleared",
+                          "id"
+                        ]
+                      }
+                    },
+                    "comments": {
+                      "description": "List of comments attached to the Request segment leg",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "commentText": {
+                            "dataClassification": [],
+                            "maxLength": 4000,
+                            "type": "string"
+                          },
+                          "creationTimestamp": {
+                            "dataClassification": [],
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "addedBy": {
+                            "dataClassification": [
+                              "PII"
+                            ],
+                            "description": "Unique identifier of the comment author in UUID format",
+                            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                            "type": "string"
+                          },
+                          "addedFor": {
+                            "dataClassification": [
+                              "PII"
+                            ],
+                            "description": "Unique identifier of the person for whom the comment has been added in UUID format",
+                            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "commentText",
+                          "creationTimestamp"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

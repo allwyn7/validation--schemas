@@ -1,0 +1,21 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "ItineraryRemarks.json",
+	"type": "object",
+	"properties": {
+		"ItineraryRemark": {
+			"type": "array",
+			"items": {
+				"$ref": "ItineraryRemark.json#"
+			},
+			"classification": "personal",
+			"description": ""
+		},
+		"IsEmpty": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

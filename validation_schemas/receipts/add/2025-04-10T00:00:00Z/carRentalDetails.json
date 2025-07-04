@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "car-rental-details.json",
+  "title": "Car Rental Details Schema",
+  "type": "object",
+  "description": "Details specific to car rental receipts.",
+  "properties": {
+    "segmentLocator": {
+      "type": "string",
+      "description": "Unique identifier for the rental segment.",
+      "dataClassification": []
+    },
+    "rentalDays": {
+      "type": "string",
+      "format": "positiveInteger",
+      "description": "Number of days the vehicle was rented.",
+      "dataClassification": []
+    },
+    "rentalAgreementNumber": {
+      "type": "string",
+      "description": "Agreement identifier.",
+      "dataClassification": []
+    },
+    "vehicle": {
+      "type": "object",
+      "properties": {
+        "registrationNumber": {
+          "type": "string",
+          "description": "Registration or license plate identifier.",
+          "dataClassification": []
+        },
+        "description": {
+          "type": "string",
+          "description": "Vehicle description, including year, make and model.",
+          "dataClassification": []
+        },
+        "classReservedCode": {
+          "type": "string",
+          "description": "Code for the reserved vehicle class.",
+          "dataClassification": []
+        },
+        "classRentedCode": {
+          "type": "string",
+          "description": "Code for the rented vehicle class.",
+          "dataClassification": []
+        },
+        "classChargedCode": {
+          "type": "string",
+          "description": "Code for the charged vehicle class.",
+          "dataClassification": []
+        },
+        "engineSize": {
+          "type": "string",
+          "description": "Engine displacement in cubic centimeters.",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "driverName": {
+      "type": "string",
+      "description": "Name of the driver/renter of the vehicle.",
+      "dataClassification": []
+    },
+    "distance": {
+        "description": "Total distance traveled during the rental period.",
+        "$ref": "distance.json",
+        "dataClassification": []
+    },
+    "odometerReadingOut": {
+      "type": "number",
+      "description": "Odometer reading at the start of the rental period.",
+      "dataClassification": []
+    },
+    "odometerReadingIn": {
+      "type": "number",
+      "description": "Odometer reading at the end of the rental period.",
+      "dataClassification": []
+    },
+    "additionalDriver": {
+      "type": "boolean",
+      "description": "Indicates if there was an additional approved driver.",
+      "dataClassification": []
+    }
+  },
+  "additionalProperties": false
+}

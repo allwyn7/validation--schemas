@@ -1,0 +1,360 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Parking.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"CreditCardId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"AllowDelete": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"FrequentTravelerId": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The traveler’s ID for the frequent traveler reward program."
+		},
+		"RateCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "none",
+			"description": "The vendor’s code for the rate of the booking."
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "personal",
+			"description": "The IATA airport code for the starting city of the booking."
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "personal",
+			"description": ""
+		},
+		"StartLocation": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "personal",
+			"description": "The parking location."
+		},
+		"Name": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "none",
+			"description": "Name of the parking facility."
+		},
+		"ParkingLocationId": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "none",
+			"description": "The location of the parking booking."
+		},
+		"StartAddress": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartAddress2": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking. Maximum length: 24"
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking. Maximum length: 50"
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The parking phone number."
+		},
+		"TotalRate": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The total rate amount of the booking."
+		},
+		"Pin": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "none",
+			"description": "The PIN number for the booking."
+		},
+		"ClassOfService": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "none",
+			"description": "The class of the booking."
+		},
+		"IsRefundable": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"IsOnline": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"SegmentKey": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "List of charges for this booking."
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external",
+			"classification": "personal",
+			"description": "Remarks on the segment."
+		},
+		"IsT2Segment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"ClientLocator": {
+			"type": "string",
+			"classification": "personal",
+			"description": "internal id"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The two letter GDS vendor code."
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary."
+		},
+		"OperatedByVendorName": {
+			"type": "string",
+			"classification": "none",
+			"description": "The operating vendor of the booking."
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": "The booking status."
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting date of travel for this segment, in the local time of to the starting point."
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking ending time and date, in the booking location’s local time."
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The ID for the time zone of the booking."
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The time zone of the booking."
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting date of travel for this segment, in UTC."
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking ending time and date, in UTC."
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The confirmation number from the vendor."
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was created, in UTC."
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was cancelled, in UTC."
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The cancellation number from the vendor. This field should be set when you cancel a segment."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was modified, in UTC."
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Additional information about the booking."
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Map to Expense"
+		},
+		"EReceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"SentToAirplus": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"CliqbookId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"TransientSegmentNumber": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date and time the booking was upgraded."
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the booking can be upgraded."
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the parking company is marked as preferred by the company."
+		},
+		"VendorFlags": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Not used"
+		},
+		"VirtualCreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128,
+			"group": "external",
+			"classification": "none",
+			"description": "The operating vendor of the booking."
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the booking."
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "StartDateLocal" ]
+}

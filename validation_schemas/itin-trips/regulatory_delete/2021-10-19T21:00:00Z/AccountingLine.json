@@ -1,0 +1,110 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AccountingLine.json",
+	"type": "object",
+	"properties": {
+		"MCOType": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "MCO = Miscellaneous Charge Order. MCOs are used as “virtual ticket numbers” or tracking numbers for agency service fees, as well as residual ticket credits (example: original ticket = $100.00, new ticket = $50.00, Residual/Credit issued as MCO = $50.00)"
+		},
+		"AirlineCode": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "This is the 2-character IATA code assigned to the airline for which the ticket is issued"
+		},
+		"AmountPaid": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "This should coincide with the amount charged to the form of payment, less any ticket credit application. This amount can also represent a fare difference (“add collect”) on an exchanged ticket. Example: original ticket = $100.00, new ticket = $250.00, AmountPaid = $150.00"
+		},
+		"AmountPaidCurrency": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code of the amount paid."
+		},
+		"CCNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "sensitive",
+			"description": "Credit card number used for the accounting line"
+		},
+		"Comment": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Comments left for the accounting line."
+		},
+		"Commission": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "This is the amount of commission the agency (TMC) is taking on the ticket. Like most commissions, it should be accounted for in the total cost of the ticket."
+		},
+		"CommissionCurrency": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code of the commission."
+		},
+		"ExchangedTicketNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The original ticket number in the case where a ticket is being exchanged for another flight/fare."
+		},
+		"Fare": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The cost for the flights booked on the ticket."
+		},
+		"FareCurrency": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code of the fare."
+		},
+		"FOPMethod": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Form of payment method."
+		},
+		"IssueDate": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the ticket was issued."
+		},
+		"Tax": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Total tax applied to the airfare."
+		},
+		"TaxCurrency": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the taxes."
+		},
+		"TranControlNbr": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "“Transaction Control Number” This is the 10-digit number that follows the plating number on a ticket."
+		},
+		"TranPlatingNbr": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "“Transaction Plating Number.” All IATA-authorized airlines are issued a 3-digit number that designates the airline on the ticket. Examples: 006 = Delta, 001 = American Airlines, 016 = United Airlines."
+		}
+	},
+	"additionalProperties": false
+}

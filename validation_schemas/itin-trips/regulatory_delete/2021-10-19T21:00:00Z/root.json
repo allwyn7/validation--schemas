@@ -1,0 +1,386 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Itinerary.json",
+	"type": "object",
+	"properties": {
+		"meta": {
+			"type": "object",
+			"goType": "Meta",
+			"properties": {
+				"schema": {
+					"type": "integer"
+				}
+			},
+			"required": [ "schema" ],
+			"classification": "none",
+			"description": ""
+		},
+		"Bookings": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "A parent element that contains a Booking child element for each booking associated with this itinerary."
+		},
+		"CompanyId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "A parent element that contains a Booking child element for each booking associated with this itinerary."
+		},
+		"TripTotal": {
+			"type": "array",
+			"items": {
+				"$ref": "CurrencyAmount.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"TransientId": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"CustomAttributes": {
+			"type": "array",
+			"items": {
+				"$ref": "CustomAttribute.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "A parent element that contains a CustomAttribute child element for all custom attributes configured for trip level that may or not may not have values set."
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"EReceipts": {
+			"$ref": "EReceipt.json#",
+			"classification": "none",
+			"description": ""
+		},
+		"ExternalLinks": {
+			"type": "array",
+			"items": {
+				"$ref": "ExternalLink.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"FormsOfId": {
+			"type": "array",
+			"items": {
+				"$ref": "FormOfId.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"ItinLocator": {
+			"type": "integer",
+			"format": "int64",
+			"group": "external",
+			"classification": "none",
+			"description": "The itinerary locator. This element is now deprecated and only supported for backward compatibility."
+		},
+		"ClientLocator": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The itinerary locator. This element is now deprecated and only supported for backward compatibility."
+		},
+		"TripLinkLocator": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Represents the unique identifier of the trip in an external (non-SAP Concur) system. Maximum length: 32 characters"
+		},
+		"ItinSourceId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "SAP Concur TripLink ID."
+		},
+		"ItinSourceName": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"BookedById": {
+			"type": "integer",
+			"classification": "personal",
+			"description": ""
+		},
+		"GuestId": {
+			"type": "integer",
+			"classification": "personal",
+			"description": "Traveler ID with the merchant"
+		},
+		"RuleClassId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"TripName": {
+			"type": "string",
+			"maxLength": 255,
+			"group": "external",
+			"classification": "personal",
+			"description": "Name of the trip. Maximum length: 255 characters"
+		},
+		"OrgUnitName": {
+			"type": "string",
+			"maxLength": 60,
+			"classification": "none",
+			"description": "Name the dept"
+		},
+		"Description": {
+			"type": "string",
+			"maxLength": 512,
+			"group": "external",
+			"classification": "personal",
+			"description": "Trip description"
+		},
+		"Comments": {
+			"type": "string",
+			"maxLength": 512,
+			"group": "external",
+			"classification": "personal",
+			"description": "The trip description. Maximum length: 512 characters"
+		},
+		"CancelComments": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external",
+			"classification": "personal",
+			"description": "The comments provided if the itinerary is cancelled. Maximum length: 256 characters"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "personal",
+			"description": "The start date of the trip in the starting location’s timezone."
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The end date of the trip in the starting location’s timezone."
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The start date of the trip, in UTC."
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The end date of the trip, in UTC."
+		},
+		"IsPersonal": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the booking is a personal trip."
+		},
+		"IsPrivate": {
+			"type": "boolean",
+			"classification": "none",
+			"description": "If true, the booking is a personal trip."
+		},
+		"TripStatus": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The status of the itinerary. Supported values: 0 - Confirmed, 1 - Ticketed by agent, 2 - Cancelled"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date that this trip was created, in UTC."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The UTC date that this trip was last modified."
+		},
+		"IsDemoTrip": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"ReminderEmailSent": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"ApprovalStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"ApproverUserId": {
+			"type": "integer",
+			"classification": "personal",
+			"description": ""
+		},
+		"ApproverName": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"ApprovalStatusLastUpdatedUTC": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"BookedVia": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking method for the trip."
+		},
+		"MeetingId": {
+			"type": "integer",
+			"classification": "personal",
+			"description": ""
+		},
+		"MeetingAttendeeId": {
+			"type": "integer",
+			"classification": "personal",
+			"description": ""
+		},
+		"TravelRequestId": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Associated document in Concur Request"
+		},
+		"OrgUnitId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Id of the dept or org"
+		},
+		"BookedByFirstName": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Traveler's arranger's name (assistant, etc)"
+		},
+		"BookedByLastName": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The first name of the person who booked the trip."
+		},
+		"IsBillable": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"ProjectName": {
+			"type": "string",
+			"maxLength": 255,
+			"group": "external",
+			"classification": "none",
+			"description": "The associated project name for the trip. Maximum length: 255 characters"
+		},
+		"BillingCode": {
+			"type": "string",
+			"maxLength": 100,
+			"classification": "none",
+			"description": "The associated project name for the trip. Maximum length: 255 characters"
+		},
+		"AuthorizationNumber": {
+			"type": "string",
+			"classification": "none",
+			"description": "Reference to internal concur system, TAVS"
+		},
+		"DateBookedLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the trip was booked, in the local time of the booking’s location."
+		},
+		"PrimaryItineraryLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "personal",
+			"description": ""
+		},
+		"HasOpenBookingPassive": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "The trip has TripLink passive segments."
+		},
+		"CrossFundedOrg": {
+			"type": "string",
+			"classification": "none",
+			"description": "The trip has TripLink passive segments."
+		},
+		"RetrievedVia": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"RetrievedDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"LastModBy": {
+			"type": "integer",
+			"classification": "personal",
+			"description": "The UTC date that this trip was last modified."
+		},
+		"CliqbookState": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"RefreshableFromUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"UserId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"id": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The unique identifier for the itinerary, this is included in the event and is used for the callback to get details of the trip."
+		},
+		"xmlns": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"UserLoginId": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The user’s login to the SAP Concur system."
+		}
+	},
+	"additionalProperties": false,
+	"required": [
+	    "id",
+		"CompanyId",
+		"ItinSourceId",
+		"IsPrivate",
+		"DateModifiedUtc"
+	]
+}

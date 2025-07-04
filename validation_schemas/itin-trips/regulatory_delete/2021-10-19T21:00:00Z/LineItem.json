@@ -1,0 +1,68 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "LineItem.json",
+	"type": "object",
+	"properties": {
+		"Description": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"Amount": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"Date": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"SequenceNumber": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"TransactionId": {
+			"type": "string",
+			"classification": "none",
+			"description": "ID from merchant accounting system"
+		},
+		"SecondaryDescription": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"EntryType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Supplier confirmation number for the travel"
+		},
+		"Quantity": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"RateType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Rate": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"UnifiedSemanticsId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

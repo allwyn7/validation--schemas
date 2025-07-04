@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "paymentType.json",
+  "title": "Payment Type",
+  "type": "object",
+  "description": "Supported Payment types based on the data on the Receipt, required for receipt",
+  "properties": {
+    "method": {
+      "type": "string",
+      "description": "Payment type method, required for receipt",
+      "enum": [
+        "Cash",
+        "Credit Card",
+        "Digital Wallet"
+      ],
+      "dataClassification": []
+    },
+    "creditCard": {
+      "type": "object",
+      "description": "Credit card type if the payment method is credit card",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Name of the card type ex: American Express, MasterCard,Discover etc..",
+          "dataClassification": []
+        },
+        "lastFour": {
+          "type": "string",
+          "description": "Last 4 digits of credit card number if the payment method is credit card",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "digitalWallet": {
+      "type": "string",
+      "description": "if the payment method is digitalWallet, type of digital wallet. ex: ApplePay, PayTM, Rupay, GooglePay etc",
+      "dataClassification": []
+    }
+  },
+  "additionalProperties": false
+}

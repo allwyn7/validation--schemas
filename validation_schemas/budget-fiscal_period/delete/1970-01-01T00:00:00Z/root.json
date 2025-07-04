@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-fiscal_period-delete.schema.json",
+  "title": "Budget Fiscal Period Delete Schema",
+  "description": "Schema for deleting a budget fiscal period",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification": []
+    },
+    "entityId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the entity associated with the fiscal period",
+      "dataClassification": []
+    },
+    "fiscalPeriodSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the fiscal period being deleted",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "fiscalPeriodSyncGuid"
+  ],
+  "additionalProperties": false
+}

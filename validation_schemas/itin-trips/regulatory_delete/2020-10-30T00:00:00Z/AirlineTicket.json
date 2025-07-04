@@ -1,0 +1,212 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirlineTicket.json",
+	"type": "object",
+	"properties": {
+		"AirlineTicketCoupons": {
+			"type": "array",
+			"items": {
+				"$ref": "AirlineTicketCoupon.json#"
+			},
+			"group": "external"
+		},
+		"Taxes": {
+			"type": "array",
+			"items": {
+				"$ref": "Tax.json#"
+			},
+			"group": "external"
+		},
+		"AirlineTicketExchanges": {
+			"type": "array",
+			"items": {
+				"$ref": "AirlineTicketExchange.json#"
+			},
+			"group": "external"
+		},
+		"AirlineCharges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external"
+		},
+		"AirlineTicketFareBreakups": {
+			"type": "array",
+			"items": {
+				"$ref": "AirlineTicketFareBreakup.json#"
+			},
+			"group": "external"
+		},
+		"InvoiceNumber": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external"
+		},
+		"SabreDkNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"RecordLocator": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"PlatingCarrierNumericCode": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		},
+		"PlatingControlNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"IssueDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"IssueDateTimeUTC": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"IssuingPseudoCity": {
+			"type": "string",
+			"maxLength": 9,
+			"group": "external"
+		},
+		"IssuingIataAgencyNumber": {
+			"type": "integer",
+			"group": "external"
+		},
+		"PassengerName": {
+			"type": "string",
+			"maxLength": 100,
+			"group": "external"
+		},
+		"Ticketless": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"MasterTicketNumber": {
+			"type": "string",
+			"maxLength": 13,
+			"group": "external"
+		},
+		"ProgramCarrierCode": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"ProgramMembershipNumber": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"NameReference": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"BaseFare": {
+			"type": "number",
+			"group": "external"
+		},
+		"BaseFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		},
+		"BaseFareNuc": {
+			"type": "number",
+			"group": "external"
+		},
+		"BaseFareNucCurrency": {
+			"type": "string",
+			"minLength": 3,
+			"maxLength": 3,
+			"group": "external"
+		},
+		"TotalFare": {
+			"type": "number",
+			"group": "external"
+		},
+		"TotalFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		},
+		"Endorsements": {
+			"type": "string",
+			"maxLength": 500,
+			"group": "external"
+		},
+		"TourIdentifier": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"AddCollectAmount": {
+			"type": "number",
+			"group": "external"
+		},
+		"CreditCardType": {
+			"type": "string",
+			"maxLength": 2
+		},
+		"CreditCardLast4": {
+			"type": "string"
+		},
+		"LinearFareConstructor": {
+			"type": "string",
+			"maxLength": 500,
+			"group": "external"
+		},
+		"TicketType": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 1,
+			"group": "external"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"EreceiptStatus": {
+			"type": "integer"
+		},
+		"SentToAirplus": {
+			"type": "boolean"
+		},
+		"HadPenalty": {
+			"type": "integer"
+		},
+		"ComparisonFare": {
+			"type": "number",
+			"group": "external"
+		},
+		"ComparisonFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"pattern": "[A-Za-z]{3,3}",
+			"group": "external"
+		},
+		"ChargeLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"UseCurrentRailPayment": {
+			"type": "boolean"
+		},
+		"AccountingLine": {
+			"$ref": "AccountingLine.json#",
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

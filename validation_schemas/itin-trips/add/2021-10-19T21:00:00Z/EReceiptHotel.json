@@ -1,0 +1,365 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "EReceiptHotel.json",
+	"type": "object",
+	"properties": {
+		"HotelDetail": {
+			"type": "array",
+			"items": {
+				"$ref": "HotelDetail.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"ReceiptDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"Status": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"UserId": {
+			"type": "integer",
+			"classification": "personal",
+			"description": "Internal Concur user id"
+		},
+		"CompanyId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"LastModifiedUTC": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"LastModBy": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Internal reference to system that stored the receipt"
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Map to Expense"
+		},
+		"ReceiptType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"SpendCategoryCode": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Supplier confirmation number for the travel"
+		},
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"RentalAgreementNumber": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Merchant's contract number or internal reference for the travel segment"
+		},
+		"NumberOfUnits": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"VendorCode": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"ProviderId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"ProviderStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"Brand": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"PrimaryLocationCode": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"PrimaryLocationDescription": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"PrimaryLocationAddress": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"PrimaryLocationAddress2": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"PrimaryLocationCity": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"PrimaryLocationState": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"PrimaryLocationZip": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"PrimaryLocationCountry": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"IsPrimaryLocationInAirport": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"PrimaryLocationAirportCode": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"PrimaryLocationPhone": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"PrimaryLocationFax": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"PrimaryLocationEmail": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"PrimaryLocationUrl": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"UserPnrId": {
+			"type": "integer",
+			"classification": "personal",
+			"description": "Record locator / confirmation number associated with the e-receipt"
+		},
+		"GuestId": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler ID with the merchant"
+		},
+		"GuestFirstName": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler PII"
+		},
+		"GuestLastName": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler PII"
+		},
+		"GuestAddress": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler PII"
+		},
+		"GuestAddress2": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler PII"
+		},
+		"GuestCity": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler PII"
+		},
+		"GuestState": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler PII"
+		},
+		"GuestZip": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler PII"
+		},
+		"GuestCountry": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler PII"
+		},
+		"CommentValue": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"CommentLabel": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"CardLastFour": {
+			"type": "string",
+			"classification": "sensitive",
+			"description": "The last four digits of the credit card."
+		},
+		"CardAuthCode": {
+			"type": "string",
+			"classification": "sensitive",
+			"description": "Transaction authorization number"
+		},
+		"CardExpiration": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "sensitive",
+			"description": "Expiration date of the credit card"
+		},
+		"CreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"MaskedCreditCardNumber": {
+			"type": "string",
+			"classification": "sensitive",
+			"description": "The last four digits of the credit card."
+		},
+		"MerchantTaxId": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Merchant's taxiing authority ID"
+		},
+		"FOP": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"InvoiceNumber": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Merchant ID for the travel transaction"
+		},
+		"InvoiceAmount": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"CurrencyCode": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"ReceiptImageId": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"TripId": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"ReceiptLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"SegmentId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"LineItems": {
+			"type": "array",
+			"items": {
+				"$ref": "LineItem.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"OtherDetails": {
+			"type": "array",
+			"items": {
+				"$ref": "EReceiptOtherDetail.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"ItinLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"Fob": {
+			"type": "string",
+			"maxLength": 128,
+			"classification": "none",
+			"description": ""
+		},
+		"PurchaseOrderNumber": {
+			"type": "string",
+			"maxLength": 128,
+			"classification": "personal",
+			"description": "Billing reference (project code, etc) to faciliate accounting reimbursement"
+		},
+		"Terms": {
+			"type": "string",
+			"maxLength": 256,
+			"classification": "none",
+			"description": ""
+		},
+		"VendorName": {
+			"type": "string",
+			"maxLength": 128,
+			"classification": "none",
+			"description": ""
+		},
+		"IsPersonal": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"ReceiptSourceId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"ExternalId": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

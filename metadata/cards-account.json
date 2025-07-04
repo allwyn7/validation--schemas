@@ -1,0 +1,52 @@
+{
+    "event_name": "cards-account",
+    "ident_field_names": [
+        "$.companyId",
+        "$.id"
+    ],
+    "timestamp_field_name": "$.administrativeData.lastModified",
+    "event_types": {
+        "add": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        },
+        "delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        },
+        "regulatory_delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        }
+    },
+    "team": {
+        "slack": "#ask-brisbane",
+        "email": "DL_53BFC995FD84A033E3000002@global.corp.sap",
+        "name": "brisbane"
+    },
+    "validation_exceptions": {
+        "always_fail": "all",
+        "dp_fields_validator": "2024-07-23T00:00:00Z"
+    },
+    "uri_format": "http://cards.service.cnqr.tech/v4/companies/%s/accounts/%s",
+    "uri_format_json_paths": [
+        "facts.companyId",
+        "facts.accountId"
+    ],
+    "spark": {
+        "delete_behaviors":{
+            "regulatory_delete": ["soft_delete", "hard_delete"]
+        }
+    },
+    "dataset": {
+        "type": "update",
+        "classification": "customer_data",
+        "source": "streaming"
+    }
+}

@@ -1,0 +1,310 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "receipt.data.schema.json",
+    "title": "Receipt Data Schema Definitions",
+    "type": "object",
+    "description": "Receipt data schema. This includes the data fields on a receipt",
+    "properties": {
+      "receiveDateTime": {
+        "type": "string",
+        "description": "Date/Time of the document received by Customer",
+        "dataClassification": []
+      },
+      "transactionDateTime": {
+        "type": "string",
+        "description": "date time of transaction",
+        "dataClassification": []
+      },
+      "amount": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "string",
+            "description": "Transaction Amount - Total",
+            "dataClassification": []
+          },
+          "currency": {
+            "type": "string",
+            "description": "Transaction Currency Code",
+            "dataClassification": []
+          },
+          "netAmount": {
+            "type": "string",
+            "description": "Total Net Amount",
+            "dataClassification": []
+          }
+        },
+        "additionalProperties": false
+      },
+      "vendor": {
+        "type": "object",
+        "description": "Vendor details",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "dataClassification": []
+          },
+          "taxId": {
+            "type": "string",
+            "description": "Tax Id of the company/vendor",
+            "dataClassification": []
+          },
+          "addressLine": {
+            "type": "string",
+            "description": "Address Line",
+            "dataClassification": []
+          },
+          "city": {
+            "type": "string",
+            "description": "City",
+            "dataClassification": []
+          },
+          "state": {
+            "type": "string",
+            "description": "State",
+            "dataClassification": []
+          },
+          "country": {
+            "type": "string",
+            "description": "Country",
+            "dataClassification": []
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postal Code",
+            "dataClassification": []
+          },
+          "phone": {
+            "type": "string",
+            "description": "Phone",
+            "dataClassification": []
+          }
+        },
+        "additionalProperties": false
+      },
+      "comments": {
+        "type": "string",
+        "description": "comments can be added here for any receipt",
+        "dataClassification": []
+      },
+      "paymentType": {
+        "type": "object",
+        "description": "Supported Payment types based on the data on the Receipt",
+        "properties": {
+          "method": {
+            "type": "string",
+            "description": "Payment type method",
+            "enum": [
+              "Cash",
+              "Credit Card",
+              "Digital Wallet"
+            ],
+            "dataClassification": []
+          },
+          "creditCard": {
+            "type": "object",
+            "description": "Credit card type if the payment method is credit card",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Name of the card type ex: American Express, MasterCard,Discover etc..",
+                "dataClassification": []
+              },
+              "lastFour": {
+                "type": "string",
+                "description": "Last 4 digits of credit card number if the payment method is credit card",
+                "dataClassification": []
+              }
+            },
+            "additionalProperties": false
+          },
+          "digitalWallet": {
+            "type": "string",
+            "description": "if the payment method is digitalWallet, type of digital wallet. ex: ApplePay, PayTM, Rupay, GooglePay etc",
+            "dataClassification": []
+          }
+        },
+        "additionalProperties": false
+      },
+      "documentCompliance": {
+        "type": "object",
+        "description": "Document Compliance information",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "description": "UUID of the Document ",
+            "dataClassification": []
+          },
+          "formatVersion": {
+            "type": "string",
+            "description": "Version of the document format",
+            "dataClassification": []
+          },
+          "number": {
+            "type": "string",
+            "description": "Additional identified for the document",
+            "dataClassification": []
+          },
+          "typeCode": {
+            "type": "string",
+            "description": "Document Type (only code)",
+            "dataClassification": []
+          },
+          "type": {
+            "type": "string",
+            "description": "Codes supported by the document",
+            "dataClassification": []
+          },
+          "verificationCode": {
+            "type": "string",
+            "description": "Verification or Certificate Code ",
+            "dataClassification": []
+          },
+          "issuerInvoiceId": {
+            "type": "string",
+            "description": "Suppliers Identification for Invoice",
+            "dataClassification": []
+          },
+          "taxAuthorityCode": {
+            "type": "string",
+            "description": "Code for the Tax authority processing document",
+            "dataClassification": []
+          },
+          "taxRateList": {
+            "type": "array",
+            "description": "Tax Percentage Applied",
+            "items": {
+              "type": "object",
+              "properties": {
+                "taxType": {
+                  "type": "string",
+                  "description": "Tax Type",
+                  "dataClassification": []
+                },
+                "taxRate": {
+                  "type": "string",
+                  "description": "Tax Percentage value",
+                  "dataClassification": []
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "tax": {
+            "type": "array",
+            "description": "List of Tax items",
+            "items": {
+              "type": "object",
+              "properties": {
+                "taxType": {
+                  "type": "string",
+                  "description": "Tax Type",
+                  "dataClassification": []
+                },
+                "taxValue": {
+                  "type": "string",
+                  "description": "Tax Value",
+                  "dataClassification": []
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "lineItems": {
+        "type": "array",
+        "description": "Array of LineItems",
+        "items": {
+          "type": "object",
+          "description": "LineItem details",
+          "properties": {
+            "itemId": {
+              "type": "string",
+              "description": "Line Identifier",
+              "dataClassification": []
+            },
+            "productCode": {
+              "type": "string",
+              "description": "Product Code of goods and services",
+              "dataClassification": []
+            },
+            "quantity": {
+              "type": "string",
+              "description": "Item Quantity",
+              "dataClassification": []
+            },
+            "unitPrice": {
+              "type": "string",
+              "description": "Item Unit Price",
+              "dataClassification": []
+            },
+            "taxRate": {
+              "type": "string",
+              "description": "Item Tax Rate",
+              "optional": "true",
+              "dataClassification": []
+            },
+            "subTotal": {
+              "type": "string",
+              "description": "Item Sub Total",
+              "optional": "true",
+              "dataClassification": []
+            },
+            "description": {
+              "type": "string",
+              "description": "Description",
+              "dataClassification": []
+            },
+            "date": {
+              "type": "string",
+              "description": "Date",
+              "dataClassification": []
+            },
+            "type": {
+              "type": "string",
+              "description": "Type",
+              "dataClassification": []
+            },
+            "amount": {
+              "type": "string",
+              "description": "Amount",
+              "dataClassification": []
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "expenseData": {
+        "type": "object",
+        "description": "Expense Data",
+        "properties": {
+          "expenseType": {
+            "type": "string",
+            "description": "Expense Type for Expense reimbursement",
+            "dataClassification": []
+          },
+          "expensePaymentType": {
+            "type": "string",
+            "description": "Payment type for Expense reimbursement",
+            "dataClassification": []
+          }
+        },
+        "additionalProperties": false
+      },
+      "customData": {
+        "type": "object",
+        "description": "Custom Data",
+        "properties": {
+          "customAdditionalProperties": {
+            "type": "string",
+            "dataClassification": []
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-balance-add.json",
+  "title": "Budget Item Balance Add Schema",
+  "description": "Schema for changing a budget item balance",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification": []
+    },
+    "entityId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the entity associated with the budget item balance",
+      "dataClassification": []
+    },
+    "reason": {
+      "type": "string",
+      "description": "The reason for adding or updating the budget item balance",
+      "dataClassification": []
+    },
+    "syncTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time when the budget item balance was synchronized",
+      "dataClassification": []
+    },
+    "budgetItemBalanceSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget item balance being added or updated",
+      "dataClassification": []
+    },
+    "budgetItemDetailSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget item detail associated with this balance",
+      "dataClassification": []
+    },
+    "budgetItemSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget item associated with this balance",
+      "dataClassification": []
+    },
+    "currencyCode": {
+      "type": "string",
+      "description": "The currency code for the budget item balance",
+      "dataClassification": []
+    },
+    "amount": {
+      "type": "number",
+      "description": "The amount of the budget item balance",
+      "dataClassification": []
+    },
+    "featureTypeCode": {
+      "type": "string",
+      "description": "The feature type code associated with the budget item balance",
+      "dataClassification": []
+    },
+    "featureTypeSubCode": {
+      "type": "string",
+      "description": "The feature type sub-code associated with the budget item balance",
+      "dataClassification": []
+    },
+    "workflowState": {
+      "type": "string",
+      "description": "The workflow state of the budget item balance",
+      "dataClassification": []
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last modified date of the budget item balance",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "reason",
+    "syncTime",
+    "budgetItemBalanceSyncGuid",
+    "budgetItemDetailSyncGuid",
+    "budgetItemSyncGuid",
+    "currencyCode",
+    "amount",
+    "featureTypeCode",
+    "featureTypeSubCode",
+    "workflowState",
+    "lastModifiedDate"
+  ],
+  "additionalProperties": false
+}

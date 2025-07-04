@@ -1,0 +1,218 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "CarDetail.json",
+	"type": "object",
+	"properties": {
+		"ReservationId": {
+			"type": "string",
+			"classification": "personal",
+			"description": "ID for the car reservation"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": "The booking starting time and date, in the booking location’s local time."
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": "The booking ending time and date, in the booking location’s local time."
+		},
+		"Description": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"Registration": {
+			"type": "string",
+			"classification": "personal",
+			"description": "License plate of the rental car"
+		},
+		"ClassReserved": {
+			"type": "string",
+			"classification": "none",
+			"description": "Character code to indicate the class of the car reserved. Varies by vendor. Supported values: C - Compact, E - Economy, F - Full size, I - Intermediate, L - Luxury, M - Mini, P - Premium, S - Standard, X - Special"
+		},
+		"ClassRented": {
+			"type": "string",
+			"classification": "none",
+			"description": "Character code to indicate the class of the car rented. Varies by vendor. Supported values: C - Compact, E - Economy, F - Full size, I - Intermediate, L - Luxury, M - Mini, P - Premium, S - Standard, X - Special"
+		},
+		"ClassCharged": {
+			"type": "string",
+			"classification": "none",
+			"description": "Character code to indicate the class of the car charged. Varies by vendor. Supported values: C - Compact, E - Economy, F - Full size, I - Intermediate, L - Luxury, M - Mini, P - Premium, S - Standard, X - Special"
+		},
+		"Category": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Transmission": {
+			"type": "string",
+			"classification": "none",
+			"description": "The character code that indicates if the car has auto-transmission. Supported values: A - Auto, M - Manual"
+		},
+		"AC": {
+			"type": "string",
+			"classification": "none",
+			"description": "The character code that indicates if car has air conditioner. Supported values: R - AC, N - No AC"
+		},
+		"VehicleCode": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"EngineSize": {
+			"type": "string",
+			"classification": "none",
+			"description": "The size of the engine"
+		},
+		"FuelType": {
+			"type": "string",
+			"classification": "none",
+			"description": "Type of fuel required for the rental vehicle"
+		},
+		"MilesKmUnit": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"OdometerIn": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Odometer reading on the rental car when it is returned to the vendor"
+		},
+		"OdometerOut": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Odometer readong on the rental car when it departs the vendor"
+		},
+		"AdditionalDriver": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Additional driver's name"
+		},
+		"TotalTaxableAmount": {
+			"type": "number",
+			"classification": "none",
+			"description": "Total taxable amount of the amount paid for the car rental"
+		},
+		"TotalTaxAmount": {
+			"type": "number",
+			"classification": "none",
+			"description": "Amount of tax paid on the car rental"
+		},
+		"AverageDailyRate": {
+			"type": "number",
+			"classification": "none",
+			"description": "The average daily rate for the booking."
+		},
+		"VoucherValue": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"LoyaltyProgram": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"CorporateDiscountCode": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Discount code or contract or similar, arraanged by employer"
+		},
+		"CorporateDiscountName": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Discount code or contract or similar, arraanged by employer"
+		},
+		"CustomerVatRegistration": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Traveler's employer's Taxing Authority ID"
+		},
+		"VatSupplyType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"VatPointDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"ReturnLocationCode": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Car rental return address"
+		},
+		"ReturnLocationDescription": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Car rental return address"
+		},
+		"ReturnLocationAddress": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Car rental return address"
+		},
+		"ReturnLocationAddress2": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Car rental return address"
+		},
+		"ReturnLocationCity": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"ReturnLocationState": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"ReturnLocationZip": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"ReturnLocationCountry": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"IsReturnLocationInAirport": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"ReturnLocationAirportCode": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"ReturnLocationPhone": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Car rental return address"
+		},
+		"ReturnLocationFax": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Car rental return address"
+		},
+		"ReturnLocationEmail": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Car rental return address"
+		},
+		"ReturnLocationUrl": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Car rental return address"
+		}
+	},
+	"additionalProperties": false
+}

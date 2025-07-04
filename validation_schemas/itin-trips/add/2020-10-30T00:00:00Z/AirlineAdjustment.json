@@ -1,0 +1,98 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirlineAdjustment.json",
+	"type": "object",
+	"properties": {
+		"Taxes": {
+			"type": "array",
+			"items": {
+				"$ref": "Tax.json#"
+			},
+			"group": "external"
+		},
+		"AirlineCharges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external"
+		},
+		"RecordLocator": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"PlatingCarrierNumericCode": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		},
+		"PlatingControlNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"AdjustmentDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"AdjustmentDateTimeUTC": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"PassengerName": {
+			"type": "string",
+			"maxLength": 100,
+			"group": "external"
+		},
+		"TotalAdjustment": {
+			"type": "number",
+			"group": "external"
+		},
+		"TotalAdjustmentCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		},
+		"AddCollectAmount": {
+			"type": "number",
+			"group": "external"
+		},
+		"CreditCardType": {
+			"type": "string",
+			"maxLength": 2
+		},
+		"CreditCardLast4": {
+			"type": "string"
+		},
+		"AdjustmentType": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 1,
+			"pattern": "[VCRAO]",
+			"group": "external"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"EreceiptStatus": {
+			"type": "integer"
+		},
+		"ChargeLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"UseCurrentRailPayment": {
+			"type": "boolean"
+		},
+		"AccountingLine": {
+			"$ref": "AccountingLine.json#"
+		}
+	},
+	"additionalProperties": false
+}

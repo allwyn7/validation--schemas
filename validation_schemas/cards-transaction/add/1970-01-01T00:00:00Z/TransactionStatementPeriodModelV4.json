@@ -1,0 +1,48 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "TransactionStatementPeriodModelV4.json",
+	"description": "Provides Information on the Statement Period if <process type> is CBS - only available when schema 'statementPeriodDetails' is provided",
+	"type": [
+		"object",
+		"null"
+	],
+	"required": [
+		"endDate",
+		"id",
+		"startDate",
+		"status"
+	],
+	"properties": {
+		"endDate": {
+			"type": "string",
+			"example": "2018-08-31",
+			"description": "Statement period end date",
+			"dataClassification": []
+		},
+		"id": {
+			"type": "string",
+			"example": "E6FE9A618C644DAEB222B773171035DC",
+			"description": "Statement period ID",
+			"dataClassification": []
+		},
+		"startDate": {
+			"type": "string",
+			"example": "2018-08-01",
+			"description": "Statement period start date",
+			"dataClassification": []
+		},
+		"status": {
+			"type": "string",
+			"example": "O",
+			"description": "Status of the statement period\nS - System\nC - Closed\nO - Open\nF - Future",
+			"dataClassification": [],
+			"enum": [
+				"C",
+				"F",
+				"O",
+				"S"
+			]
+		}
+	},
+	"additionalProperties": false
+}

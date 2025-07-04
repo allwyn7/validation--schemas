@@ -1,0 +1,151 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "GeneralDetail.json",
+	"type": "object",
+	"properties": {
+		"IssueDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"MerchantOrderNumber": {
+			"type": "string",
+			"maxLength": 30,
+			"classification": "personal",
+			"description": "Merchant's order number or internal reference for the travel segment"
+		},
+		"TaxExemptIndicator": {
+			"type": "string",
+			"maxLength": 1,
+			"classification": "none",
+			"description": ""
+		},
+		"TotalTaxAmount": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"TotalTaxableAmount": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"VatPointDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"LocationCode": {
+			"type": "string",
+			"maxLength": 100,
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"LocationDescription": {
+			"type": "string",
+			"maxLength": 100,
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"LocationAddress": {
+			"type": "string",
+			"maxLength": 100,
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"LocationAddress2": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"LocationCity": {
+			"type": "string",
+			"maxLength": 100,
+			"classification": "personal",
+			"description": ""
+		},
+		"LocationState": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "personal",
+			"description": ""
+		},
+		"LocationZip": {
+			"type": "string",
+			"maxLength": 20,
+			"classification": "personal",
+			"description": ""
+		},
+		"LocationCountry": {
+			"type": "string",
+			"maxLength": 3,
+			"classification": "personal",
+			"description": ""
+		},
+		"IsLocationInAirport": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"LocationAirportCode": {
+			"type": "string",
+			"maxLength": 3,
+			"classification": "personal",
+			"description": ""
+		},
+		"LocationPhone": {
+			"type": "string",
+			"maxLength": 100,
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"LocationFax": {
+			"type": "string",
+			"maxLength": 32,
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"LocationEmail": {
+			"type": "string",
+			"maxLength": 255,
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"LocationUrl": {
+			"type": "string",
+			"maxLength": 255,
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"CustomerVatRegistration": {
+			"type": "string",
+			"maxLength": 30,
+			"classification": "personal",
+			"description": "Client's taxing authority ID"
+		},
+		"VatSupplyType": {
+			"type": "string",
+			"maxLength": 30,
+			"classification": "none",
+			"description": ""
+		},
+		"Description": {
+			"type": "string",
+			"maxLength": 256,
+			"classification": "personal",
+			"description": "Trip description"
+		}
+	},
+	"additionalProperties": false
+}

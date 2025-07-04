@@ -1,0 +1,236 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "trip.json",
+    "title": "Trip",
+    "type": "object",
+    "x-java-type": "com.concur.t2.schema.Trip",
+    "definitions": {
+        "lastTicketTime": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "bookingId": {
+                    "$ref": "shared.json#/definitions/uuid",
+                    "classification": "none"
+                },
+                "datetime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "pattern": "yyyy-MM-ddTHH:mm:ss.SSSZ",
+                    "example": "2022-02-28T15:35:49.789Z",
+                    "classification": "none"
+                }
+            }
+        },
+        "tripSchedulePart": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "local": {
+                    "type": "string",
+                    "classification": "none",
+                    "format": "local-date-time",
+                    "groups": [
+                        "search"
+                    ]
+                },
+                "utc": {
+                    "type": "string",
+                    "classification": "none",
+                    "format": "date-time",
+                    "groups": [
+                        "search"
+                    ]
+                }
+            }
+        },
+        "tripSchedule": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "startDate": {
+                    "$ref": "#/definitions/tripSchedulePart",
+                    "classification": "none"
+                },
+                "endDate": {
+                    "$ref": "#/definitions/tripSchedulePart",
+                    "classification": "none"
+                }
+            }
+        }
+    },
+    "additionalProperties": false,
+    "properties": {
+        "meta": {
+            "$ref": "shared.json#/definitions/metadata",
+            "classification": "none"
+        },
+        "id": {
+            "$ref": "shared.json#/definitions/uuid",
+            "classification": "none",
+            "groups": [
+                "search"
+            ]
+        },
+        "requestEnabled": {
+            "type": "boolean",
+            "description": "If set, indicates if Travel Request is enabled for a trip or not",
+            "classification": "none",
+            "dataClassification": []
+        },
+        "name": {
+            "type": "string",
+            "groups": [
+                "search"
+            ],
+            "classification": "personal",
+            "dataClassification": ["PII"]
+        },
+        "description": {
+            "type": "string",
+            "groups": [
+                "search"
+            ],
+            "classification": "personal",
+            "dataClassification": ["PII"]
+        },
+        "bookingContext": {
+            "$ref": "shared.json#/definitions/travelIds",
+            "classification": "personal"
+        },
+        "primaryPnr": {
+            "$ref": "shared.json#/definitions/primaryPnr",
+            "classification": "personal"
+        },
+        "gdsRecordLocator": {
+            "type": "string",
+            "description": "The primary record locator used at trip level",
+            "classification": "sensitive",
+            "dataClassification": ["sensitive"],
+            "groups": [
+                "search"
+            ]
+        },
+        "arrangerId": {
+            "$ref": "shared.json#/definitions/uuid",
+            "classification": "personal"
+        },
+        "travelerId": {
+            "$ref": "shared.json#/definitions/uuid",
+            "classification": "personal",
+            "groups": [
+                "search"
+            ]
+        },
+        "bookings": {
+            "type": "array",
+            "items": {
+                "$ref": "booking.json#"
+            },
+            "classification": "personal"
+        },
+        "approvalStatus": {
+            "type": "object",
+            "classification": "none",
+            "additionalProperties": false,
+            "properties": {
+                "current": {
+                    "$ref": "approval.json#/definitions/approvalStatusNames",
+                    "classification": "none"
+                },
+                "approvalLog": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "approval.json#/definitions/approvalAction"
+                    },
+                    "classification": "none"
+                },
+                "approvalDeadline": {
+                    "type": "string",
+                    "goType": "string",
+                    "format": "date-time",
+                    "classification": "none",
+                    "dataClassification": [],
+                    "description": "The UTC time by which an approvalAction should be taken, otherwise the trip will be auto canceled or approved depending on the configuration"
+                },
+                "emailTokens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "approval.json#/definitions/approvalEmailToken"
+                    },
+                    "description": "Valid pending tokens for approval emails sent and awaiting reply from the approvers."
+                }
+            }
+        },
+        "customFields": {
+            "type": "array",
+            "items": {
+                "$ref": "shared.json#/definitions/customField"
+            },
+            "classification": "personal"
+        },
+        "policyCompliance": {
+            "$ref": "policy.json#/definitions/policyCompliance",
+            "classification": "none"
+        },
+        "t1TripId": {
+            "type": "integer",
+            "groups": [
+                "search"
+            ],
+            "classification": "personal"
+        },
+        "t1TripLocator": {
+            "type": "string",
+            "classification": "personal",
+            "dataClassification": ["PII"]
+        },
+        "stateManagement": {
+            "$ref": "shared.json#/definitions/stateManagement",
+            "classification": "personal"
+        },
+        "tripLevelRuleViolations": {
+            "type": "array",
+            "items": {
+                "$ref": "shared.json#/definitions/travelerRuleViolation"
+            },
+            "classification": "none"
+        },
+        "tripCosts": {
+            "$ref": "trip-cost.json#/definitions/tripCosts",
+            "classification": "none"
+        },
+        "userHoldDeadline": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "yyyy-MM-ddTHH:mm:ss.SSSZ",
+            "example": "2022-02-28T15:35:49.789Z",
+            "classification": "none",
+            "dataClassification": []
+        },
+        "lastTicketTimes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/lastTicketTime"
+            },
+            "classification": "none"
+        },
+        "schedule": {
+            "$ref": "#/definitions/tripSchedule",
+            "classification": "none"
+        },
+        "policyConfigurableMessages": {
+            "type": "array",
+            "items": {
+                "$ref": "shared.json#/definitions/configurableMessage"
+            },
+            "classification": "none"
+        }
+    },
+    "required": [
+        "id",
+        "policyConfigurableMessages",
+        "travelerId",
+        "bookingContext"
+    ]
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "expense-automation-stats.json",
+  "description": "JSON Schema for adding expense automation statistics",
+  "type": "object",
+  "required": [
+    "id",
+    "environment",
+    "companyId",
+    "lastModifiedDate",
+    "action"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the event/action",
+      "dataClassification": []
+    },
+    "environment": {
+      "type": "string",
+      "description": "Environment such as 'us2', 'eu2', 'apj1'",
+      "dataClassification": []
+    },
+    "companyId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Company ID",
+      "dataClassification": []
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time at which the event was triggered",
+      "dataClassification": []
+    },
+    "action": {
+      "type": "string",
+      "description": "The action performed on the expense such as 'expenseCreated', 'expenseUpdated', 'expensePaid'",
+      "dataClassification": []
+    },
+    "actionPerformedBy": {
+      "type": "string",
+      "description": "The role of the user who performed the action or SYSTEM if the action was performed automatically",
+      "dataClassification": []
+    },
+    "reportId": {
+      "type": "string",
+      "description": "Unique 20 character identifier for the report",
+      "dataClassification": []
+    },
+    "reportApprovalStatus": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The approval status that the report is currently in (A_APPR, A_PEND, A_NOTF,..)",
+      "dataClassification": []
+    },
+    "reportWasSentBack": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Indicates if the report was sent back for corrections",
+      "dataClassification": []
+    },
+    "expenseId": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Unique identifier for the expense",
+      "dataClassification": []
+    },
+    "fieldsChanged": {
+      "additionalProperties": false,
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of fields that were changed",
+      "dataClassification": [],
+      "items": {
+        "type": "object",
+        "required": [
+          "fieldId"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "fieldId": {
+            "type": "string",
+            "description": "Unique identifier for the field",
+            "dataClassification": []
+          },
+          "fieldName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Name of the field",
+            "dataClassification": []
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "PerDiemRate.json",
+	"type": "object",
+	"properties": {
+		"Amount": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"Meal": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"Incidental": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"TaxesIncludedInd": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"Currency": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"StartDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"EndDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

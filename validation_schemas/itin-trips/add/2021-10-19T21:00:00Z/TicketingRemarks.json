@@ -1,0 +1,16 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "TicketingRemarks.json",
+	"type": "object",
+	"properties": {
+		"TicketingRemark": {
+			"type": "array",
+			"items": {
+				"$ref": "TicketingRemark.json#"
+			},
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

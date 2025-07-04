@@ -1,0 +1,127 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "PurchaseModelV4.json",
+	"description": "Purchase Addendum Data of the transaction - addendumType = PRCH",
+	"type": "object",
+	"definitions": {
+		"PurchaseTaxModelV4": {
+			"type": "object",
+			"required": [
+				"amount",
+				"type"
+			],
+			"properties": {
+				"amount": {
+					"description": "Sum of unexpensed amounts aggregated per posted currency.",
+					"$ref": "AmountModelV4.json#"
+				},
+				"type": {
+					"type": "string",
+					"example": "SHIPPINGVAT",
+					"description": "Tax type SHIPPINGVAT - Shipping Value-added Tax (VAT)",
+					"dataClassification": [],
+					"enum": [
+						"SHIPPINGVAT"
+					]
+				}
+			},
+			"title": "PurchaseTaxModelV4",
+			"additionalProperties": false
+		}
+	},
+	"properties": {
+		"description": {
+			"type": ["string","null"],
+			"example": "Office Supplies",
+			"description": "Purchase description",
+			"dataClassification": []
+		},
+		"discountAmount": {
+			"description": "Discount Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"dutyAmount": {
+			"description": "Duty Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"invoiceNumber": {
+			"type": ["string","null"],
+			"example": 1452269412,
+			"description": "Invoice Number",
+			"dataClassification": []
+		},
+		"items": {
+			"type": "array",
+			"description": "Purchase items - only available if schema 'addendumDetails' or 'purchaseDetails' is provided",
+			"items": {
+				"$ref": "PurchaseDetailModelV4.json#"
+			}
+		},
+		"merchantOrderNumber": {
+			"type": ["string","null"],
+			"example": "M-12428-083479B",
+			"description": "Order number assigned by the merchant",
+			"dataClassification": ["sensitive"]
+		},
+		"numberOfLineItems": {
+			"type": ["null","integer"],
+			"format": "int32",
+			"example": 3,
+			"description": "Number of line items that belong to the purchase",
+			"dataClassification": []
+		},
+		"orderDate": {
+			"type": ["string","null"],
+			"example": "2018-08-16",
+			"description": "Date the order was placed",
+			"dataClassification": ["PII"]
+		},
+		"purchaseDate": {
+			"type": ["string","null"],
+			"example": "2018-08-15",
+			"description": "Effective/transaction date of the order",
+			"dataClassification": []
+		},
+		"shippingAmount": {
+			"description": "Shipping Amount",
+			"$ref": "AmountModelV4.json#",
+			"dataClassification": ["PII"]
+		},
+		"shipFromAddress": {
+			"description": "Ship from Address",
+			"$ref": "AddressModelV4.json#",
+			"dataClassification": ["PII"]
+		},
+		"shipToAddress": {
+			"description": "Ship to Address",
+			"$ref": "AddressModelV4.json#",
+			"dataClassification": ["PII"]
+		},
+		"supplierAddress": {
+			"description": "Supplier Address",
+			"$ref": "AddressModelV4.json#",
+			"dataClassification": ["PII"]
+		},
+		"commodityCode": {
+			"type": "string",
+			"example": "120-00",
+			"description": "Commodity Code",
+			"dataClassification": []
+		},
+		"customData": {
+			"type": "array",
+			"description": "Custom Data of the purchase",
+			"items": {
+				"$ref": "CustomDataModelV4Post.json#"
+			}
+		},
+		"taxes": {
+			"type": "array",
+			"description": "Taxes incurred for the purchase",
+			"items": {
+				"$ref": "#/definitions/PurchaseTaxModelV4"
+			}
+		}
+	},
+	"additionalProperties": false
+}

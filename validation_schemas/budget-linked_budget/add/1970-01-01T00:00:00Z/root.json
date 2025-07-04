@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-linked_budgets-add.json",
+  "title": "Budget Linked Budgets Add Schema",
+  "description": "Schema for validating a budget linked budgets object",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification": []
+    },
+    "entityId": {
+      "type": "string",
+      "description": "The unique identifier of the entity",
+      "dataClassification": []
+    },
+    "reason": {
+      "type": "string",
+      "description": "The reason",
+      "dataClassification": []
+    },
+    "syncTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time when the budget spending item link was synchronized",
+      "dataClassification": []
+    },
+    "budgetItemDetailSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget item detail being added or updated",
+      "dataClassification": []
+    },
+    "budgetItemSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget item being linked",
+      "dataClassification": []
+    },
+    "budgetSpendingItemDetailExternalSyncGuid": {
+      "type": "string",
+      "description": "The external Sync GUID of the budget spending item detail being linked",
+      "dataClassification": []
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last time the budget spending item link was updated",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "reason",
+    "syncTime",
+    "budgetItemDetailSyncGuid",
+    "budgetItemSyncGuid",
+    "budgetSpendingItemDetailExternalSyncGuid",
+    "lastModifiedDate"
+  ],
+  "additionalProperties": false
+}

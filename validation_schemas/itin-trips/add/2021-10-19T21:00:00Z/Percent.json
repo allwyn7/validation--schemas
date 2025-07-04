@@ -1,0 +1,74 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Percent.json",
+	"type": "object",
+	"properties": {
+		"VendorChargeCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "none",
+			"description": "The vendor's code for the charge."
+		},
+		"Description": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The description for the rate."
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the total amount."
+		},
+		"Amount": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The total amount for the rate for the booking."
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The start date of the booking, in the user's local time."
+		},
+		"IsPrimary": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the rate is the primary rate. If one of the rates is the actual rate and the rest are penalties, the actual rate should be set as IsPrimary. Only one charge in a set should be set as primary."
+		},
+		"IsPaid": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the rate has been paid."
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The vendor for the booking charge."
+		},
+		"SemanticsCode": {
+			"type": "string",
+			"maxLength": 15,
+			"group": "external",
+			"classification": "none",
+			"description": "Indicates the charge category for the line item. Refer to the Semantics Codes table for more information."
+		},
+		"SemanticsVendorType": {
+			"type": "string",
+			"maxLength": 1,
+			"pattern": "[XCHAEFGPR]",
+			"group": "external",
+			"classification": "none",
+			"description": "The vendor type. Supported values: H - Hotel, C - Car, A - Air, G - Ground, R - Rail"
+		}
+	},
+	"additionalProperties": false
+}

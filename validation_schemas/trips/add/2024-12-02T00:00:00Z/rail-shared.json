@@ -1,0 +1,539 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "rail-shared.json",
+    "definitions": {
+        "railServiceClass": {
+            "type": "string",
+            "x-java-type": "com.concur.t2.schema.rail.ServiceClass",
+            "goType": "RailServiceClass",
+            "enum": [
+                "FIRST",
+                "SECOND",
+                "BUSINESS"
+            ],
+            "description": "Our unified representation of rail class of service"
+        },
+        "railStation": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.Station",
+            "goType": "RailStation",
+            "description": "Rail station",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Reference to places store or Omnisearch",
+                    "classification": "none"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the rail station",
+                    "classification": "none",
+                    "groups": [
+                        "search"
+                    ]
+                },
+                "supplierCode": {
+                    "type": "string",
+                    "description": "The station code used by the supplier",
+                    "classification": "none"
+                },
+                "countryCode": {
+                    "type": "string",
+                    "description": "Country code of the rail station, eg. 'ES' (using ISO 3166-1 alpha-2 standard)",
+                    "classification": "none"
+                },
+                "country": {
+                    "type": "string",
+                    "description": "Country the rail station is located in",
+                    "classification": "none"
+                },
+                "city": {
+                    "type": "string",
+                    "description": "City the rail station is located in",
+                    "classification": "none"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone the rail station is located in",
+                    "classification": "none"
+                },
+                "latitude": {
+                    "type": "number",
+                    "description": "Latitude of the rail station",
+                    "classification": "none"
+                },
+                "longitude": {
+                    "type": "number",
+                    "description": "Longitude of the rail station",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "name",
+                "supplierCode",
+                "countryCode"
+            ]
+        },
+        "seatType": {
+            "type": "string",
+            "x-java-type": "com.concur.t2.schema.rail.SeatType",
+            "goType": "RailSeatType",
+            "description": "hall, table etc.",
+            "enum": [
+                "HALL",
+                "TABLE",
+                "HANDICAPPED"
+            ]
+        },
+        "seatPosition": {
+            "type": "string",
+            "description": "hall, table etc.",
+            "x-java-type": "com.concur.t2.schema.rail.SeatPosition",
+            "goType": "RailSeatPosition",
+            "enum": [
+                "AISLE",
+                "WINDOW",
+                "ISOLATED_WINDOW",
+                "MIDDLE"
+            ]
+        },
+        "deck": {
+            "type": "string",
+            "description": "upper, lower etc.",
+            "x-java-type": "com.concur.t2.schema.rail.Deck",
+            "goType": "RailDeck",
+            "enum": [
+                "UPPER",
+                "LOWER"
+            ]
+        },
+        "seatDirection": {
+            "type": "string",
+            "description": "forward or back facing seat",
+            "x-java-type": "com.concur.t2.schema.rail.SeatDirection",
+            "goType": "RailSeatDirection",
+            "enum": [
+                "FORWARD",
+                "BACK"
+            ]
+        },
+        "coach": {
+            "type": "string",
+            "description": "type of coach - compartments, couchettes, etc",
+            "x-java-type": "com.concur.t2.schema.rail.Coach",
+            "goType": "RailCoach",
+            "enum": [
+                "COMPARTMENT",
+                "SLEEPER"
+            ]
+        },
+        "seatPreference": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.SeatPreference",
+            "goType": "RailSeatPreference",
+            "description": "Describe seat preferences",
+            "additionalProperties": false,
+            "properties": {
+                "position": {
+                    "$ref": "#/definitions/seatPosition",
+                    "classification": "none"
+                },
+                "type": {
+                    "$ref": "#/definitions/seatType",
+                    "classification": "none"
+                },
+                "direction": {
+                    "$ref": "#/definitions/seatDirection",
+                    "classification": "none"
+                },
+                "deck": {
+                    "$ref": "#/definitions/deck",
+                    "classification": "none"
+                },
+                "coach": {
+                    "$ref": "#/definitions/coach",
+                    "classification": "none"
+                }
+            }
+        },
+        "seatSelection": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.SeatSelection",
+            "goType": "RailSeatSelection",
+            "description": "Describe specific seat selection done using seat map data",
+            "additionalProperties": false,
+            "properties": {
+                "seatNumber": {
+                    "type": "string",
+                    "description": "Designation of seat within a carriage",
+                    "classification": "none"
+                },
+                "carriageNumber": {
+                    "type": "string",
+                    "description": "Designation of carriage within a train",
+                    "classification": "none"
+                },
+                "segmentId": {
+                    "$ref": "shared.json#/definitions/uuid",
+                    "description": "Reference to the segment to which the seat reservation applies",
+                    "classification": "none"
+                }
+            }
+        },
+        "fareRule": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.FareRule",
+            "goType": "RailFareRule",
+            "required": [
+                "id",
+                "exchangeRules",
+                "cancellationRules",
+                "permittedOrigins",
+                "permittedDestinations",
+                "regulationLinks"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "$ref": "shared.json#/definitions/uuid",
+                    "description": "id of the fare rule, used as a reference by fare to match the rule",
+                    "classification": "none"
+                },
+                "exchangeRules": {
+                    "description": "List of rules relating to exchangeability of the fare. To be evaluated as ordered by expiration.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/exchangeRulesItem"
+                    },
+                    "classification": "none"
+                },
+                "cancellationRules": {
+                    "description": "List of rules relating to cancellation of the fare. To be evaluated as ordered by expiration.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/cancellationRulesItem"
+                    },
+                    "classification": "none"
+                },
+                "additionalRules": {
+                    "description": "Fare rules in a textual format. This is used either in addition or instead of the structured cancellation and exchange rules.",
+                    "$ref": "#/definitions/additionalRulesText",
+                    "classification": "none"
+                },
+                "seating": {
+                    "type": "string",
+                    "description": "SEATMAP: Seat selection is available free of charge. SEAT_PAID: Only paid seat selection is available. PREFERENCES: Only seat preferences may be specified. NONE: All seating options are unavailable.",
+                    "enum": [
+                        "SEATMAP",
+                        "SEAT_PAID",
+                        "PREFERENCES",
+                        "NONE"
+                    ],
+                    "classification": "none"
+                },
+                "regulationLinks": {
+                    "description": "List of regulations relating to regulationType and url",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/regulationLink"
+                    },
+                    "classification": "none"
+                },
+                "routeRestriction": {
+                    "description": "Restrictions on the routes that this fare may be used on.",
+                    "$ref": "#/definitions/routeRestriction",
+                    "classification": "none"
+                },
+                "permittedOrigins": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/railStation"
+                    },
+                    "classification": "none"
+                },
+                "permittedDestinations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/railStation"
+                    },
+                    "classification": "none"
+                }
+            }
+        },
+        "routeRestriction": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.RouteRestriction",
+            "goType": "RailRouteRestriction",
+            "additionalProperties": false,
+            "properties": {
+                "supplierCode": {
+                    "type": "string",
+                    "description": "Identifier of the routeRestriction used in external system",
+                    "classification": "none"
+                },
+                "text": {
+                    "description": "Store routeRestriction text in a particular language",
+                    "$ref": "shared.json#/definitions/localizedString",
+                    "classification": "none"
+                }
+            }
+        },
+        "penalty": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.Penalty",
+            "goType": "RailPenalty",
+            "required": [
+                "value",
+                "type"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "PERCENTAGE",
+                        "CURRENCY"
+                    ],
+                    "classification": "none"
+                },
+                "value": {
+                    "type": "number",
+                    "description": "the size of the penalty, in percents or specified currency (based on type)",
+                    "classification": "none"
+                },
+                "currency": {
+                    "type": "string",
+                    "description": "Currency ISO code",
+                    "classification": "none"
+                }
+            }
+        },
+        "exchangeRulesItem": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.ExchangeRulesItem",
+            "goType": "RailExchangeRulesItem",
+            "required": [
+                "type"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "description": "Type of the rule specifying whether exchange is allowed or forbidden before the specified expiration",
+                    "type": "string",
+                    "enum": [
+                        "ALLOWED",
+                        "FORBIDDEN"
+                    ],
+                    "classification": "none"
+                },
+                "penalty": {
+                    "description": "A penalty that applies to this particular rule",
+                    "$ref": "#/definitions/penalty",
+                    "classification": "none"
+                },
+                "expiration": {
+                    "description": "a point in time until which this particular rule applies (UTC). Null means the rule applies without a limit.",
+                    "$ref": "shared.json#/definitions/date-time",
+                    "classification": "none"
+                }
+            }
+        },
+        "cancellationRulesItem": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.CancellationRulesItem",
+            "goType": "RailCancellationRulesItem",
+            "required": [
+                "type"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "description": "Type of the rule specifying whether exchange is allowed or forbidden before the specified expiration",
+                    "type": "string",
+                    "enum": [
+                        "ALLOWED",
+                        "FORBIDDEN"
+                    ],
+                    "classification": "none"
+                },
+                "penalty": {
+                    "description": "A penalty that applies to this particular rule",
+                    "$ref": "#/definitions/penalty",
+                    "classification": "none"
+                },
+                "expiration": {
+                    "description": "a point in time until which this particular rule applies (UTC). Null means the rule applies without a limit.",
+                    "$ref": "shared.json#/definitions/date-time",
+                    "classification": "none"
+                },
+                "voucher": {
+                    "description": "specifies whether a refund is returned in the form of a voucher for future travel",
+                    "type": "string",
+                    "enum": [
+                        "MANDATORY",
+                        "OPTIONAL",
+                        "NONE"
+                    ],
+                    "classification": "none"
+                }
+            }
+        },
+        "additionalRulesText": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.AdditionalRulesText",
+            "goType": "RailAdditionalRulesText",
+            "additionalProperties": false,
+            "properties": {
+                "paragraphs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/additionalRulesParagraph"
+                    },
+                    "classification": "none"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "a url to the original source of the fare rules",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "paragraphs"
+            ]
+        },
+        "additionalRulesParagraph": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.AdditionalRulesParagraph",
+            "goType": "RailAdditionalRulesParagraph",
+            "description": "Represents one paragraph for fare rules in textual format",
+            "additionalProperties": false,
+            "properties": {
+                "language": {
+                    "type": "string",
+                    "description": "Language designator according to BCP 47",
+                    "classification": "none"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Localized content of this paragraph",
+                    "classification": "none"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "Title for this paragraph",
+                    "classification": "none"
+                }
+            }
+        },
+        "ticketDelivery": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.TicketDelivery",
+            "goType": "RailTicketDelivery",
+            "description": "Information necessary to deliver a ticket",
+            "required": [
+                "id",
+                "type"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "$ref": "shared.json#/definitions/uuid",
+                    "classification": "none"
+                },
+                "data": {
+                    "type": "string",
+                    "description": "Descriptive data for given ticket delivery (address, phone number, url etc.)",
+                    "classification": "personal"
+                },
+                "fee": {
+                    "$ref": "#/definitions/feeAmountCurrency",
+                    "description": "The fee associated with the ticket delivery option.",
+                    "classification": "none"
+                },
+                "filename": {
+                    "type": "string",
+                    "description": "Name of the file which contains the ticket",
+                    "classification": "none"
+                },
+                "isCollectableAtOriginStation": {
+                    "type": "boolean",
+                    "description": "Indicates whether the traveler can collect the ticket at the origin station or not. null/missing if unknown or irrelevant.",
+                    "classification": "none"
+                },
+                "type": {
+                    "$ref": "#/definitions/ticketDeliveryType",
+                    "classification": "none"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Contains the URL that the user can navigate to to find more information about the collection for this ticket delivery (link to ETICKET, possible collection places for KIOSK, etc.). null/missing if unknown or irrelevant.",
+                    "classification": "personal"
+                }
+            }
+        },
+        "ticketDeliveryType": {
+            "type": "string",
+            "x-java-type": "com.concur.t2.schema.rail.TicketDeliveryType",
+            "goType": "RailTicketDeliveryType",
+            "description": "Means of delivering a ticket",
+            "enum": [
+                "EMAIL",
+                "ETICKET",
+                "KIOSK",
+                "LINK",
+                "MAIL",
+                "PASSBOOK",
+                "PICKUP",
+                "PRINT",
+                "SMS"
+            ]
+        },
+        "feeAmountCurrency": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.FeeAmountCurrency",
+            "goType": "RailFeeAmountCurrency",
+            "required": [
+                "amount",
+                "currency"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "amount": {
+                    "type": "string",
+                    "description": "Amount as string 123.45 with point as comma separator",
+                    "classification": "none"
+                },
+                "currency": {
+                    "$ref": "shared.json#/definitions/currency"
+                }
+            }
+        },
+        "regulationLink": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.rail.RegulationLink",
+            "goType": "RailRegulationLink",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "PASSENGER_RIGHTS_REGULATION",
+                        "NATIONAL_RAIL_CONDITIONS",
+                        "AMTRAK_TERMS_AND_CONDITIONS",
+                        "CARRIER_TERMS_AND_CONDITIONS"
+                    ],
+                    "classification": "none"
+                },
+                "url": {
+                    "type": "string",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "type",
+                "url"
+            ]
+        }
+    }
+}

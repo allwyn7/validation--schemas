@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "booking-data-misc.json",
+    "title": "Miscelaneous segments booking data",
+    "type": "object",
+    "x-java-type": "com.concur.t2.schema.itinerary.MiscData",
+    "goType": "MiscBookingData",
+    "additionalProperties": false,
+    "properties": {
+        "segments": {
+            "type": "array",
+            "classification": "none",
+            "items": {
+                "$ref": "#/definitions/miscSegment"
+            }
+        }
+    },
+    "definitions": {
+        "miscSegment": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.itinerary.misc.Segment",
+            "goType": "MiscSegment",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "$ref": "shared.json#/definitions/uuid",
+                    "classification": "none"
+                },
+                "segmentId": {
+                    "$ref": "shared.json#/definitions/uuid",
+                    "description": "Actual booking segment for which this misc segment was created.",
+                    "classification": "none"
+                },
+                "segmentNumber": {
+                    "type": "integer",
+                    "description": "Segment number as represented in GDS.",
+                    "classification": "none"
+                },
+                "type": {
+                    "type": "string",
+                    "classification": "none"
+                },
+                "locationCode": {
+                    "type": "string",
+                    "classification": "none"
+                },
+                "status": {
+                    "type": "string",
+                    "classification": "none"
+                },
+                "quantity": {
+                    "type": "integer",
+                    "classification": "none"
+                },
+                "vendorCode": {
+                    "type": "string",
+                    "classification": "none"
+                },
+                "date": {
+                    "$ref": "shared.json#/definitions/date",
+                    "classification": "none"
+                },
+                "text": {
+                    "type": "string",
+                    "description": "Misc segment query data written to GDS",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "id",
+                "segmentNumber",
+                "text"
+            ]
+        }
+    }
+}

@@ -1,0 +1,113 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "RateWithAllowance.json",
+	"type": "object",
+	"properties": {
+		"PerUnit": {
+			"type": "string",
+			"maxLength": 5,
+			"pattern": "^[0-9A-z]+\\.{0,1}[0-9]*$",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"NumUnits": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"AllowanceUnit": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"AllowanceNumUnits": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"AllowanceAmount": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"AllowanceIsUnlimited": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"VendorChargeCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Description": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Amount": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"IsPrimary": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"IsPaid": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"SemanticsCode": {
+			"type": "string",
+			"maxLength": 15,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"SemanticsVendorType": {
+			"type": "string",
+			"maxLength": 1,
+			"pattern": "[XCHAEFGPR]",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

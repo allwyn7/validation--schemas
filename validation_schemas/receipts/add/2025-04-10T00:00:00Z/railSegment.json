@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "railSegment.json",
+  "title": "Rail segment",
+  "type": "object",
+  "description": "Schema for Rail segment.",
+  "properties": {
+    "departureStation": {
+      "type": "string",
+      "description": "Name of the station from which the train is departing.",
+      "dataClassification": []
+    },
+    "departureDateTime": {
+      "type": "string",
+      "format": "dateTime",
+      "description": "Date and time of departure.",
+      "dataClassification": []
+    },
+    "arrivalStation": {
+      "type": "string",
+      "description": "Name of the station where the train is arriving.",
+      "dataClassification": []
+    },
+    "arrivalDateTime": {
+      "type": "string",
+      "format": "dateTime",
+      "description": "Date and time of arrival.",
+      "dataClassification": []
+    },
+    "trainNumber": {
+      "type": "string",
+      "description": "Train identifier.",
+      "dataClassification": []
+    },
+    "trainType": {
+      "type": "string",
+      "description": "Type of train.",
+      "dataClassification": []
+    },
+    "classOfServiceCode": {
+      "type": "string",
+      "description": "Class of service code.",
+      "dataClassification": []
+    },
+    "fare": {
+      "description": "Fare details for the segment.",
+      "$ref": "fare.json",
+      "dataClassification": []
+    },
+    "taxes": {
+      "type": "array",
+      "description": "Taxes applicable to the segment.",
+      "items": {
+        "description": "Tax",
+        "$ref": "tax.json",
+        "dataClassification": []
+      }
+    }
+  },
+  "additionalProperties": false
+}

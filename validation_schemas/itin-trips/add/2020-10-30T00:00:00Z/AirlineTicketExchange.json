@@ -1,0 +1,74 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirlineTicketExchange.json",
+	"type": "object",
+	"properties": {
+		"PlatingCarrierNumericCode": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		},
+		"PlatingControlNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"AppliedSegment1": {
+			"type": "integer",
+			"group": "external"
+		},
+		"AppliedSegment2": {
+			"type": "integer",
+			"group": "external"
+		},
+		"AppliedSegment3": {
+			"type": "integer",
+			"group": "external"
+		},
+		"AppliedSegment4": {
+			"type": "integer",
+			"group": "external"
+		},
+		"AppliedSegment5": {
+			"type": "integer",
+			"group": "external"
+		},
+		"AppliedSegment6": {
+			"type": "integer",
+			"group": "external"
+		},
+		"AppliedSegment7": {
+			"type": "integer",
+			"group": "external"
+		},
+		"AppliedSegment8": {
+			"type": "integer",
+			"group": "external"
+		},
+		"AppliedSegment9": {
+			"type": "integer",
+			"group": "external"
+		},
+		"AppliedSegment10": {
+			"type": "integer",
+			"group": "external"
+		},
+		"Amount": {
+			"type": "number",
+			"group": "external"
+		},
+		"Currency": {
+			"type": "string",
+			"group": "external"
+		},
+		"OldRecordLocator": {
+			"type": "string",
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

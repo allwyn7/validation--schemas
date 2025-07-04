@@ -1,0 +1,302 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Travel.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			}
+		},
+		"CreditCardId": {
+			"type": "integer"
+		},
+		"AllowDelete": {
+			"type": "boolean"
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			}
+		},
+		"Name": {
+			"type": "string",
+			"maxLength": 80
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external"
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"StartLocation": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"StartAddress": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"StartAddress2": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"StartPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"StartLatitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"StartLongitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external"
+		},
+		"EndLocation": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"EndAddress": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"EndAddress2": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"EndCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"EndPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"EndState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"EndCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"EndLatitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"EndLongitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"SpecialInstructions": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external"
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"NumPersons": {
+			"type": "integer",
+			"group": "external"
+		},
+		"DailyRate": {
+			"type": "number",
+			"group": "external"
+		},
+		"TotalRate": {
+			"type": "number",
+			"group": "external"
+		},
+		"TransportMode": {
+			"type": "string",
+			"group": "external"
+		},
+		"IsGhostCard": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"CreditCardLastFour": {
+			"type": "string"
+		},
+		"CreditCardType": {
+			"type": "string"
+		},
+		"CancellationPolicy": {
+			"type": "string",
+			"maxLength": 512
+		},
+		"IsRefundable": {
+			"type": "boolean"
+		},
+		"IsOnline": {
+			"type": "boolean"
+		},
+		"SegmentKey": {
+			"type": "string"
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external"
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external"
+		},
+		"IsT2Segment": {
+			"type": "boolean"
+		},
+		"ClientLocator": {
+			"type": "string"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external"
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external"
+		},
+		"OperatedByVendorName": {
+			"type": "string"
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external"
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external"
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"EReceiptStatus": {
+			"type": "integer"
+		},
+		"SentToAirplus": {
+			"type": "boolean"
+		},
+		"CliqbookId": {
+			"type": "integer"
+		},
+		"TransientSegmentNumber": {
+			"type": "integer"
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean"
+		},
+		"IsPreferredVendor": {
+			"type": "integer"
+		},
+		"VendorFlags": {
+			"type": "string"
+		},
+		"VirtualCreditCardType": {
+			"type": "string"
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "StartDateLocal" ]
+}

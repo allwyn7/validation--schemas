@@ -1,0 +1,1038 @@
+{
+   "$schema": "http://json-schema.org/draft-07/schema",
+   "$id": "spend-user-schema.json",
+   "type": "object",
+   "title": "Spend User Schema",
+   "description": "Spend User Schema JSON.",
+   "additionalProperties": false,
+   "definitions": {
+      "approver": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "approver": {
+               "type": "object",
+               "additionalProperties": false,
+               "properties": {
+                  "value": {
+                     "description": "The internal UUID identifier for the user",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  }
+               }
+            },
+            "displayName": {
+               "description": "The username for the user",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": [
+                  "PII"
+               ]
+            },
+            "employeeNumber": {
+               "description": "The employee number for the user",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            },
+            "$ref": {
+               "description": "The URI reference for the user",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            },
+            "primary": {
+               "description": "The value for indicating whether the associated user is primary approver",
+               "type": "boolean",
+               "dataClassification": []
+            }
+         },
+         "required": [
+            "primary"
+         ]
+      },
+      "approverLimitConfig": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "approvalType": {
+             "description": "The type of approval.",
+             "type": [
+                "string",
+                "null"
+             ],
+             "dataClassification": []
+          },
+          "exceptionApprovalAuthority": {
+             "description": "Indicate whether this approval config has the exception authority.",
+             "type": "boolean",
+             "dataClassification": []
+          },
+          "approvalLimit": {
+             "type": "number",
+             "description": "The upper bound of the approval authority.",
+             "dataClassification": []
+          },
+          "reimbursementCurrency": {
+             "example": "USD",
+             "description": "Valid three digit currency code in the list of system reimbursement currencies.",
+             "type": "string",
+             "dataClassification": []
+          },
+          "approvalGroup": {
+             "description": "Group to be associated with the approval rights; if blank, resolves to the global group.",
+             "type": "string",
+             "dataClassification": []
+          },
+          "level": {
+             "description": "The approval level of the user.",
+             "type": "integer",
+             "dataClassification": []
+          }
+        }
+      },
+      "delegate": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "canApprove": {
+               "description": "Determines if delegate can approve",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "canPrepare": {
+               "description": "Determines if delegate can prepare",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "canPrepareForApproval": {
+               "description": "Determines if delegate can prepare for approval",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "canReceiveApprovalEmail": {
+               "description": "Determines if delegate can receive approval emails",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "canReceiveEmail": {
+               "description": "Determines if delegate can receive emails",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "canSubmit": {
+               "description": "Determines if delegate can submit",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "canSubmitTravelRequest": {
+               "description": "Determines if delegate can submit travel request",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "canUseBi": {
+               "description": "Determines if delegate can use BI",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "canViewReceipt": {
+               "description": "Determines if delegate can view receipts",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "delegate": {
+               "type": "object",
+               "additionalProperties": false,
+               "properties": {
+                  "value": {
+                     "description": "The internal UUID identifier for the user",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  },
+                  "displayName": {
+                     "description": "The username for the user",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": [
+                        "PII"
+                     ]
+                  },
+                  "employeeNumber": {
+                     "description": "The employee number for the user",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  },
+                  "$ref": {
+                     "description": "The URI reference for the user",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  }
+               }
+            },
+            "temporaryDelegation": {
+               "type": [
+                  "object",
+                  "null"
+               ],
+               "properties": {
+                  "temporaryDelegationFromDate": {
+                     "description": "Start date for delegates temporary approval permissions. Valid ISO 8601 Date",
+                     "type": "string",
+                     "format": "date-time"
+                  },
+                  "temporaryDelegationToDate": {
+                     "description": "End date for delegates temporary approval permissions. Valid ISO 8601 Date",
+                     "type": "string",
+                     "format": "date-time"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "properties": {
+      "schemas": {
+         "type": [
+            "array",
+            "null"
+         ],
+         "items": {
+            "type": "string",
+            "dataClassification": []
+         }
+      },
+      "id": {
+         "type": "string",
+         "dataClassification": []
+      },
+      "companyId": {
+         "type": "string",
+         "dataClassification": []
+      },
+      "lastModified": {
+         "type": "string",
+         "format": "date-time",
+         "dataClassification": []
+      },
+      "externalId": {
+         "type": [
+            "string",
+            "null"
+         ],
+         "dataClassification": []
+      },
+      "meta": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "resourceType": {
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            },
+            "created": {
+               "description": "UTC timestamp of modification",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "format": "date-time"
+            },
+            "lastModified": {
+               "description": "UTC timestamp of modification",
+               "type": "string",
+               "format": "date-time"
+            },
+            "location": {
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            },
+            "version": {
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            }
+         },
+         "required": [
+            "lastModified"
+         ]
+      },
+      "urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "reimbursementCurrency": {
+               "example": "USD",
+               "description": "Valid three digit currency code in the list of system reimbursement currencies",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            },
+            "reimbursementType": {
+               "example": "ADP_PAYROLL",
+               "description": "The reimbursement type for the user",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": [],
+               "enum": [
+                  "ACCOUNTS_PAYABLE",
+                  "ADP_PAYROLL",
+                  "CONCUR_PAY",
+                  "OTHER",
+                  null
+               ]
+            },
+            "ledgerCode": {
+               "example": "DEFAULT",
+               "description": "Ledger code to associate with the user",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            },
+            "country": {
+               "example": "US",
+               "description": "Valid ISO 3166 country code",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": [
+                  "PII"
+               ]
+            },
+            "budgetCountryCode": {
+               "example": "US",
+               "description": "Valid ISO 3166 country code for Budget",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": [
+                  "PII"
+               ]
+            },
+            "stateProvince": {
+               "example": "WA",
+               "description": "Valid ISO sub country code",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": [
+                  "PII"
+               ]
+            },
+            "locale": {
+               "example": "en-US",
+               "description": "Valid locale from the list of configured locales as defined in [RFC5646]",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": [
+                  "PII"
+               ]
+            },
+            "cashAdvanceAccountCode": {
+               "description": "Valid cash advance account code",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            },
+            "testEmployee": {
+               "description": "A Boolean value indicating whether the User is a test user. Can't be modified after the user is created. Can only be set at creation.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "nonEmployee": {
+               "description": "A Boolean value indicating whether the User is a NonEmployee",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "biManager": {
+               "type": [
+                  "object",
+                  "null"
+               ],
+               "additionalProperties": false,
+               "properties": {
+                  "value": {
+                     "description": "The internal UUID identifier for the user",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  },
+                  "displayName": {
+                     "example": "",
+                     "description": "The username for the user",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": [
+                        "PII"
+                     ]
+                  },
+                  "employeeNumber": {
+                     "description": "The employee number for the user",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  },
+                  "$ref": {
+                     "description": "The URI reference for the user",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  }
+               }
+            },
+            "biHierarchy": {
+               "type": [
+                  "object",
+                  "null"
+               ],
+               "additionalProperties": false,
+               "properties": {
+                  "code": {
+                     "description": "The long code of the last list item in Reporting Hierarchy. This is only for UAC(Unified Analytics of Concur).",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  },
+                  "syncGuid": {
+                     "description": "The sync guid of the last list item in Reporting Hierarchy. This is only for UAC(Unified Analytics of Concur).",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  },
+                  "href": {
+                     "description": "The URI to the last list item in Reporting Hierarchy. This is only for UAC(Unified Analytics of Concur).",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  }
+               }
+            },
+            "customData": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                     "id": {
+                        "example": "custom1",
+                        "description": "custom1 - custom22, orgUnit1 - orgUnit6",
+                        "type": [
+                           "string",
+                           "null"
+                        ],
+                        "dataClassification": [
+                           "PII"
+                        ]
+                     },
+                     "value": {
+                        "description": "Value of the custom field - For list = List Item Code",
+                        "type": [
+                           "string",
+                           "null"
+                        ],
+                        "dataClassification": [
+                           "PII"
+                        ]
+                     },
+                     "syncGuid": {
+                        "description": "The sync_guid value of the custom field",
+                        "type": [
+                           "string",
+                           "null"
+                        ],
+                        "dataClassification": [
+                           "PII"
+                        ]
+                     },
+                     "href": {
+                        "description": "The list service endpoint to fetch the specific item information.",
+                        "type": [
+                           "string",
+                           "null"
+                        ],
+                        "dataClassification": [
+                           "PII"
+                        ]
+                     }
+                  }
+               }
+            }
+         },
+         "required": [
+            "reimbursementCurrency",
+            "country",
+            "locale"
+         ]
+      },
+      "urn:ietf:params:scim:schemas:extension:spend:2.0:ApproverLimit": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "authorizedApprover": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/definitions/approverLimitConfig"
+            }
+          },
+          "costObjectApprover": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/definitions/approverLimitConfig"
+            }
+          }
+        }
+      },
+      "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "report": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "$ref": "#/definitions/approver"
+               }
+            },
+            "cashAdvance": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "$ref": "#/definitions/approver"
+               }
+            },
+            "request": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "$ref": "#/definitions/approver"
+               }
+            },
+            "invoice": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "$ref": "#/definitions/approver"
+               }
+            },
+            "purchaseRequest": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "$ref": "#/definitions/approver"
+               }
+            },
+            "statement": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "$ref": "#/definitions/approver"
+               }
+            },
+            "budget": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "$ref": "#/definitions/approver"
+               }
+            }
+         }
+      },
+      "urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "expense": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "$ref": "#/definitions/delegate"
+               }
+            },
+            "payment": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "$ref": "#/definitions/delegate"
+               }
+            },
+            "purchaseRequest": {
+               "type": [
+                  "array",
+                  "null"
+               ],
+               "items": {
+                  "$ref": "#/definitions/delegate"
+               }
+            }
+         }
+      },
+      "urn:ietf:params:scim:schemas:extension:spend:2.0:Role": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "roles": {
+               "type": "array",
+               "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                     "roleName": {
+                        "type": [
+                           "string",
+                           "null"
+                        ],
+                        "description": "Expense Role for Employee",
+                        "dataClassification": [],
+                        "enum": [
+                           "EXP_FB_TAX_ADMIN",
+                           "EXP_USER",
+                           "EXP_TRAVEL_AND_EXPENSE_USER",
+                           "EXP_PROXY_USER",
+                           "EXP_APPROVER",
+                           "EXP_CONFIG_ADMIN",
+                           "EXP_CONFIG_ADMIN_CLIENT",
+                           "EXP_CONFIG_ADMIN_RO",
+                           "EXP_EMPLOYEE_ADMIN",
+                           "EXP_CARD_ADMIN",
+                           "EXP_CASHADVANCE_ADMIN",
+                           "EXP_EXTRACT_ADMIN",
+                           "EXP_PROCESSOR",
+                           "EXP_PROCESSOR_AUDIT",
+                           "EXP_PROCESSOR_ADMIN",
+                           "EXP_PROCESSOR_CR",
+                           "EXP_ATTENDEE_ADMIN",
+                           "EXP_ATTENDEE_ADMIN_RO",
+                           "EXP_REIMBURSEMENT_AUDITOR",
+                           "EXP_REIMBURSEMENT_APPROVER",
+                           "EXP_FIND_ATTENDEES_USER",
+                           "EXP_PCARD_ADMIN",
+                           "EXP_RECEIPT_PROCESSOR",
+                           "STATEMENT_PROCESSOR_AUDITOR",
+                           "STATEMENT_PROCESSOR",
+                           "STATEMENT_PROCESSOR_ADMIN",
+                           "STATEMENT_APPROVER",
+                           "STATEMENT_USER",
+                           "TRAVEL_USER",
+                           "INV_PURCH_RECEIVER",
+                           "INV_EMPLOYEE_ADMIN",
+                           "INV_IMAGE_PROCESSOR",
+                           "INV_RECEIPT_PROCESSOR",
+                           "INV_PMT_MANAGER",
+                           "INV_PURCH_USER",
+                           "INV_APPROVER",
+                           "INV_AP_USER",
+                           "INV_PROCESSOR_AUDIT",
+                           "INV_PMT_USER",
+                           "INV_PROCESSOR",
+                           "INV_PROCESSOR_MANAGER",
+                           "INV_CONFIG_ADMIN",
+                           "INV_CONFIG_ADMIN_RO",
+                           "INV_IC_VERIFIER",
+                           "INV_PROXY_USER",
+                           "INV_TAX_ADMIN",
+                           "INV_VENDOR_ADMIN",
+                           "INV_PURCH_ORDER_PROCESSOR_AUDIT",
+                           "INV_PURCH_ORDER_PROCESSOR",
+                           "INV_PURCH_REQ_APPROVER",
+                           "INV_PURCH_REQ_PROCESSOR_AUDIT",
+                           "INV_PURCH_REQ_PROCESSOR",
+                           "INV_PURCH_REQ_USER",
+                           "INV_PURCH_REQ_PROXY_USER",
+                           "INV_RECEIPT_USER",
+                           "REQ_CONFIG_ADMIN",
+                           "REQ_CONFIG_ADMIN_RO",
+                           "REQ_EVENT_ADMIN",
+                           "REQ_APPROVER",
+                           "REQ_PROCESSOR",
+                           "REQ_PROCESSOR_ADMIN",
+                           "REQ_PROCESSOR_AUDIT",
+                           "REQ_PROXY_USER",
+                           "REQ_USER",
+                           "REQ_RISK_ADMIN",
+                           "BUDGET_REPORTING_USER",
+                           "REPORTING_CONFIG_ADMIN",
+                           "REPORTING_HIST_DATA_USER",
+                           "REPORTING_DASHBOARD_USER",
+                           "REPORTING_EMPLOYEE_ADMIN",
+                           "REPORTING_CAS_ANALYST",
+                           "REPORTING_BUSINESS_AUTHOR",
+                           "REPORTING_CONSUMER",
+                           "REPORTING_PRO_AUTHOR",
+                           "SHD_APP_CENTER_ADMIN",
+                           "SHD_AUTHORIZED_APPROVER",
+                           "SHD_BUDGET_APPROVER",
+                           "SHD_BILLING_ATTRIBUTES_USER",
+                           "SHD_BUDGET_ADMIN",
+                           "SHD_BUDGET_OWNER",
+                           "SHD_BUDGET_VIEWER",
+                           "SHD_COST_OBJECT_APPROVER",
+                           "SHD_DATA_RETENTION_ADMIN",
+                           "SHD_COMPANY_INFO_ADMIN",
+                           "SHD_EMPLOYEE_ADMIN",
+                           "SHD_EMPLOYEE_ADMIN_RO",
+                           "SHD_IMPORT_EXTRACT_ADMIN",
+                           "SHD_IMPORT_EXTRACT_ADMIN_RO",
+                           "SHD_PASSWORD_ADMIN",
+                           "SHD_PAYROLL_ADMIN",
+                           "SHD_ROLE_ADMIN",
+                           "SHD_CONFIG_ADMIN",
+                           "SHD_CONFIG_ADMIN_RO",
+                           "SHD_TAX_ADMIN",
+                           "SHD_TAX_ADMIN_RO",
+                           "SHD_TRAINING_ADMIN",
+                           "SHD_WEB_SERVICES_ADMIN",
+                           null
+                        ]
+                     },
+                     "roleGroups": {
+                        "type": "array",
+                        "items": {
+                           "description": "Group(s) to be associated with the Expense Role",
+                           "type": [
+                              "string",
+                              "null"
+                           ],
+                           "dataClassification": []
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "showImagingIntro": {
+               "description": "Display imaging introduction, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "expenseAuditRequired": {
+               "description": "Expense Audit is required.",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            },
+            "allowCreditCardTransArrivalEmails": {
+               "description": "Allow Credit Card Transaction Arrival Notification Emails, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "allowReceiptImageAvailEmails": {
+               "description": "Send email when faxed receipts are successfully received, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "promptForCardTransactionsOnReport": {
+               "description": "Prompt for Company Card Transactions when creating a new report, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "autoAddTripCardTransOnReport": {
+               "description": "Add company card transactions within trip dates to 1 click expense report.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "promptForReportPrintFormat": {
+               "description": "Always prompt for the report format before printing.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "defaultReportPrintFormat": {
+               "description": "Expense Audit is required.",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            },
+            "showTotalOnReport": {
+               "description": "Always prompt for the report format before printing.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "showExpenseOnReport": {
+               "description": "Show expenses on detailed report.",
+               "type": [
+                  "string",
+                  "null"
+               ],
+               "dataClassification": []
+            },
+            "showInstructHelpPanel": {
+               "description": "Display instructional help, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "useQuickItinAsDefault": {
+               "description": "Use quick itinerary as default.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "allowAutoCreateTripReport": {
+               "description": "Always prompt for the report format before printing.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "enableOcrForUi": {
+               "description": "Enable optical character recognition in the UI, defaulted to Y",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "enableOcrForEmail": {
+               "description": "Enable optical character recognition in email, defaulted to Y",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "enableTripBasedAssistant": {
+               "description": "Enable Trip-based Expense Assistant.",
+               "type": "boolean",
+               "dataClassification": []
+            }
+         }
+      },
+      "urn:ietf:params:scim:schemas:extension:spend:2.0:InvoicePreference": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "emailOnPurchasingAssigned": {
+               "description": "Send email when a request is assigned to purchasing",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailOnPurchasingSendBack": {
+               "description": "Send email when a request is sent back from purchasing",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailOnFaxImageAvailablePaymentRequest": {
+               "description": "Send email when a fax image is available for a payment request",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "promptNewLineItemsPaymentRequest": {
+               "description": "Prompt a user with a window to create new line items when creating a new payment request",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "displayInlineImage": {
+               "description": "Display Image Inline",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "autoOpenImage": {
+               "description": "Auto Open Image",
+               "type": "boolean",
+               "dataClassification": []
+            }
+         }
+      },
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "adp": {
+               "type": "object",
+               "additionalProperties": false,
+               "properties": {
+                  "companyCode": {
+                     "description": "The company code for the employee within ADP.",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  },
+                  "deductionCode": {
+                     "description": "The deduction code for the employee within ADP.",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  },
+                  "employeeFileNumber": {
+                     "description": "The identifier for the employee within ADP, also known as the - Employee File Number",
+                     "type": [
+                        "string",
+                        "null"
+                     ],
+                     "dataClassification": []
+                  }
+               },
+               "required": [
+                  "companyCode",
+                  "deductionCode",
+                  "employeeFileNumber"
+               ]
+            }
+         }
+      },
+      "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
+         "type": "object",
+         "additionalProperties": false,
+         "properties": {
+            "emailStatusChangeOnCashAdvance": {
+               "description": "Send email when the cash advance status changes, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailAwaitApprovalOnCashAdvance": {
+               "description": "Send email when a cash advance is awaiting approval, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailStatusChangeOnReport": {
+               "description": "Send email when the report status changes, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailAwaitApprovalOnReport": {
+               "description": "Send email when a report is awaiting approval, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "promptForApproverOnReportSubmit": {
+               "description": "Prompt for approver when submitting a report, defaulted to false.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailStatusChangeOnTravelRequest": {
+               "description": "Send email when the travel request status changes, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailAwaitApprovalOnTravelRequest": {
+               "description": "Send email when a travel request is awaiting approval, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "promptForApproverOnTravelRequestSubmit": {
+               "description": "Prompt for approver when submitting a travel request, defaulted to false.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailStatusChangeOnPayment": {
+               "description": "Send email when the payment status changes, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailAwaitApprovalOnPayment": {
+               "description": "Send email when a payment is awaiting approval, defaulted to true.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "promptForApproverOnPaymentSubmit": {
+               "description": "Prompt for approver when submitting a payment, defaulted to false.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailOnPurchaseRequestStatusChange": {
+               "description": "Send email when the purchase request status changes.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "emailOnPurchaseRequestAwaitApproval": {
+               "description": "Send email when the purchase request is awaiting approval.",
+               "type": "boolean",
+               "dataClassification": []
+            },
+            "promptForPurchaseRequestApproverOnSubmit": {
+               "description": "Prompt for approver when submitting a purchase request, defaulted to false.",
+               "type": "boolean",
+               "dataClassification": []
+            }
+         }
+      }
+   },
+   "required": [
+      "id",
+      "companyId",
+      "lastModified"
+   ]
+}

@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "CardsTransaction.json",
+  "type": "object",
+  "required": [
+    "administrativeData",
+    "companyId",
+    "id",
+    "merchant",
+    "postedAmount",
+    "postedDate",
+    "transactionAmount",
+    "transactionDate",
+    "type"
+  ],
+  "properties": {
+    "account": {
+      "description": "Reference to the credit card account to which this transaction belongs",
+      "$ref": "TransactionAccountReferenceModelV4.json#"
+    },
+    "accountCodes": {
+      "type": ["null","array"],
+      "description": "Account codes of the transaction (accountCode1 - accountCode10)",
+      "items": {
+        "$ref": "AccountCodeModelV4.json#"
+      }
+    },
+    "acquirerReferenceNumber": {
+      "type": ["string","null"],
+      "example": 76210210071907660,
+      "description": "Acquirer Reference Number",
+      "dataClassification": []
+    },
+    "administrativeData": {
+      "description": "Administrative data",
+      "$ref": "TransactionAdministrativeDataModelV4.json#"
+    },
+    "billedAmount": {
+      "description": "Billed Amount",
+      "$ref": "AmountModelV4.json#"
+    },
+    "billingAccount": {
+      "description": "Reference to the billing account",
+      "$ref": "TransactionAccountReferenceModelV4.json#"
+    },
+    "carRental": {
+      "$ref": "CarRentalModelV4.json#"
+    },
+    "companyId": {
+      "type": "string",
+      "example": "b3cd8f62-d099-4e76-9d88-edba99e95ad0",
+      "description": "Company UUID",
+      "dataClassification": []
+    },
+    "customData": {
+      "type": ["null","array"],
+      "description": "Custom Data of the transaction - only available if schema 'customData' or 'customDataLabels' is provided",
+      "items": {
+        "$ref": "CustomDataModelV4.json#"
+      }
+    },
+    "customDataSemantics": {
+      "description": "Custom field values exposed as semantic fields according to configuration - only available if schema 'customDataSemantics' is provided",
+      "$ref": "CustomDataSemanticsModelV4.json#"
+    },
+    "customerVatNumber": {
+      "type": ["string","null"],
+      "example": "CVN2947",
+      "description": "Customer VAT number",
+      "dataClassification": ["sensitive"]
+    },
+    "description": {
+      "type": ["string","null"],
+      "example": "UBER,800-592-8996,PAYS-BAS",
+      "description": "Description of the transaction",
+      "dataClassification": []
+    },
+    "description2": {
+      "type": ["string","null"],
+      "example": "UBER,800-592-8996,PAYS-BAS",
+      "description": "Description2 of the transaction",
+      "dataClassification": []
+    },
+    "description3": {
+      "type": ["string","null"],
+      "example": "UBER,800-592-8996,PAYS-BAS",
+      "description": "Description3 of the transaction",
+      "dataClassification": []
+    },
+    "description4": {
+      "type": ["string","null"],
+      "example": "UBER,800-592-8996,PAYS-BAS",
+      "description": "Description4 of the transaction",
+      "dataClassification": []
+    },
+    "description5": {
+      "type": ["string","null"],
+      "example": "UBER,800-592-8996,PAYS-BAS",
+      "description": "Description5 of the transaction",
+      "dataClassification": []
+    },
+    "fleet": {
+      "$ref": "FleetModelV4Get.json#"
+    },
+    "id": {
+      "type": "string",
+      "example": "e34fa453",
+      "description": "Transaction ID",
+      "dataClassification": []
+    },
+    "lodging": {
+      "$ref": "LodgingModelV4.json#"
+    },
+    "merchant": {
+      "description": "Merchant Information",
+      "$ref": "MerchantModelV4Get.json#"
+    },
+    "merchantReferenceNumber": {
+      "type": ["string","null"],
+      "example": 987488700123,
+      "description": "Merchant Reference Number",
+      "dataClassification": []
+    },
+    "postedAmount": {
+      "description": "Posted Amount",
+      "$ref": "AmountModelV4.json#"
+    },
+    "postedDate": {
+      "type": "string",
+      "example": "2018-08-16",
+      "description": "Posted Date",
+      "dataClassification": ["PII"]
+    },
+    "processorReferenceNumber": {
+      "type": ["string","null"],
+      "example": 747855328780006700000,
+      "description": "Processor Reference Number",
+      "dataClassification": []
+    },
+    "purchase": {
+      "$ref": "PurchaseModelV4.json#"
+    },
+    "referenceNumber": {
+      "type": ["string","null"],
+      "example": "gWp859SqAX97DsIVt5aoZmSNh4y8iH6qc",
+      "description": "Transaction reference number for display purposes",
+      "dataClassification": []
+    },
+    "statement": {
+      "description": "Billing statement details",
+      "$ref": "TransactionStatementModelV4.json#"
+    },
+    "taxes": {
+      "type": ["array","null"],
+      "description": "Taxes incurred for the transaction",
+      "items": {
+        "$ref": "TransactionTaxModelV4.json#"
+      }
+    },
+    "totalTaxAmount": {
+      "description": "Total Tax Amount",
+      "$ref": "AmountModelV4.json#"
+    },
+    "transactionAmount": {
+      "description": "Transaction Amount",
+      "$ref": "AmountModelV4.json#"
+    },
+    "transactionDate": {
+      "type": "string",
+      "example": "2018-08-15",
+      "description": "Transaction Date",
+      "dataClassification": ["PII"]
+    },
+    "transactionDateTime": {
+      "type": ["string","null"],
+      "example": "2018-08-15T07:15:23.000+00:00",
+      "description": "Transaction Date Time (currently only exposed for real-time authorizations)",
+      "dataClassification": ["PII"]
+    },
+    "travel": {
+      "$ref": "TravelModelV4.json#"
+    },
+    "type": {
+      "type": "string",
+      "example": "RPE",
+      "description": "Type of the transaction:\nANF - Annual Fees\nCAV - Cash Advance\nCCF - Cash and Check Fees\nRPE - Regular Transaction\nFNC - Finance Charges\nNSF - Insufficient Funds Check Fees\nLAF - Late Fees\nCHG - Other Bank Charges and Fees\nPAY - Payment\nACN- Authorization Cancelation\nATH - Authorization\nAPA - Pre-Authorization",
+      "enum": [
+        "ACN",
+        "ANF",
+        "APA",
+        "ATH",
+        "CAV",
+        "CCF",
+        "CHG",
+        "FNC",
+        "LAF",
+        "NSF",
+        "PAY",
+        "RPE"
+      ],
+      "dataClassification": []
+    },
+    "yodleeCategory": {
+      "description": "Yodlee Category - only available if integration partner is YODLEE",
+      "$ref": "YodleeCategoryModelV4.json#"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-expenseType-add.json",
+  "title": "Budget Expense Type Add Schema",
+  "description": "Schema for creating or updating a budget expense type",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification":[]
+    },
+    "entityId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the entity associated with the budget expense type",
+      "dataClassification":[]
+    },
+    "reason": {
+      "type": "string",
+      "description": "The reason for adding or updating the budget expense type",
+      "dataClassification":[]
+    },
+    "syncTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time when the budget expense type was synchronized",
+      "dataClassification":[]
+    },
+    "expenseTypeSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget expense type being added or updated",
+      "dataClassification":[]
+    },
+    "budgetCategorySyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget category associated with the expense type",
+      "dataClassification":[]
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the budget expense type being added or updated",
+      "dataClassification":[]
+    },
+    "featureTypeCode": {
+      "type": "string",
+      "description": "The feature type code associated with the budget expense type",
+      "dataClassification":[]
+    },
+    "expenseTypeCode": {
+      "type": "string",
+      "description": "The code of the budget expense type being added or updated",
+      "dataClassification":[]
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the budget expense type was last modified",
+      "dataClassification":[]
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "reason",
+    "syncTime",
+    "expenseTypeSyncGuid",
+    "budgetCategorySyncGuid",
+    "name",
+    "featureTypeCode",
+    "expenseTypeCode",
+    "lastModifiedDate"
+  ],
+  "additionalProperties": false
+}

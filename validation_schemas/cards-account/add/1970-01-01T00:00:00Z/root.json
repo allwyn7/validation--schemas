@@ -1,0 +1,377 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "CardsAccount.json",
+  "version": "v1",
+  "description": "Cards-Account JSON Schema",
+  "type": "object",
+  "required": [
+    "accountType",
+    "administrativeData",
+    "cardProductType",
+    "companyId",
+    "id",
+    "nameOnCard"
+  ],
+  "properties": {
+    "accountType": {
+      "type": "string",
+      "description": "Type of the credit card account<li>I - Individual</li><li>P - Pseudo Account</li><li>D - Diversion</li><li>F - Fleet / Fuel card</li><li>V - Virtual card</li><li>M - Managing (the master account of virtual cards)</li><li>L - Lodge</li>",
+      "dataClassification": [],
+      "enum": [
+        "D",
+        "F",
+        "I",
+        "L",
+        "M",
+        "O",
+        "P",
+        "V"
+      ]
+    },
+    "administrativeData": {
+      "description": "Administrative data of an account; internal only to SAP Concur's processing",
+      "type": "object",
+      "dataClassification": [],
+      "required": [
+        "integrationPartner",
+        "isDeleted",
+        "isEditable",
+        "isTest",
+        "paymentType",
+        "processType",
+        "lastModified"
+      ],
+      "properties": {
+        "accountingCode": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": 1005002,
+          "description": "Accounting Code",
+          "dataClassification": []
+        },
+        "assignmentDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "2018-08-26",
+          "description": "Date when the account was last assigned to an employee.",
+          "dataClassification": []
+        },
+        "cardIconFileName": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "chrgIconRose",
+          "description": "Indicates the card icon file name, e.g. chrgIconRose, chrgIconSea etc.",
+          "dataClassification": []
+        },
+        "cardProgram": {
+          "description": "Note: this data is only returned for Company Bill Statement accounts.",
+          "type": [
+            "null",
+            "object"
+          ],
+          "dataClassification": [],
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "defaultPolicyId": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "example": "1D25B6AC53B248738271E57593F96979",
+              "description": "Contains the policy ID of the card program's default policy",
+              "dataClassification": []
+            },
+            "id": {
+              "type": "string",
+              "example": "E6CE2B44DB959D4189F0414EA2AE0F8B",
+              "description": "Contains the card program ID which can be used to gather additional information",
+              "dataClassification": []
+            },
+            "isDeleted": {
+              "type": [
+                "null",
+                "boolean"
+              ],
+              "example": false,
+              "description": "Indicates whether the card program is soft deleted",
+              "dataClassification": []
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "example": "US P-Card program",
+              "description": "Contains the name of the card program",
+              "dataClassification": []
+            }
+          }
+        },
+        "integrationPartner": {
+          "type": "string",
+          "example": "BATCH",
+          "description": "Indicates the integration partner this account is assigned to.",
+          "dataClassification": [],
+          "enum": [
+            "AMEX_OPEN",
+            "BATCH",
+            "YODLEE",
+            "API"
+          ]
+        },
+        "isDeleted": {
+          "type": "boolean",
+          "description": "Indicates whether the account is soft-deleted.",
+          "dataClassification": []
+        },
+        "isEditable": {
+          "type": "boolean",
+          "description": "Indicates whether the account can be edited.",
+          "dataClassification": []
+        },
+        "isTest": {
+          "type": "boolean",
+          "description": "Indicates whether this is a test account.",
+          "dataClassification": []
+        },
+        "lastModified": {
+          "type": "string",
+          "example": "2015-07-08T13:28:26.923+00:00",
+          "description": "Last Modified",
+          "format": "date-time",
+          "dataClassification": []
+        },
+        "paymentType": {
+          "description": "Indicates the payment type assigned to the account.",
+          "type": "object",
+          "dataClassification": [],
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "6C760C8B717D4EC9BF2A6568F62680EB",
+              "description": "Payment type ID",
+              "dataClassification": []
+            }
+          }
+        },
+        "processType": {
+          "type": "string",
+          "description": "Indicates the process type, i.e. whether this is a Central Reconciliation, a Company Bill Statement or a regular card account.",
+          "dataClassification": [],
+          "enum": [
+            "CBS",
+            "CR",
+            "REG"
+          ]
+        },
+        "refreshSummary": {
+          "description": "Contains information about the account's last refresh attempt. This data is only returned for Yodlee and AmexOPEN accounts.",
+          "type": [
+            "null",
+            "object"
+          ],
+          "dataClassification": [],
+          "properties": {
+            "refreshDate": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "example": "2021-07-15",
+              "description": "Time when the account was last refreshed",
+              "dataClassification": []
+            },
+            "refreshStatus": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "example": 402,
+              "description": "Status or error code as provided by the integration partner or determined by integration partner specific refresh logic",
+              "dataClassification": []
+            }
+          }
+        }
+      }
+    },
+    "billedCurrency": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "example": "USD",
+      "description": "Billed currency of the card account (3-letter ISO 4217 currency code)",
+      "dataClassification": [],
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "cancelDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "example": "2018-08-26",
+      "description": "Date when the card is cancelled",
+      "dataClassification": []
+    },
+    "cardBrand": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "example": "AX",
+      "description": "Indicates the card brand, e.g. MasterCard, Visa etc. List of card Brands:<li>AO - American Express Business Card</li><li>AX - American Express</li><li>CA - MasterCard</li><li>CB - Carte Blance</li><li>DC - Diners Club</li><li>DS - Discover</li><li>EC - EuroCard</li><li>ER - ENROUTE</li><li>JC - JCB International</li><li>OT - Other</li><li>TP - UATP Card</li><li>UP - China Union Pay</li><li>VI - VISA</li>",
+      "dataClassification": [],
+      "enum": [
+        "AO",
+        "AX",
+        "CA",
+        "CB",
+        "DC",
+        "DS",
+        "EC",
+        "ER",
+        "JC",
+        "OT",
+        "TP",
+        "UP",
+        "VI",
+        null
+      ]
+    },
+    "cardProductType": {
+      "type": "string",
+      "example": "CORP",
+      "description": "Card product type<li>CORP - Corporate Card</li><li>BUSN - Business Card</li><li>PERS - Personal Card</li>",
+      "dataClassification": [],
+      "enum": [
+        "BUSN",
+        "CORP",
+        "PERS"
+      ]
+    },
+    "cardholder": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "userId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "e48fda91-15c8-4670-afe5-6c76501813c9",
+          "description": "Concur specific userId. This is the preferred way for identifying a Concur user. The userId is a technical non-client facing ID.",
+          "dataClassification": [
+            "sensitive"
+          ]
+        }
+      }
+    },
+    "companyId": {
+      "type": "string",
+      "example": "b3cd8f62-d099-4e76-9d88-edba99e95ad0",
+      "description": "Company UUID",
+      "dataClassification": []
+    },
+    "effectiveDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "example": "2018-08-26",
+      "description": "Date when the card becomes effective",
+      "dataClassification": []
+    },
+    "id": {
+      "type": "string",
+      "example": "E6FE9A618C644DAEB222B773171035DC",
+      "description": "Unique account ID",
+      "dataClassification": []
+    },
+    "lastSegment": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "example": 1853,
+      "description": "Last four digits of the credit card number. For pseudo accounts, this field is not provided.",
+      "dataClassification": [
+        "sensitive"
+      ]
+    },
+    "nameOnCard": {
+      "type": "string",
+      "example": "JOHN DOE",
+      "description": "Embossed name on the card",
+      "dataClassification": [
+        "sensitive"
+      ],
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "provider": {
+      "description": "Contains information about the account provider.",
+      "dataClassification": [],
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "AMEX",
+          "description": "Code of the account provider",
+          "dataClassification": []
+        },
+        "countryCode": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "US",
+          "description": "Country code (ISO 3166-1 Alpha-2 code)",
+          "dataClassification": []
+        },
+        "market": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "037",
+          "description": "Code identifying the market of the account provider",
+          "dataClassification": []
+        }
+      }
+    },
+    "status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "example": "A",
+      "description": "Lifecycle status (default: Active)<li>A - Active</li><li>C - Canceled</li>",
+      "dataClassification": [],
+      "enum": [
+        "A",
+        "C"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

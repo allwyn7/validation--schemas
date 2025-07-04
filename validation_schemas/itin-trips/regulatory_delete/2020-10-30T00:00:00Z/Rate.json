@@ -1,0 +1,64 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Rate.json",
+	"type": "object",
+	"properties": {
+		"PerUnit": {
+			"type": "string",
+			"maxLength": 5,
+			"pattern": "^[A-Za-z0-9]+$",
+			"group": "external"
+		},
+		"NumUnits": {
+			"type": "number",
+			"group": "external"
+		},
+		"VendorChargeCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"Description": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		},
+		"Amount": {
+			"type": "number",
+			"group": "external"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"IsPrimary": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"IsPaid": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external"
+		},
+		"SemanticsCode": {
+			"type": "string",
+			"maxLength": 15,
+			"group": "external"
+		},
+		"SemanticsVendorType": {
+			"type": "string",
+			"maxLength": 1,
+			"pattern": "[XCHAEFGPR]",
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

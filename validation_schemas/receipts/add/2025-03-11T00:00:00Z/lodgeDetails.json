@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "lodgeDetails.json",
+  "title": "Lodge Details Schema",
+  "type": "object",
+  "description": "Includes lodge related information specific to hotel receipt.",
+  "properties": {
+    "hotelProperty": {
+      "$ref": "address.json",
+      "description": "Address of the hotel property where the guest stayed.",
+      "dataClassification": []
+    },
+    "room": {
+      "type": "object",
+      "properties": {
+        "roomNumber": {
+            "type": "string",
+            "description": "Room number where the guest stayed.",
+            "dataClassification": []
+        },
+        "roomType": {
+            "type": "string",
+            "description": "Type of room where the guest stayed. For example, Standard, Deluxe, etc.",
+            "dataClassification": []
+        },
+        "ratePlanType": {
+            "type": "string",
+            "description": "Name of the rate plan according to which the guest was charged.",
+            "dataClassification": []
+        },
+        "averageDailyRoomRate": {
+            "type": "string",
+            "format": "currency-amount",
+            "description": "Average daily room rate for the stay. String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+            "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "nightsStayed": {
+      "type": "string",
+      "format": "positiveInteger",
+      "description": "Total nights stayed",
+      "dataClassification": []
+    }
+  },
+  "additionalProperties": false
+}

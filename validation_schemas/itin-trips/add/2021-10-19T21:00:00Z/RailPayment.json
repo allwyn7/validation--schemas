@@ -1,0 +1,140 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "RailPayment.json",
+	"type": "object",
+	"properties": {
+		"Taxes": {
+			"type": "array",
+			"items": {
+				"$ref": "Tax.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "Taxes on the payment."
+		},
+		"RailCharges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "List of charges for this rail booking."
+		},
+		"TicketDeliveries": {
+			"type": "array",
+			"items": {
+				"$ref": "TicketDelivery.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"TicketDocumentIdentifier": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "none",
+			"description": "Not used."
+		},
+		"BaseFare": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Fare without any tax penalties."
+		},
+		"BaseFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the base fare."
+		},
+		"TotalFare": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The total price of the booking."
+		},
+		"TotalFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the total fare."
+		},
+		"IssueDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "Timestamp of quote being used."
+		},
+		"IssueDateTimeUTC": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp of quote being used."
+		},
+		"IssueByDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the quote must be issued by."
+		},
+		"TaxInvoice": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the charge is a legal tax invoice."
+		},
+		"vatApplicable": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, value add tax is applicable."
+		},
+		"IncludesVAT": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, includes the value add tax."
+		},
+		"TicketType": {
+			"type": "string",
+			"maxLength": 1,
+			"group": "external",
+			"classification": "none",
+			"description": "Type of the ticket."
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "personal",
+			"description": "Map to Expense"
+		},
+		"EreceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"ChargeLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the quote was created, in UTC."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the quote was last modified, in UTC."
+		},
+		"UseCurrentRailPayment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

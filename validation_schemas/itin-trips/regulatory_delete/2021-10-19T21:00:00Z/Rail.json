@@ -1,0 +1,563 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Rail.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"CreditCardId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Internal reference to OUTTASK_CREDIT_CARD"
+		},
+		"AllowDelete": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"FrequentTravelerId": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "Loyalty number"
+		},
+		"TrainTypeCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Cabin": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"ClassOfService": {
+			"type": "string",
+			"maxLength": 16,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"RateCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Miles": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Duration": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"NumStops": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "personal",
+			"description": ""
+		},
+		"EndCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "personal",
+			"description": ""
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartRailStation": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndRailStation": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartRailStationName": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndRailStationName": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartPlatform": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndPlatform": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"WagonNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Amenities": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Meals": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external",
+			"classification": "none",
+			"description": "Whether or not the rail service / fare includes a meal (not the meal type)"
+		},
+		"ETicket": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Ticket number issued by merchant"
+		},
+		"OperatedByVendorName": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"OperatedByTrainNumber": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"TrainNumber": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"StartLatitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartLongitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndLatitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndLongitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"NumPersons": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"DiscountCode": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"SpecialInstructions": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external",
+			"classification": "personal",
+			"description": "User generated content, usually message to the merchant/supplier"
+		},
+		"TotalRate": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"LegId": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"TransportMode": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"TrainTypeName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"RouteRestrictCode": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"FareType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"CarbonEmissionLbs": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"CarbonModel": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"IsRefundable": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"IsOnline": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"FareName": {
+			"type": "string",
+			"maxLength": 256,
+			"classification": "none",
+			"description": ""
+		},
+		"SegmentKey": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Seats": {
+			"type": "array",
+			"items": {
+				"$ref": "RailSeat.json#",
+				"classification": "none",
+				"description": ""
+			},
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"PerDiemLocation": {
+			"$ref": "PerDiemLocation.json#",
+			"classification": "none",
+			"description": ""
+		},
+		"IsT2Segment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"ClientLocator": {
+			"type": "string",
+			"classification": "none",
+			"description": "internal id"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "Supplier confirmation number for the travel"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "Cancellation number (proof of cancellation in the event of unexecpected no-show fee)"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Map to Expense"
+		},
+		"EReceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"SentToAirplus": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"CliqbookId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"TransientSegmentNumber": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"VendorFlags": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"VirtualCreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false,
+	"required": [
+		"StartDateLocal"
+	]
+}

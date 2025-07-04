@@ -1,0 +1,55 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "EReceiptAirCoupon.json",
+	"type": "object",
+	"properties": {
+		"AirCouponDetailId": {
+			"type": "integer"
+		},
+		"TicketCouponId": {
+			"type": "integer"
+		},
+		"ReceiptId": {
+			"type": "integer"
+		},
+		"CouponNumber": {
+			"type": "integer"
+		},
+		"Vendor": {
+			"type": "string",
+			"maxLength": 2
+		},
+		"FlightNumber": {
+			"type": "string",
+			"maxLength": 10
+		},
+		"ClassOfService": {
+			"type": "string",
+			"maxLength": 5
+		},
+		"RateCode": {
+			"type": "string",
+			"maxLength": 24
+		},
+		"TicketDesignator": {
+			"type": "string",
+			"maxLength": 10
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 5
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 5
+		},
+		"CouponStatus": {
+			"type": "string",
+			"maxLength": 12
+		}
+	},
+	"additionalProperties": false
+}

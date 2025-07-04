@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "appcenter-connection",
+  "type": "object",
+  "properties": {
+    "appId": {
+      "type": "string"
+    },
+    "principalId": {
+      "type": "string"
+    },
+    "principalType": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "cause": {
+      "type": "string"
+    },
+    "companyId": {
+      "default": null,
+      "type": ["string","null"]
+    }
+  },
+  "required": [
+    "appId",
+    "principalId",
+    "principalType"
+  ],
+  "additionalProperties": false
+}

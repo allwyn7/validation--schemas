@@ -1,0 +1,551 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "booking-data-hotel.json",
+  "title": "Hotel booking data",
+  "additionalProperties": false,
+  "type": "object",
+  "x-java-type": "com.concur.t2.schema.itinerary.HotelData",
+  "goType": "HotelBookingData",
+  "description": "T2's canonical version of the external booking record",
+  "properties": {
+    "segmentNumber": {
+      "type": "integer",
+      "description": "Segment number as represented in GDS.",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "activeSegmentInConcurPnr": {
+      "type": "boolean",
+      "default": false,
+      "description": "For direct-connect (CHS) bookings,  whether or not supplier has added active hotel segment in Concur managed PNR or not",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "passengerId": {
+      "type": "string",
+      "description": "The passenger reference from the external system",
+      "dataClassification": [
+        "PII"
+      ],
+      "classification": "personal"
+    },
+    "statusCode": {
+      "type": "string",
+      "description": "The status code from the external system",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "posId": {
+      "type": "string",
+      "description": "The point of sale code from the external system",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "voucherUrl": {
+      "type": "string",
+      "description": "The URL to the voucher for this booking",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "checkInDate": {
+      "$ref": "shared.json#/definitions/date",
+      "description": "The date this hotel segment begins",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "checkOutDate": {
+      "$ref": "shared.json#/definitions/date",
+      "description": "The date this hotel segment ends",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "confirmationNumber": {
+      "type": "string",
+      "description": "The confirmation number from the supplier",
+      "dataClassification": [
+        "PII"
+      ],
+      "classification": "personal"
+    },
+    "confirmationPIN": {
+      "type": "string",
+      "description": "The confirmation PIN code from the supplier",
+      "dataClassification": [
+        "PII"
+      ],
+      "classification": "personal"
+    },
+    "hotelConfirmationNumber": {
+      "type": "string",
+      "description": "The confirmation number from the hotel property",
+      "dataClassification": [
+        "PII"
+      ],
+      "classification": "personal"
+    },
+    "passiveConfirmationNumber": {
+      "type": "string",
+      "description": "The confirmation number from the booking record located for passive segment",
+      "dataClassification": [
+        "PII"
+      ],
+      "classification": "personal"
+    },
+    "customerLoyalty": {
+      "title": "Customer Loyalty",
+      "additionalProperties": false,
+      "type": "object",
+      "goType": "CustomerLoyalty",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The customer loyalty id from the travel profile.",
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal"
+        },
+        "number": {
+          "type": "string",
+          "description": "Deprecated field, the customer loyalty number from the external system.",
+          "dataClassification": [
+            "sensitive"
+          ],
+          "classification": "sensitive"
+        },
+        "lastFour": {
+          "type": "string",
+          "description": "Last four chars of the loyalty card account.",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "vendorName": {
+          "type": "string",
+          "description": "The customer loyalty vendor name from the external system.",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "programName": {
+          "type": "string",
+          "description": "The customer loyalty program name from the external system.",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      }
+    },
+    "specialRequests": {
+      "type": "array",
+      "description": "Free text requests sent to the hotel",
+      "items": {
+        "type": "string"
+      },
+      "dataClassification": [
+        "PII"
+      ],
+      "classification": "personal"
+    },
+    "roomCount": {
+      "type": "integer",
+      "description": "The number of rooms booked",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "guestCount": {
+      "type": "integer",
+      "description": "The number of guests",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "checkInCheckOutTime": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Depreciated field, use checkInTime and checkOutTime",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "checkInTime": {
+      "type": "string",
+      "description": "check-in time in HH:MM 24 hour format or HH:MM AM/PM 12 hour format based on profile",
+      "dataClassification": [],
+      "classification": "none",
+      "example": "16:00"
+    },
+    "checkOutTime": {
+      "type": "string",
+      "description": "check-out time in HH:MM 24 hour format or HH:MM AM/PM 12 hour format based on profile",
+      "dataClassification": [],
+      "classification": "none",
+      "example": "11:00"
+    },
+    "bookingStartTimeLocal": {
+      "dataClassification": [],
+      "classification": "none",
+      "$ref": "shared.json#/definitions/local-date-time",
+      "description": "Start time of the booking in local time"
+    },
+    "bookingStartTimeUtc": {
+      "dataClassification": [],
+      "classification": "none",
+      "$ref": "shared.json#/definitions/date-time",
+      "description": "Start time of the booking in UTC"
+    },
+    "bookingEndTimeLocal": {
+      "dataClassification": [],
+      "classification": "none",
+      "$ref": "shared.json#/definitions/local-date-time",
+      "description": "End time of the booking in local time"
+    },
+    "bookingEndTimeUtc": {
+      "dataClassification": [],
+      "classification": "none",
+      "$ref": "shared.json#/definitions/date-time",
+      "description": "End time of the booking in UTC"
+    },
+    "mealPlans": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "hotel": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.itinerary.hotel.Hotel",
+      "goType": "Hotel",
+      "properties": {
+        "supplier": {
+          "type": "string",
+          "description": "The string representing the (external) hotel source that owns this booking.",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "supplierShortName": {
+          "type": "string",
+          "description": "The string representing the short name for the (external) hotel source that owns this booking.",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "supplierId": {
+          "type": "string",
+          "description": "The hotel code from the external system",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "contentId": {
+          "type": "string",
+          "description": "The hotel code from our internal hotel repository",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "name": {
+          "type": "string",
+          "description": "The hotel name",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "chain": {
+          "$ref": "hotel-shared.json#/definitions/hotelChain",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "address": {
+          "$ref": "shared.json#/definitions/address",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "eReceiptsEnabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Indicates whether property supports eReceipts with SAP Concur",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "geolocation": {
+          "$ref": "shared.json#/definitions/geolocation",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "numberOfNights": {
+          "type": "integer",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "leadImage": {
+          "$ref": "hotel-shared.json#/definitions/hotelMedia",
+          "description": "Object containing information about the lead image for a property",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "The hotel phone number",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "preferenceRank": {
+          "$ref": "hotel-shared.json#/definitions/bookedPreferenceRank",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "rating": {
+          "$ref": "hotel-shared.json#/definitions/hotelRating",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "faxNumber": {
+          "type": "string",
+          "description": "The hotel fax number",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "cityCode": {
+          "type": "string",
+          "description": "IATA 3 char city code for this property (required for adding passive segments)",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "hasFedRooms": {
+          "type": "boolean",
+          "default": false,
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "isFEMA": {
+          "type": "boolean",
+          "default": false,
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "onRequest": {
+          "type": "boolean",
+          "description": "Indicates that the property is booked upon request",
+          "default": false,
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "emissionInfo": {
+          "$ref": "hotel-shared.json#/definitions/emissionInfo",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "sustainabilityAwards": {
+          "type": "array",
+          "items": {
+            "$ref": "hotel-shared.json#/definitions/sustainabilityAward"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "supplier",
+        "supplierId",
+        "name",
+        "numberOfNights"
+      ],
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "rate": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.itinerary.hotel.HotelRate",
+      "goType": "HotelRate",
+      "properties": {
+        "rateCode": {
+          "type": "string",
+          "description": "The rate code",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "rateDescription": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "roomCode": {
+          "type": "string",
+          "description": "The room code",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "roomType": {
+          "$ref": "hotel-shared.json#/definitions/roomType",
+          "description": "type of room",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "roomDescription": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "dueNow": {
+          "$ref": "hotel-shared.json#/definitions/amountDue",
+          "description": "due amount payable now",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "dueAtProperty": {
+          "$ref": "hotel-shared.json#/definitions/amountDue",
+          "description": "due amount payable at property",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "prepayRequired": {
+          "type": "boolean",
+          "description": "Whether or not prepayment is required for booking this rate",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "refundable": {
+          "type": "boolean",
+          "description": "Whether or not this rate is refundable",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "price": {
+          "$ref": "hotel-shared.json#/definitions/hotelRatePrice",
+          "description": "price for a hotel stay in config currency",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "localPrice": {
+          "$ref": "hotel-shared.json#/definitions/hotelRatePrice",
+          "description": "price for a hotel stay in hotel's original local currency",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "guarantee": {
+          "$ref": "hotel-shared.json#/definitions/guarantee",
+          "description": "Guarantee is a required field for reservation response",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "cancellationPolicy": {
+          "$ref": "hotel-shared.json#/definitions/cancellationPolicy",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "nightlyRates": {
+          "type": "array",
+          "description": "A list of the rates that apply over the course of the stay in user's currency",
+          "items": {
+            "$ref": "hotel-shared.json#/definitions/nightlyRate"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "localNightlyRates": {
+          "type": "array",
+          "description": "A list of the rates that apply over the course of the stay in hotel currency",
+          "items": {
+            "$ref": "hotel-shared.json#/definitions/nightlyRate"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of the rate",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "loyaltyMembershipRequired": {
+          "type": "boolean",
+          "description": "indicates if rate requires loyalty membership",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "price",
+        "localPrice",
+        "rateCode",
+        "guarantee"
+      ],
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "policyCompliance": {
+      "$ref": "policy.json#/definitions/policyCompliance",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "shoppingSession": {
+      "additionalProperties": false,
+      "type": "object",
+      "goType": "ReferencedHotelShoppingSession",
+      "properties": {
+        "id": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "inventoryItemId": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "rateId": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "legalEntityId": {
+      "type": "string",
+      "description": "The company's provisioned legal entity id",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "isModifiable": {
+      "type": "boolean",
+      "default": true,
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "chsSupplierPNR": {
+      "type": "string",
+      "dataClassification": [
+        "PII"
+      ],
+      "classification": "personal"
+    },
+    "perdiemInfo": {
+      "type": "array",
+      "description": "Per Diem info retrieved from PDS or EMT service",
+      "items": {
+        "$ref": "hotel-shared.json#/definitions/perdiemInfo"
+      },
+      "dataClassification": [],
+      "classification": "none"
+    }
+  },
+  "required": [
+    "checkInDate",
+    "checkOutDate",
+    "hotel",
+    "rate",
+    "confirmationNumber",
+    "passiveConfirmationNumber",
+    "isModifiable",
+    "bookingStartTimeLocal",
+    "bookingStartTimeUtc",
+    "bookingEndTimeLocal",
+    "bookingEndTimeUtc"
+  ]
+}

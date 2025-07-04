@@ -1,0 +1,81 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "EReceiptAirCoupon.json",
+	"type": "object",
+	"properties": {
+		"AirCouponDetailId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"TicketCouponId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"ReceiptId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"CouponNumber": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"Vendor": {
+			"type": "string",
+			"maxLength": 2,
+			"classification": "none",
+			"description": ""
+		},
+		"FlightNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"classification": "none",
+			"description": ""
+		},
+		"ClassOfService": {
+			"type": "string",
+			"maxLength": 5,
+			"classification": "none",
+			"description": ""
+		},
+		"RateCode": {
+			"type": "string",
+			"maxLength": 24,
+			"classification": "none",
+			"description": ""
+		},
+		"TicketDesignator": {
+			"type": "string",
+			"maxLength": 10,
+			"classification": "none",
+			"description": ""
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"classification": "none",
+			"description": ""
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"classification": "none",
+			"description": ""
+		},
+		"CouponStatus": {
+			"type": "string",
+			"maxLength": 12,
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

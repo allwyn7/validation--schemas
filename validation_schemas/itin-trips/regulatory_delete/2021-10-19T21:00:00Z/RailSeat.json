@@ -1,0 +1,90 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "RailSeat.json",
+	"type": "object",
+	"properties": {
+		"SeatNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "none",
+			"description": "The number of the seat."
+		},
+		"WagonNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "none",
+			"description": "The number of the wagon the seat is on."
+		},
+		"WagonType": {
+			"type": "string",
+			"maxLength": 16,
+			"group": "external",
+			"classification": "none",
+			"description": "The type of wagon the seat is on."
+		},
+		"SeatPosition": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The location of the seat."
+		},
+		"FacingForward": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Whether the seat is facing forward."
+		},
+		"SeatType": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The type of the seat."
+		},
+		"SpaceType": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The type of space around the seat."
+		},
+		"Deck": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Which deck the seat is on."
+		},
+		"BerthPosition": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The berth location of the seat."
+		},
+		"Amenities": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The amenities for the seat."
+		},
+		"FareSpaceComfort": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The space around the seat."
+		},
+		"PassengerRph": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Which passenger the seat is assigned to."
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 16,
+			"group": "external",
+			"classification": "none",
+			"description": "The status of the seat booking."
+		}
+	},
+	"additionalProperties": false
+}

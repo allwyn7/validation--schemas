@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "delete.event.facts.json",
+  "title": "Receipt Event Facts Schema Definitions",
+  "type": "object",
+  "description": "Receipt Event Facts schema",
+  "properties": {
+    "metadata": {
+      "$ref": "metadata.json",
+      "dataClassification": []
+    },
+    "userId": {
+      "type": "string",
+      "description": "userId of the event",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "dataClassification": []
+    },
+    "companyId": {
+      "type": "string",
+      "description": "companyId of the event",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "dataClassification": []
+    },
+    "receiptUrl": {
+      "type": "string",
+      "description": "Href to get the receipt which is published in the event",
+      "dataClassification": []
+    },
+    "enrichmentData": {
+      "description": "Only Used to provide DateTimeUpdated for Delete event",
+      "$ref": "enrichment.data.json",
+      "dataClassification":[]
+    },
+    "reasonPurged": {
+      "type": "string",
+      "description": "the reason that receipt get purged. user delete and regulatory delete with GDPR event types",
+      "enum": [
+        "user-delete",
+        "compliance-user-deleted",
+        "compliance-company-dataRetentionPolicyNotification",
+        "eReceiptsUnassignedForPurge",
+        "implementationTestData_Purge",
+        "imageDeleteForAppend"
+      ],
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "userId",
+    "companyId",
+    "metadata",
+    "enrichmentData",
+    "reasonPurged"
+  ],
+  "additionalProperties": false
+}

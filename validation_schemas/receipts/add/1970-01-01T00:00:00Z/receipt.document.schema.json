@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "receipt.document.schema.json",
+    "title": "Receipt Document Schema Definitions",
+    "type": "object",
+    "description": "Receipt document schema. This includes various representations of the document(Eg: Original, Display and/or Compliance )",
+    "properties": {
+      "representation": {
+        "type": "string",
+        "description": "For a given receipt document three representations can be stored in the system.Display -- a downsized image version to cater for web and mobile UI, compliance - refelects the signed or certified or verified document , original - original document that was submitted ",
+        "enum": [
+          "display",
+          "compliance"
+        ],
+        "dataClassification":[]
+      },
+      "type": {
+        "type": "string",
+        "description": "file type of the receipt document ex: jpeg, png, pdf ",
+        "dataClassification":[]
+      },
+      "name": {
+        "type": "string",
+        "description": "file name of the receipt document ",
+        "dataClassification":[]
+      },
+      "renderable": {
+        "type": "boolean",
+        "description": "Boolean indicating whether the document can be rendered in UI",
+        "dataClassification":[]
+      },
+      "href": {
+        "type": "string",
+        "description": "Href to download the document",
+        "dataClassification":[]
+      }
+    },
+    "additionalProperties": false
+  }

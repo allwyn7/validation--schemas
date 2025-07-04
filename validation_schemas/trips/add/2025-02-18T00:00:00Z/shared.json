@@ -1,0 +1,981 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "shared.json",
+  "definitions": {
+    "metadata": {
+      "additionalProperties": false,
+      "type": "object",
+      "goType": "Meta",
+      "properties": {
+        "version": {
+          "type": "number",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "eTags": {
+          "additionalProperties": false,
+          "type": "object",
+          "description": "ETags",
+          "dataClassification": [],
+          "classification": "none",
+          "properties": {
+              "trip": {"type":"string"},
+              "approvalStatus": { "type": "string" },
+              "bookingContext": { "type": "string" },
+              "booking": { "type": "string" },
+              "customFields": { "type": "string" },
+              "policyCompliance": { "type": "string" },
+              "policyConfigurableMessages": { "type": "string" },
+              "stateManagement": { "type": "string" },
+              "tripCosts": { "type": "string" },
+              "tripLevelRuleViolations": { "type": "string" }
+          }
+        },
+        "schema": {
+          "type": "integer",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "ttl": {
+          "type": "number",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "state": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "search",
+            "external"
+          ]
+        },
+        "isTestTrip": {
+          "type": "boolean",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "createdTime": {
+          "type": "string",
+          "goType": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "format": "date-time",
+          "groups": [
+            "search",
+            "external"
+          ]
+        },
+        "lastModifiedTime": {
+          "type": "string",
+          "goType": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "format": "date-time",
+          "groups": [
+            "search",
+            "external"
+          ]
+        }
+      },
+      "required": [
+        "lastModifiedTime"
+      ]
+    },
+    "uuid": {
+      "type": "string",
+      "groups": [
+        "external"
+      ],
+      "x-java-type": "java.util.UUID",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "date": {
+      "type": "string",
+      "x-java-type": "java.time.LocalDate",
+      "goType": "LocalDate",
+      "groups": [
+        "external"
+      ],
+      "customDatePattern": "yyyy-MM-dd",
+      "pattern": "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))"
+    },
+    "date-time": {
+      "type": "string",
+      "format": "date-time",
+      "groups": [
+        "external"
+      ],
+      "goType": "DateTime"
+    },
+    "local-date-time": {
+      "type": "string",
+      "x-java-type": "java.time.LocalDateTime",
+      "goType": "LocalDateTime",
+      "groups": [
+        "external"
+      ],
+      "customDatePattern": "yyyy-MM-dd'T'HH:mm:ss",
+      "pattern": "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([0-2][0-9]):[0-5][0-9]:[0-5][0-9])"
+    },
+    "address": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.Address",
+      "properties": {
+        "address1": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ],
+          "description": "Also stands for thoroughfare name of the address - xNal standard"
+        },
+        "address2": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ],
+          "description": "Also stands for premise name of the address - xNal standard"
+        },
+        "localityName": {
+          "type": "string",
+          "description": "city name",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "search",
+            "external"
+          ]
+        },
+        "administrativeAreaName": {
+          "type": "string",
+          "description": "also stands for province/region",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "postalCode": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "country": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        }
+      }
+    },
+    "geolocation": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.GeoLocation",
+      "goType": "GeoLocation",
+      "description": "geolocation information",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "longitude": {
+          "type": "number",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "latitude",
+        "longitude"
+      ]
+    },
+    "radius": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.Radius",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "unit": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "enum": [
+            "mile",
+            "km"
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "string",
+      "description": "The external source that owns this booking",
+      "groups": [
+        "external"
+      ],
+      "enum": [
+        "master",
+        "amadeus",
+        "fema",
+        "apollo",
+        "galileo",
+        "sabre",
+        "worldspan",
+        "giata",
+        "northstar",
+        "hrs",
+        "bookingcom",
+        "cwt",
+        "tripsource",
+        "amex",
+        "capita",
+        "cds",
+        "airbnb",
+        "renfe",
+        "trainline",
+        "amtrak",
+        "deutschebahn",
+        "travelfusion",
+        "bene",
+        "cartrawler",
+        "hotelservice",
+        "air_connector",
+        "_unsupported_"
+      ]
+    },
+    "travelIds": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.TravelIds",
+      "description": "Travel Ids to use for booking context",
+      "properties": {
+        "companyId": {
+          "$ref": "#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "search",
+            "external"
+          ]
+        },
+        "setId": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "ruleClassId": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "travelConfigId": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        }
+      },
+      "required": [
+        "companyId",
+        "setId",
+        "ruleClassId",
+        "travelConfigId"
+      ]
+    },
+    "payment": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.Payment",
+      "goType": "Payment",
+      "description": "monetary payments made towards a reserved booking.",
+      "properties": {
+        "id": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "fareIds": {
+          "type": "array",
+          "dataClassification": [],
+          "classification": "none",
+          "items": {
+            "$ref": "shared.json#/definitions/uuid"
+          },
+          "description": "identifier for the ticketable fare(s) which this payment is associated with"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency used for this payment",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount for the payment",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "created": {
+          "$ref": "shared.json#/definitions/date-time",
+          "description": "When was the payment created",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fopType": {
+          "type": "string",
+          "description": "possible forms of payment",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ],
+          "enum": [
+            "ghost",
+            "personal",
+            "virtual",
+            "partner"
+          ]
+        },
+        "partnerType": {
+          "type": "string",
+          "description": "type of partner form of payment used for the booking",
+          "dataClassification": [],
+          "classification": "none",
+          "enum": [
+            "ON_ACCOUNT"
+          ]
+        },
+        "last4digits": {
+          "type": "string",
+          "description": "last four digits of CC used as payment for the booking",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "cardName": {
+          "type": "string",
+          "description": "name of CC used as payment for the booking",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fopUuid": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none",
+          "description": "The uuid of the form of payment used for booking. It's an external reference to the payments service."
+        },
+        "virtualCardDeploymentId": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "description": "Deployment id - Should be added to virtual cards only"
+        },
+        "processing": {
+          "additionalProperties": false,
+          "type": "object",
+          "x-java-type": "com.concur.t2.schema.PaymentProcessing",
+          "goType": "PaymentProcessing",
+          "description": "Information related to the processing of the payment.",
+          "dataClassification": [],
+          "classification": "none",
+          "properties": {
+            "authorizationCode": {
+              "type": "string",
+              "dataClassification": [
+                "sensitive"
+              ],
+              "classification": "sensitive",
+              "description": "Alphanumeric password generated by the card issuer that authorizes and identifies the transaction"
+            },
+            "supplierPaymentId": {
+              "type": "string",
+              "dataClassification": [],
+              "classification": "none",
+              "description": "Supplier's reference of payment"
+            },
+            "processorPaymentId": {
+              "type": "string",
+              "dataClassification": [],
+              "classification": "none",
+              "description": "Reference Id given by a 3rd-party payment processor (e.g. Redsys)"
+            },
+            "orderNumber": {
+              "type": "string",
+              "dataClassification": [],
+              "classification": "none",
+              "description": "Order number given by the supplier"
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "currency",
+        "amount"
+      ]
+    },
+    "adjustment": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.Adjustment",
+      "goType": "CancellationAdjustment",
+      "description": "The amount and type of adjustment for ticket",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of adjustment e.g. refund or fee",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount that will be credited/debited for this adjustment",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency code for the adjustment ( ISO 4217 )",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "type",
+        "amount",
+        "currency"
+      ]
+    },
+    "cancellation": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.Cancellation",
+      "goType": "Cancellation",
+      "description": "Cancellation details",
+      "properties": {
+        "datetime": {
+          "$ref": "#/definitions/date-time",
+          "description": "Cancellation date",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "cancellationNumber": {
+          "type": "string",
+          "description": "A code that is returned by a supplier upon cancellation",
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal",
+          "groups": [
+            "external"
+          ]
+        },
+        "adjustments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/adjustment"
+          },
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal"
+        }
+      },
+      "required": [
+        "datetime",
+        "cancellationNumber"
+      ]
+    },
+    "customField": {
+      "additionalProperties": false,
+      "type": "object",
+      "x-java-type": "com.concur.t2.schema.CustomField",
+      "goType": "CustomField",
+      "description": "Custom field details",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal",
+          "groups": [
+            "external"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "travelerRuleViolation": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "segmentIds": {
+          "type": "array",
+          "description": "An array of segment ids associated for each rule violation",
+          "dataClassification": [],
+          "classification": "none",
+          "items": {
+            "$ref": "shared.json#/definitions/uuid"
+          }
+        },
+        "ruleIds": {
+          "type": "array",
+          "description": "An array of rule ids matched/violated",
+          "dataClassification": [],
+          "classification": "none",
+          "items": {
+            "$ref": "shared.json#/definitions/uuid"
+          }
+        },
+        "violationReasonId": {
+          "description": "Id of violation reason code in config.",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ],
+          "$ref": "shared.json#/definitions/uuid"
+        },
+        "violationReasonCode": {
+          "description": "violation reason code configured in config.",
+          "dataClassification": [],
+          "classification": "none",
+          "type": "string"
+        },
+        "violationReasonDescription": {
+          "description": "Description of the violation reason code.",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ],
+          "type": "string"
+        },
+        "travelerComments": {
+          "description": "Comments provided by the traveler about the rule match.",
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal",
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string",
+          "goType": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ],
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "violationReasonId",
+        "violationReasonDescription",
+        "createdTime"
+      ]
+    },
+    "localizedString": {
+      "additionalProperties": false,
+      "type": "object",
+      "description": "A string in a particular language",
+      "properties": {
+        "language": {
+          "type": "string",
+          "description": "language designator according to BCP 47",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "value": {
+          "type": "string",
+          "description": "the localized string itself",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      }
+    },
+    "primaryPnr": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "gdsRecordLocator": {
+          "type": "string",
+          "description": "The primary record locator used at trip level",
+          "dataClassification": [
+            "sensitive"
+          ],
+          "classification": "sensitive",
+          "groups": [
+            "search",
+            "external"
+          ]
+        },
+        "gdsSource": {
+          "$ref": "shared.json#/definitions/source",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "search"
+          ]
+        }
+      }
+    },
+    "stateLock": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "token": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "by": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "action": {
+          "$ref": "shared.json#/definitions/bookingAction",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "since": {
+          "type": "string",
+          "goType": "string",
+          "format": "date-time",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "until": {
+          "type": "string",
+          "goType": "string",
+          "format": "date-time",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      }
+    },
+    "bookingState": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "bookingId": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "value": {
+          "$ref": "shared.json#/definitions/bookingStateValue",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "achievedTripState": {
+          "$ref": "shared.json#/definitions/tripStateValue",
+          "description": "The achievedTripState is a property denoting the state of the trip object at the time when a booking was last added or modified within that trip.",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "version": {
+          "$ref": "shared.json#/definitions/bookingStateVersion",
+          "description": "Booking state version v1, v2 or missing version denotes v1.",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "lock": {
+          "$ref": "shared.json#/definitions/stateLock",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "changeDateTime": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "description": "Date and time of the state change. E.g. 2017-05-30T09:00:00",
+          "format": "date-time",
+          "example": "2022-02-28T15:35:49.789Z"
+        },
+        "initializedDateTime": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none",
+          "description": "Date and time when a booking was moved to Initialized state. E.g. 2017-05-30T09:00:00",
+          "format": "date-time",
+          "example": "2022-02-28T15:35:49.789Z"
+        }
+      }
+    },
+    "tripLock": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "token": {
+          "$ref": "shared.json#/definitions/uuid",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "by": {
+          "type": "string",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "allowedActions": {
+          "type": "array",
+          "items": {
+            "$ref": "shared.json#/definitions/bookingAction"
+          },
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "since": {
+          "type": "string",
+          "goType": "string",
+          "format": "date-time",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "until": {
+          "type": "string",
+          "goType": "string",
+          "format": "date-time",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "token",
+        "by",
+        "allowedActions",
+        "since",
+        "until"
+      ]
+    },
+    "bookingAction": {
+      "type": "string",
+      "goType": "BookingAction",
+      "x-java-type": "com.concur.t2.schema.BookingAction",
+      "enum": [
+        "book",
+        "modify",
+        "reject",
+        "approve",
+        "finalize",
+        "cancel",
+        "confirm",
+        "initiate",
+        "fail",
+        "ready",
+        "reserve",
+        "release",
+        "invalidate"
+      ],
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "bookingStateValue": {
+      "type": "string",
+      "goType": "BookingStateValue",
+      "x-java-type": "com.concur.t2.schema.BookingStateValue",
+      "enum": [
+        "Approved",
+        "Canceled",
+        "Confirmed",
+        "Finalized",
+        "Rejected",
+        "Reserved",
+        "Initiated",
+        "Failed",
+        "Ready",
+        "Empty"
+      ]
+    },
+    "bookingStateVersion": {
+      "type": "string",
+      "goType": "BookingStateVersion",
+      "x-java-type": "com.concur.t2.schema.BookingStateVersion",
+      "enum": [
+        "v1",
+        "v2"
+      ]
+    },
+    "tripStateValue": {
+      "type": "string",
+      "goType": "TripStateValue",
+      "x-java-type": "com.concur.t2.schema.TripStateValue",
+      "enum": [
+        "Empty",
+        "Initiated",
+        "OnHold",
+        "Reserved",
+        "UserConfirmed",
+        "Confirmed",
+        "Approved",
+        "Released",
+        "Finalized",
+        "Ready",
+        "Rejected",
+        "Canceled",
+        "Failed"
+      ]
+    },
+    "stateManagement": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "default": "TripStateMachine",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "version": {
+          "type": "integer",
+          "default": 2,
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "bookingStates": {
+          "type": "array",
+          "dataClassification": [],
+          "classification": "none",
+          "items": {
+            "$ref": "shared.json#/definitions/bookingState"
+          }
+        },
+        "tripLocks": {
+          "type": "array",
+          "dataClassification": [],
+          "classification": "none",
+          "items": {
+            "$ref": "shared.json#/definitions/tripLock"
+          }
+        },
+        "tripState": {
+          "additionalProperties": false,
+          "type": "object",
+          "dataClassification": [],
+          "classification": "none",
+          "description": "The state of the trip",
+          "properties": {
+            "stateChangeTime": {
+              "type": "string",
+              "dataClassification": [],
+              "classification": "none",
+              "description": "Date and time of last change of trip state. E.g. 2017-05-30T09:00:00",
+              "format": "date-time",
+              "example": "2022-02-28T15:35:49.789Z"
+            }
+          }
+        }
+      }
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code (ISO 4217)",
+      "dataClassification": [],
+      "classification": "none",
+      "groups": [
+        "external"
+      ]
+    },
+    "configurableMessage": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Configurable message",
+      "description": "Configurable message",
+      "goType": "ConfigurableMessage",
+      "x-java-type": "com.concur.t2.schema.ConfigurableMessage",
+      "properties": {
+        "action": {
+          "type": "string",
+          "description": "Action to apply to message.",
+          "enum": [
+            "INLINE_MESSAGE",
+            "POPUP_MESSAGE"
+          ],
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "description": "The message associated with the rule.",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        },
+        "ruleValueId": {
+          "type": "string",
+          "description": "Id of matched rule",
+          "dataClassification": [],
+          "classification": "none",
+          "groups": [
+            "external"
+          ]
+        }
+      },
+      "required": [
+        "action",
+        "message",
+        "ruleValueId"
+      ]
+    }
+  }
+}

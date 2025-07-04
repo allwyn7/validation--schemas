@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-person-delete.json",
+  "title": "Budget Person Delete Schema",
+  "description": "Schema for deleting a budget person",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification": []
+    },
+    "entityId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the entity associated with the person",
+      "dataClassification": []
+    },
+    "budgetPersonSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget person being deleted",
+      "dataClassification": []
+    },
+    "budgetPersonExternalSyncGuid": {
+      "type": "string",
+      "description": "The external Sync GUID of the budget person",
+      "dataClassification": []
+    },
+    "budgetItemSyncGuid": {
+      "type": "string",
+      "description": "The unique identifier of an associated budget item",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "budgetPersonSyncGuid"],
+  "additionalProperties": false
+}

@@ -1,0 +1,32 @@
+{
+    "event_name": "spend-user",
+    "ident_field_names": [
+        "$.companyId",
+        "$.id"
+    ],
+    "timestamp_field_name": "$.lastModified",
+    "event_types": {
+        "add": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        }
+    },
+    "team": {
+        "slack": "#ask-spend-profile",
+        "email": "DL_A62F918E47A24A03B7DB396D4CC658EE@global.corp.sap",
+        "name": "army of darkness"
+    },
+    "validation_exceptions": {
+        "always_fail": "all",
+        "required_paths_non_null": "2025-02-10T00:00:00Z",
+        "dp_fields_validator": "2025-02-10T00:00:00Z"
+    },
+    "uri_json_path": "facts.href",
+    "dataset": {
+        "type": "update",
+        "classification": "customer_data",
+        "source": "streaming"
+    }
+}

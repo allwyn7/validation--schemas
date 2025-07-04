@@ -1,0 +1,849 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Booking.json",
+	"$defs": {
+		"BaseAirlineTicket": {
+			"type": "object",
+			"properties": {
+				"AirlineTicket": {
+					"type": "array",
+					"items": {
+						"$ref": "AirlineTicket.json#"
+					},
+					"group": "external"
+				},
+				"AirlineAdjustment": {
+					"type": "array",
+					"items": {
+						"$ref": "AirlineAdjustment.json#"
+					},
+					"group": "external"
+				},
+				"ManualAirlineTicket": {
+					"type": "array",
+					"items": {
+						"$ref": "ManualAirlineTicket.json#"
+					},
+					"group": "external"
+				}
+			},
+			"additionalProperties": false
+		},
+		"BaseRailPayment": {
+			"type": "object",
+			"properties": {
+				"RailPayment": {
+					"type": "array",
+					"items": {
+						"$ref": "RailPayment.json#"
+					},
+					"group": "external"
+				},
+				"RailAdjustment": {
+					"type": "array",
+					"items": {
+						"$ref": "RailAdjustment.json#"
+					},
+					"group": "external"
+				}
+			},
+			"additionalProperties": false
+		},
+		"CalculatedAirCharge": {
+			"type": "object",
+			"properties": {
+				"BaseFareCurrency": {
+					"type": "string"
+				},
+				"Charges": {
+					"type": "array",
+					"items": {
+						"$ref": "Booking.json#/$defs/Charge"
+					}
+				},
+				"Text": {
+					"type": "string"
+				},
+				"BaseFare": {
+					"type": "number"
+				},
+				"TotalFareCurrency": {
+					"type": "string"
+				},
+				"TotalFare": {
+					"type": "number"
+				},
+				"NetFare": {
+					"type": "number"
+				},
+				"TicketNumber": {
+					"type": "string"
+				},
+				"FareType": {
+					"type": "string"
+				},
+				"Tax": {
+					"type": "number"
+				}
+			},
+			"additionalProperties": false
+		},
+		"Charge": {
+			"type": "object",
+			"properties": {
+				"Description": {
+					"type": "string"
+				},
+				"Currency": {
+					"type": "string"
+				},
+				"Amount": {
+					"type": "number"
+				}
+			},
+			"additionalProperties": false
+		},
+		"ChargeDetail": {
+			"id": "ChargeDetail",
+			"type": "object",
+			"properties": {
+				"Fixed": {
+					"type": "array",
+					"items": {
+						"$ref": "Fixed.json#"
+					},
+					"group": "external"
+				},
+				"Percent": {
+					"type": "array",
+					"items": {
+						"$ref": "Percent.json#"
+					},
+					"group": "external"
+				},
+				"Rate": {
+					"type": "array",
+					"items": {
+						"$ref": "Rate.json#"
+					},
+					"group": "external"
+				},
+				"RateWithAllowance": {
+					"type": "array",
+					"items": {
+						"$ref": "RateWithAllowance.json#"
+					},
+					"group": "external"
+				}
+			},
+			"additionalProperties": false
+		},
+		"FrequentTravelerProgram": {
+			"type": "object",
+			"properties": {
+				"FrequentFlyer": {
+					"type": "array",
+					"items": {
+						"$ref": "FrequentFlyer.json#"
+					},
+					"group": "external"
+				},
+				"RailProgram": {
+					"type": "array",
+					"items": {
+						"$ref": "RailProgram.json#"
+					},
+					"group": "external"
+				}
+			},
+			"additionalProperties": false
+		},
+		"MiscellaneousChargeOrder": {
+			"id": "MiscellaneousChargeOrder",
+			"type": "object",
+			"properties": {
+				"PlatingCarrierNumericCode": {
+					"type": "string",
+					"maxLength": 3,
+					"group": "external"
+				},
+				"PlatingControlNumber": {
+					"type": "string",
+					"maxLength": 10,
+					"group": "external"
+				},
+				"TotalAmount": {
+					"type": "number",
+					"group": "external"
+				},
+				"TotalAmountCurrency": {
+					"type": "string",
+					"maxLength": 3,
+					"group": "external"
+				},
+				"IssueDate": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external"
+				},
+				"ChargeLocator": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"DateCreatedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external"
+				},
+				"DateModifiedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external"
+				},
+				"UseCurrentRailPayment": {
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"PlatingCarrierNumericCode",
+				"PlatingControlNumber",
+				"TotalAmount",
+				"TotalAmountCurrency"
+			]
+		},
+		"Quote": {
+			"id": "Quote",
+			"type": "object",
+			"properties": {
+				"Taxes": {
+					"type": "array",
+					"items": {
+						"$ref": "Tax.json#"
+					}
+				},
+				"AirlineCharges": {
+					"$ref": "ChargeDetail.json#",
+					"group": "external"
+				},
+				"BaseFare": {
+					"type": "number",
+					"group": "external"
+				},
+				"BaseFareCurrency": {
+					"type": "string",
+					"maxLength": 3,
+					"group": "external"
+				},
+				"BaseFareNuc": {
+					"type": "number",
+					"group": "external"
+				},
+				"BaseFareNucCurrency": {
+					"type": "string",
+					"minLength": 3,
+					"maxLength": 3,
+					"group": "external"
+				},
+				"TotalFare": {
+					"type": "number",
+					"group": "external"
+				},
+				"TotalFareCurrency": {
+					"type": "string",
+					"maxLength": 3,
+					"group": "external"
+				},
+				"IssueByDate": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external"
+				},
+				"Endorsements": {
+					"type": "string",
+					"maxLength": 500,
+					"group": "external"
+				},
+				"ChargeLocator": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"DateCreatedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external"
+				},
+				"DateModifiedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external"
+				},
+				"UseCurrentRailPayment": {
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"RailQuote": {
+			"id": "RailQuote",
+			"type": "object",
+			"properties": {
+				"Taxes": {
+					"type": "array",
+					"items": {
+						"$ref": "Tax.json#"
+					}
+				},
+				"RailCharges": {
+					"$ref": "ChargeDetail.json#"
+				},
+				"BaseFare": {
+					"type": "number"
+				},
+				"BaseFareCurrency": {
+					"type": "string",
+					"maxLength": 3
+				},
+				"BaseFareNuc": {
+					"type": "number"
+				},
+				"BaseFareNucCurrency": {
+					"type": "string",
+					"minLength": 3,
+					"maxLength": 3
+				},
+				"TotalFare": {
+					"type": "number"
+				},
+				"TotalFareCurrency": {
+					"type": "string",
+					"maxLength": 3
+				},
+				"IssueByDate": {
+					"$ref": "Shared.json#/$defs/date-time"
+				},
+				"Endorsements": {
+					"type": "string",
+					"maxLength": 500
+				},
+				"ChargeLocator": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"DateCreatedUtc": {
+					"$ref": "Shared.json#/$defs/date-time"
+				},
+				"DateModifiedUtc": {
+					"$ref": "Shared.json#/$defs/date-time"
+				},
+				"UseCurrentRailPayment": {
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"Remarks": {
+			"id": "Remarks",
+			"type": "object",
+			"properties": {
+				"GeneralRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "GeneralRemarks.json#"
+					}
+				},
+				"HistoryRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "HistoryRemarks.json#"
+					}
+				},
+				"TicketingRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "TicketingRemarks.json#"
+					}
+				},
+				"InvoiceRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "InvoiceRemarks.json#"
+					}
+				},
+				"ItineraryRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "ItineraryRemarks.json#"
+					}
+				},
+				"TripLinkRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "TripLinkRemarks.json#"
+					},
+					"group": "external"
+				}
+			},
+			"additionalProperties": false
+		},
+		"RuleViolation": {
+			"type": "object",
+			"properties": {
+				"SegmentType": {
+					"type": "string"
+				},
+				"VendorCode": {
+					"type": "string"
+				},
+				"VendorName": {
+					"type": "string"
+				},
+				"StartCity": {
+					"type": "string"
+				},
+				"EndCity": {
+					"type": "string"
+				},
+				"BestGdsPrice": {
+					"type": "number"
+				},
+				"BestInternetPrice": {
+					"type": "number"
+				},
+				"TariffPrice": {
+					"type": "number"
+				},
+				"NumberOfStops": {
+					"type": "integer"
+				},
+				"CreditCardId": {
+					"type": "integer"
+				},
+				"SelectedOtherAmount": {
+					"type": "number"
+				},
+				"SelectedOtherAmountType": {
+					"type": "string"
+				},
+				"CompanyReasonCode": {
+					"type": "string",
+					"group": "external"
+				},
+				"CompanyRuleText": {
+					"type": "string",
+					"group": "external"
+				},
+				"TravelerComments": {
+					"type": "string"
+				},
+				"RuleAction": {
+					"type": "integer"
+				},
+				"DateEntered": {
+					"$ref": "Shared.json#/$defs/date-time"
+				},
+				"GdsId": {
+					"type": "integer"
+				},
+				"StartDate": {
+					"$ref": "Shared.json#/$defs/date-time"
+				},
+				"EndDate": {
+					"$ref": "Shared.json#/$defs/date-time"
+				},
+				"QuotedPrice": {
+					"type": "number"
+				},
+				"Currency": {
+					"type": "string"
+				},
+				"ViolationReasonCode": {
+					"type": "integer",
+					"group": "external"
+				},
+				"BestInternetVendor": {
+					"type": "string"
+				},
+				"BestGdsVendor": {
+					"type": "string"
+				},
+				"RuleValueID": {
+					"type": "integer"
+				},
+				"RuleTemplateId": {
+					"type": "integer"
+				},
+				"RuleName": {
+					"type": "string"
+				},
+				"IsCostBased": {
+					"type": "boolean"
+				},
+				"DateModifiedUtc": {
+					"$ref": "Shared.json#/$defs/date-time"
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"DateEntered",
+				"StartDate",
+				"EndDate"
+			]
+		},
+		"Segment": {
+			"type": "object",
+			"properties": {
+				"Air": {
+					"type": "array",
+					"items": {
+						"$ref": "Air.json#"
+					},
+					"group": "external"
+				},
+				"Car": {
+					"type": "array",
+					"items": {
+						"$ref": "Car.json#"
+					},
+					"group": "external"
+				},
+				"Hotel": {
+					"type": "array",
+					"items": {
+						"$ref": "Hotel.json#"
+					},
+					"group": "external"
+				},
+				"Dining": {
+					"type": "array",
+					"items": {
+						"$ref": "Dining.json#"
+					},
+					"group": "external"
+				},
+				"Ride": {
+					"type": "array",
+					"items": {
+						"$ref": "Ride.json#"
+					},
+					"group": "external"
+				},
+				"Rail": {
+					"type": "array",
+					"items": {
+						"$ref": "Rail.json#"
+					},
+					"group": "external"
+				},
+				"Parking": {
+					"type": "array",
+					"items": {
+						"$ref": "Parking.json#"
+					},
+					"group": "external"
+				},
+				"Travel": {
+					"type": "array",
+					"items": {
+						"$ref": "Travel.json#"
+					},
+					"group": "external"
+				},
+				"Event": {
+					"type": "array",
+					"items": {
+						"$ref": "Event.json#"
+					}
+				},
+				"Undefined": {
+					"type": "array",
+					"items": {
+						"$ref": "Undefined.json#"
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"Tax": {
+			"$ref": "Tax.json#"
+		},
+		"WebAddressData": {
+			"id": "WebAddressData",
+			"type": "object",
+			"properties": {
+				"WebAddress": {
+					"type": "string",
+					"maxLength": 250,
+					"group": "external"
+				},
+				"Type": {
+					"type": "string",
+					"maxLength": 3,
+					"group": "external"
+				},
+				"Description": {
+					"type": "string",
+					"maxLength": 50,
+					"group": "external"
+				},
+				"Format": {
+					"type": "string",
+					"maxLength": 1,
+					"group": "external"
+				},
+				"PassengerRPH": {
+					"type": "integer",
+					"group": "external"
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"type": "object",
+	"properties": {
+		"Segments": {
+			"$ref": "Booking.json#/$defs/Segment",
+			"group": "external"
+		},
+		"AirlineTickets": {
+			"$ref": "Booking.json#/$defs/BaseAirlineTicket",
+			"group": "external"
+		},
+		"AirfareQuotes": {
+			"type": "array",
+			"items": {
+				"$ref": "#/$defs/Quote"
+			},
+			"group": "external"
+		},
+		"MiscChargeOrders": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/MiscellaneousChargeOrder"
+			},
+			"group": "external"
+		},
+		"RailPayments": {
+			"$ref": "Booking.json#/$defs/BaseRailPayment",
+			"group": "external"
+		},
+		"RailQuotes": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RailQuote"
+			}
+		},
+		"Passengers": {
+			"type": "array",
+			"items": {
+				"$ref": "Passenger.json#"
+			},
+			"group": "external"
+		},
+		"PhoneNumbers": {
+			"type": "array",
+			"items": {
+				"$ref": "PhoneNumberData.json#"
+			},
+			"group": "external"
+		},
+		"WebAddresses": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/WebAddressData"
+			},
+			"group": "external"
+		},
+		"PassPrograms": {
+			"type": "array",
+			"items": {
+				"$ref": "PassProgram.json#"
+			},
+			"group": "external"
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external"
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external"
+		},
+		"RecordLocator": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"TravelConfigId": {
+			"type": "integer"
+		},
+		"BookingSource": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"BookingData": {
+			"type": "string"
+		},
+		"HasGdsPassive": {
+			"type": "boolean"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"AgencyPCC": {
+			"type": "string",
+			"maxLength": 9,
+			"group": "external"
+		},
+		"AgencyName": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external"
+		},
+		"CompanyAccountingCode": {
+			"type": "string"
+		},
+		"DateBookedLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"RetrievedDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"IsCliqbookSystemOfRecord": {
+			"type": "boolean"
+		},
+		"FormOfPaymentType": {
+			"type": "string",
+			"group": "external"
+		},
+		"FormOfPaymentName": {
+			"type": "string",
+			"group": "external"
+		},
+		"CreditCardId": {
+			"type": "integer"
+		},
+		"IsGhostCard": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"OriginalItinLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"OriginalClientLocator": {
+			"type": "string"
+		},
+		"CreditCardLastFour": {
+			"type": "string"
+		},
+		"CreditCardType": {
+			"type": "string"
+		},
+		"TicketPickupLocation": {
+			"type": "string",
+			"group": "external"
+		},
+		"TicketPickupNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"TicketMailingAddress": {
+			"type": "string",
+			"group": "external"
+		},
+		"LastTicketDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"FareExpiresEmailDatetimeUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"ItinSourceId": {
+			"type": "integer"
+		},
+		"BookedVia": {
+			"type": "string"
+		},
+		"ItinSourceName": {
+			"type": "string",
+			"group": "external"
+		},
+		"BestGdsRate": {
+			"type": "number"
+		},
+		"BestInternetPrice": {
+			"type": "number"
+		},
+		"BookingReferrer": {
+			"type": "string",
+			"maxLength": 32
+		},
+		"HasT2Segment": {
+			"type": "boolean"
+		},
+		"RetrievedVia": {
+			"type": "string"
+		},
+		"LastModBy": {
+			"type": "integer"
+		},
+		"PassengerCount": {
+			"type": "integer"
+		},
+		"Delivery": {
+			"$ref": "Delivery.json#",
+			"group": "external"
+		},
+		"LeastLogicalFare": {
+			"type": "number"
+		},
+		"LeastLogicalFareCurrency": {
+			"type": "string"
+		},
+		"HasRedeemedTravelPointsAir": {
+			"type": "boolean"
+		},
+		"AdjustedPriceToBeatRate": {
+			"type": "number"
+		},
+		"AdjustedPriceToBeatCurrency": {
+			"type": "string"
+		},
+		"AdjustedPriceToBeatUsedHub": {
+			"type": "boolean"
+		},
+		"UseCurrentRailPayment": {
+			"type": "boolean"
+		},
+		"IsAltTicketVendor": {
+			"type": "boolean"
+		},
+		"CalculatedAirCharges": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/CalculatedAirCharge"
+			}
+		},
+		"Warnings": {
+			"type": "array",
+			"items": {
+				"$ref": "Warning.json#"
+			},
+			"group": "external"
+		},
+		"WaitListSegments": {
+			"$ref": "WaitListSegments.json#",
+			"group": "external"
+		},
+		"BookingOwner": {
+			"type": "string",
+			"group": "external"
+		},
+		"Source" : {
+			"type": "string"
+		}
+	},
+	"additionalProperties": false
+}

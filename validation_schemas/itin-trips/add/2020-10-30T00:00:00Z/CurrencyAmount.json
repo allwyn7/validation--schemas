@@ -1,0 +1,19 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "CurrencyAmount.json",
+	"type": "object",
+	"properties": {
+		"Currency": {
+			"type": "string",
+			"maxLength": 3
+		},
+		"Amount": {
+			"type": "number"
+		},
+		"IsDisplayAmount": {
+			"type": "boolean"
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "Currency" ]
+}

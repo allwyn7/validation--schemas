@@ -1,0 +1,28 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "CustomDataModelV4Post.json",
+	"type": "object",
+	"required": [
+		"id"
+	],
+	"description": "Custom Data of the car rental",
+	"properties": {
+		"id": {
+			"maxLength": 80,
+			"minLength": 0,
+			"type": "string",
+			"description": "Id of the custom field",
+			"example": "custom1",
+			"dataClassification": []
+		},
+		"value": {
+			"maxLength": 80,
+			"minLength": 0,
+			"type": "string",
+			"description": "Value of the custom field",
+			"example": "123456",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

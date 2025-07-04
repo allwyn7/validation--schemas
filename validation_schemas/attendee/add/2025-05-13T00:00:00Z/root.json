@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "version": "v1",
+  "title": "Attendee Schema",
+  "description": "Attendee JSON Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "syncGuid": {
+      "description": "unique Sync GUID of the attendee",
+      "type": "string",
+      "dataClassification":[]
+    },
+    "firstName": {
+      "type": ["string","null"],
+      "dataClassification":["PII"]
+    },
+    "lastName": {
+      "type": "string",
+      "dataClassification":["PII"]
+    },
+    "mi": {
+      "type": ["string","null"],
+      "dataClassification":[]
+    },
+    "suffix": {
+      "type": ["string","null"],
+      "dataClassification":[]
+    },
+    "title": {
+      "type": ["string","null"],
+      "dataClassification":[]
+    },
+    "attendeeType": {
+      "type": "string",
+      "dataClassification":[]
+    },
+    "company": {
+      "type": ["string","null"],
+      "dataClassification":[]
+    },
+    "externalId": {
+      "type": ["string","null"],
+      "dataClassification":[]
+    },
+    "isDeleted": {
+      "type": ["string","null"],
+      "dataClassification":[]
+    },
+    "currency": {
+      "description" : "3 letter alpha code",
+      "type": "string",
+      "dataClassification":[]
+    },
+    "customFields" : {
+      "description": "list of custom fields. The value is long code if the field is a list field.",
+      "type" : ["array","null"],
+      "items" : {"type" :  "object", "additionalProperties": false, "properties": {
+        "id" : {"type" : "string"},
+        "dataType" : {"type" : "string", "enum" : ["VARCHAR","LIST","MLIST","BOOLEANCHAR","MONEY","INTEGER","NUMERIC","CHAR","TIMESTAMP"]},
+        "value" : {"type" : "string"}
+      },
+      "required": ["id", "dataType", "value"],
+      "dataClassification":[]
+      }
+    },
+    "currentVersionNumber": {
+      "description": "current version number of the attendee",
+      "type": "string",
+      "dataClassification":[]
+    },
+    "versionNumber": {
+      "description": "version number of the attendee",
+      "type": "string",
+      "dataClassification":[]
+    },
+    "companyId": {
+      "description" : "company ID of the entity",
+      "format": "uuid",
+      "type": "string",
+      "dataClassification":[]
+    },
+    "lastModifiedTimestamp": {
+      "description": "UTC timestamp of modification",
+      "type": "string",
+      "format": "date-time",
+      "dataClassification":[]
+    }
+  },
+  "required": ["syncGuid","lastName","currency","currentVersionNumber","companyId","lastModifiedTimestamp"]
+}

@@ -1,0 +1,333 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Dining.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"CreditCardId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Reference to card in OUTTASK_CREDIT_CARD"
+		},
+		"AllowDelete": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"FrequentTravelerId": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The loyalty program ID for the user."
+		},
+		"Name": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "personal",
+			"description": "The name of the restaurant. Maximum length: 80"
+		},
+		"RestaurantId": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "none",
+			"description": ""
+		},
+		"ReservationId": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The ID for restaurant reservation."
+		},
+		"StartAddress": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "personal",
+			"description": "The restaurant address. Maximum length: 80"
+		},
+		"StartAddress2": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "personal",
+			"description": "The restaurant address. Maximum length: 80"
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The restaurant address. Maximum length: 50"
+		},
+		"StartPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "personal",
+			"description": "The restaurant address. Maximum length: 24"
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The restaurant address. Maximum length: 50"
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "personal",
+			"description": "The restaurant address."
+		},
+		"StartLatitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "The latitude of the restaurant."
+		},
+		"StartLongitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "The longitude of the restaurant."
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The restaurant phone number."
+		},
+		"NumPersons": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The number of persons for the booking."
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "personal",
+			"description": "The booking starting time and date, in the booking location’s local time."
+		},
+		"IsRefundable": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"IsOnline": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"SegmentKey": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "List of charges for this booking."
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external",
+			"classification": "personal",
+			"description": "Remarks on the segment."
+		},
+		"IsT2Segment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"ClientLocator": {
+			"type": "string",
+			"classification": "none",
+			"description": "Internal unique ID"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The two letter GDS vendor code."
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary."
+		},
+		"OperatedByVendorName": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": "The status of the segment."
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking ending time and date, in the booking location’s local time."
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The ID for the time zone of the booking."
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The time zone of the booking."
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "personal",
+			"description": "The booking starting time and date, in UTC."
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking ending time and date, in UTC."
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The confirmation number from the vendor."
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was created, in UTC."
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was cancelled, in UTC."
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The cancellation number from the vendor. This field should be set when you cancel a segment."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was modified, in UTC."
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Additional information about the booking."
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Map to Expense"
+		},
+		"EReceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"SentToAirplus": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"CliqbookId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"TransientSegmentNumber": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date and time the booking was upgraded."
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the booking can be upgraded."
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the restaurant is marked as a preferred property by the company."
+		},
+		"VendorFlags": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Not used."
+		},
+		"VirtualCreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128,
+			"classification": "none",
+			"description": ""
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

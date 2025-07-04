@@ -1,0 +1,343 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "receipt.data.json",
+  "title": "Receipt Data Schema Definitions",
+  "type": "object",
+  "description": "Receipt data schema. This includes the data fields on a receipt",
+  "properties": {
+    "receiveDateTime": {
+      "type": "string",
+      "description": "Date/Time of the document received by Customer",
+      "dataClassification": []
+    },
+    "transactionDateTime": {
+      "type": "string",
+      "format": "dateTime",
+      "description": "DateTime representation, as defined by RFC 3339, section 5.6. Accepted format: yyyy-MM-dd'T'HH:mm:ssX, with time zone, no milliseconds; yyyy-MM-dd'T'HH:mm:ss.SSSX, with time zone and milliseconds; yyyy-MM-dd'T'HH:mm:ssZ, with time zone offset like -0500; yyyy-MM-dd'T'HH:mm:ss, without time zone; yyyy-MM-dd'T'HH:mm:ssXXX, Time zone with colon",
+      "dataClassification": []
+    },
+    "amount": {
+      "type": "object",
+      "description": "Transaction Amount, required for Receipt",
+      "properties": {
+        "total": {
+          "type": "string",
+          "format": "currency-amount",
+          "description": "Transaction Amount - Total, required for Receipt, String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+          "dataClassification": []
+        },
+        "currency": {
+          "type": "string",
+          "format": "currency-code",
+          "description": "Transaction Currency Code, required for Receipt, 3-letter currency code as defined in ISO 4217",
+          "dataClassification": []
+        },
+        "netAmount": {
+          "type": "string",
+          "description": "Total Net Amount",
+          "dataClassification": []
+        },
+        "subTotal": {
+          "type": "string",
+          "format": "currency-amount",
+          "description": "Transaction Amount - Sub Total, String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+          "dataClassification": []
+        },
+        "discountsTotal": {
+          "type": "string",
+          "format": "currency-amount",
+          "description": "Discounts Total, String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+          "addAnnotation": ["ExcludeForDataLake"],
+          "dataClassification": []
+        },
+        "taxesTotal": {
+          "type": "string",
+          "format": "currency-amount",
+          "description": "Taxes Total, String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+          "addAnnotation": ["ExcludeForDataLake"],
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "discountsTotal": {
+      "type": "string",
+      "format": "currency-amount",
+      "description": "[This will be deprecated once SES moves to the new schema] Discounts Total, String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+      "dataClassification": []
+    },
+    "taxesTotal": {
+      "type": "string",
+      "format": "currency-amount",
+      "description": "[This will be deprecated once SES moves to the new schema]  Taxes Total, String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+      "dataClassification": []
+    },
+    "vendor": {
+      "type": "object",
+      "description": "Vendor details, required for receipt",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name, required for receipt",
+          "dataClassification": []
+        },
+        "taxId": {
+          "type": "string",
+          "description": "Tax Id of the company/vendor",
+          "dataClassification": []
+        },
+        "addressLine": {
+          "type": "string",
+          "description": "Address Line",
+          "dataClassification": []
+        },
+        "city": {
+          "type": "string",
+          "description": "City",
+          "dataClassification": []
+        },
+        "state": {
+          "type" : "string",
+          "description": "State",
+          "dataClassification": []
+        },
+        "country": {
+          "type": "string",
+          "format": "country-code",
+          "description": "Country code, required for receipt, 2-char or 3-char country code from ISO 3166",
+          "dataClassification": []
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Postal Code",
+          "dataClassification": []
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "comments": {
+      "type": "string",
+      "description": "comments can be added here for any receipt",
+      "dataClassification": []
+    },
+    "paymentTypes": {
+      "type": "array",
+      "description": "Array of PaymentTypes",
+      "items": {
+        "description": "Supported Payment type based on the data on the Receipt",
+        "$ref": "paymentType.json",
+        "dataClassification": []
+      }
+    },
+    "paymentType": {
+      "description": "Supported Payment type based on the data on the Receipt",
+      "$ref": "paymentType.json",
+      "dataClassification": []
+    },
+    "documentCompliance": {
+      "type": "object",
+      "description": "Document Compliance information",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "UUID of the Document ",
+          "dataClassification": []
+        },
+        "formatVersion": {
+          "type": "string",
+          "description": "Version of the document format",
+          "dataClassification": []
+        },
+        "number": {
+          "type": "string",
+          "description": "Additional identified for the document",
+          "dataClassification": []
+        },
+        "typeCode": {
+          "type": "string",
+          "description": "Document Type (only code)",
+          "dataClassification": []
+        },
+        "type": {
+          "type": "string",
+          "description": "Codes supported by the document",
+          "dataClassification": []
+        },
+        "verificationCode": {
+          "type": "string",
+          "description": "Verification or Certificate Code ",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "lineItems": {
+      "type": "array",
+      "description": "Array of LineItems",
+      "items": {
+        "type": "object",
+        "description": "LineItem details",
+        "properties": {
+          "itemId": {
+            "type": "string",
+            "description": "Line Identifier",
+            "dataClassification": []
+          },
+          "productCode": {
+            "type": "string",
+            "description": "Product Code of goods and services",
+            "dataClassification": []
+          },
+          "quantity": {
+            "type": "string",
+            "format": "positiveInteger",
+            "description": "Item Quantity",
+            "dataClassification": []
+          },
+          "unitPrice": {
+            "type": "string",
+            "description": "Item Unit Price",
+            "dataClassification": []
+          },
+          "taxRate": {
+            "type": "string",
+            "description": "Item Tax Rate",
+            "optional": "true",
+            "dataClassification": []
+          },
+          "subTotal": {
+            "type": "string",
+            "format": "currency-amount",
+            "description": "Item Sub Total, String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+            "optional": "true",
+            "dataClassification": []
+          },
+          "description": {
+            "type": "string",
+            "description": "Description, required for receipt",
+            "dataClassification": []
+          },
+          "date": {
+            "type": "string",
+            "format": "dateTime",
+            "description": "DateTime representation, as defined by RFC 3339, section 5.6. Accepted format: yyyy-MM-dd'T'HH:mm:ssX, with time zone, no milliseconds; yyyy-MM-dd'T'HH:mm:ss.SSSX, with time zone and milliseconds; yyyy-MM-dd'T'HH:mm:ssZ, with time zone offset like -0500; yyyy-MM-dd'T'HH:mm:ss, without time zone; yyyy-MM-dd'T'HH:mm:ssXXX, Time zone with colon",
+            "dataClassification": []
+          },
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "dataClassification": []
+          },
+          "amount": {
+            "type": "string",
+            "format": "currency-amount",
+            "description": "Amount, required for receipt, String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+            "dataClassification": []
+          },
+          "taxes": {
+            "type": "array",
+            "description": "The taxes applied on this LineItem transaction.",
+            "items": {
+              "$ref": "tax.json",
+              "dataClassification":[]
+            }
+          },
+          "discounts": {
+            "type": "array",
+            "description": "The discounts offered on this LineItem transaction.",
+            "items": {
+              "$ref": "discount.json"
+            }
+          },
+          "additionalDescription": {
+            "type": "string",
+            "description": "Additional Description",
+            "dataClassification": []
+          },
+          "semanticsCode": {
+            "type": "string",
+            "description": "Indicates the charge category for the line item. Example.. 'MOVIE', 'PARKING', 'OTHER' etc.",
+            "dataClassification": []
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "expenseData": {
+      "type": "object",
+      "description": "Expense Data",
+      "properties": {
+        "expenseType": {
+          "type": "string",
+          "description": "Expense Type for Expense reimbursement",
+          "dataClassification": []
+        },
+        "expensePaymentType": {
+          "type": "string",
+          "description": "Payment type for Expense reimbursement",
+          "dataClassification": []
+        },
+        "expenseTypeForPolicy":{
+          "type": "array",
+          "description": "Array of objects with 'policyId' and 'expenseType' keys",
+          "items": {
+            "type": "object",
+            "properties": {
+              "policyId": {
+                "type": "string",
+                "description": "Policy Identifier"
+              },
+              "expenseType": {
+                "type": "string",
+                "description": "Type of the expense for the policy"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "referenceNumber": {
+      "type": "string",
+      "description": "The unique receipt provider or vendor identifier for this receipt. This value can also be referred to as transaction number, check number, order ID or similar.",
+      "dataClassification": []
+    },
+    "discounts": {
+      "type": "array",
+      "description": "The discounts offered on this transaction.",
+      "items": {
+        "$ref": "discount.json"
+      }
+    },
+    "tripDetails": {
+      "description": "Trip details, This includes all the trip/travel related information specific to different receipt category. Required for groundTransport category",
+      "$ref": "tripDetails.json",
+      "dataClassification": []
+    },
+    "programName": {
+      "type": "string",
+      "description": "Name of the program applied to the receipt.",
+      "dataClassification": []
+    },
+    "networkTransactionId": {
+      "type": "string",
+      "description": "The network transaction id for the payment.",
+      "dataClassification": []
+    },
+    "taxes": {
+      "type": "array",
+      "description": "The taxes applied on this transaction.",
+      "items": {
+        "$ref": "tax.json",
+        "dataClassification":[]
+      }
+    }
+  },
+  "additionalProperties": false
+}

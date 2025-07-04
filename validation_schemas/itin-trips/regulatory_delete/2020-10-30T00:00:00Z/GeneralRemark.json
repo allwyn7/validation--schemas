@@ -1,0 +1,14 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "GeneralRemark.json",
+	"type": "object",
+	"properties": {
+		"Qualifier": {
+			"type": "string"
+		},
+		"Text": {
+			"type": "string"
+		}
+	},
+	"additionalProperties": false
+}

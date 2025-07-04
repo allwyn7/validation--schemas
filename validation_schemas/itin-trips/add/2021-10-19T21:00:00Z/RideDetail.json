@@ -1,0 +1,156 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "RideDetail.json",
+	"type": "object",
+	"properties": {
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"RideId": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"DriverName": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"VehicleNumber": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Identifying information about the taxi or limo that served the traveler"
+		},
+		"BookingAmount": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"EstimatedAmount": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"EstimatedSeconds": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"ActualSeconds": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"PaymentType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"DropoffLatitude": {
+			"type": "number",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"DropoffLongitude": {
+			"type": "number",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"LastModifiedUTC": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"EndLocationCode": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndLocationDescription": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndLocationAddress": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndLocationAddress2": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndLocationCity": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndLocationState": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndLocationZip": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndLocationCountry": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"IsEndLocationInAirport": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"EndLocationAirportCode": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndLocationPhone": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndLocationFax": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndLocationEmail": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndLocationUrl": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"ChargeBackCode": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Billing reference (project code, etc) to faciliate accounting reimbursement"
+		},
+		"Events": {
+			"type": "array",
+			"items": {
+				"$ref": "RideEvent.json#"
+			},
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

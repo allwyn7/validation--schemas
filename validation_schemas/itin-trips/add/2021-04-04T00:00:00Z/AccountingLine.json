@@ -1,0 +1,76 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AccountingLine.json",
+	"type": "object",
+	"properties": {
+		"MCOType": {
+			"type": "string",
+			"group": "external"
+		},
+		"AirlineCode": {
+			"type": "string",
+			"group": "external"
+		},
+		"AmountPaid": {
+			"type": "string",
+			"group": "external"
+		},
+		"AmountPaidCurrency": {
+			"type": "string",
+			"group": "external"
+		},
+		"CCNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"Comment": {
+			"type": "string",
+			"group": "external"
+		},
+		"Commission": {
+			"type": "string",
+			"group": "external"
+		},
+		"CommissionCurrency": {
+			"type": "string",
+			"group": "external"
+		},
+		"ExchangedTicketNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"Fare": {
+			"type": "string",
+			"group": "external"
+		},
+		"FareCurrency": {
+			"type": "string",
+			"group": "external"
+		},
+		"FOPMethod": {
+			"type": "string",
+			"group": "external"
+		},
+		"IssueDate": {
+			"type": "string",
+			"group": "external"
+		},
+		"Tax": {
+			"type": "string",
+			"group": "external"
+		},
+		"TaxCurrency": {
+			"type": "string",
+			"group": "external"
+		},
+		"TranControlNbr": {
+			"type": "string",
+			"group": "external"
+		},
+		"TranPlatingNbr": {
+			"type": "string",
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

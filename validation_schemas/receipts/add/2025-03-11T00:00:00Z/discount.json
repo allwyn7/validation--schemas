@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "discount.json",
+  "title": "Discount",
+  "description": "Schema for discounts, such as coupons or discount codes, that could be part of a transaction.",
+  "type": "object",
+  "properties": {
+    "discountName": {
+      "type": "string",
+      "description": "The name of the discount.",
+      "dataClassification": []
+    },
+    "discountCode": {
+      "type": "string",
+      "description": "The code for the discount.",
+      "dataClassification": []
+    },
+    "discountRate": {
+      "type": "string",
+      "description": "The percentage of discount provided.",
+      "dataClassification": []
+    },
+    "discountAmount": {
+      "type": "string",
+      "format": "currency-amount",
+      "description": "The amount of discount provided. String representing an amount of money in format '^[-]?\\d*\\.?\\d+$' without a currency code or symbol",
+      "dataClassification": []
+    }
+  },
+  "additionalProperties": false
+}

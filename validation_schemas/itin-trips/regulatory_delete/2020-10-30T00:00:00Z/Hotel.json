@@ -1,0 +1,411 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Hotel.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			}
+		},
+		"CreditCardId": {
+			"type": "integer"
+		},
+		"AllowDelete": {
+			"type": "boolean"
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			}
+		},
+		"FrequentTravelerId": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"RateCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"RateDescription": {
+			"type": "string",
+			"maxLength": 300
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external"
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"Name": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external"
+		},
+		"HotelPropertyId": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"RoomType": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"CheckinTime": {
+			"type": "string",
+			"group": "external"
+		},
+		"CheckoutTime": {
+			"type": "string",
+			"group": "external"
+		},
+		"StartAddress": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external"
+		},
+		"StartAddress2": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external"
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"StartPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"StartLatitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"StartLongitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"SearchLocationLatitude": {
+			"type": "number"
+		},
+		"SearchLocationLongitude": {
+			"type": "number"
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"NumPersons": {
+			"type": "integer",
+			"group": "external"
+		},
+		"NumRooms": {
+			"type": "integer",
+			"group": "external"
+		},
+		"DiscountCode": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external"
+		},
+		"PartnerMembershipId": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external"
+		},
+		"CancellationPolicy": {
+			"type": "string",
+			"maxLength": 1024,
+			"group": "external"
+		},
+		"SpecialInstructions": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external"
+		},
+		"PassiveType": {
+			"type": "string",
+			"group": "external"
+		},
+		"DailyRate": {
+			"type": "number",
+			"group": "external"
+		},
+		"TotalRate": {
+			"type": "number",
+			"group": "external"
+		},
+		"RateType": {
+			"type": "string",
+			"maxLength": 1,
+			"group": "external"
+		},
+		"ComparisonRate": {
+			"type": "number"
+		},
+		"ComparisonRateCurrency": {
+			"type": "string",
+			"maxLength": 3
+		},
+		"RealRate": {
+			"type": "number"
+		},
+		"RealRateCurrency": {
+			"type": "string",
+			"maxLength": 3
+		},
+		"IsGhostCard": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"CreditCardLastFour": {
+			"type": "string"
+		},
+		"CreditCardType": {
+			"type": "string"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"RoomDescription": {
+			"type": "string",
+			"maxLength": 200,
+			"group": "external"
+		},
+		"OriginalRoomType": {
+			"type": "string",
+			"maxLength": 24
+		},
+		"OriginalRoomDescription": {
+			"type": "string",
+			"maxLength": 200
+		},
+		"EquipmentCode": {
+			"type": "string",
+			"group": "external"
+		},
+		"ViolationReasonCode": {
+			"type": "integer"
+		},
+		"ModificationCode": {
+			"type": "string",
+			"group": "external"
+		},
+		"HadDeposit": {
+			"type": "boolean"
+		},
+		"RateAccess": {
+			"type": "string",
+			"group": "external"
+		},
+		"HotelServiceVendorName": {
+			"type": "string"
+		},
+		"HotelServiceLocalizedVendorName": {
+			"type": "string"
+		},
+		"DirectBill": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"Wifi": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"Parking": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"Breakfast": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"FaxNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"Email": {
+			"type": "string",
+			"group": "external"
+		},
+		"IncludedCustomAmenities": {
+			"type": "string",
+			"group": "external"
+		},
+		"AdjustedPriceToBeatRate": {
+			"type": "number"
+		},
+		"AdjustedPriceToBeatCurrency": {
+			"type": "string"
+		},
+		"IsRefundable": {
+			"type": "boolean"
+		},
+		"IsOnline": {
+			"type": "boolean"
+		},
+		"SegmentKey": {
+			"type": "string"
+		},
+		"IsUserSuppliedHotel": {
+			"type": "boolean"
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external"
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external"
+		},
+		"EReceiptHotel": {
+			"$ref": "EReceiptHotel.json#"
+		},
+		"PerDiemLocation": {
+			"$ref": "PerDiemLocation.json#"
+		},
+		"FrequentFlyer": {
+			"$ref": "FrequentFlyer.json#"
+		},
+		"HasRedeemedTravelPoints": {
+			"type": "boolean"
+		},
+		"IsT2Segment": {
+			"type": "boolean"
+		},
+		"ClientLocator": {
+			"type": "string"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external"
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external"
+		},
+		"OperatedByVendorName": {
+			"type": "string"
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external"
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external"
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"EReceiptStatus": {
+			"type": "integer"
+		},
+		"SentToAirplus": {
+			"type": "boolean"
+		},
+		"CliqbookId": {
+			"type": "integer"
+		},
+		"TransientSegmentNumber": {
+			"type": "integer"
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"group": "external"
+		},
+		"VendorFlags": {
+			"type": "string",
+			"group": "external"
+		},
+		"VirtualCreditCardType": {
+			"type": "string"
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

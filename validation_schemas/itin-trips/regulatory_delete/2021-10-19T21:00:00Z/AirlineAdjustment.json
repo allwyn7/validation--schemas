@@ -1,0 +1,140 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirlineAdjustment.json",
+	"type": "object",
+	"properties": {
+		"Taxes": {
+			"type": "array",
+			"items": {
+				"$ref": "Tax.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "Taxes on the adjustment."
+		},
+		"AirlineCharges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "Charges associated to the adjustment."
+		},
+		"RecordLocator": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source."
+		},
+		"PlatingCarrierNumericCode": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "personal",
+			"description": "The three-digit ticket number that indicates the airline code. Examples: 001 - American, 005 - Continental, 006 - Delta, 012 - Northwest"
+		},
+		"PlatingControlNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "personal",
+			"description": "Ten digits of the ticket number that indicates the ticket control number."
+		},
+		"AdjustmentDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "Local timestamp for the adjustment."
+		},
+		"AdjustmentDateTimeUTC": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp for the adjustment."
+		},
+		"PassengerName": {
+			"type": "string",
+			"maxLength": 100,
+			"group": "external",
+			"classification": "personal",
+			"description": "Name of passenger."
+		},
+		"TotalAdjustment": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Total cost of adjustment."
+		},
+		"TotalAdjustmentCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "Currency of the adjustment."
+		},
+		"AddCollectAmount": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Specifies the net fare (i.e. the actual fare paid) if it differs from the total fare for the ticket due to applicable credits from the original exchanged ticket."
+		},
+		"CreditCardType": {
+			"type": "string",
+			"maxLength": 2,
+			"classification": "personal",
+			"description": "The type of the credit card used for the adjustment"
+		},
+		"CreditCardLast4": {
+			"type": "string",
+			"classification": "sensitive",
+			"description": "The last four digits of the credit card."
+		},
+		"AdjustmentType": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 1,
+			"pattern": "[VCRAO]",
+			"group": "external",
+			"classification": "none",
+			"description": "Type of adjustment."
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "ID returned from Expense when an air segment is expensed"
+		},
+		"EreceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"ChargeLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": "Unique ID for an Airline Charge/Adjustment"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp of adjustment creation."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp of adjustment modification."
+		},
+		"UseCurrentRailPayment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"AccountingLine": {
+			"$ref": "AccountingLine.json#",
+			"classification": "none",
+			"description": "The accounting line on the airline ticket."
+		}
+	},
+	"additionalProperties": false
+}

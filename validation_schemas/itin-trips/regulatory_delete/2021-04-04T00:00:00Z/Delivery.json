@@ -1,0 +1,69 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Delivery.json",
+	"type": "object",
+	"properties": {
+		"Type": {
+			"type": "string",
+			"group": "external"
+		},
+		"LocationName": {
+			"type": "string",
+			"group": "external"
+		},
+		"AddressLine1": {
+			"type": "string",
+			"group": "external"
+		},
+		"AddressLine2": {
+			"type": "string",
+			"group": "external"
+		},
+		"City": {
+			"type": "string",
+			"group": "external"
+		},
+		"State": {
+			"type": "string",
+			"group": "external"
+		},
+		"Country": {
+			"type": "string",
+			"group": "external"
+		},
+		"Zip": {
+			"type": "string",
+			"group": "external"
+		},
+		"LocationDesc": {
+			"type": "string",
+			"group": "external"
+		},
+		"Latitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"Longitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"Email": {
+			"type": "string",
+			"group": "external"
+		},
+		"ReferenceNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"LocationAdditionalDetails": {
+			"type": "string",
+			"group": "external"
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "Type" ]
+}

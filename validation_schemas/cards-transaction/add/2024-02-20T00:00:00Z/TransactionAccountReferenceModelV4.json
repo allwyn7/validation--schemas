@@ -1,0 +1,58 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "TransactionAccountReferenceModelV4.json",
+	"type": [
+		"object",
+		"null"
+	],
+	"definitions": {
+		"PaymentTypeModelV4": {
+			"type": "object",
+			"required": [
+				"id"
+			],
+			"properties": {
+				"id": {
+					"type": "string",
+					"example": "6C760C8B717D4EC9BF2A6568F62680EB",
+					"description": "Payment type ID",
+					"dataClassification": []
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"required": [
+		"id",
+		"paymentType"
+	],
+	"properties": {
+		"cardProductType": {
+			"type": "string",
+			"description": "Card product type\nCORP - Corporate Card\nBUSN - Business Card\nPERS - Personal Card",
+			"dataClassification": [],
+			"enum": [
+				"BUSN",
+				"CORP",
+				"PERS"
+			]
+		},
+		"id": {
+			"type": "string",
+			"example": "E6FE9A618C644DAEB222B773171035DC",
+			"description": "Account ID",
+			"dataClassification": []
+		},
+		"lastSegment": {
+			"type": ["string","null"],
+			"example": 1234,
+			"description": "Last four digits",
+			"dataClassification": ["sensitive"]
+		},
+		"paymentType": {
+			"description": "Account payment type",
+			"$ref": "#/definitions/PaymentTypeModelV4"
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,136 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Undefined.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			}
+		},
+		"CreditCardId": {
+			"type": "integer"
+		},
+		"AllowDelete": {
+			"type": "boolean"
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			}
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"OriginalSegmentType": {
+			"type": "string"
+		},
+		"RawXml": {
+			"type": "string",
+			"contentEncoding": "base64",
+			"contentMediaType": "application/xml"
+		},
+		"IsT2Segment": {
+			"type": "boolean"
+		},
+		"ClientLocator": {
+			"type": "string"
+		},
+		"Vendor": {
+			"type": "string"
+		},
+		"VendorName": {
+			"type": "string"
+		},
+		"OperatedByVendorName": {
+			"type": "string"
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2
+		},
+		"TimeZoneId": {
+			"type": "integer"
+		},
+		"TimeZone": {
+			"type": "string"
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"Notes": {
+			"type": "string"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"EReceiptStatus": {
+			"type": "integer"
+		},
+		"SentToAirplus": {
+			"type": "boolean"
+		},
+		"CliqbookId": {
+			"type": "integer"
+		},
+		"TransientSegmentNumber": {
+			"type": "integer"
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean"
+		},
+		"IsPreferredVendor": {
+			"type": "integer"
+		},
+		"VendorFlags": {
+			"type": "string"
+		},
+		"VirtualCreditCardType": {
+			"type": "string"
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3
+		},
+		"SegmentKey": {
+			"type": "string"
+		}
+	},
+	"additionalProperties": false
+}

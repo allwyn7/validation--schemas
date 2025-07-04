@@ -1,0 +1,99 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Delivery.json",
+	"type": "object",
+	"properties": {
+		"Type": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The type of delivery address."
+		},
+		"LocationName": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The name of the delivery location."
+		},
+		"AddressLine1": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The delivery street address."
+		},
+		"AddressLine2": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The delivery street address."
+		},
+		"City": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The city of the delivery address."
+		},
+		"State": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The state of the delivery address."
+		},
+		"Country": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The country of the delivery address."
+		},
+		"Zip": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The postal code or zip code of the delivery address."
+		},
+		"LocationDesc": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The description of the delivery location."
+		},
+		"Latitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "The latitude of the delivery address."
+		},
+		"Longitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "The longitude of the delivery address."
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The phone number of the delivery contact."
+		},
+		"Email": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The email of the delivery contact."
+		},
+		"ReferenceNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The reference number for the delivery."
+		},
+		"LocationAdditionalDetails": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Additional information about the delivery location."
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "Type" ]
+}

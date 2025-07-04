@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-spending_item-add.json",
+  "title": "Budget Spending Item Add Schema",
+  "description": "Schema for validating a budget spending item object",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification": []
+    },
+    "entityId": {
+      "type": "string",
+      "description": "The unique identifier of the entity associated with the budget spending item",
+      "dataClassification": []
+    },
+    "reason": {
+      "type": "string",
+      "description": "The reason for adding or updating the budget spending item",
+      "dataClassification": []
+    },
+    "syncTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time when the budget spending item was synchronized",
+      "dataClassification": []
+    },
+    "budgetSpendingItemSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget spending item being added or updated",
+      "dataClassification": []
+    },
+    "budgetSpendingItemExternalSyncGuid": {
+      "type": "string",
+      "description": "The external Sync GUID of the budget spending item",
+      "dataClassification": []
+    },
+    "featureTypeCode": {
+      "type": "string",
+      "description": "The feature type code associated with the budget spending item",
+      "dataClassification": []
+    },
+    "currencyCode": {
+      "type": "string",
+      "description": "The currency code for the budget spending item",
+      "dataClassification": []
+    },
+    "workflowState": {
+      "type": "string",
+      "description": "The workflow state of the budget spending item",
+      "dataClassification": []
+    },
+    "budgetSpendingItemStatus": {
+      "type": "string",
+      "description": "The status of the budget spending item",
+      "dataClassification": []
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last modified date of the budget spending item",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "reason",
+    "syncTime",
+    "budgetSpendingItemSyncGuid",
+    "budgetSpendingItemExternalSyncGuid",
+    "featureTypeCode",
+    "currencyCode",
+    "workflowState",
+    "budgetSpendingItemStatus",
+    "lastModifiedDate"
+  ],
+  "additionalProperties": false
+}

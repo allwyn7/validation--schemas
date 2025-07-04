@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "version": "v1",
+  "title": "List Item",
+  "description": "List Item Export Schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier of the list item",
+      "type": "string",
+      "format": "uuid",
+      "dataClassification": []
+    },
+    "code": {
+      "description": "List item long code",
+      "type": "string",
+      "maxLength": 658,
+      "dataClassification": []
+    },
+    "shortCode": {
+      "description": "List item short code",
+      "type": "string",
+      "maxLength": 64,
+      "dataClassification": []
+    },
+    "parentId": {
+      "description": "The unique identifier of the parent list item",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uuid",
+      "dataClassification": []
+    },
+    "level": {
+      "description": "Level of the list item within the list",
+      "type": "integer",
+      "dataClassification": []
+    },
+    "isDeleted": {
+      "description": "Whether the list item has been deleted",
+      "type": "boolean",
+      "dataClassification": []
+    },
+    "lastModifiedDate": {
+      "description": "Last modified date of the list item",
+      "type": "string",
+      "format": "date-time",
+      "dataClassification": []
+    },
+    "lists": {
+      "description": "The unique identifiers of the lists that contains the list item",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The unique identifier of the list that contains the list item",
+            "type": "string",
+            "format": "uuid",
+            "dataClassification": []
+          },
+          "hasChildren": {
+            "description": "Whether the list item has children in this particular list",
+            "type": "boolean",
+            "dataClassification": []
+          },
+          "lastModifiedDate": {
+            "description": "Last modified date of the list item in this particular list",
+            "type": "string",
+            "format": "date-time",
+            "dataClassification": []
+          }
+        },
+        "required": [
+          "id",
+          "hasChildren",
+          "lastModifiedDate"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "labels": {
+      "description": "List item names for supported languages",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The unique identifier of the list item language record",
+            "type": "string",
+            "format": "uuid",
+            "dataClassification": []
+          },
+          "langCode": {
+            "description": "Language code",
+            "type": "string",
+            "maxLength": 5,
+            "dataClassification": []
+          },
+          "isLocalized": {
+            "description": "Whether the list item lang code is localized for this language",
+            "type": "boolean",
+            "dataClassification": []
+          },
+          "value": {
+            "description": "List item name for this language",
+            "type": "string",
+            "maxLength": 128,
+            "dataClassification": []
+          },
+          "lastModifiedDate": {
+            "description": "Last modified date of the list item lang record",
+            "type": "string",
+            "format": "date-time",
+            "dataClassification": []
+          }
+        },
+        "required": [
+          "id",
+          "langCode",
+          "isLocalized",
+          "value",
+          "lastModifiedDate"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "timestamp": {
+      "description": "UTC timestamp of export generation",
+      "type": "string",
+      "format": "date-time",
+      "dataClassification": []
+    },
+    "companyId": {
+      "description": "The unique identifier of the company",
+      "type": "string",
+      "format": "uuid",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "id",
+    "code",
+    "shortCode",
+    "isDeleted",
+    "lastModifiedDate",
+    "lists",
+    "labels",
+    "timestamp",
+    "companyId"
+  ],
+  "additionalProperties": false
+}

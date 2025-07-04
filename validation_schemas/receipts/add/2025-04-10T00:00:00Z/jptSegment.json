@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "jptSegment.json",
+  "title": "JPT segment",
+  "type": "object",
+  "description": "Schema for JPT segment.",
+  "properties": {
+    "sequenceNumber": {
+      "type": "string",
+      "format": "positiveInteger",
+      "description": "Unique transaction identifier for every trip taken using the IC card.",
+      "dataClassification": []
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "dateTime",
+      "description": "DateTime of the route, as defined by RFC 3339, section 5.6. Accepted formats: yyyy-MM-dd'T'HH:mm:ssX, yyyy-MM-dd'T'HH:mm:ss.SSSX, yyyy-MM-dd'T'HH:mm:ssZ, yyyy-MM-dd'T'HH:mm:ssXXX, without time zone, or with time zone (offset or colon)",
+      "dataClassification": []
+    },
+    "fromStationCode": {
+      "type": "string",
+      "description": "Departure station code of the route.",
+      "dataClassification": []
+    },
+    "fromStationName": {
+      "type": "string",
+      "description": "Departure station label of the route.",
+      "dataClassification": []
+    },
+    "toStationCode": {
+      "type": "string",
+      "description": "Arrival station code of the route.",
+      "dataClassification": []
+    },
+    "toStationName": {
+      "type": "string",
+      "description": "Arrival station label of the route.",
+      "dataClassification": []
+    },
+    "fromIsCommuterPass": {
+      "type": "boolean",
+      "description": "Whether or not the departure route is included in the commuter pass subscription of the employee.",
+      "dataClassification": []
+    },
+    "toIsCommuterPass": {
+      "type": "boolean",
+      "description": "Whether or not the arrival route is included in the commuter pass subscription of the employee.",
+      "dataClassification": []
+    },
+    "distance": {
+      "description": "The distance of the route.",
+      "$ref": "distance.json",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "sequenceNumber",
+    "dateTime",
+    "fromStationCode",
+    "fromStationName",
+    "toStationCode",
+    "toStationName"
+  ],
+  "additionalProperties": false
+}

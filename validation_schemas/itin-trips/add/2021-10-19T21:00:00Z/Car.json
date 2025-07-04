@@ -1,0 +1,725 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Car.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": "Unique ID generated for the segment by ItinServices"
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"CreditCardId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Reference to card in OUTTASK_CREDIT_CARD"
+		},
+		"AllowDelete": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"FrequentTravelerId": {
+			"type": "string",
+			"maxLength": 32,
+			"classification": "personal",
+			"description": "The traveler’s ID for the frequent traveler reward program."
+		},
+		"RateCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "none",
+			"description": "The rate code for the booking."
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "personal",
+			"description": "The IATA airport code for the starting address for the booking."
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "personal",
+			"description": "The IATA airport code for the ending address for the booking."
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "personal",
+			"description": ""
+		},
+		"EndCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "personal",
+			"description": ""
+		},
+		"StartLocation": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting location of the booking."
+		},
+		"EndLocation": {
+			"type": "string",
+			"maxLength": 10,
+			"classification": "personal",
+			"description": "The ending location of the booking."
+		},
+		"StartAddress": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartAddress2": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "personal",
+			"description": "The starting address of the booking."
+		},
+		"StartOpenTime": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The opening time for the pick-up location."
+		},
+		"StartCloseTime": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The closing time for the pick-up location."
+		},
+		"EndAddress": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external",
+			"classification": "personal",
+			"description": "The ending address for the booking."
+		},
+		"EndAddress2": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external",
+			"classification": "personal",
+			"description": "The ending address for the booking."
+		},
+		"EndCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The ending address for the booking."
+		},
+		"EndPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "personal",
+			"description": "The ending address for the booking."
+		},
+		"EndState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The ending address for the booking."
+		},
+		"EndCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "personal",
+			"description": "The ending address for the booking."
+		},
+		"StartLatitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "The latitude for the starting location of the booking."
+		},
+		"StartLongitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "The longitude for the starting location of the booking."
+		},
+		"EndLatitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "The latitude for the ending location of the booking."
+		},
+		"EndLongitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "The longitude for the ending location of the booking."
+		},
+		"EndOpenTime": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The opening time of the dropoff location."
+		},
+		"EndCloseTime": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The closing time for the dropoff location."
+		},
+		"EndPhoneNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The phone number of the dropoff location."
+		},
+		"PickupDeliveryAddressType": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The type of address for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryAddress1": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The AddressLine1 for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryCity": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The city for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryState": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The state for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryPostalCode": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The postal code for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryCountry": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The country for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryLatitude": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The latitude for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryLongitude": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The longitude for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryPhoneNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The phone number for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryCityCode": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The IATA airport code for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryCategory": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The category for the pick-up address when the rental service offers pick-up."
+		},
+		"PickupDeliveryNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The number for the pick-up address when the rental service offers pick-up."
+		},
+		"DropoffCollectionAddressType": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The type of address for the dropoff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionAddress1": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The AddressLine1 for the dropoff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionCity": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "City for the dropoff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionState": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The state for the dropoff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionPostalCode": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The postal code for the dropoff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionCountry": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The country for the dropoff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionLatitude": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The latitude for the dropoff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionLongitude": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The longitude for the dropoff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionPhoneNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The phone number for the dropoff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionCityCode": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The IATA airport code for the dropoff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionCategory": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The category of dropofff address when the rental service offers dropoff."
+		},
+		"DropoffCollectionNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The number for the dropoff address when the rental service offers dropoff."
+		},
+		"CarType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"isSpecialVehical": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"Class": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Character code to indicate the class of the car. Varies by vendor. Supported values: C - Compact, E - Economy, F - Full size, I - Intermediate, L - Luxury, M - Mini, P - Premium, S - Standard, X - Special"
+		},
+		"Body": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The body style of the car. Supported values: B - Two-door sedan, D - Four-door sedan, F - Four-wheel drive, J - All terrain, K - Truck, L - Limo, P - Pickup, R - recreation, S - Sport, T - Convertible, V - Van, W - Wagon/Estate, X - Special"
+		},
+		"Transmission": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The character code that indicates if the car has auto-transmission. Supported values: A - Auto, M - Manual"
+		},
+		"AirCondition": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The character code that indicates if car has air conditioner. Supported values: R - AC, N - No AC"
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The phone number for the user."
+		},
+		"NumPersons": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The number of people including the driver that the rental is for."
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking starting time and date, in the booking location’s local time."
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "personal",
+			"description": "The booking ending time and date, in the booking location’s local time."
+		},
+		"NumCars": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The number of cars rented."
+		},
+		"DiscountCode": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external",
+			"classification": "personal",
+			"description": "The discount code used by the company or TMC to get a discounted rate."
+		},
+		"SpecialInstructions": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external",
+			"classification": "personal",
+			"description": "Additional instructions regarding the booking. Maximum length: 256"
+		},
+		"DailyRate": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The daily rate for the booking."
+		},
+		"TotalRate": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The total rate amount of the booking."
+		},
+		"RateType": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": "The rate type for the booking."
+		},
+		"ComparisonRate": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"ComparisonRateCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"classification": "none",
+			"description": ""
+		},
+		"RealRate": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"RealRateCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"classification": "none",
+			"description": ""
+		},
+		"IsGhostCard": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "Indicates if a payment was made using a shared corporate credit card."
+		},
+		"CreditCardLastFour": {
+			"type": "string",
+			"classification": "sensitive",
+			"description": "Last 4 digits of the credit card used for the car segment."
+		},
+		"CreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": "The type of the credit card used for the car segment."
+		},
+		"SpecialEquipment": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Any special equipment required by the renter."
+		},
+		"ProtectedVendorSpecificInformation": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"IsRefundable": {
+			"type": "boolean",
+			"classification": "none",
+			"description": "Indicates if the car segment is refundable."
+		},
+		"IsOnline": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"SegmentKey": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "List of charges for this booking."
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external",
+			"classification": "personal",
+			"description": "Remarks on the segment."
+		},
+		"EReceiptCar": {
+			"$ref": "EReceiptCar.json#",
+			"classification": "none",
+			"description": ""
+		},
+		"PerDiemLocation": {
+			"$ref": "PerDiemLocation.json#",
+			"classification": "none",
+			"description": ""
+		},
+		"FrequentFlyer": {
+			"$ref": "FrequentFlyer.json#",
+			"classification": "personal",
+			"description": "Loyalty number on the reservation"
+		},
+		"IsT2Segment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": "Indicates if a segment was booked in T2"
+		},
+		"ClientLocator": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Represents the unique identifier of the trip in an external (non-SAP Concur) system. Maximum length: 32 characters"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The two letter GDS vendor code."
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary."
+		},
+		"OperatedByVendorName": {
+			"type": "string",
+			"classification": "none",
+			"description": "Name of vendor operating the car rental segment."
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": "The booking status."
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The ID for the time zone of the booking."
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The time zone of the booking."
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking starting time and date, in UTC."
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "personal",
+			"description": "The booking ending time and date, in UTC."
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The confirmation number from the vendor."
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was created, in UTC."
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was cancelled, in UTC."
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "Cancellation number (proof of cancellation in the event of unexecpected no-show fee)"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was modified, in UTC."
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Additional information about the booking."
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "ID returned from Expense when an car segment is expensed"
+		},
+		"EReceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"SentToAirplus": {
+			"type": "boolean",
+			"classification": "none",
+			"description": "Indicates if car segment was sent to Airplus."
+		},
+		"CliqbookId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "ID for the segment coming from Booking Services"
+		},
+		"TransientSegmentNumber": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date and time the booking was upgraded."
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the booking can be upgraded."
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the rental service is marked as a preferred service by the company."
+		},
+		"VendorFlags": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Not used."
+		},
+		"VirtualCreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": "The type of a virtual credit card."
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128,
+			"classification": "none",
+			"description": "The car rental agency operating the car rental on behalf of the booked car rental agency."
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the booking."
+		}
+	},
+	"additionalProperties": false
+}

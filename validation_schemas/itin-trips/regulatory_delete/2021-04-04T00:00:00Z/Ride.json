@@ -1,0 +1,387 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Ride.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			}
+		},
+		"CreditCardId": {
+			"type": "integer"
+		},
+		"AllowDelete": {
+			"type": "boolean"
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			}
+		},
+		"Vendor": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"Miles": {
+			"type": "integer",
+			"group": "external"
+		},
+		"ReservationId": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"Duration": {
+			"type": "integer",
+			"group": "external"
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external"
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external"
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"EndCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"StartLocationCode": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"EndLocationCode": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"Name": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external"
+		},
+		"StartLocation": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"StartLocationName": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"StartAddress": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external"
+		},
+		"StartAddress2": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external"
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"StartPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"EndLocation": {
+			"type": "string",
+			"maxLength": 60
+		},
+		"EndLocationName": {
+			"type": "string",
+			"maxLength": 60
+		},
+		"EndAddress": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"EndAddress2": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"EndCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"EndPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"EndState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"EndCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"StartLatitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"StartLongitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"EndLatitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"EndLongitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"NumPersons": {
+			"type": "integer",
+			"group": "external"
+		},
+		"CancellationPolicy": {
+			"type": "string",
+			"maxLength": 1024,
+			"group": "external"
+		},
+		"SpecialInstructions": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external"
+		},
+		"Rate": {
+			"type": "number",
+			"group": "external"
+		},
+		"TotalRate": {
+			"type": "number",
+			"group": "external"
+		},
+		"RateType": {
+			"type": "string",
+			"group": "external"
+		},
+		"RateNotes": {
+			"type": "string",
+			"group": "external"
+		},
+		"NumberOfHours": {
+			"type": "number",
+			"group": "external"
+		},
+		"IsGhostCard": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"CreditCardLastFour": {
+			"type": "string"
+		},
+		"CreditCardType": {
+			"type": "string"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"RateDescription": {
+			"type": "string",
+			"maxLength": 300,
+			"group": "external"
+		},
+		"MeetingInstructions": {
+			"type": "string",
+			"maxLength": 300,
+			"group": "external"
+		},
+		"PickupInstructions": {
+			"type": "string",
+			"maxLength": 300,
+			"group": "external"
+		},
+		"DropoffInstructions": {
+			"type": "string",
+			"maxLength": 300,
+			"group": "external"
+		},
+		"ProviderFeedback": {
+			"type": "string",
+			"maxLength": 300,
+			"group": "external"
+		},
+		"PassiveCityCode": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		},
+		"RideChargeBookingId": {
+			"type": "string"
+		},
+		"IsRefundable": {
+			"type": "boolean"
+		},
+		"IsOnline": {
+			"type": "boolean"
+		},
+		"SegmentKey": {
+			"type": "string"
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external"
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external"
+		},
+		"EReceiptRide": {
+			"$ref": "EReceiptRide.json#"
+		},
+		"IsT2Segment": {
+			"type": "boolean"
+		},
+		"ClientLocator": {
+			"type": "string"
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external"
+		},
+		"OperatedByVendorName": {
+			"type": "string",
+			"group": "external"
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external"
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external"
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"EReceiptStatus": {
+			"type": "integer"
+		},
+		"SentToAirplus": {
+			"type": "boolean"
+		},
+		"CliqbookId": {
+			"type": "integer"
+		},
+		"TransientSegmentNumber": {
+			"type": "integer"
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"group": "external"
+		},
+		"VendorFlags": {
+			"type": "string",
+			"group": "external"
+		},
+		"VirtualCreditCardType": {
+			"type": "string"
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

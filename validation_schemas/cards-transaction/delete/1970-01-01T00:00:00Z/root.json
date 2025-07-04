@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "v1",
+    "description":"Cards Transaction Delete JSON Schema",
+    "type": "object",
+    "properties": {
+        "companyId": {
+            "dataClassification":[],
+            "type": "string"
+        },
+        "timestamp": {
+            "dataClassification":[],
+            "type": "string",
+            "format": "date-time"
+        },
+        "id": {
+            "dataClassification":[],
+            "type": "string"
+        }        
+    },
+    "additionalProperties": false,
+    "required": [
+        "id",
+        "timestamp",
+        "companyId"
+    ]
+}
+

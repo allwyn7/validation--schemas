@@ -1,0 +1,28 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "FormOfId.json",
+	"type": "object",
+	"properties": {
+		"TravelCompanyCode": {
+			"type": "string",
+			"maxLength": 2
+		},
+		"TravelType": {
+			"type": "string",
+			"maxLength": 1
+		},
+		"DocumentType": {
+			"type": "string"
+		},
+		"DocumentLastFour": {
+			"type": "string",
+			"maxLength": 4
+		},
+		"DocumentIssuer": {
+			"type": "string",
+			"maxLength": 10
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "TravelCompanyCode", "TravelType", "DocumentType" ]
+}

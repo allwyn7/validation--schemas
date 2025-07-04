@@ -1,0 +1,168 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "CarRentalModelV4.json",
+	"description": "Car Rental Addendum Data of the transaction - addendumType = CAR",
+	"type": "object",
+	"definitions": {
+		"CarRentalChargeModelV4": {
+			"type": "object",
+			"required": [
+				"amount",
+				"name"
+			],
+			"properties": {
+				"amount": {
+					"description": "Sum of unexpensed amounts aggregated per posted currency.",
+					"$ref": "AmountModelV4.json#"
+				},
+				"name": {
+					"type": "string",
+					"example": "LATE",
+					"description": "Charge name / type REGULAR - Regular charges ONEWAY - One-way drop charges LATE - Late charges FUEL - Fuel charges INSURANCE - Insurance charges EXTRA - Extra charges OTHER - Other charges",
+					"dataClassification": [],
+					"enum": [
+						"REGULAR",
+						"ONEWAY",
+						"LATE",
+						"FUEL",
+						"INSURANCE",
+						"EXTRA",
+						"OTHER"
+					]
+				}
+			},
+			"title": "CarRentalChargeModelV4",
+			"additionalProperties": false
+		}
+	},
+	"properties": {
+		"classificationCode": {
+			"type": ["string","null"],
+			"example": "Compact",
+			"description": "Classification of the rented vehicle",
+			"dataClassification": []
+		},
+		"dailyRate": {
+			"description": "Daily Rate",
+			"$ref": "AmountModelV4.json#"
+		},
+		"numberOfVehicles": {
+			"type": ["integer","null"],
+			"format": "int32",
+			"example": 1,
+			"description": "Number of vehicles rented",
+			"dataClassification": []
+		},
+		"pickupAddress": {
+			"description": "Pickup Address",
+			"$ref": "AddressModelV4.json#"
+		},
+		"pickupDate": {
+			"type": ["string","null"],
+			"example": "2018-08-16",
+			"description": "Date on which the customer rented the vehicle",
+			"dataClassification": ["PII"]
+		},
+		"regularDistanceRate": {
+			"description": "Rate applied per unit of distance traveled in vehicle. Deprecated, regular charges are included in charges property",
+			"$ref": "AmountModelV4.json#"
+		},
+		"rentalAgreementNumber": {
+			"type": ["string","null"],
+			"example": "F344145-51VD",
+			"description": "Number entered at the point of sale",
+			"dataClassification": []
+		},
+		"rentalDays": {
+			"type": ["null","integer"],
+			"format": "int32",
+			"example": 6,
+			"description": "Number of days the vehicle was rented",
+			"dataClassification": []
+		},
+		"renterName": {
+			"type": ["string","null"],
+			"example": "DOE,JOHN",
+			"description": "Name of the individual that made the rental agreement",
+			"dataClassification": ["PII"]
+		},
+		"returnAddress": {
+			"description": "Return Address",
+			"$ref": "AddressModelV4.json#"
+		},
+		"returnDate": {
+			"type": ["string","null"],
+			"example": "2018-08-17",
+			"description": "Date on which the customer returned the vehicle",
+			"dataClassification": ["PII"]
+		},
+		"totalDistance": {
+			"description": "Total Distance",
+			"$ref": "DistanceModelV4.json#"
+		},
+		"weeklyRate": {
+			"description": "Weekly Rate",
+			"$ref": "AmountModelV4.json#"
+		},
+		"adjustmentAmount": {
+			"description": "Adjustment Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"commodityCode": {
+			"type": "string",
+			"description": "Commodity Code",
+			"dataClassification": []
+		},
+		"customData": {
+			"type": "array",
+			"description": "Custom Data of the car rental",
+			"items": {
+				"$ref": "CustomDataModelV4Post.json#"
+			}
+		},
+		"extraChargeAmount": {
+			"description": "Extra Charge Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"extraChargeCode": {
+			"type": "string",
+			"description": "Extra Charge Code",
+			"dataClassification": []
+		},
+		"extraDistanceRate": {
+			"description": "Extra Distance Rate",
+			"$ref": "AmountModelV4.json#"
+		},
+		"maximumFreeDistance": {
+			"description": "Maximum Free Distance",
+			"$ref": "DistanceModelV4.json#"
+		},
+		"mileageRate": {
+			"description": "Mileage Rate",
+			"$ref": "AmountModelV4.json#"
+		},
+		"pickupPropertyId": {
+			"type": "string",
+			"description": "Pickup Property ID",
+			"dataClassification": ["PII"]
+		},
+		"renterNotShown": {
+			"type": "boolean",
+			"description": "Renter Not Shown",
+			"dataClassification": []
+		},
+		"returnPropertyId": {
+			"type": "string",
+			"description": "Return Property ID",
+			"dataClassification": ["PII"]
+		},
+		"charges": {
+			"type": "array",
+			"description": "Charges",
+			"items": {
+				"$ref": "#/definitions/CarRentalChargeModelV4"
+			}
+		}
+	},
+	"additionalProperties": false
+}

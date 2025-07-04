@@ -1,0 +1,95 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirlineTicketCoupon.json",
+	"type": "object",
+	"properties": {
+		"CouponNumber": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "ID for the coupon."
+		},
+		"Vendor": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": "2 letter vendor code for the coupon."
+		},
+		"FlightNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "none",
+			"description": "Flight number for the coupon."
+		},
+		"ClassOfService": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "none",
+			"description": "Class of service for the coupon."
+		},
+		"RateCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "none",
+			"description": "The rate code for the coupon."
+		},
+		"TicketDesignator": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "none",
+			"description": "A code on airline tickets to indicate what type of discount is applied, such as for a child or infant, or airline employee."
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "Local timestamp for when the flight departs."
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "none",
+			"description": "Start city code for the coupon."
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "none",
+			"description": "End city code for the coupon."
+		},
+		"CouponStatus": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "none",
+			"description": "Status of the coupon."
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 8,
+			"group": "external",
+			"classification": "none",
+			"description": "Status of the coupon."
+		},
+		"NotValidBeforeDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "Timestamp for when the coupon is not valid before."
+		},
+		"NotValidAfterDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "Timestamp for when the coupon is not valid after."
+		}
+	},
+	"additionalProperties": false
+}

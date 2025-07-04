@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "expense-reports-delete.json",
+  "version": "v1",
+  "description":"Expense Reports Delete JSON Schema",
+  "type": "object",
+  "properties": {
+    "reportId": {
+      "dataClassification":[],
+      "description":"unique ID of the report within the company",
+      "type": "string"
+    },
+    "reportType": {
+      "dataClassification":[],
+      "description":"type of the report.  Current values are Regular, Reconciliation, AutoCreated, and Statement, but list might grow in future.",
+      "type": "string"
+    },
+    "companyId": {
+      "dataClassification":[],
+      "description":"company UUID",
+      "type": "string"
+    },
+    "userId": {
+      "dataClassification":[],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "isFundsAndGrantsIntegrationEligible": {
+      "dataClassification":[],
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "actingUserId": {
+      "dataClassification":[],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "href": {
+      "dataClassification":[],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lastModifiedDate": {
+      "dataClassification":[],
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "reportId",
+    "companyId",
+    "lastModifiedDate"
+  ]
+}

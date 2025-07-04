@@ -1,0 +1,36 @@
+{
+    "event_name": "receipt-recognition_metadata",
+    "ident_field_names": [
+        "$.company_uuid",
+        "$.image_id"
+    ],
+    "timestamp_field_name": "$.timeStamp",
+    "event_types": {
+        "regulatory_delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "company_uuid"
+            }
+        }
+    },
+    "team": {
+        "slack": "#ask-receipts",
+        "email": "DL_65D4EC239B5BD3013314A1DA@global.corp.sap",
+        "name": "receipts"
+    },
+    "validation_exceptions": {
+        "always_fail": "all",
+        "dp_fields_validator": "2024-07-23T00:00:00Z",
+        "single_uri_format": "all"
+    },
+    "spark": {
+        "delete_behaviors":{
+            "regulatory_delete": ["soft_delete", "hard_delete"]
+        }
+    },
+    "dataset": {
+        "type": "update",
+        "classification": "customer_data",
+        "source": "polling"
+    }
+}

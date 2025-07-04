@@ -1,0 +1,62 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "receipt-regulatory-delete.json",
+	"type": "object",
+	"properties": {
+		"userId": {
+			"type": "string",
+			"description": "userId of the event",
+			"pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+			"dataClassification": []
+		},
+		"companyId": {
+			"type": "string",
+			"description": "companyId of the event",
+			"pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+			"dataClassification": []
+		},
+		"receiptUrl": {
+			"type": "string",
+			"description": "Href to get the receipt which is published in the event",
+			"dataClassification": []
+		  },
+		"lastModified": {
+			"type": "string",
+			"format": "date-time",
+			"dataClassification": []
+		},
+		"metadata": {
+			"$ref": "receipt.metadata.schema.json#",
+			"dataClassification":[],
+			"group": "external",
+			"classification": "none",
+			"description": "A parent element that contains a Receipt Meta data schema. This includes the metadata fields for a receipt."
+		},
+		"enrichmentData": {
+			"$ref": "receipt.enrichment.data.schema.json#",
+			"dataClassification":[],
+			"group": "external",
+			"classification": "none",
+			"description": "A parent element that contains a Receipt Enrichment schema."
+		},
+		"reasonPurged": {
+			"type": "string",
+			"description": "the reason that receipt get purged. user delete and regulatory delete with GDPR event types",
+			"enum": [
+			  "user-delete",
+			  "compliance-user-deleted",
+			  "compliance-company-dataRetentionPolicyNotification",
+			  "eReceiptsUnassignedForPurge"
+			],
+			"dataClassification": []
+		  }
+	},
+	"additionalProperties": false,
+	"required": [
+		"userId",
+		"companyId",
+		"metadata",
+		"enrichmentData",
+		"reasonPurged"
+	  ]
+}

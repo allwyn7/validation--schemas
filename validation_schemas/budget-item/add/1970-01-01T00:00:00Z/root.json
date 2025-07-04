@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-item-add.json",
+  "title": "Budget Item Add Schema",
+  "description": "Schema for adding a budget item",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification": []
+    },
+    "entityId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the entity associated with the budget item",
+      "dataClassification": []
+    },
+    "reason": {
+      "type": "string",
+      "description": "The reason for adding or updating the budget item",
+      "dataClassification": []
+    },
+    "syncTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time when the budget item was synchronized",
+      "dataClassification": []
+    },
+    "budgetItemSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget item being added or updated",
+      "dataClassification": []
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the budget item being added or updated",
+      "dataClassification": []
+    },
+    "budgetType": {
+      "type": "string",
+      "enum": ["PERSONAL_USE","BUDGET","TEAM","RESTRICTED"],
+      "description": "The type of budget for the budget item being added or updated",
+      "dataClassification": []
+    },
+    "budgetItemStatus": {
+      "type": "string",
+      "enum": ["OPEN","CLOSED","REMOVED","MERGED"],
+      "description": "The status of the budget item being added or updated",
+      "dataClassification": []
+    },
+    "itemDescription": {
+      "type": "string",
+      "description": "A description of the budget item being added or updated",
+      "dataClassification": []
+    },
+    "budgetCategorySyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget category associated with the budget item",
+      "dataClassification": []
+    },
+    "ownerSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the owner of the budget item",
+      "dataClassification": []
+    },
+    "fiscalYearSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the fiscal year associated with the budget item",
+      "dataClassification": []
+    },
+    "periodType": {
+      "type": "string",
+      "enum": ["MONTHLY","QUARTERLY","YEARLY","CUSTOM","DATE_RANGE"],
+      "description": "The period type for the budget item",
+      "dataClassification": []
+    },
+    "creationDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The creation date of the budget item being added or updated",
+      "dataClassification": []
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last modified date of the budget item being added or updated",
+      "dataClassification": []
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "The user who created the budget item being added or updated",
+      "dataClassification": []
+    },
+    "modifiedBy": {
+      "type": "string",
+      "description": "The user who last modified the budget item being added or updated",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "reason",
+    "syncTime",
+    "budgetItemSyncGuid",
+    "name",
+    "budgetType",
+    "budgetItemStatus",
+    "itemDescription",
+    "budgetCategorySyncGuid",
+    "ownerSyncGuid",
+    "fiscalYearSyncGuid",
+    "periodType",
+    "creationDate",
+    "lastModifiedDate",
+    "createdBy",
+    "modifiedBy"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,448 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Travel.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": ""
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"CreditCardId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Internal reference to OUTTASK_CREDIT_CARD"
+		},
+		"AllowDelete": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"Name": {
+			"type": "string",
+			"maxLength": 80,
+			"classification": "personal",
+			"description": ""
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "personal",
+			"description": ""
+		},
+		"StartLocation": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"StartAddress": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external",
+			"classification": "personal",
+			"description": "Traveler location at a date/time"
+		},
+		"StartAddress2": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external",
+			"classification": "personal",
+			"description": "Traveler location at a date/time"
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"StartLatitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "Traveler location at a date/time"
+		},
+		"StartLongitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "Traveler location at a date/time"
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndLocation": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndAddress": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndAddress2": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"EndLatitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"EndLongitude": {
+			"type": "number",
+			"group": "external",
+			"classification": "personal",
+			"description": "Location information indicating where the traveler is, was, or will be"
+		},
+		"SpecialInstructions": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external",
+			"classification": "personal",
+			"description": "User generated content, usually message to the merchant/supplier"
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Traveler information"
+		},
+		"NumPersons": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"DailyRate": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"TotalRate": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"TransportMode": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"IsGhostCard": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"CreditCardLastFour": {
+			"type": "string",
+			"classification": "sensitive",
+			"description": "The last four digits of the credit card."
+		},
+		"CreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"CancellationPolicy": {
+			"type": "string",
+			"maxLength": 512,
+			"classification": "none",
+			"description": ""
+		},
+		"IsRefundable": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"IsOnline": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"SegmentKey": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"IsT2Segment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"ClientLocator": {
+			"type": "string",
+			"classification": "personal",
+			"description": "internal id"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"OperatedByVendorName": {
+			"type": "string",
+			"classification": "none",
+			"description": "Merchant / supplier name"
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "Supplier confirmation number for the travel"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "Cancellation number for a travel segment"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": ""
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Map to Expense"
+		},
+		"EReceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"SentToAirplus": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"CliqbookId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"TransientSegmentNumber": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"VendorFlags": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"VirtualCreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": "Internal reference to a virtual payment provider (AirPlus, Conferma, etc)"
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128,
+			"classification": "none",
+			"description": ""
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false,
+	"required": [
+		"StartDateLocal"
+	]
+}

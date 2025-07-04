@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "budget-item-detail-add.json",
+    "title": "Budget Item Detail Add Schema",
+    "description": "Schema for adding a budget item",
+    "type": "object",
+    "properties": {
+        "companyUuid": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The UUID of the company to which the event belongs",
+            "dataClassification": []
+        },
+        "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique identifier of the entity associated with the budget item",
+            "dataClassification": []
+        },
+        "reason": {
+            "type": "string",
+            "description": "The reason for adding or updating the budget item",
+            "dataClassification": []
+        },
+        "syncTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The time when the budget item was synchronized",
+            "dataClassification": []
+        },
+        "budgetItemDetailSyncGuid": {
+            "type": "string",
+            "description": "The unique Sync GUID of the budget item being added or updated",
+            "dataClassification": []
+        },
+        "budgetItemSyncGuid": {
+            "type": "string",
+            "description": "The unique identifier of the budget item",
+            "dataClassification": []
+        },
+        "currencyCode": {
+            "type": "string",
+            "description": "The currency code for the budget item",
+            "dataClassification": []
+        },
+        "budgetAmount": {
+            "type": "number",
+            "description": "The amount of the budget item",
+            "dataClassification": []
+        },
+        "budgetItemDetailStatus": {
+            "type": "string",
+            "enum": ["ACTIVE", "INACTIVE", "PENDING"],
+            "description": "The status of the budget item detail",
+            "dataClassification": []
+        },
+        "fiscalPeriodSyncGuid": {
+            "type": "string",
+            "description": "The unique identifier of the fiscal period associated with the budget item",
+            "dataClassification": []
+        },
+        "lastModifiedDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The last time the budget item was updated",
+            "dataClassification": []
+        }
+    },
+    "required": [
+        "companyUuid",
+        "entityId",
+        "reason",
+        "syncTime",
+        "budgetItemDetailSyncGuid",
+        "budgetItemSyncGuid",
+        "currencyCode",
+        "budgetAmount",
+        "budgetItemDetailStatus",
+        "fiscalPeriodSyncGuid",
+        "lastModifiedDate"
+    ],
+    "additionalProperties": false
+}

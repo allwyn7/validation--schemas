@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "request-delete.json",
+  "description":"Request Delete JSON Schema",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "dataClassification": [],
+      "description": "Unique identifier of the Request",
+      "type": "string"
+    },
+    "companyId": {
+      "dataClassification": [],
+      "description": "Unique identifier of the company of the Request in UUID format",
+      "type": "string"
+    },
+    "userId": {
+      "dataClassification": [],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "actingUserId": {
+      "dataClassification": [],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lastModifiedDate": {
+      "dataClassification": [],
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "requestId",
+    "companyId",
+    "lastModifiedDate"
+  ]
+}

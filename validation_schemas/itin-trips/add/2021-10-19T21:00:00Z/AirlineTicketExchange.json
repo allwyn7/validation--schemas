@@ -1,0 +1,106 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirlineTicketExchange.json",
+	"type": "object",
+	"properties": {
+		"PlatingCarrierNumericCode": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "personal",
+			"description": "The three-digit ticket number that indicates the airline code. Examples: 001 - American, 005 - Continental, 006 - Delta, 012 - Northwest"
+		},
+		"PlatingControlNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "personal",
+			"description": "Ten digits of the ticket number that indicates the ticket control number."
+		},
+		"AppliedSegment1": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Internal use."
+		},
+		"AppliedSegment2": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Internal use."
+		},
+		"AppliedSegment3": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Internal use."
+		},
+		"AppliedSegment4": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Internal use."
+		},
+		"AppliedSegment5": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Internal use."
+		},
+		"AppliedSegment6": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Internal use."
+		},
+		"AppliedSegment7": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Internal use."
+		},
+		"AppliedSegment8": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Internal use."
+		},
+		"AppliedSegment9": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Internal use."
+		},
+		"AppliedSegment10": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "Internal use."
+		},
+		"Amount": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Amount exchanged."
+		},
+		"Currency": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the ticket."
+		},
+		"OldRecordLocator": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The UTC timestamp of ticket exchange modification."
+		}
+	},
+	"additionalProperties": false
+}

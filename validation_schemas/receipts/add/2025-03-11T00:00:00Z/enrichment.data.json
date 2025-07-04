@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "ocrData": {
+      "type": "object",
+      "description": "OCR enrichment data",
+      "properties": {
+        "image2TextId": {
+          "type": "string",
+          "description": "MetadataId from OrcService",
+          "dataClassification":[]
+        },
+        "ocrText": {
+          "type": "string",
+          "description": "Predicted text by OCR",
+          "dataClassification":[]
+        },
+        "ocrStructure": {
+          "type": "string",
+          "description": "Predicted ocrStructure by OCR",
+          "dataClassification":[]
+        }
+      },
+      "additionalProperties": false
+    },
+    "dateTimeUpdated": {
+      "type": "string",
+      "description": "The current dateTime when to fetch/delete a receipt",
+      "format": "date-time",
+      "dataClassification": []
+    },
+    "imageGenerationStatus": {
+      "type": "string",
+      "description": "Image generation status for receipt without image",
+      "dataClassification":[]
+    }
+  },
+  "required": [
+    "dateTimeUpdated"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,110 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "FleetModelV4Get.json",
+	"description": "Fleet addendum header data of the transaction - addendumType = FLET",
+	"type": "object",
+	"definitions": {
+		"FleetQuantityModelV4": {
+			"type": "object",
+			"required": [
+				"value"
+			],
+			"properties": {
+				"unit": {
+					"type": ["string", "null"],
+					"example": "KGM",
+					"description": "Fuel unit of measure (preferred values: LTR, GLI, GLL, KGM, LBR, KWH",
+					"dataClassification": []
+				},
+				"value": {
+					"type": "number",
+					"example": 11.08,
+					"description": "Quantity value",
+					"dataClassification": []
+				}
+			},
+			"title": "FleetQuantityModelV4",
+			"additionalProperties": false
+		}
+	},
+	"properties": {
+		"driverId": {
+			"type": ["string","null"],
+			"example": 1597845,
+			"description": "Driver ID",
+			"dataClassification": []
+		},
+		"items": {
+			"type": ["null","array"],
+			"description": "Fleet items - only available if schema 'addendumDetails' or 'fleetDetails' is provided",
+			"items": {
+				"$ref": "FleetDetailModelV4.json#"
+			}
+		},
+		"odometer": {
+			"type": ["string","null"],
+			"example": 127586,
+			"description": "Odometer reading",
+			"dataClassification": []
+		},
+		"vehicleNumber": {
+			"type": ["string","null"],
+			"example": "HD-AB 1234",
+			"description": "Vehicle Number",
+			"dataClassification": ["PII"]
+		},
+		"fuelType": {
+			"type": "string",
+			"example": "DIESEL",
+			"description": "Fuel Type",
+			"dataClassification": []
+		},
+		"productType": {
+			"type": "string",
+			"example": "WASH",
+			"description": "Product Type",
+			"dataClassification": []
+		},
+		"serviceType": {
+			"type": "string",
+			"example": "FULL",
+			"description": "Service Type",
+			"dataClassification": []
+		},
+		"standardFuelType": {
+			"type": "string",
+			"example": "DIESELXXXX",
+			"description": "Standardized Fuel Type",
+			"dataClassification": []
+		},
+		"standardProductType": {
+			"type": "string",
+			"example": "WASHXXXXXX",
+			"description": "Standardized Product Type",
+			"dataClassification": []
+		},
+		"standardServiceType": {
+			"type": "string",
+			"example": "FULLX",
+			"description": "Standardized Service Type",
+			"dataClassification": []
+		},
+		"discountAmount": {
+			"description": "Discount Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"totalAmount": {
+			"description": "Total Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"unitAmount": {
+			"description": "Unit Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"quantity": {
+			"description": "Quantity",
+			"$ref": "#/definitions/FleetQuantityModelV4"
+		}
+	},
+	"additionalProperties": false
+}

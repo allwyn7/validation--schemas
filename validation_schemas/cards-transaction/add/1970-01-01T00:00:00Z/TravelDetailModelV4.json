@@ -1,0 +1,116 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "TravelDetailModelV4.json",
+	"type": "object",
+	"properties": {
+		"arrivalDate": {
+			"type": ["string","null"],
+			"example": "2018-08-15",
+			"description": "Date of arrival",
+			"dataClassification": ["PII"]
+		},
+		"arrivalLocation": {
+			"type": ["string","null"],
+			"example": "FRA",
+			"description": "Arrival location/code",
+			"dataClassification": []
+		},
+		"departureDate": {
+			"type": ["string","null"],
+			"example": "2018-08-15",
+			"description": "Date of departure",
+			"dataClassification": ["PII"]
+		},
+		"departureLocation": {
+			"type": ["string","null"],
+			"example": "LAX",
+			"description": "Departure location/code",
+			"dataClassification": []
+		},
+		"flightNumber": {
+			"type": ["string","null"],
+			"example": "LH457",
+			"description": "Flight number assigned by the airline carrier",
+			"dataClassification": []
+		},
+		"serviceClass": {
+			"type": ["string","null"],
+			"example": "E",
+			"description": "Class of Service Code. Expected values (not enforced):\nA = First Discount\nB = Coach Discount\nC = Business Class\nD = Bus Discounted\nE = Shuttle\nF = First Class\nH = Coach Discount\nJ = Bus Premium\nK = Thrift\nL = Thrift Discount\nM = Coach Discount\nP = First Premium\nQ = Coach Discount\nR = Supersonic\nS = Standard Class\nT = Coach Discount\nU = Shuttle\nV = Thrift Discount\nW = Coach Premium\nY = Coach",
+			"dataClassification": []
+		},
+		"travelLegNumber": {
+			"type": ["null","integer"],
+			"format": "int32",
+			"example": 1,
+			"description": "Order in which the leg is to be traveled",
+			"dataClassification": []
+		},
+		"arrivalCountry": {
+			"type": "string",
+			"description": "Arrival Country",
+			"dataClassification": []
+		},
+		"carrierCode": {
+			"type": "string",
+			"description": "Air or Rail carrier name abbreviation",
+			"dataClassification": []
+		},
+		"conjunctionTicketNumber": {
+			"type": "string",
+			"description": "Ticket that contains additional coupons on an itinerary that is more than four segments",
+			"dataClassification": ["sensitive"]
+		},
+		"customData": {
+			"type": "array",
+			"description": "Custom data for travel",
+			"items": {
+				"$ref": "CustomDataModelV4Post.json#"
+			}
+		},
+		"departureCountry": {
+			"type": "string",
+			"description": "Departure Country",
+			"dataClassification": []
+		},
+		"endorsements": {
+			"type": "string",
+			"description": "Describes the fare issued by the airline",
+			"dataClassification": []
+		},
+		"exchangeTicketNumber": {
+			"type": "string",
+			"description": "Exchange ticket number",
+			"dataClassification": ["sensitive"]
+		},
+		"fare": {
+			"description": "Fare",
+			"$ref": "AmountModelV4.json#"
+		},
+		"fee": {
+			"description": "Fee",
+			"$ref": "AmountModelV4.json#"
+		},
+		"foreignArrival": {
+			"type": "boolean",
+			"description": "Indicates if the travel is from a foreign country",
+			"dataClassification": []
+		},
+		"foreignDeparture": {
+			"type": "boolean",
+			"description": "Indicates if the travel is to a foreign country",
+			"dataClassification": []
+		},
+		"isOrigin": {
+			"type": "boolean",
+			"description": "Indicates if this is the first leg of travel on the ticket",
+			"dataClassification": []
+		},
+		"isDestination": {
+			"type": "boolean",
+			"description": "Indicates if this is the final leg of travel on the ticket",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

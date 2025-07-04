@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "booking-data-ground.json",
+  "x-java-type": "com.concur.t2.schema.itinerary.GroundBookingData",
+  "goType": "GroundBookingData",
+  "title": "Ground Booking Data",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "cancellationPolicy": {
+      "type": "string",
+      "title": "Ground Cancellation Policy",
+      "description": "Details about the cancellation policy for the ground transport booking",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "confirmation": {
+      "type": "string",
+      "title": "Ground Confirmation",
+      "description": "Booking confirmation code from the vendor",
+      "dataClassification": [
+        "PII"
+      ],
+      "classification": "personal"
+    },
+    "dropoff": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Ground Dropoff",
+      "description": "Information about the dropoff location and time",
+      "goType": "Dropoff",
+      "x-java-type": "com.concur.t2.schema.itinerary.ground.Dropoff",
+      "properties": {
+        "address": {
+          "$ref": "shared.json#/definitions/address",
+          "description": "Address of the dropoff location",
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal"
+        },
+        "dateTime": {
+          "$ref": "shared.json#/definitions/local-date-time",
+          "description": "Local date and time of the dropoff on RFC 3339 format",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "dateTimeUtc": {
+          "$ref": "shared.json#/definitions/date-time",
+          "description": "UTC date and time of the dropoff on RFC 3339 format",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "iataCode": {
+          "type": "string",
+          "description": "IATA code of the airport or train station for dropoff",
+          "pattern": "^[A-Z]{3}$",
+          "maxLength": 3,
+          "minLength": 3,
+          "example": "LGA",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "instructions": {
+          "type": "string",
+          "description": "Special instructions for the dropoff",
+          "example": "Dropoff takes time because I have 5 bags and a dog with me",
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal"
+        },
+        "geolocation": {
+          "$ref": "shared.json#/definitions/geolocation",
+          "description": "Geo coordinates of the dropoff location",
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal"
+        }
+      },
+      "required": [
+        "address",
+        "dateTime"
+      ]
+    },
+    "extRef": {
+      "type": "string",
+      "title": "Ground External Reference",
+      "description": "External unique ID for the booking",
+      "dataClassification": [],
+      "classification": "none"
+    },
+    "pickup": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Ground Pickup",
+      "description": "Information about the pickup location and time",
+      "goType": "Pickup",
+      "x-java-type": "com.concur.t2.schema.itinerary.ground.Pickup",
+      "properties": {
+        "address": {
+          "$ref": "shared.json#/definitions/address",
+          "description": "Address of the pickup location",
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal"
+        },
+        "dateTime": {
+          "$ref": "shared.json#/definitions/local-date-time",
+          "description": "Local date and time of the pickup on RFC 3339 format",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "dateTimeUtc": {
+          "$ref": "shared.json#/definitions/date-time",
+          "description": "UTC date and time of the pickup on RFC 3339 format",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "iataCode": {
+          "type": "string",
+          "description": "IATA code of the airport or train station for pickup",
+          "pattern": "^[A-Z]{3}$",
+          "maxLength": 3,
+          "minLength": 3,
+          "example": "LGA",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "instructions": {
+          "type": "string",
+          "description": "Special instructions for the pickup",
+          "example": "Meet at baggage claim",
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal"
+        },
+        "geolocation": {
+          "$ref": "shared.json#/definitions/geolocation",
+          "description": "Geo coordinates of pickup the location",
+          "dataClassification": [
+            "PII"
+          ],
+          "classification": "personal"
+        }
+      },
+      "required": [
+        "address",
+        "dateTime"
+      ]
+    },
+    "price": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Ground Price",
+      "description": "Price details of the vendor reservation",
+      "goType": "Price",
+      "x-java-type": "com.concur.t2.schema.itinerary.ground.Price",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "description": "Currency in which the total amount is specified",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "Cost of the vendor reservation",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "currency",
+        "totalAmount"
+      ]
+    },
+    "supplier": {
+      "additionalProperties": false,
+      "type": "object",
+      "description": "Aggregator or intermediary facilitating the booking",
+      "x-java-type": "com.concur.t2.schema.itinerary.ground.Supplier",
+      "title": "Ground Supplier",
+      "goType": "Supplier",
+      "properties": {
+        "logo": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the supplier logo",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the supplier",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to redirect user to the supplier page",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "name",
+        "url"
+      ]
+    },
+    "vehicle": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Ground Vehicle",
+      "goType": "Vehicle",
+      "x-java-type": "com.concur.t2.schema.itinerary.ground.Vehicle",
+      "description": "Details about the assigned vehicle for the ground transportation",
+      "properties": {
+        "acrissCode": {
+          "type": "string",
+          "description": "ACRISS code for the vehicle",
+          "pattern": "^[A-Z0-9]{4}$",
+          "example": "FDMR",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of an image representing the vehicle type",
+          "example": "https://example.com/vehicle-image.jpg",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "model": {
+          "type": "string",
+          "description": "Model of vehicle assigned for the ground transportation",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "seatingCapacity": {
+          "type": "number",
+          "description": "Number of seats in the vehicle",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "luggageCapacity": {
+          "type": "number",
+          "description": "Number of luggage pieces the vehicle can accommodate",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "model"
+      ]
+    },
+    "vendor": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Ground Vendor",
+      "description": "Details about the actual vendor fulfilling the ground transportation service",
+      "goType": "Vendor",
+      "x-java-type": "com.concur.t2.schema.itinerary.ground.Vendor",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the vendor fulfilling the reservation",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Vendor phone number",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "email": {
+          "type": "string",
+          "description": "Vendor email address",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  },
+  "required": [
+    "confirmation",
+    "dropoff",
+    "extRef",
+    "pickup",
+    "price",
+    "supplier"
+  ]
+}

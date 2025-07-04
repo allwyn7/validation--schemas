@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "airSegment.json",
+  "title": "Air segment",
+  "type": "object",
+  "description": "Schema for Air segment.",
+  "properties": {
+    "originationAirportIATACode": {
+      "type": "string",
+      "description": "IATA code of the origination airport.",
+      "dataClassification": []
+    },
+    "originationDateTime": {
+      "type": "string",
+      "format": "dateTime",
+      "description": "Date and time of departure from the origination airport.",
+      "dataClassification": []
+    },
+    "destinationAirportIATACode": {
+      "type": "string",
+      "description": "IATA code of the destination airport.",
+      "dataClassification": []
+    },
+    "destinationDateTime": {
+      "type": "string",
+      "format": "dateTime",
+      "description": "Date and time of arrival at the destination airport.",
+      "dataClassification": []
+    },
+    "flightNumber": {
+      "type": "string",
+      "description": "Flight identifier.",
+      "dataClassification": []
+    },
+    "operatingAirlineCode": {
+      "type": "string",
+      "description": "IATA code of the operating airline.",
+      "dataClassification": []
+    },
+    "marketingCarrier": {
+      "type": "string",
+      "description": "Marketing carrier code.",
+      "dataClassification": []
+    },
+    "operatingCarrier": {
+      "type": "string",
+      "description": "Operating carrier code.",
+      "dataClassification": []
+    },
+    "classOfServiceCode": {
+      "type": "string",
+      "description": "Class of service code.",
+      "dataClassification": []
+    },
+    "fareBasisCode": {
+      "type": "string",
+      "description": "Fare basis code.",
+      "dataClassification": []
+    },
+    "ticketDesignatorCode": {
+      "type": "string",
+      "description": "Ticket designator code.",
+      "dataClassification": []
+    },
+    "fare": {
+      "description": "Fare for the segment of the trip.",
+      "$ref": "fare.json",
+      "dataClassification": []
+    },
+    "taxes": {
+      "type": "array",
+      "description": "Taxes for the segment of the trip.",
+      "items": {
+        "description": "Tax",
+        "$ref": "tax.json",
+        "dataClassification": []
+      }
+    },
+    "segmentLocator": {
+      "type": "string",
+      "description": "Locator for the segment.",
+      "dataClassification": []
+    }
+  },
+  "additionalProperties": false
+}

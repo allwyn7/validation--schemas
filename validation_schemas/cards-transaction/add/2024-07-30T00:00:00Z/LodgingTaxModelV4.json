@@ -1,0 +1,25 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "LodgingTaxModelV4.json",
+	"type": "object",
+	"required": [
+		"amount",
+		"type"
+	],
+	"properties": {
+		"amount": {
+			"description": "Tax amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"type": {
+			"type": "string",
+			"example": "ROOMTAX",
+			"description": "Tax type\nROOMTAX - Room tax",
+			"enum": [
+				"ROOMTAX"
+			],
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

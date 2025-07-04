@@ -1,0 +1,41 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Tax.json",
+	"type": "object",
+	"properties": {
+		"TaxType": {
+			"type": "string",
+			"maxLength": 4,
+			"group": "external",
+			"classification": "none",
+			"description": "The type of the tax."
+		},
+		"TaxAuthority": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "none",
+			"description": "The entity levying the tax."
+		},
+		"TaxName": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "none",
+			"description": "The name of the tax."
+		},
+		"TaxAmount": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The amount of the tax."
+		},
+		"TaxRate": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The tax percentage rate."
+		}
+	},
+	"additionalProperties": false
+}

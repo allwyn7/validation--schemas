@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "tripDetails.json",
+  "title": "Trip Details Schema",
+  "type": "object",
+  "description": "Trip details, This includes all the trip/travel related information specific to different receipt categories.",
+  "properties": {
+    "itineraryLocator": {
+      "description": "Unique identifier of an itinerary/trip. An itinerary can contain one or more bookings from various sources.",
+      "type": "string",
+      "dataClassification": []
+    },
+    "confirmationNumber": {
+      "type": "string",
+      "description": "Booking identifier.",
+      "addAnnotation": ["ExcludeForDataLake"],
+      "dataClassification": []
+    },
+    "startDate": {
+      "type": "string",
+      "format": "dateTime",
+      "description": "Trip starting Date/Time, as defined by RFC 3339, section 5.6. Accepted formats: yyyy-MM-dd'T'HH:mm:ssX, yyyy-MM-dd'T'HH:mm:ss.SSSX, yyyy-MM-dd'T'HH:mm:ssZ, yyyy-MM-dd'T'HH:mm:ssXXX, without time zone, or with time zone (offset or colon)",
+      "dataClassification": []
+    },
+    "endDate": {
+      "type": "string",
+      "format": "dateTime",
+      "description": "Trip ending Date/Time, as defined by RFC 3339, section 5.6. Accepted formats: yyyy-MM-dd'T'HH:mm:ssX, yyyy-MM-dd'T'HH:mm:ss.SSSX, yyyy-MM-dd'T'HH:mm:ssZ, yyyy-MM-dd'T'HH:mm:ssXXX, without time zone, or with time zone (offset or colon)",
+      "dataClassification": []
+    },
+    "source": {
+      "description": "Source address which can be pickup location, departure etc, required for groundTransport category",
+      "$ref": "address.json",
+      "dataClassification": []
+    },
+    "destination": {
+      "description": "Final Destination address which can be drop location, arrival etc.",
+      "$ref": "address.json",
+      "dataClassification": []
+    },
+    "guests": {
+      "type": "array",
+      "description": "Guest information.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "dataClassification": []
+          },
+          "lastName": {
+            "type": "string",
+            "dataClassification": []
+          },
+          "address": {
+            "$ref": "address.json",
+            "dataClassification": []
+          }
+        },
+        "additionalProperties": false
+      },
+      "dataClassification": []
+    },
+    "lodgeDetails": {
+      "description": "Lodge related information specific to hotel receipt.",
+      "$ref": "lodgeDetails.json",
+      "dataClassification": []
+    },
+    "rideDetails": {
+      "description": "Ride related information. This can be applicable to any ground transportation like taxi, car rental, etc. This can also be applicable to food delivery receipts such as Uber, Grubhub etc.",
+      "$ref": "rideDetails.json",
+      "dataClassification": []
+    }
+  },
+  "additionalProperties": false
+}
+

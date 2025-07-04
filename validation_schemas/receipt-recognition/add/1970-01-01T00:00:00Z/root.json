@@ -1,0 +1,1300 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "receipt-recognition-api-response.json",
+    "type": "object",
+    "properties": {
+        "metadata_id": {
+            "type": "string"
+        },
+        "receipt_id": {
+            "type": "string"
+        },
+        "user_id": {
+            "type": "string"
+        },
+        "image_id": {
+            "type": "string"
+        },
+        "processing_status": {
+            "type": "string"
+        },
+        "entity_id": {
+            "type": "string"
+        },
+        "company_uuid": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "text": {
+            "type": "string"
+        },
+        "recognized_receipt": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "receipt_id": {
+                    "type": "string"
+                },
+                "company_id": {
+                    "type": "string"
+                },
+                "image_id": {
+                    "type": "string"
+                },
+                "processing_status": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "expense_type": {
+                    "type": "string"
+                },
+                "credit_card_type": {
+                    "type": "string"
+                },
+                "credit_card_last_four": {
+                    "type": "string"
+                },
+                "vendor_details": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "city": {
+                            "type": "string"
+                        },
+                        "state": {
+                            "type": "string"
+                        },
+                        "country": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "line_items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "title": {
+                                "type": "string",
+                                "maxLength": 100
+                            },
+                            "description": {
+                                "type": "string",
+                                "maxLength": 100
+                            },
+                            "date": {
+                                "type": "string",
+                                "maxLength": 10,
+                                "description": "Line item date"
+                            },
+                            "folio_type": {
+                                "type": "string",
+                                "maxLength": 100,
+                                "description": "Folio line item type"
+                            },
+                            "amount": {
+                                "type": "string",
+                                "maxLength": 100,
+                                "description": "Line item dollar amount"
+                            }
+                        }
+                    }
+                }
+            },
+            "image_origin": {
+                "type": "string"
+            }
+        },
+        "datascience": {
+            "type": [
+                "null",
+                "object"
+            ],
+            "properties": {
+                "request": {
+                    "type": [
+                        "null",
+                        "object"
+                    ],
+                    "properties": {
+                        "cteLoginId": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "entityId": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "companyUUID": {
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "format": "uuid"
+                        },
+                        "userId": {
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "format": "integer"
+                        },
+                        "userUUID": {
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "format": "uuid"
+                        },
+                        "ocrText": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "language": {
+                            "type": [
+                                "null",
+                                "array"
+                            ],
+                            "items": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "userExpenseTypes": {
+                            "type": [
+                                "null",
+                                "array"
+                            ],
+                            "items": {
+                                "type": [
+                                    "null",
+                                    "object"
+                                ],
+                                "properties": {
+                                    "SpdCat": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "ExpKey": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "Name": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "onDeviceInfo": {
+                            "type": [
+                                "null",
+                                "object"
+                            ],
+                            "properties": {
+                                "transaction_amount": {
+                                    "type": [
+                                        "null",
+                                        "number"
+                                    ]
+                                },
+                                "token_info": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "predictions": {
+                                                "type": [
+                                                    "null",
+                                                    "array"
+                                                ],
+                                                "items": {
+                                                    "type": [
+                                                        "null",
+                                                        "object"
+                                                    ],
+                                                    "properties": {
+                                                        "score": {
+                                                            "type": [
+                                                                "null",
+                                                                "number"
+                                                            ]
+                                                        },
+                                                        "value": {
+                                                            "type": [
+                                                                "null",
+                                                                "string",
+                                                                "number"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "processing_time_ms": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "score_thresholds": {
+                                                "type": [
+                                                    "null",
+                                                    "object"
+                                                ],
+                                                "properties": {
+                                                    "auto": {
+                                                        "type": [
+                                                            "null",
+                                                            "number"
+                                                        ]
+                                                    },
+                                                    "select": {
+                                                        "type": [
+                                                            "null",
+                                                            "number"
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            "source": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            },
+                                            "token_name": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            },
+                                            "tokenizer_id": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "response": {
+                    "type": [
+                        "null",
+                        "object"
+                    ],
+                    "properties": {
+                        "lineitems": {
+                            "type": [
+                                "null",
+                                "object"
+                            ],
+                            "properties": {
+                                "score": {
+                                    "type": [
+                                        "null",
+                                        "number"
+                                    ]
+                                },
+                                "value": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "description": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            },
+                                            "date": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            },
+                                            "lineitem": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            },
+                                            "amount": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "fli_type_key": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "tokensV2": {
+                            "type": [
+                                "null",
+                                "object"
+                            ],
+                            "properties": {
+                                "date": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "country": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "cclastseg": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "amount": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "amount-raw": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "location-raw": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "array"
+                                                ],
+                                                "items": {
+                                                    "type": [
+                                                        "null",
+                                                        "string"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "year": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "dsType": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "expenseTypes": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "internals": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "object"
+                                                ],
+                                                "properties": {
+                                                    "is_email": {
+                                                        "type": [
+                                                            "null",
+                                                            "number"
+                                                        ]
+                                                    },
+                                                    "location_s_api": {
+                                                        "type": [
+                                                            "null",
+                                                            "number"
+                                                        ]
+                                                    },
+                                                    "has_ph": {
+                                                        "type": [
+                                                            "null",
+                                                            "number"
+                                                        ]
+                                                    },
+                                                    "vendor_s_api": {
+                                                        "type": [
+                                                            "null",
+                                                            "number"
+                                                        ]
+                                                    },
+                                                    "currency_f_api": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "location_f_api": {
+                                                        "type": [
+                                                            "null",
+                                                            "array"
+                                                        ],
+                                                        "items": {
+                                                            "type": [
+                                                                "null",
+                                                                "string"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "vendor_f_api": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "rtaMatch": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "object"
+                                                ],
+                                                "properties": {
+                                                    "processType": {
+                                                        "type": [
+                                                            "null",
+                                                            "object"
+                                                        ],
+                                                        "properties": {
+                                                            "code": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "string"
+                                                                ]
+                                                            },
+                                                            "name": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "string"
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    "type": {
+                                                        "type": [
+                                                            "null",
+                                                            "object"
+                                                        ],
+                                                        "properties": {
+                                                            "code": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "string"
+                                                                ]
+                                                            },
+                                                            "name": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "string"
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    "message": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "status": {
+                                                        "type": [
+                                                            "null",
+                                                            "object"
+                                                        ],
+                                                        "properties": {
+                                                            "code": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "string"
+                                                                ]
+                                                            },
+                                                            "name": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "string"
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    "MerchantCtryCode": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "SpendCategory": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "MerchantLegalName": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "MerchantStreetAddress": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "MerchantID": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "Description": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "TransactionCrnCode": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "TransactionDate": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "MerchantState": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "CompanyName": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "LoginID": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "MerchantName": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "MerchantPostalCode": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "TransactionType": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "TransactionAmount": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "RequestID": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "MerchantCity": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    },
+                                                    "CardTypeCode": {
+                                                        "type": [
+                                                            "null",
+                                                            "string"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "card-network": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "internals-rta": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "object"
+                                                ],
+                                                "properties": {
+                                                    "date": {
+                                                        "type": [
+                                                            "null",
+                                                            "object"
+                                                        ],
+                                                        "properties": {
+                                                            "score": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "number"
+                                                                ]
+                                                            },
+                                                            "value": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "string"
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    "vendor": {
+                                                        "type": [
+                                                            "null",
+                                                            "object"
+                                                        ],
+                                                        "properties": {
+                                                            "score": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "number"
+                                                                ]
+                                                            },
+                                                            "value": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "string"
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    "currency": {
+                                                        "type": [
+                                                            "null",
+                                                            "object"
+                                                        ],
+                                                        "properties": {
+                                                            "score": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "number"
+                                                                ]
+                                                            },
+                                                            "value": {
+                                                                "type": [
+                                                                    "null",
+                                                                    "string"
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "street-address": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "phone": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "array"
+                                                ],
+                                                "items": {
+                                                    "type": [
+                                                        "null",
+                                                        "string"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "vendor": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "dsType_sub": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "spanish-invoice-id": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    }
+                                },
+                                "location": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "array"
+                                                ],
+                                                "items": {
+                                                    "type": [
+                                                        "null",
+                                                        "string"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "currency": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "time": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "number",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "tax-id": {
+                                    "type": [
+                                        "null",
+                                        "array"
+                                    ],
+                                    "items": {
+                                        "type": [
+                                            "null",
+                                            "object"
+                                        ],
+                                        "properties": {
+                                            "score": {
+                                                "type": [
+                                                    "null",
+                                                    "number"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": [
+                                                    "null",
+                                                    "string"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "source": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "version": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "created_date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "company_id": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "company_uuid",
+        "created_date",
+        "image_id",
+        "metadata_id",
+        "receipt_id"
+    ]
+}

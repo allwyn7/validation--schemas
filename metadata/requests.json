@@ -1,0 +1,48 @@
+{
+  "event_name": "requests",
+  "ident_field_names": [
+    "$.companyId",
+    "$.requestId"
+  ],
+  "timestamp_field_name": "$.revisionTimestamp",
+  "event_types": {
+    "add": {
+      "company_id": {
+        "kind": "companyUuid",
+        "property": "companyId"
+      }
+    },
+    "delete": {
+      "company_id": {
+        "kind": "companyUuid",
+        "property": "companyId"
+      }
+    },
+    "regulatory_delete": {
+      "company_id": {
+        "kind": "companyUuid",
+        "property": "companyId"
+      }
+    }
+  },
+  "team": {
+    "slack": "#ask-request",
+    "email": "DL_5AFBF7BA5F99B70D100002A0@global.corp.sap",
+    "name": "amelie"
+  },
+  "uri_json_path": "href",
+  "validation_exceptions": {
+    "always_fail": "all"
+  },
+  "spark": {
+    "delete_behaviors": {
+      "delete": ["soft_delete", "hard_delete"],
+      "regulatory_delete": ["soft_delete", "hard_delete"]
+    }
+  },
+  "dataset": {
+    "type": "update",
+    "classification": "customer_data",
+    "source": "streaming"
+  }
+}

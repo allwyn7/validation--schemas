@@ -1,0 +1,134 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "CarDetail.json",
+	"type": "object",
+	"properties": {
+		"ReservationId": {
+			"type": "string"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"Description": {
+			"type": "string"
+		},
+		"Registration": {
+			"type": "string"
+		},
+		"ClassReserved": {
+			"type": "string"
+		},
+		"ClassRented": {
+			"type": "string"
+		},
+		"ClassCharged": {
+			"type": "string"
+		},
+		"Category": {
+			"type": "string"
+		},
+		"Transmission": {
+			"type": "string"
+		},
+		"AC": {
+			"type": "string"
+		},
+		"VehicleCode": {
+			"type": "string"
+		},
+		"EngineSize": {
+			"type": "string"
+		},
+		"FuelType": {
+			"type": "string"
+		},
+		"MilesKmUnit": {
+			"type": "string"
+		},
+		"OdometerIn": {
+			"type": "integer"
+		},
+		"OdometerOut": {
+			"type": "integer"
+		},
+		"AdditionalDriver": {
+			"type": "string"
+		},
+		"TotalTaxableAmount": {
+			"type": "number"
+		},
+		"TotalTaxAmount": {
+			"type": "number"
+		},
+		"AverageDailyRate": {
+			"type": "number"
+		},
+		"VoucherValue": {
+			"type": "number"
+		},
+		"LoyaltyProgram": {
+			"type": "string"
+		},
+		"CorporateDiscountCode": {
+			"type": "string"
+		},
+		"CorporateDiscountName": {
+			"type": "string"
+		},
+		"CustomerVatRegistration": {
+			"type": "string"
+		},
+		"VatSupplyType": {
+			"type": "string"
+		},
+		"VatPointDate": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"ReturnLocationCode": {
+			"type": "string"
+		},
+		"ReturnLocationDescription": {
+			"type": "string"
+		},
+		"ReturnLocationAddress": {
+			"type": "string"
+		},
+		"ReturnLocationAddress2": {
+			"type": "string"
+		},
+		"ReturnLocationCity": {
+			"type": "string"
+		},
+		"ReturnLocationState": {
+			"type": "string"
+		},
+		"ReturnLocationZip": {
+			"type": "string"
+		},
+		"ReturnLocationCountry": {
+			"type": "string"
+		},
+		"IsReturnLocationInAirport": {
+			"type": "boolean"
+		},
+		"ReturnLocationAirportCode": {
+			"type": "string"
+		},
+		"ReturnLocationPhone": {
+			"type": "string"
+		},
+		"ReturnLocationFax": {
+			"type": "string"
+		},
+		"ReturnLocationEmail": {
+			"type": "string"
+		},
+		"ReturnLocationUrl": {
+			"type": "string"
+		}
+	},
+	"additionalProperties": false
+}

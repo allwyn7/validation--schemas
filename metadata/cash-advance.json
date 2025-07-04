@@ -1,0 +1,48 @@
+{
+    "event_name": "cash-advance",
+    "ident_field_names": [
+        "$.companyId",
+        "$.cashAdvanceId"
+    ],
+    "timestamp_field_name": "$.lastModifiedDate",
+    "event_types": {
+        "add": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        },
+        "delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        },
+        "regulatory_delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        }
+    },
+    "team": {
+        "slack": "#ask-banaras",
+        "email": "DL_60126EA10E5E66027E880E2D@global.corp.sap",
+        "name": "banaras"
+    },
+    "validation_exceptions": {
+        "always_fail": "all",
+        "dp_fields_validator": "2024-07-23T00:00:00Z"
+    },
+    "uri_json_path": "href",
+    "spark": {
+        "delete_behaviors":{
+            "regulatory_delete": ["soft_delete", "hard_delete"]
+        }
+    },
+    "dataset": {
+        "type": "update",
+        "classification": "customer_data",
+        "source": "streaming"
+    }
+}

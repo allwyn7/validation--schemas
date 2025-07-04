@@ -1,0 +1,466 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Air.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": "Unique ID generated for the segment by ItinServices"
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"CreditCardId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Reference to card in OUTTASK_CREDIT_CARD"
+		},
+		"AllowDelete": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "The list of rule violations associated with the itinerary. This parent element contains a Rule Violation child element for each associated rule violation."
+		},
+		"OperatedByVendorName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The name of the airline operating the flight on behalf of the booked airline."
+		},
+		"FrequentTravelerId": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The traveler’s ID for the frequent traveler reward program."
+		},
+		"FlightNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "none",
+			"description": "The flight number for the booking."
+		},
+		"AircraftCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "none",
+			"description": "The code for the aircraft type."
+		},
+		"Cabin": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "none",
+			"description": "The section of the airplane for the booking."
+		},
+		"ClassOfService": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "none",
+			"description": "The class of the booking."
+		},
+		"FareBasisCode": {
+			"type": "string",
+			"maxLength": 24,
+			"classification": "none",
+			"description": "An alphabetic or alpha-numeric code used by airlines to identify a fare type and allow airline staff and travel agents to find the rules applicable to that fare."
+		},
+		"Miles": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The number of miles included in the booking."
+		},
+		"Duration": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The duration of the booked flight."
+		},
+		"NumStops": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The number of stops in the booking."
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "none",
+			"description": "The IATA airport code for the starting address for the booking."
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external",
+			"classification": "none",
+			"description": "The IATA airport code for the end city of the booking."
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "none",
+			"description": ""
+		},
+		"EndCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "none",
+			"description": ""
+		},
+		"StartTerminal": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "none",
+			"description": "The departure terminal for the booking. For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking."
+		},
+		"EndTerminal": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "none",
+			"description": "The arrival terminal for the booking.For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking."
+		},
+		"StartGate": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "none",
+			"description": "The departure gate for the booking. For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking."
+		},
+		"EndGate": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "none",
+			"description": "The arrival gate for the booking. For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking."
+		},
+		"Meals": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external",
+			"classification": "none",
+			"description": "The meals included in the booking."
+		},
+		"Bags": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "none",
+			"description": "The number of bags included in the booking."
+		},
+		"OperatedByFlightNumber": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external",
+			"classification": "none",
+			"description": "Flight number provided by the airline operating the flight on behalf of the booked airline."
+		},
+		"CancellationPolicy": {
+			"type": "string",
+			"maxLength": 1024,
+			"group": "external",
+			"classification": "none",
+			"description": "The cancellation policy from the vendor."
+		},
+		"SpecialInstructions": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external",
+			"classification": "personal",
+			"description": "Additional instructions regarding the booking. Maximum length: 256"
+		},
+		"Services": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The services included in the booking."
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking starting time and date, in the booking location’s local time. For TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking."
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking ending time and date, in the booking location’s local time.For TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking."
+		},
+		"LegId": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The leg ID of the booking. Leg IDs do not change on a connection. For each unique leg ID in the trip, all flights subsequent to the first segment with the same leg ID are connections."
+		},
+		"CheckedBaggage": {
+			"type": "string",
+			"maxLength": 100,
+			"group": "external",
+			"classification": "none",
+			"description": "Whether the booking includes checked baggage."
+		},
+		"ETicket": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Whether the booking has an e-ticket."
+		},
+		"OpenSegment": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Additional information about the open segment."
+		},
+		"CarbonEmissionLbs": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The pounds of carbon emission for this booking."
+		},
+		"CarbonModel": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The model used to calculate the carbon emissions."
+		},
+		"IsOpenSegment": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the segment is open."
+		},
+		"EarlyBirdStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"IsRefundable": {
+			"type": "boolean",
+			"classification": "none",
+			"description": "If true, the fare is refundable."
+		},
+		"IsOnline": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"FareName": {
+			"type": "string",
+			"maxLength": 256,
+			"classification": "none",
+			"description": ""
+		},
+		"SegmentKey": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Seats": {
+			"type": "array",
+			"items": {
+				"$ref": "AirSeat.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "The seats for the booking. This parent element contains an AirSeat element for each included seat. For more information, see the Air Seat Elements table later on this page."
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "List of charges for this booking."
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external",
+			"classification": "none",
+			"description": "Remarks on the segment."
+		},
+		"PerDiemLocation": {
+			"$ref": "PerDiemLocation.json#",
+			"classification": "none",
+			"description": ""
+		},
+		"IsT2Segment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": "Indicates if a segment was booked in T2"
+		},
+		"ClientLocator": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Represents the unique identifier of the trip in an external (non-SAP Concur) system. Maximum length: 32 characters"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The two-letter GDS vendor code."
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The name of the vendor."
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": "The GDS based booking status for the segment. Example: HK, HL, BK"
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "The ID for the time zone of the booking."
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The time zone of the booking."
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking starting time and date, in UTC. For TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking."
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The booking ending time and date, in UTC. For TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking."
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The record locator or confirmation number for the flight from the airline."
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was created, in UTC."
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was cancelled, in UTC."
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "personal",
+			"description": "The cancellation number from the vendor. This field should be set when you cancel a segment."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was modified, in UTC."
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "Additional details about the booking."
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "ID returned from Expense when an air segment is expensed"
+		},
+		"EReceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"SentToAirplus": {
+			"type": "boolean",
+			"classification": "none",
+			"description": "Indicates if air segment was sent to Airplus."
+		},
+		"CliqbookId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "ID for the segment coming from Booking Services"
+		},
+		"TransientSegmentNumber": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date and time the booking was upgraded."
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the booking can be upgraded."
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the airline is marked as a preferred property by the company."
+		},
+		"VendorFlags": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Not used."
+		},
+		"VirtualCreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": "The type of a virtual credit card."
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128,
+			"group": "external",
+			"classification": "none",
+			"description": "The airline operating the flight on behalf of the booked airline."
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the base fare."
+		}
+	},
+	"additionalProperties": false
+}

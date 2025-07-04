@@ -1,0 +1,85 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirlineTicketFareBreakup.json",
+	"type": "object",
+	"properties": {
+		"Vendor": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": "The vendor for the fare."
+		},
+		"StartCityCode": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The IATA airport code for the starting address for the booking."
+		},
+		"EndCityCode": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The IATA airport code for the end city of the booking."
+		},
+		"BaseFare": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The base fare of the airfare quote."
+		},
+		"TotalFare": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The total price of the booking."
+		},
+		"Currency": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code"
+		},
+		"IsRefundable": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the fare is refundable."
+		},
+		"FareBasisCode": {
+			"type": "string",
+			"maxLength": 24,
+			"classification": "none",
+			"description": "An alphabetic or alpha-numeric code used by airlines to identify a fare type and allow airline staff and travel agents to find the rules applicable to that fare."
+		},
+		"ClassOfService": {
+			"type": "string",
+			"maxLength": 16,
+			"group": "external",
+			"classification": "none",
+			"description": "Class of fare for the ticket."
+		},
+		"GsaYcaFare": {
+			"type": "number",
+			"classification": "none",
+			"description": "Fare for GSA Unrestricted Coach Fare"
+		},
+		"GsaXcaFare": {
+			"type": "number",
+			"classification": "none",
+			"description": "Fare for a GSA Capacity-Controlled Fare"
+		},
+		"GsaXcbFare": {
+			"type": "number",
+			"classification": "none",
+			"description": "Fare for a GSA Business Class Fare"
+		},
+		"Cabin": {
+			"type": "string",
+			"maxLength": 1,
+			"classification": "none",
+			"description": "Cabin for the flight."
+		}
+	},
+	"additionalProperties": false
+}

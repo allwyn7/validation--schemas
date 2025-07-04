@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "rail-details.json",
+  "title": "Rail Details Schema",
+  "type": "object",
+  "description": "Details specific to rail or train receipts.",
+  "properties": {
+    "ticketNumber": {
+      "type": "string",
+      "description": "Ticket identifier.",
+      "dataClassification": []
+    },
+    "recordLocator": {
+      "type": "string",
+      "description": "Confirmation identifier for the ticket.",
+      "dataClassification": []
+    },
+    "issueDateTime": {
+      "type": "string",
+      "format": "dateTime",
+      "description": "Date and time when the ticket was issued.",
+      "dataClassification": []
+    },
+    "passengerName": {
+      "type": "string",
+      "description": "Name of the person associated with the ticket.",
+      "dataClassification": []
+    },
+    "fare": {
+      "description": "Fare details",
+      "$ref": "fare.json",
+      "dataClassification": []
+    },
+    "segments": {
+      "type": "array",
+      "description": "Segments for this train ticket.",
+      "items": {
+        "description": "Rail segment.",
+        "$ref": "railSegment.json",
+        "dataClassification": []
+      }
+    }
+  },
+  "additionalProperties": false
+}

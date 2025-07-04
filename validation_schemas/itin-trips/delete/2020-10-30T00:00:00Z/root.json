@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "Itinerary.json",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "itinLocator": {
+            "type": "string"
+        },
+        "userId": {
+            "type": "string"
+        },
+        "companyId": {
+            "type": "string"
+        },
+        "hrefs": {
+            "type": "object"
+        }
+    },
+    "required": [
+        "id"
+    ],
+    "additionalProperties": false
+}

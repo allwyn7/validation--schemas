@@ -1,0 +1,79 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "approval.json",
+    "definitions": {
+        "approvalStatusNames": {
+            "type": "string",
+            "enum": [
+                "none",
+                "pending",
+                "approved",
+                "rejected"
+            ]
+        },
+        "approvalActionNames": {
+            "type": "string",
+            "enum": [
+                "approve",
+                "deny",
+                "autoCancel"
+            ]
+        },
+        "approvalAction": {
+            "type": "object",
+            "properties": {
+                "who": {
+                    "$ref": "shared.json#/definitions/uuid",
+                    "classification": "personal"
+                },
+                "what": {
+                    "$ref": "#/definitions/approvalActionNames",
+                    "classification": "none"
+                },
+                "when": {
+                    "type": "string",
+                    "goType": "string",
+                    "format": "date-time",
+                    "classification": "none"
+                },
+                "comment": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 512,
+                    "classification": "personal"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "who",
+                "what",
+                "when"
+            ]
+        },
+        "approvalEmailToken": {
+            "type": "object",
+            "properties": {
+                "approverId": {
+                    "$ref": "shared.json#/definitions/uuid",
+                    "classification": "personal"
+                },
+                "salt": {
+                    "type": "integer",
+                    "classification": "none",
+                    "description": "The salt used in generating the hash of this email token."
+                },
+                "tokenHash": {
+                    "type": "string",
+                    "classification": "none",
+                    "description": "The hash of the email token as computed by OTCrypto service."
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "approverId",
+                "salt",
+                "tokenHash"
+            ]
+        }
+    }
+}

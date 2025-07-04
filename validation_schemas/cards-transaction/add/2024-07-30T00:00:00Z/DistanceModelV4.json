@@ -1,0 +1,26 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "DistanceModelV4.json",
+	"type": "object",
+	"properties": {
+		"unit": {
+			"type": ["string","null"],
+			"example": "KM",
+			"description": "Distance unit:\n\nKM - Kilometer\nMILE - Mile",
+			"dataClassification": [],
+			"enum": [
+				"KM",
+				"MILE",
+				null
+			]
+		},
+		"value": {
+			"type": "integer",
+			"format": "int32",
+			"example": 380,
+			"dataClassification": [],
+			"description": "Distance value"
+		}
+	},
+	"additionalProperties": false
+}

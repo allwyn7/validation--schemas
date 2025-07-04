@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "receipt-recognition-delete.json",
+    "type": "object",
+    "properties": {
+        "company_uuid": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "image_id": {
+            "type": "string"
+        },
+        "deleteReason": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "company_uuid",
+        "image_id",
+        "deleteReason"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "EReceiptOtherDetail.json",
+	"type": "object",
+	"properties": {
+		"DetailTagName": {
+			"type": "string",
+			"maxLength": 128
+		},
+		"DetailValue": {
+			"type": "string",
+			"maxLength": 256
+		}
+	},
+	"additionalProperties": false
+}

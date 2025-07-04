@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Warning.json",
+	"type": "object",
+	"properties": {
+		"Text": {
+			"type": [ "string", "null" ],
+			"group": "external"
+		},
+		"Code": {
+			"type": [ "string", "null" ],
+			"group": "external"
+		},
+		"Type": {
+			"type": [ "string", "null" ],
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

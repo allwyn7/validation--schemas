@@ -1,0 +1,300 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirlineTicket.json",
+	"type": "object",
+	"properties": {
+		"AirlineTicketCoupons": {
+			"type": "array",
+			"items": {
+				"$ref": "AirlineTicketCoupon.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "A list of coupons for this ticket. This parent element has an AirlineTicketCoupon child element for each coupon associated with this airline ticket. For information about these child elements, see the Airline Ticket Coupon Element table."
+		},
+		"Taxes": {
+			"type": "array",
+			"items": {
+				"$ref": "Tax.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "Taxes applied to the airline ticket."
+		},
+		"AirlineTicketExchanges": {
+			"type": "array",
+			"items": {
+				"$ref": "AirlineTicketExchange.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "A list of exchanges for this ticket. This parent element has an AirlineTicketExchange child element for each exchange associated with this airline ticket. For information about these child elements, see the Airline Ticket Exchange Element table."
+		},
+		"AirlineCharges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "Charges associated to the ticket."
+		},
+		"AirlineTicketFareBreakups": {
+			"type": "array",
+			"items": {
+				"$ref": "AirlineTicketFareBreakup.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "A list of fare breakups for this ticket. This parent element has an AirlineTicketFareBreakup child element for each fare breakup associated with this airline ticket. For information about these child elements, see the Airline Ticket Fare Breakup Element table."
+		},
+		"InvoiceNumber": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external",
+			"classification": "personal",
+			"description": "Invoice associated with the ticket."
+		},
+		"SabreDkNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "personal",
+			"description": "Appears only if a booking was created by the relavent GDS."
+		},
+		"RecordLocator": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source."
+		},
+		"PlatingCarrierNumericCode": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "personal",
+			"description": "The three-digit ticket number that indicates the airline code. Examples: 001 - American, 005 - Continental, 006 - Delta, 012 - Northwest"
+		},
+		"PlatingControlNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external",
+			"classification": "personal",
+			"description": "Ten digits of the ticket number that indicates the ticket control number."
+		},
+		"IssueDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "Timestamp of ticket issuing."
+		},
+		"IssueDateTimeUTC": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp of ticket issuing."
+		},
+		"IssuingPseudoCity": {
+			"type": "string",
+			"maxLength": 9,
+			"group": "external",
+			"classification": "none",
+			"description": "Pseudo city code of the issuing ticket agency."
+		},
+		"IssuingIataAgencyNumber": {
+			"type": "integer",
+			"group": "external",
+			"classification": "none",
+			"description": "IATA number of agency that issued the ticket."
+		},
+		"PassengerName": {
+			"type": "string",
+			"maxLength": 100,
+			"group": "external",
+			"classification": "personal",
+			"description": "Airline ticket holder’s full name."
+		},
+		"Ticketless": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the ticket is ticketless."
+		},
+		"MasterTicketNumber": {
+			"type": "string",
+			"maxLength": 13,
+			"group": "external",
+			"classification": "personal",
+			"description": "The ticket number."
+		},
+		"ProgramCarrierCode": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "none",
+			"description": "The airline vendor code for the program."
+		},
+		"ProgramMembershipNumber": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The membership number for the program."
+		},
+		"NameReference": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "Not used."
+		},
+		"BaseFare": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Fare without any tax penalties."
+		},
+		"BaseFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the base fare."
+		},
+		"BaseFareNuc": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The base fare in NUC."
+		},
+		"BaseFareNucCurrency": {
+			"type": "string",
+			"minLength": 3,
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the base fare in NUC."
+		},
+		"TotalFare": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Total cost of ticket."
+		},
+		"TotalFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code of ticket."
+		},
+		"Endorsements": {
+			"type": "string",
+			"maxLength": 500,
+			"group": "external",
+			"classification": "personal",
+			"description": "Notes from the airline if it endorses the ticket as acceptable on a different airline."
+		},
+		"TourIdentifier": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "Special negotiated fare."
+		},
+		"AddCollectAmount": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "Specifies the net fare (i.e. the actual fare paid) if it differs from the total fare for the ticket due to applicable credits from the original exchanged ticket."
+		},
+		"CreditCardType": {
+			"type": "string",
+			"maxLength": 2,
+			"classification": "none",
+			"description": "The type of the credit card used for the ticket"
+		},
+		"CreditCardLast4": {
+			"type": "string",
+			"classification": "sensitive",
+			"description": "Last 4 numbers of the credit card"
+		},
+		"LinearFareConstructor": {
+			"type": "string",
+			"maxLength": 500,
+			"group": "external",
+			"classification": "personal",
+			"description": "A breakdown of the total fare."
+		},
+		"TicketType": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 1,
+			"group": "external",
+			"classification": "none",
+			"description": "The type of the ticket."
+		},
+		"CesId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "ID returned from Expense when an air segment is expensed"
+		},
+		"EreceiptStatus": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"SentToAirplus": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"HadPenalty": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"ComparisonFare": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "A baseline fare provided by the TMC for contractual reference."
+		},
+		"ComparisonFareCurrency": {
+			"type": "string",
+			"maxLength": 3,
+			"pattern": "[A-Za-z]{3,3}",
+			"group": "external",
+			"classification": "none",
+			"description": "The 3-letter ISO 4217 currency code for the comparison fare."
+		},
+		"ChargeLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "none",
+			"description": "Unique ID for an Airline Charge/Adjustment"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp of ticket creation."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp of ticket modification."
+		},
+		"UseCurrentRailPayment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"AccountingLine": {
+			"$ref": "AccountingLine.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "The accounting line on the airline ticket."
+		}
+	},
+	"additionalProperties": false
+}

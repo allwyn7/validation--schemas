@@ -1,0 +1,88 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "WaitListSegments.json",
+    "type": "object",
+    "$defs": {
+        "SegmentOptionItem": {
+            "type": "object",
+            "properties": {
+                "SegmentIndex": {
+                    "type": "string",
+                    "group": "external",
+                    "classification": "none",
+                    "description": "The index of the segment among the options."
+                },
+                "StatusCode": {
+                    "type": "string",
+                    "group": "external",
+                    "classification": "none",
+                    "description": "The status of the segment option."
+                },
+                "Flight": {
+                    "type": "array",
+                    "group": "external",
+                    "items": {
+                        "$ref": "WaitListSegments.json#/$defs/SegmentOptionFlightType"
+                    },
+                    "classification": "none",
+                    "description": "The flight options."
+                },
+                "TimeStamp": {
+                    "type": "string",
+                    "group": "external",
+                    "classification": "none",
+                    "description": "The timestamp for the segment option."
+                }
+            },
+            "additionalProperties": false
+        },
+        "SegmentOptionFlightType": {
+            "type": "object",
+            "properties": {
+                "Carrier": {
+                    "type": "string",
+                    "group": "external",
+                    "classification": "none",
+                    "description": "The flight carrier."
+                },
+                "FlightNum": {
+                    "type": "string",
+                    "group": "external",
+                    "classification": "none",
+                    "description": "The flight number."
+                },
+                "DepAirp": {
+                    "type": "string",
+                    "group": "external",
+                    "classification": "none",
+                    "description": "Departure airport."
+                },
+                "ArrAirp": {
+                    "type": "string",
+                    "group": "external",
+                    "classification": "none",
+                    "description": "Arrival airport."
+                },
+                "Cabin": {
+                    "type": "string",
+                    "group": "external",
+                    "classification": "personal",
+                    "description": "Cabin for the flight."
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "properties": {
+        "SegmentOption": {
+            "type": "array",
+            "group": "external",
+            "items": {
+                "$ref": "WaitListSegments.json#/$defs/SegmentOptionItem"
+            },
+			"classification": "none",
+			"description": "Air segments on which a user is waitlisted."
+        }
+    },
+    "additionalProperties": false
+}

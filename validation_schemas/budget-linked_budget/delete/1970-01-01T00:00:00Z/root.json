@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-linked_budgets-delete.json",
+  "title": "Budget Linked Budgets Delete Schema",
+  "description": "Schema for validating a budget linked budgets object",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification": []
+    },
+    "entityId": {
+      "type": "string",
+      "description": "The unique identifier of the entity",
+      "dataClassification": []
+    },
+    "budgetItemDetailSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget item detail being added or updated",
+      "dataClassification": []
+    },
+    "budgetSpendingItemDetailExternalSyncGuid": {
+      "type": "string",
+      "description": "The external Sync GUID of the budget spending item detail being linked",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "budgetItemDetailSyncGuid",
+    "budgetSpendingItemDetailExternalSyncGuid"
+  ],
+  "additionalProperties": false
+}

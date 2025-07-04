@@ -1,0 +1,38 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AddressModelV4.json",
+	"type": "object",
+	"properties": {
+		"city": {
+			"type": ["string","null"],
+			"example": "Frankfurt",
+			"description": "City",
+			"dataClassification": ["sensitive"]
+		},
+		"countryCode": {
+			"type": ["string","null"],
+			"example": "DE",
+			"description": "Country code (ISO 3166-1 Alpha-2 code)",
+			"dataClassification": ["sensitive"]
+		},
+		"state": {
+			"type": ["string","null"],
+			"example": "WA",
+			"description": "State / province / region",
+			"dataClassification": ["sensitive"]
+		},
+		"streetAddress": {
+			"type": ["string","null"],
+			"example": "Venloer Strasse 151",
+			"description": "Street address lines",
+			"dataClassification": ["sensitive"]
+		},
+		"zip": {
+			"type": ["string","null"],
+			"example": 20500,
+			"description": "Zip / postal code",
+			"dataClassification": ["sensitive"]
+		}
+	},
+	"additionalProperties": false
+}

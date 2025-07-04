@@ -1,0 +1,53 @@
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "appcenter-connection_metadata.json",
+  "description": "appcenter-connection_metadata add JSON Schema",
+  "type": "object",
+  "properties": {
+    "appId": {
+      "type": "string"
+    },
+    "principalId": {
+      "type": "string"
+    },
+    "principalType": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "cause": {
+      "type": "string"
+    },
+    "companyId": {
+      "default": null,
+      "type": ["string","null"]
+    },
+    "id": {
+        "type": "string"
+    },
+    "eventType": {
+        "type": "string"
+    },
+    "correlationId": {
+        "type": "string"
+    },
+    "subtopic": {
+        "type": "string"
+    },
+    "timeStamp": {
+        "type": "string"
+    },
+    "topic": {
+        "type": "string"
+    }
+  },
+  "required": [
+    "appId",
+    "principalId",
+    "principalType",
+    "timeStamp"
+  ],
+  "additionalProperties": false
+}

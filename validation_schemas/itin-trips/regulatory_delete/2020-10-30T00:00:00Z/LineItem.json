@@ -1,0 +1,41 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "LineItem.json",
+	"type": "object",
+	"properties": {
+		"Description": {
+			"type": "string"
+		},
+		"Amount": {
+			"type": "number"
+		},
+		"Date": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"SequenceNumber": {
+			"type": "integer"
+		},
+		"TransactionId": {
+			"type": "string"
+		},
+		"SecondaryDescription": {
+			"type": "string"
+		},
+		"EntryType": {
+			"type": "string"
+		},
+		"ConfirmationNumber": {
+			"type": "string"
+		},
+		"Quantity": {
+			"type": "integer"
+		},
+		"RateType": {
+			"type": "string"
+		},
+		"Rate": {
+			"type": "number"
+		}
+	},
+	"additionalProperties": false
+}

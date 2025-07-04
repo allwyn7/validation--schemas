@@ -1,0 +1,319 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Air.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			}
+		},
+		"CreditCardId": {
+			"type": "integer"
+		},
+		"AllowDelete": {
+			"type": "boolean"
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			},
+			"group": "external"
+		},
+		"OperatedByVendorName": {
+			"type": "string",
+			"group": "external"
+		},
+		"FrequentTravelerId": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"FlightNumber": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"AircraftCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external"
+		},
+		"Cabin": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external"
+		},
+		"ClassOfService": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external"
+		},
+		"FareBasisCode": {
+			"type": "string",
+			"maxLength": 24
+		},
+		"Miles": {
+			"type": "integer",
+			"group": "external"
+		},
+		"Duration": {
+			"type": "integer",
+			"group": "external"
+		},
+		"NumStops": {
+			"type": "integer",
+			"group": "external"
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external"
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 5,
+			"group": "external"
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"EndCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"StartTerminal": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"EndTerminal": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"StartGate": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"EndGate": {
+			"type": "string",
+			"maxLength": 10,
+			"group": "external"
+		},
+		"Meals": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external"
+		},
+		"Bags": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"OperatedByFlightNumber": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external"
+		},
+		"CancellationPolicy": {
+			"type": "string",
+			"maxLength": 1024,
+			"group": "external"
+		},
+		"SpecialInstructions": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external"
+		},
+		"Services": {
+			"type": "string",
+			"group": "external"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"group": "external"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"LegId": {
+			"type": "integer",
+			"group": "external"
+		},
+		"CheckedBaggage": {
+			"type": "string",
+			"maxLength": 100,
+			"group": "external"
+		},
+		"ETicket": {
+			"type": "string",
+			"group": "external"
+		},
+		"OpenSegment": {
+			"type": "string",
+			"group": "external"
+		},
+		"CarbonEmissionLbs": {
+			"type": "number",
+			"group": "external"
+		},
+		"CarbonModel": {
+			"type": "integer",
+			"group": "external"
+		},
+		"IsOpenSegment": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"EarlyBirdStatus": {
+			"type": "integer"
+		},
+		"IsRefundable": {
+			"type": "boolean"
+		},
+		"IsOnline": {
+			"type": "boolean"
+		},
+		"FareName": {
+			"type": "string",
+			"maxLength": 256
+		},
+		"SegmentKey": {
+			"type": "string"
+		},
+		"Seats": {
+			"type": "array",
+			"items": {
+				"$ref": "AirSeat.json#"
+			},
+			"group": "external"
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external"
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external"
+		},
+		"PerDiemLocation": {
+			"$ref": "PerDiemLocation.json#"
+		},
+		"IsT2Segment": {
+			"type": "boolean"
+		},
+		"ClientLocator": {
+			"type": "string"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external"
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external"
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external"
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external"
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"EReceiptStatus": {
+			"type": "integer"
+		},
+		"SentToAirplus": {
+			"type": "boolean"
+		},
+		"CliqbookId": {
+			"type": "integer"
+		},
+		"TransientSegmentNumber": {
+			"type": "integer"
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"group": "external"
+		},
+		"VendorFlags": {
+			"type": "string",
+			"group": "external"
+		},
+		"VirtualCreditCardType": {
+			"type": "string"
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128,
+			"group": "external"
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3
+		}
+	},
+	"additionalProperties": false
+}

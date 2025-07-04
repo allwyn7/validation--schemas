@@ -1,0 +1,30 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Shared.json",
+	"$defs": {
+		"uuid": {
+			"type": "string",
+			"javaType": "java.util.UUID",
+			"pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+		},
+		"date": {
+			"type": "string",
+			"format": "date",
+			"customDatePattern": "yyyy-MM-dd",
+			"javaType": "java.time.LocalDate",
+			"pattern": "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))"
+		},
+		"date-time": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"local-date-time": {
+			"type": "string",
+			"format": "date",
+			"javaType": "java.time.LocalDateTime",
+			"customDatePattern": "yyyy-MM-dd'T'HH:mm:ss",
+			"pattern": "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([0-2][0-9]):[0-5][0-9]:[0-5][0-9])"
+		}
+	},
+	"additionalProperties": false
+}

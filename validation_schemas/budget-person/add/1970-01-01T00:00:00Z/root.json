@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-person-add.json",
+  "title": "Budget Person Add Schema",
+  "description": "Schema for creating a budget person",
+  "type": "object",
+
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification": []
+    },
+    "entityId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the entity associated with the person",
+      "dataClassification": []
+    },
+    "reason": {
+      "type": "string",
+      "description": "The reason for adding or updating the person",
+      "dataClassification": []
+    },
+    "syncTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time when the person was synchronized",
+      "dataClassification": []
+    },
+    "budgetPersonSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget person being added or updated",
+      "dataClassification": []
+    },
+    "budgetPersonExternalSyncGuid": {
+      "type": "string",
+      "description": "The external Sync GUID of the budget person",
+      "dataClassification": []
+    },
+    "employeeUuid": {
+      "type": "string",
+      "description": "The UUID of the employee associated with the budget person",
+      "dataClassification": []
+    },
+    "budgetPersonType": {
+      "type": "string",
+      "description": "Type of the budget person",
+      "dataClassification": []
+    },
+    "budgetItemSyncGuid": {
+      "type": "string",
+      "description": "The unique identifier of an associated budget item",
+      "dataClassification": []
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last time the budget person was updated",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "reason",
+    "syncTime",
+    "budgetPersonSyncGuid",
+    "budgetPersonExternalSyncGuid",
+    "employeeUuid",
+    "budgetPersonType",
+    "budgetItemSyncGuid",
+    "lastModifiedDate"
+  ],
+  "additionalProperties": false
+}

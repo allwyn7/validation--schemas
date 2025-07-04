@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-fiscal_year-delete.json",
+  "title": "Budget Fiscal Year Delete Schema",
+  "description": "Schema for deleting a budget fiscal year",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification": []
+    },
+    "entityId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the entity associated with the fiscal year",
+      "dataClassification": []
+    },
+    "fiscalYearSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the fiscal year being deleted",
+      "dataClassification": []
+    },
+    "fiscalYearStatus": {
+      "type": "string",
+      "description": "The status of the fiscal year being deleted",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "fiscalYearSyncGuid",
+    "fiscalYearStatus"
+  ],
+  "additionalProperties": false
+}

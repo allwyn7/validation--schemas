@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "jpt-details.json",
+  "title": "JPT Details Schema",
+  "type": "object",
+  "description": "Details specific to Japan Public Transportation (JPT) IC Card receipts.",
+  "properties": {
+    "icCardId": {
+      "type": "string",
+      "description": "The unique identifier for the card with a maximum length of 16 characters.",
+      "dataClassification": []
+    },
+    "collectionReference": {
+      "type": "string",
+      "description": "Reference for the collection.",
+      "dataClassification": []
+    },
+    "reference": {
+      "type": "string",
+      "description": "General reference.",
+      "dataClassification": []
+    },
+    "segments": {
+      "type": "array",
+      "description": "The segments for the trip.",
+      "items": {
+        "description": "JPT segment.",
+        "$ref": "jptSegment.json",
+        "dataClassification": []
+      }
+    }
+  },
+  "additionalProperties": false
+}

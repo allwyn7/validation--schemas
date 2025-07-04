@@ -1,0 +1,40 @@
+{
+    "event_name": "user-profile-identity",
+    "ident_field_names": [
+        "$.id"
+    ],
+    "timestamp_field_name": "$.meta.lastModified",
+    "event_types": {
+        "add": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "$.['urn:ietf:params:scim:schemas:extension:enterprise:2.0:User'].companyId"
+            }
+        },
+        "delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "companyId"
+            }
+        }
+    },
+    "team": {
+        "slack": "#ask-core-profile",
+        "email": "profile@concur.com",
+        "name": "Profile Identity"
+    },
+    "spark": {
+        "delete_behaviors": {
+            "delete": ["soft_delete"]
+        }
+    },
+    "validation_exceptions": {
+        "always_fail": "all"
+    },
+    "uri_json_path": "userHref",
+    "dataset": {
+        "type": "update",
+        "classification": "customer_data",
+        "source": "streaming"
+    }
+}

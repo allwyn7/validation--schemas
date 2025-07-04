@@ -1,0 +1,29 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "PerDiemLocation.json",
+	"type": "object",
+	"properties": {
+		"Name": {
+			"type": "string"
+		},
+		"StateCountry": {
+			"type": "string"
+		},
+		"County": {
+			"type": "string"
+		},
+		"Zip": {
+			"type": "string"
+		},
+		"Conus": {
+			"type": "string"
+		},
+		"PerDiemRates": {
+			"type": "array",
+			"items": {
+				"$ref": "PerDiemRate.json#"
+			}
+		}
+	},
+	"additionalProperties": false
+}

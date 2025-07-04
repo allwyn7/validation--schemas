@@ -1,0 +1,39 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "EReceipt.json",
+	"$defs": {},
+	"type": "object",
+	"properties": {
+		"EReceiptHotel": {
+			"type": "array",
+			"items": {
+				"$ref": "EReceiptHotel.json#"
+			}
+		},
+		"EReceiptCar": {
+			"type": "array",
+			"items": {
+				"$ref": "EReceiptCar.json#"
+			}
+		},
+		"EReceiptRide": {
+			"type": "array",
+			"items": {
+				"$ref": "EReceiptRide.json#"
+			}
+		},
+		"EReceiptAir": {
+			"type": "array",
+			"items": {
+				"$ref": "EReceiptAir.json#"
+			}
+		},
+		"EReceiptGeneral": {
+			"type": "array",
+			"items": {
+				"$ref": "EReceiptGeneral.json#"
+			}
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,52 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "RailProgram.json",
+	"type": "object",
+	"properties": {
+		"ProgramNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "none",
+			"description": "The passenger's identifier for the program."
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "none",
+			"description": "The passenger's program status."
+		},
+		"StatusExpirationDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The expiration date for the passenger's program status."
+		},
+		"DiscountProgramType": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The type of the discount program."
+		},
+		"DiscountProgramExpirationDate": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the discount program enrollment expires."
+		},
+		"ProgramVendor": {
+			"type": "string",
+			"maxLength": 2,
+			"classification": "none",
+			"description": ""
+		},
+		"Description": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The description fo the discount program."
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "cards-account-regulatory-delete.json",
+    "version": "v1",
+    "description":"Cards Account Regulatory Delete JSON Schema",
+    "type": "object",
+    "properties": {
+        "companyId": {
+            "dataClassification":[],
+            "type": "string"
+        },
+        "timestamp": {
+            "dataClassification":[],
+            "type": "string",
+            "format": "date-time"
+        },
+        "dataRetentionPolicyId": {
+            "dataClassification":[],
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+        },
+        "id": {
+            "dataClassification":[],
+            "type": "string"
+        }        
+    },
+    "additionalProperties": false,
+    "required": [
+        "id",
+        "timestamp",
+        "companyId"
+    ]
+}
+

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "distance.json",
+  "title": "Distance",
+  "type": "object",
+  "description": "Trip Distance",
+  "properties": {
+    "totalDistance": {
+      "type": "number",
+      "description": "Total Distance",
+      "dataClassification": []
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of distance",
+      "enum": [
+        "km",
+        "mi"
+      ],
+      "dataClassification": []
+    }
+  },
+  "additionalProperties": false
+}

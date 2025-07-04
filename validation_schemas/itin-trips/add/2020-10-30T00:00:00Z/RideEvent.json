@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "RideEvent.json",
+	"type": "object",
+	"properties": {
+		"Event": {
+			"type": "string"
+		},
+		"Latitude": {
+			"type": "number"
+		},
+		"Longitude": {
+			"type": "number"
+		},
+		"EventDateTimeLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"EventDateTimeUTC": {
+			"$ref": "Shared.json#/$defs/date-time"
+		}
+	},
+	"additionalProperties": false
+}

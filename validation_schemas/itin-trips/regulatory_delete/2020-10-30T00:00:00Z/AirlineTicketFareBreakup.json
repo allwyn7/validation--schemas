@@ -1,0 +1,59 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirlineTicketFareBreakup.json",
+	"type": "object",
+	"properties": {
+		"Vendor": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"StartCityCode": {
+			"type": "string",
+			"group": "external"
+		},
+		"EndCityCode": {
+			"type": "string",
+			"group": "external"
+		},
+		"BaseFare": {
+			"type": "number",
+			"group": "external"
+		},
+		"TotalFare": {
+			"type": "number",
+			"group": "external"
+		},
+		"Currency": {
+			"type": "string",
+			"group": "external"
+		},
+		"IsRefundable": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"FareBasisCode": {
+			"type": "string",
+			"maxLength": 24
+		},
+		"ClassOfService": {
+			"type": "string",
+			"maxLength": 16,
+			"group": "external"
+		},
+		"GsaYcaFare": {
+			"type": "number"
+		},
+		"GsaXcaFare": {
+			"type": "number"
+		},
+		"GsaXcbFare": {
+			"type": "number"
+		},
+		"Cabin": {
+			"type": "string",
+			"maxLength": 1
+		}
+	},
+	"additionalProperties": false
+}

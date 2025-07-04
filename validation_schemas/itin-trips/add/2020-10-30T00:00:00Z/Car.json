@@ -1,0 +1,487 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Car.json",
+	"type": "object",
+	"properties": {
+		"SegmentLocator": {
+			"type": "integer",
+			"format": "int64"
+		},
+		"ParseErrors": {
+			"type": "array",
+			"items": {
+				"$ref": "FieldError.json#"
+			}
+		},
+		"CreditCardId": {
+			"type": "integer"
+		},
+		"AllowDelete": {
+			"type": "boolean"
+		},
+		"RuleViolations": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RuleViolation"
+			}
+		},
+		"FrequentTravelerId": {
+			"type": "string",
+			"maxLength": 32
+		},
+		"RateCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"StartCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external"
+		},
+		"EndCityCode": {
+			"type": "string",
+			"maxLength": 12,
+			"group": "external"
+		},
+		"StartCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"EndCityCodeUntranslated": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"StartLocation": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"EndLocation": {
+			"type": "string",
+			"maxLength": 10
+		},
+		"StartAddress": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"StartAddress2": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"StartCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"StartPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"StartState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"StartCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"StartOpenTime": {
+			"type": "string",
+			"group": "external"
+		},
+		"StartCloseTime": {
+			"type": "string",
+			"group": "external"
+		},
+		"EndAddress": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"EndAddress2": {
+			"type": "string",
+			"maxLength": 60,
+			"group": "external"
+		},
+		"EndCity": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"EndPostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external"
+		},
+		"EndState": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external"
+		},
+		"EndCountry": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"StartLatitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"StartLongitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"EndLatitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"EndLongitude": {
+			"type": "number",
+			"group": "external"
+		},
+		"EndOpenTime": {
+			"type": "string",
+			"group": "external"
+		},
+		"EndCloseTime": {
+			"type": "string",
+			"group": "external"
+		},
+		"EndPhoneNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryAddressType": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryAddress1": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryCity": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryState": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryPostalCode": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryCountry": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryLatitude": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryLongitude": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryPhoneNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryCityCode": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryCategory": {
+			"type": "string",
+			"group": "external"
+		},
+		"PickupDeliveryNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionAddressType": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionAddress1": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionCity": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionState": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionPostalCode": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionCountry": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionLatitude": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionLongitude": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionPhoneNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionCityCode": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionCategory": {
+			"type": "string",
+			"group": "external"
+		},
+		"DropoffCollectionNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"CarType": {
+			"type": "string"
+		},
+		"isSpecialVehical": {
+			"type": "boolean"
+		},
+		"Class": {
+			"type": "string",
+			"group": "external"
+		},
+		"Body": {
+			"type": "string",
+			"group": "external"
+		},
+		"Transmission": {
+			"type": "string",
+			"group": "external"
+		},
+		"AirCondition": {
+			"type": "string",
+			"group": "external"
+		},
+		"PhoneNumber": {
+			"type": "string",
+			"group": "external"
+		},
+		"NumPersons": {
+			"type": "integer",
+			"group": "external"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"NumCars": {
+			"type": "integer",
+			"group": "external"
+		},
+		"DiscountCode": {
+			"type": "string",
+			"maxLength": 20,
+			"group": "external"
+		},
+		"SpecialInstructions": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external"
+		},
+		"DailyRate": {
+			"type": "number",
+			"group": "external"
+		},
+		"TotalRate": {
+			"type": "number",
+			"group": "external"
+		},
+		"RateType": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"ComparisonRate": {
+			"type": "number"
+		},
+		"ComparisonRateCurrency": {
+			"type": "string",
+			"maxLength": 3
+		},
+		"RealRate": {
+			"type": "number"
+		},
+		"RealRateCurrency": {
+			"type": "string",
+			"maxLength": 3
+		},
+		"IsGhostCard": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"CreditCardLastFour": {
+			"type": "string"
+		},
+		"CreditCardType": {
+			"type": "string"
+		},
+		"SpecialEquipment": {
+			"type": "string",
+			"group": "external"
+		},
+		"ProtectedVendorSpecificInformation": {
+			"type": "string"
+		},
+		"IsRefundable": {
+			"type": "boolean"
+		},
+		"IsOnline": {
+			"type": "boolean"
+		},
+		"SegmentKey": {
+			"type": "string"
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external"
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external"
+		},
+		"EReceiptCar": {
+			"$ref": "EReceiptCar.json#"
+		},
+		"PerDiemLocation": {
+			"$ref": "PerDiemLocation.json#"
+		},
+		"FrequentFlyer": {
+			"$ref": "FrequentFlyer.json#"
+		},
+		"IsT2Segment": {
+			"type": "boolean"
+		},
+		"ClientLocator": {
+			"type": "string"
+		},
+		"Vendor": {
+			"type": "string",
+			"group": "external"
+		},
+		"VendorName": {
+			"type": "string",
+			"group": "external"
+		},
+		"OperatedByVendorName": {
+			"type": "string"
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external"
+		},
+		"TimeZoneId": {
+			"type": "integer",
+			"group": "external"
+		},
+		"TimeZone": {
+			"type": "string",
+			"group": "external"
+		},
+		"StartDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"EndDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"ConfirmationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"DateCancelledUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"CancellationNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external"
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"Notes": {
+			"type": "string",
+			"group": "external"
+		},
+		"CesId": {
+			"type": "integer"
+		},
+		"EReceiptStatus": {
+			"type": "integer"
+		},
+		"SentToAirplus": {
+			"type": "boolean"
+		},
+		"CliqbookId": {
+			"type": "integer"
+		},
+		"TransientSegmentNumber": {
+			"type": "integer"
+		},
+		"UpgradedDateTime": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external"
+		},
+		"IsUpgradeAllowed": {
+			"type": "boolean",
+			"group": "external"
+		},
+		"IsPreferredVendor": {
+			"type": "integer",
+			"group": "external"
+		},
+		"VendorFlags": {
+			"type": "string",
+			"group": "external"
+		},
+		"VirtualCreditCardType": {
+			"type": "string"
+		},
+		"OperatedByVendor": {
+			"type": "string",
+			"maxLength": 128
+		},
+		"Currency": {
+			"type": "string",
+			"maxLength": 3,
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

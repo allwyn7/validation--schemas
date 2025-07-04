@@ -1,0 +1,27 @@
+{
+  "event_name": "budget-category",
+  "ident_field_names": ["$.companyUuid", "$.budgetCategorySyncGuid"],
+  "timestamp_field_name": "$.syncTime",
+  "event_types": {
+    "add": {
+      "company_id": {
+        "kind": "companyUuid",
+        "property": "companyUuid"
+      }
+    }
+  },
+  "dataset": {
+    "type": "append",
+    "classification": "customer_data",
+    "source": "streaming"
+  },
+  "team": {
+    "slack": "#ask-budget-rnd",
+    "email": "DL_67529E119E1813013658FD86@global.corp.sap",
+    "name": "Budget Team"
+  },
+  "validation_exceptions": {
+    "always_fail": "all",
+    "single_uri_format": "all"
+  }
+}

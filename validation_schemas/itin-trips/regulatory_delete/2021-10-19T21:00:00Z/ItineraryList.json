@@ -1,0 +1,17 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "ItineraryList.json",
+	"$defs": {},
+	"type": "object",
+	"properties": {
+		"Itineraries": {
+			"type": "array",
+			"items": {
+				"$ref": "Itinerary.json#"
+			},
+			"classification": "none",
+			"description": "The user’s login to the SAP Concur system."
+		}
+	},
+	"additionalProperties": false
+}

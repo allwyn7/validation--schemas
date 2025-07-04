@@ -1,0 +1,97 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "TransactionAdministrativeDataModelV4.json",
+	"type": "object",
+	"required": [
+		"hasRichData",
+		"integrationPartner",
+		"isDeletable",
+		"processType",
+		"status",
+		"lastModified"
+	],
+	"properties": {
+		"addendumType": {
+			"type": ["string","null"],
+			"example": "TRVL",
+			"description": "In case the transaction has addendum data, specifies which kind of addendum data are available.\nTRVL - Travel\nLODG - Lodging\nFLET - Fleet\nCAR - Car Rental\nPRCH - Purchase",
+			"dataClassification": [],
+			"enum": [
+				"CAR",
+				"FLET",
+				"LODG",
+				"PRCH",
+				"TRVL",
+				null
+			]
+		},
+		"hasRichData": {
+			"type": "boolean",
+			"description": "Indicates whether the transaction has rich data.",
+			"dataClassification": []
+		},
+		"integrationPartner": {
+			"type": "string",
+			"example": "BATCH",
+			"description": "Integration partner through which this transaction was imported\nBATCH - File-based integration\nAMEX_OPEN - American Express Business Card integration\nYODLEE - Yodlee personal card integration",
+			"dataClassification": [],
+			"enum": [
+				"AMEX_OPEN",
+				"BATCH",
+				"YODLEE",
+				"API"
+			]
+		},
+		"isDeletable": {
+			"type": "boolean",
+			"description": "Indicates whether the transaction can be deleted.",
+			"dataClassification": []
+		},
+		"lastModified": {
+			"type": "string",
+			"example": "2015-07-08T13:28:26.923+00:00",
+			"description": "Last Modified",
+			"format": "date-time",
+			"dataClassification": []
+		},
+		"processType": {
+			"type": "string",
+			"description": "Process type\nCBS - Company Bill Statements\nCR - Central Reconciliation\nREG - Regular Expense Processing",
+			"dataClassification": [],
+			"enum": [
+				"CBS",
+				"CR",
+				"REG"
+			]
+		},
+		"receiptImageId": {
+			"type": [
+				"string",
+				"null"
+			],
+			"example": "gWp859SuBX9txSjn2yYqNY5",
+			"description": "ID of the receipt image",
+			"dataClassification": []
+		},
+		"statementPeriod": {
+			"$ref": "TransactionStatementPeriodModelV4.json#"
+		},
+		"status": {
+			"type": "string",
+			"example": "UN",
+			"description": "Transaction Status\nUN - Unassigned\nAS - Assigned to Report\nCH - Configuration Hidden\nPH - Payment Hidden\nPD - Potential Duplicate\nBA - Prior to Card Assignment\nED - Prior to Effective Date\nHD - User Hidden",
+			"dataClassification": [],
+			"enum": [
+				"AS",
+				"BA",
+				"CH",
+				"ED",
+				"HD",
+				"PD",
+				"PH",
+				"UN"
+			]
+		}
+	},
+	"additionalProperties": false
+}

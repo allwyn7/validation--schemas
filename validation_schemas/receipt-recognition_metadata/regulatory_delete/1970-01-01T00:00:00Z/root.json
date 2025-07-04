@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "receipt-recognition_metadata",
+    "type": "object",
+    "properties": {
+        "company_uuid": {
+            "type": "string"
+        },
+        "correlationId": {
+            "type": "string"
+        },
+        "deleteReason": {
+            "type": "string"
+        },
+        "eventType": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "image_id": {
+            "type": "string"
+        },
+        "subtopic": {
+            "type": "string"
+        },
+        "timeStamp": {
+            "type": "string"
+        },
+        "topic": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "id",
+        "company_uuid",
+        "image_id",
+        "timeStamp"
+    ],
+    "additionalProperties": false
+}

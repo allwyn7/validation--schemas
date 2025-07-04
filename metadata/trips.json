@@ -1,0 +1,41 @@
+{
+    "event_name": "trips",
+    "ident_field_names": [
+        "$.id"
+    ],
+    "timestamp_field_name": "$.meta.lastModifiedTime",
+    "event_types": {
+        "add": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "bookingContext.companyId"
+            }
+        },
+        "delete": {
+            "company_id": {
+                "kind": "companyUuid",
+                "property": "bookingContext.companyId"
+            }
+        }
+    },
+    "team": {
+        "slack": "#ask-travel-itin-tripstore",
+        "email": "DL_5D8D1E4A90C824029E5103AF@global.corp.sap",
+        "name": "Tripstore"
+    },
+    "uri_json_path": "facts.hrefs.v225",
+    "validation_exceptions": {
+        "always_fail": "all",
+        "dp_fields_validator": "2025-02-18T00:00:00Z"
+    },
+    "spark": {
+        "delete_behaviors":{
+            "delete": ["soft_delete", "hard_delete"]
+        }
+    },
+    "dataset": {
+        "type": "update",
+        "classification": "customer_data",
+        "source": "streaming"
+    }
+}

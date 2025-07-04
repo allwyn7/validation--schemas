@@ -1,0 +1,88 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "HotelDetail.json",
+	"type": "object",
+	"properties": {
+		"HotelDetailId": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"FolioNumber": {
+			"type": "string",
+			"classification": "none",
+			"description": "Unique ID from the hotel's accounting system"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"ProviderParentChainCode": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"NumberInParty": {
+			"type": "integer",
+			"classification": "none",
+			"description": ""
+		},
+		"RoomNumber": {
+			"type": "string",
+			"classification": "none",
+			"description": "Hotel room number"
+		},
+		"RoomType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"RatePlanId": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"RatePlanType": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"GNRNum": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"StayId": {
+			"type": "string",
+			"classification": "none",
+			"description": "Merchant / supplier ID for the travel segment"
+		},
+		"StayStatus": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"RoomRate": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"TaxExemptIndicator": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"MerchantOrderNumber": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Merchant's order number or internal reference for the travel segment"
+		}
+	},
+	"additionalProperties": false
+}

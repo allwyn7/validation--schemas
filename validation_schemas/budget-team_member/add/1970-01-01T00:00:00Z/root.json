@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-team_member-add.json",
+  "title": "Budget Team Member Add Schema",
+  "description": "Schema for validating a budget team member object",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The UUID of the company to which the event belongs",
+      "dataClassification": []
+    },
+    "entityId": {
+      "type": "string",
+      "description": "The unique identifier of the entity associated with the budget team member",
+      "dataClassification": []
+    },
+    "reason": {
+      "type": "string",
+      "description": "The reason for adding or updating the budget team member",
+      "dataClassification": []
+    },
+    "syncTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time when the adjustment was synchronized",
+      "dataClassification": []
+    },
+    "budgetTeamSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget team",
+      "dataClassification": []
+    },
+    "budgetItemSyncGuid": {
+      "type": "string",
+      "description": "The unique Sync GUID of the budget item",
+      "dataClassification": []
+    },
+    "budgetTeamPersonId": {
+      "type": "string",
+      "description": "The unique identifier of the budget team person",
+      "dataClassification": []
+    },
+    "enrolmentStartDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Start date of the enrolment period",
+      "dataClassification": []
+    },
+    "enrolmentEndDate": {
+      "type": "string",
+      "format": "date",
+      "description": "End date of the enrolment period",
+      "dataClassification": []
+    },
+    "teamMemberType": {
+      "type": "string",
+      "enum": ["FULLY_ENROLLED","PARTIALLY_ENROLLED","NOT_ENROLLED"],
+      "description": "Type of the team member",
+      "dataClassification": []
+    },
+    "teamMemberStatus": {
+      "type": "string",
+      "enum": ["NEW","REMOVED","EXISTING"],
+      "description": "Status of the team member",
+      "dataClassification": []
+    },
+    "creationDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The creationDate of team member",
+      "dataClassification": []
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last modified date of team member",
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "reason",
+    "syncTime",
+    "budgetTeamSyncGuid",
+    "budgetItemSyncGuid",
+    "budgetTeamPersonId",
+    "enrolmentStartDate",
+    "enrolmentEndDate",
+    "teamMemberType",
+    "teamMemberStatus",
+    "creationDate",
+    "lastModifiedDate"
+  ],
+  "additionalProperties": false
+}

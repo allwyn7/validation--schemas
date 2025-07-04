@@ -1,0 +1,36 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "ChargeDetail.json",
+	"type": "object",
+	"properties": {
+		"Fixed": {
+			"type": "array",
+			"items": {
+				"$ref": "Fixed.json#"
+			},
+			"group": "external"
+		},
+		"Percent": {
+			"type": "array",
+			"items": {
+				"$ref": "Percent.json#"
+			},
+			"group": "external"
+		},
+		"Rate": {
+			"type": "array",
+			"items": {
+				"$ref": "Rate.json#"
+			},
+			"group": "external"
+		},
+		"RateWithAllowance": {
+			"type": "array",
+			"items": {
+				"$ref": "RateWithAllowance.json#"
+			},
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

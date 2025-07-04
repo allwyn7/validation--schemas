@@ -1,0 +1,43 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "cash-advance-regulatory-delete-schema.json",
+    "version": "v1",
+    "description":"Cash Advance Regulatory Delete JSON Schema",
+    "type": "object",
+    "properties": {
+        "cashAdvanceId": {
+            "dataClassification":[],
+            "type": "string"
+        },
+        "timeStamp": {
+            "dataClassification":[],
+            "type": "string",
+            "format": "date-time"
+        },
+        "companyId": {
+            "dataClassification":[],
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+        },
+        "dataRetentionPolicyId": {
+            "dataClassification":[],
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+        },
+        "href": {
+          "dataClassification":[],
+          "description": "Event callback URI - not followed for the DP delete use case",
+          "type": [
+            "string",
+            "null"
+          ]
+        }        
+    },
+    "additionalProperties": false,
+    "required": [
+        "cashAdvanceId",
+        "timeStamp",
+        "companyId"
+    ]
+}
+

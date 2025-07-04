@@ -1,0 +1,24 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AccountCodeModelV4.json",
+	"type": "object",
+	"required": [
+		"id",
+		"value"
+	],
+	"properties": {
+		"id": {
+			"type": "string",
+			"example": "accountCode1",
+			"description": "Id/name of the field",
+			"dataClassification": []
+		},
+		"value": {
+			"type": "string",
+			"example": 10003,
+			"description": "Value of the field",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

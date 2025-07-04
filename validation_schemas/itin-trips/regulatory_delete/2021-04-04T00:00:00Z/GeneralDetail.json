@@ -1,0 +1,101 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "GeneralDetail.json",
+	"type": "object",
+	"properties": {
+		"IssueDateTime": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"MerchantOrderNumber": {
+			"type": "string",
+			"maxLength": 30
+		},
+		"TaxExemptIndicator": {
+			"type": "string",
+			"maxLength": 1
+		},
+		"TotalTaxAmount": {
+			"type": "number"
+		},
+		"TotalTaxableAmount": {
+			"type": "number"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"VatPointDate": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"LocationCode": {
+			"type": "string",
+			"maxLength": 100
+		},
+		"LocationDescription": {
+			"type": "string",
+			"maxLength": 100
+		},
+		"LocationAddress": {
+			"type": "string",
+			"maxLength": 100
+		},
+		"LocationAddress2": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"LocationCity": {
+			"type": "string",
+			"maxLength": 100
+		},
+		"LocationState": {
+			"type": "string",
+			"maxLength": 50
+		},
+		"LocationZip": {
+			"type": "string",
+			"maxLength": 20
+		},
+		"LocationCountry": {
+			"type": "string",
+			"maxLength": 3
+		},
+		"IsLocationInAirport": {
+			"type": "boolean"
+		},
+		"LocationAirportCode": {
+			"type": "string",
+			"maxLength": 3
+		},
+		"LocationPhone": {
+			"type": "string",
+			"maxLength": 100
+		},
+		"LocationFax": {
+			"type": "string",
+			"maxLength": 32
+		},
+		"LocationEmail": {
+			"type": "string",
+			"maxLength": 255
+		},
+		"LocationUrl": {
+			"type": "string",
+			"maxLength": 255
+		},
+		"CustomerVatRegistration": {
+			"type": "string",
+			"maxLength": 30
+		},
+		"VatSupplyType": {
+			"type": "string",
+			"maxLength": 30
+		},
+		"Description": {
+			"type": "string",
+			"maxLength": 256
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,765 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "hotel-shared.json",
+    "definitions": {
+        "hotelSuperChain": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.HotelSuperChain",
+            "goType": "HotelSuperChain",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "name of superchain",
+                    "classification": "none"
+                },
+                "code": {
+                    "type": "string",
+                    "description": "the 2-20 character uppercase alphanumerical code (caps)",
+                    "pattern": "^[0-9A-Z]{2,20}$",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "name",
+                "code"
+            ]
+        },
+        "hotelChain": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.HotelChain",
+            "goType": "HotelChain",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "name of chain",
+                    "classification": "none",
+                    "groups": [
+                        "search"
+                    ]
+                },
+                "code": {
+                    "type": "string",
+                    "description": "the 2 character alphanumerical code",
+                    "pattern": "^[0-9A-Z]{2}$",
+                    "classification": "none",
+                    "groups": [
+                        "search"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "code"
+            ]
+        },
+        "cancellationPolicy": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.CancellationPolicy",
+            "goType": "HotelRateCancellation",
+            "additionalProperties": false,
+            "properties": {
+                "isRefundable": {
+                    "type": "boolean",
+                    "description": "Is this rate refundable or not (based on all cancel penalties)",
+                    "classification": "none"
+                },
+                "penaltyDescription": {
+                    "type": "string",
+                    "description": "Common description applicable to all the penalties",
+                    "classification": "none"
+                },
+                "cancelPenalties": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/cancelPenalty"
+                    },
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "isRefundable",
+                "cancelPenalties"
+            ]
+        },
+        "cancelPenalty": {
+            "type": "object",
+            "required": [
+                "refundableStatus"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "cancelBeforeLocal": {
+                    "$ref": "shared.json#/definitions/local-date-time",
+                    "description": "The date and time in local time that the booking needs to be cancelled by",
+                    "classification": "none"
+                },
+                "cancelBeforeUtc": {
+                    "$ref": "shared.json#/definitions/date-time",
+                    "classification": "none",
+                    "description": "The date and time in UTC+0 (Zulu time) the booking needs to be cancelled by"
+                },
+                "penaltyDescription": {
+                    "type": "string",
+                    "classification": "none"
+                },
+                "supplierDescription": {
+                    "type": "string",
+                    "classification": "none"
+                },
+                "refundableStatus": {
+                    "type": "string",
+                    "enum": [
+                        "FULLY_REFUNDABLE",
+                        "PARTIALLY_REFUNDABLE",
+                        "NON_REFUNDABLE"
+                    ],
+                    "classification": "none"
+                },
+                "penaltyAmount": {
+                    "$ref": "#/definitions/amountDue",
+                    "classification": "none"
+                },
+                "amountPercent": {
+                    "$ref": "#/definitions/amountPercent",
+                    "classification": "none"
+                }
+            }
+        },
+        "payable": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.Payable",
+            "goType": "HotelPayable",
+            "additionalProperties": false,
+            "properties": {
+                "currency": {
+                    "type": "string",
+                    "description": "The currency used in this payable",
+                    "classification": "none"
+                },
+                "amount": {
+                    "type": "number",
+                    "description": "amount payable",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "currency",
+                "amount"
+            ]
+        },
+        "amountDue": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.HotelAmountDue",
+            "goType": "HotelAmountDue",
+            "additionalProperties": false,
+            "properties": {
+                "payableInBase": {
+                    "$ref": "#/definitions/payable",
+                    "description": "payable data in user's currency",
+                    "classification": "none"
+                },
+                "payableInLocal": {
+                    "$ref": "#/definitions/payable",
+                    "description": "payable data in hotel currency",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "payableInBase",
+                "payableInLocal"
+            ]
+        },
+        "hotelRatePrice": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.HotelRatePrice",
+            "goType": "HotelRatePrice",
+            "additionalProperties": false,
+            "properties": {
+                "currency": {
+                    "type": "string",
+                    "description": "The currency used in this rate",
+                    "classification": "none"
+                },
+                "base": {
+                    "type": "number",
+                    "description": "Base rate over entire stay (subtotal before taxes/fees)",
+                    "classification": "none"
+                },
+                "surcharge": {
+                    "type": "number",
+                    "description": "The total surcharge amount for the stay",
+                    "classification": "none"
+                },
+                "surchargeBreakdown": {
+                    "type": "array",
+                    "description": "surcharge breakdown by FTT codes",
+                    "items": {
+                        "$ref": "#/definitions/feeTaxType"
+                    },
+                    "classification": "none"
+                },
+                "tax": {
+                    "type": "number",
+                    "description": "The total tax amount for the stay",
+                    "classification": "none"
+                },
+                "taxBreakdown": {
+                    "type": "array",
+                    "description": "tax breakdown by FTT codes",
+                    "items": {
+                        "$ref": "#/definitions/feeTaxType"
+                    },
+                    "classification": "none"
+                },
+                "total": {
+                    "type": "number",
+                    "description": "The total amount for the stay",
+                    "classification": "none"
+                },
+                "disclaimer": {
+                    "type": "array",
+                    "description": "Free text disclaimers from the hotel",
+                    "items": {
+                        "type": "string"
+                    },
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "total",
+                "currency"
+            ]
+        },
+        "nightlyRate": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.NightlyRate",
+            "goType": "HotelNightlyRate",
+            "description": "A rate that applies over the course of the stay",
+            "additionalProperties": false,
+            "properties": {
+                "startDate": {
+                    "$ref": "shared.json#/definitions/date",
+                    "description": "The date this rate begins",
+                    "classification": "none"
+                },
+                "endDate": {
+                    "$ref": "shared.json#/definitions/date",
+                    "description": "The date this rate ends",
+                    "classification": "none"
+                },
+                "nights": {
+                    "type": "integer",
+                    "description": "The number of nights to which this rate applies",
+                    "classification": "none"
+                },
+                "currency": {
+                    "type": "string",
+                    "description": "The currency used in this rate",
+                    "classification": "none"
+                },
+                "base": {
+                    "type": "number",
+                    "description": "The base room amount for this rate",
+                    "classification": "none"
+                },
+                "tax": {
+                    "$ref": "#/definitions/feesTaxes",
+                    "description": "Nightly surcharge/fees or taxes",
+                    "classification": "none"
+                },
+                "fees": {
+                    "$ref": "#/definitions/feesTaxes",
+                    "description": "Nightly surcharge/fees or taxes",
+                    "classification": "none"
+                },
+                "total": {
+                    "type": "number",
+                    "description": "Total amount for this rate",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "startDate",
+                "endDate",
+                "nights",
+                "currency",
+                "base"
+            ]
+        },
+        "bedding": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.Bedding",
+            "goType": "HotelBedding",
+            "additionalProperties": false,
+            "properties": {
+                "otaCode": {
+                    "$ref": "#/definitions/otaCode",
+                    "description": "type of bed as OTA code",
+                    "classification": "none"
+                },
+                "quantity": {
+                    "type": "integer",
+                    "description": "Number of specified bed type(s)",
+                    "classification": "none"
+                }
+            }
+        },
+        "otaCode": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.OTACode",
+            "goType": "OTACode",
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "description": "OTA Code number",
+                    "classification": "none"
+                },
+                "type": {
+                    "$ref": "#/definitions/otaCodeType",
+                    "description": "type of OTA code",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "code",
+                "type"
+            ]
+        },
+        "roomType": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.RoomType",
+            "goType": "RoomType",
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "description": "GRI OTA Code number",
+                    "classification": "none"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "description of OTA code",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "code",
+                "description"
+            ]
+        },
+        "otaCodeType": {
+            "type": "string",
+            "description": "type of OTA code",
+            "x-java-type": "com.concur.t2.schema.hotel.OTACodeType",
+            "goType": "OTACodeType",
+            "enum": [
+                "RMA",
+                "HAC",
+                "MPT",
+                "BED"
+            ],
+            "classification": "none"
+        },
+        "bookedPreferenceRank": {
+            "type": "object",
+            "description": "The preference rank for a hotel",
+            "x-java-type": "com.concur.t2.schema.hotel.BookedPreferenceRank",
+            "goType": "HotelBookedPreferenceRank",
+            "additionalProperties": false,
+            "properties": {
+                "rank": {
+                    "$ref": "#/definitions/bookedPreferenceRankEnum",
+                    "classification": "none"
+                },
+                "level": {
+                    "$ref": "#/definitions/bookedPreferenceLevelEnum",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "rank",
+                "level"
+            ]
+        },
+        "bookedPreferenceRankEnum": {
+            "type": "string",
+            "description": "Rank of an item in preferenceRank",
+            "x-java-type": "com.concur.t2.schema.hotel.PreferenceRankEnum",
+            "goType": "HotelPreferenceRankEnum",
+            "enum": [
+                "PREFERRED",
+                "MORE_PREFERRED",
+                "MOST_PREFERRED"
+            ],
+            "classification": "none"
+        },
+        "bookedPreferenceLevelEnum": {
+            "type": "string",
+            "description": "Level of an item in preferenceRank",
+            "x-java-type": "com.concur.t2.schema.hotel.PreferenceLevelEnum",
+            "goType": "HotelPreferenceLevelEnum",
+            "enum": [
+                "CHAIN",
+                "PROPERTY"
+            ],
+            "classification": "none"
+        },
+        "feesTaxes": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.FeesTaxes",
+            "goType": "HotelFeesTaxes",
+            "description": "Nightly surcharge/fees or taxes",
+            "additionalProperties": false,
+            "properties": {
+                "amount": {
+                    "type": "number",
+                    "classification": "none"
+                },
+                "breakdown": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/feeTaxType"
+                    },
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "amount"
+            ]
+        },
+        "feeTaxType": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.FeeTaxType",
+            "goType": "HotelFeeTaxType",
+            "description": "Fee or Tax associated with rate - can be either included or excluded from total rate as marked with 'inclusive' field",
+            "additionalProperties": false,
+            "properties": {
+                "amount": {
+                    "type": "number",
+                    "classification": "none"
+                },
+                "fttCode": {
+                    "description": "Code based on OTA's Fee Tax Type (FTT) list (https://www.opentraveldevelopersnetwork.com/code-list)",
+                    "type": "integer",
+                    "classification": "none"
+                },
+                "inclusive": {
+                    "description": "Whether or not this tax/fee is included in totalAmountAfterTax amount",
+                    "type": "boolean",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "amount",
+                "fttCode",
+                "inclusive"
+            ]
+        },
+        "guarantee": {
+            "type": "object",
+            "description": "Guarantee",
+            "x-java-type": "com.concur.t2.schema.inventory.hotel.Guarantee",
+            "goType": "HotelInventoryGuarantee",
+            "additionalProperties": false,
+            "properties": {
+                "guaranteeType": {
+                    "type": "string",
+                    "enum": [
+                        "DEPOSIT_REQUIRED",
+                        "GUARANTEE_REQUIRED",
+                        "NONE"
+                    ],
+                    "classification": "none"
+                },
+                "acceptedFop": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "classification": "none"
+                },
+                "isCVVRequired": {
+                    "type": "boolean",
+                    "default": false,
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "acceptedFop",
+                "guaranteeType"
+            ]
+        },
+        "amountPercent": {
+            "type": "object",
+            "description": "AmountPercent",
+            "x-java-type": "com.concur.t2.schema.inventory.hotel.AmountPercent",
+            "goType": "HotelAmountPercent",
+            "additionalProperties": false,
+            "properties": {
+                "taxInclusive": {
+                    "description": "If true, all taxes are included in the returned rate.",
+                    "type": "boolean",
+                    "classification": "none"
+                },
+                "feesInclusive": {
+                    "description": "If true, all fees are included in the returned rate.",
+                    "type": "boolean",
+                    "classification": "none"
+                },
+                "numberOfNights": {
+                    "description": "The number of nights that are to be spent in the property.",
+                    "type": "integer",
+                    "classification": "none"
+                },
+                "basisType": {
+                    "type": "string",
+                    "enum": [
+                        "FULL_STAY",
+                        "NIGHTS",
+                        "FIRST_LAST"
+                    ],
+                    "classification": "none"
+                },
+                "applyAs": {
+                    "type": "string",
+                    "enum": [
+                        "FIRST_NIGHT_DEPOSIT",
+                        "LAST_NIGHT_DEPOSIT",
+                        "FIRST_AND_LAST_NIGHT_DEPOSIT",
+                        "FIRST_NIGHT_PAYMENT",
+                        "LAST_NIGHT_PAYMENT",
+                        "FIRST_AND_LAST_NIGHT_PAYMENT"
+                    ],
+                    "classification": "none"
+                },
+                "percent": {
+                    "description": "The percentage used to calculate the amount of the cancel fee.",
+                    "type": "number",
+                    "classification": "none"
+                },
+                "amount": {
+                    "type": "number",
+                    "description": "Base nightly room rate",
+                    "classification": "none"
+                },
+                "currency": {
+                    "type": "string",
+                    "description": "The ISO code of the currency used in this fare",
+                    "classification": "none"
+                }
+            }
+        },
+        "hotelRating": {
+            "type": "object",
+            "description": "Hotel rating details with source",
+            "x-java-type": "com.concur.t2.schema.inventory.hotel.HotelRating",
+            "goType": "HotelRating",
+            "additionalProperties": false,
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "description": "An integer number from 1 to 5, representing its star rating",
+                    "classification": "none"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Source of rating",
+                    "classification": "none"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "optional name of rating program if source is OTHER",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "value",
+                "source"
+            ]
+        },
+        "hotelMedia": {
+            "type": "object",
+            "description": "Hotel media",
+            "x-java-type": "com.concur.t2.schema.inventory.hotel.HotelMedia",
+            "goType": "HotelMedia",
+            "additionalProperties": false,
+            "properties": {
+                "otaInfo": {
+                    "$ref": "#/definitions/otaInfo",
+                    "description": "OTA info for the media",
+                    "classification": "none"
+                },
+                "external": {
+                    "type": "boolean",
+                    "description": "Is this an external link",
+                    "classification": "none"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Either IMAGE or VIDEO",
+                    "classification": "none"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Location of the media item",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "type",
+                "url",
+                "external"
+            ]
+        },
+        "otaInfo": {
+            "type": "object",
+            "description": "OTA info",
+            "x-java-type": "com.concur.t2.schema.inventory.hotel.OtaInfo",
+            "goType": "OtaInfo",
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "description": "OTA code number",
+                    "classification": "none"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "OTA code type",
+                    "classification": "none"
+                },
+                "codeDescription": {
+                    "type": "string",
+                    "description": "OTA Code description matching to code and type properties",
+                    "classification": "none"
+                },
+                "categoryDescription": {
+                    "type": "string",
+                    "description": "OTA category description matching to code and type properties",
+                    "classification": "none"
+                },
+                "categoryId": {
+                    "type": "string",
+                    "description": "Category of the OTA code",
+                    "classification": "none"
+                },
+                "mostPopular": {
+                    "type": "boolean",
+                    "description": "Does this OTA code qualify as a most popular code (used in UI)",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "code",
+                "type",
+                "categoryDescription",
+                "codeDescription",
+                "categoryId",
+                "mostPopular"
+            ]
+        },
+        "sustainabilityAward": {
+            "type": "object",
+            "description": "Award/Certification related to sustainability awarded to the hotel",
+            "x-java-type": "com.concur.t2.schema.inventory.hotel.SustainabilityAward",
+            "goType": "HotelInventorySustainabilityAward",
+            "additionalProperties": false,
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Name or label of the award/certification",
+                    "classification": "none"
+                },
+                "level": {
+                    "type": "string",
+                    "description": "Optional level of certification",
+                    "classification": "none"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Website related to the sustainability provider",
+                    "classification": "none"
+                },
+                "provider": {
+                    "type": "string",
+                    "description": "Sustainability providers that are supported by HO",
+                    "classification": "none"
+                }
+            }
+        },
+        "emissionInfo": {
+            "type": "object",
+            "description": "Thrust Carbon Hotel Sustainability Index information",
+            "additionalProperties": false,
+            "properties": {
+                "emissions": {
+                    "type": "number",
+                    "description": "total emissions value for hotel",
+                    "classification": "none"
+                },
+                "sustainabilityScore": {
+                    "type": "integer",
+                    "description": "sustainability score in range 0-100",
+                    "classification": "none"
+                },
+                "measure": {
+                    "type": "string",
+                    "description": "measure for emissions value",
+                    "classification": "none"
+                },
+                "unitOfMeasure": {
+                    "type": "string",
+                    "description": "Unit of measure for emissions value",
+                    "classification": "none"
+                }
+            }
+        },
+        "perdiemInfo": {
+            "type": "object",
+            "x-java-type": "com.concur.t2.schema.hotel.PerdiemInfoItem",
+            "goType": "PerdiemInfoItem",
+            "additionalProperties": false,
+            "properties": {
+                "startDate": {
+                    "$ref": "shared.json#/definitions/date",
+                    "description": "The date this per diem rate begins",
+                    "classification": "none"
+                },
+                "endDate": {
+                    "$ref": "shared.json#/definitions/date",
+                    "description": "The date this per diem rate ends",
+                    "classification": "none"
+                },
+                "currencyCode": {
+                    "type": "string",
+                    "description": "USD/EUR/...",
+                    "classification": "none"
+                },
+                "lodgingRate": {
+                    "type": "number",
+                    "description": "Per Diem lodging rate",
+                    "classification": "none"
+                },
+                "mealsRate": {
+                    "type": "number",
+                    "description": "Per Diem meals rate",
+                    "classification": "none"
+                },
+                "incidentalsRate": {
+                    "type": "number",
+                    "description": "Per Diem incidentals rate",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "startDate",
+                "endDate",
+                "currencyCode",
+                "lodgingRate"
+            ]
+        }
+    }
+}

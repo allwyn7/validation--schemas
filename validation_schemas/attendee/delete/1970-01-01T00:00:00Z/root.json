@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "version": "v1",
+  "title": "Attendee",
+  "description": "Attendee JSON Schema for DELETE operations",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "syncGuid": {
+      "description": "unique ID of the attendee",
+      "type": "string"
+    },
+    "currentVersionNumber": {
+      "description": "current version number of the attendee whose SYNC_GUID we send above",
+      "type": "string"
+    },
+    "companyId": {
+      "description": "Company UUID",
+      "type": "string"
+    },
+    "entityId": {
+      "description": "Concur company ID",
+      "type": "string"
+    },
+    "href": {
+      "description": "Event callback URI - not followed for the DP delete use case",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lastModifiedTimestamp": {
+      "description": "UTC timestamp of modification",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "lastModifiedTimestamp",
+    "syncGuid",
+    "currentVersionNumber",
+    "companyId"
+  ]
+}

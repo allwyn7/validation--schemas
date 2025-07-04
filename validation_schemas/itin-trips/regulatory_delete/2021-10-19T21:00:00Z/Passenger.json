@@ -1,0 +1,136 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Passenger.json",
+	"$defs": {},
+	"type": "object",
+	"properties": {
+		"FrequentTravelerPrograms": {
+			"$ref": "Booking.json#/$defs/FrequentTravelerProgram",
+			"group": "external",
+			"classification": "none",
+			"description": "Passenger’s loyalty programs."
+		},
+		"PassengerKey": {
+			"type": "integer",
+			"classification": "personal",
+			"description": "none"
+		},
+		"TextName": {
+			"type": "string",
+			"maxLength": 250,
+			"group": "external",
+			"classification": "personal",
+			"description": "The user’s full name as entered in the booking tool if different from the name in the database."
+		},
+		"NameFirst": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The first name of the passenger."
+		},
+		"NameLast": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The last name of the passenger."
+		},
+		"NameMiddle": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The middle name of the passenger."
+		},
+		"NamePrefix": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The name prefix of the passenger."
+		},
+		"NameSuffix": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The name suffix of the passenger."
+		},
+		"NameRemark": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "Additional details about the passenger’s name."
+		},
+		"NameIdentifier": {
+			"type": "string",
+			"maxLength": 50,
+			"classification": "personal",
+			"description": "Traveler information"
+		},
+		"LastNameNumber": {
+			"type": "integer",
+			"group": "external",
+			"classification": "personal",
+			"description": "The number of characters in the passenger’s last name."
+		},
+		"FirstNameNumber": {
+			"type": "integer",
+			"group": "external",
+			"classification": "personal",
+			"description": "The number of characters in the passenger’s first name."
+		},
+		"StreetAddress": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "personal",
+			"description": "The passenger’s street address."
+		},
+		"StreetAddress2": {
+			"type": "string",
+			"maxLength": 80,
+			"group": "external",
+			"classification": "personal",
+			"description": "The passenger’s street address."
+		},
+		"City": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The city of the passenger’s address."
+		},
+		"PostalCode": {
+			"type": "string",
+			"maxLength": 24,
+			"group": "external",
+			"classification": "personal",
+			"description": "The postal code or zip code of the passenger’s address."
+		},
+		"State": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The state of the passenger’s address."
+		},
+		"Country": {
+			"type": "string",
+			"maxLength": 2,
+			"group": "external",
+			"classification": "personal",
+			"description": "The country of the passenger’s address."
+		},
+		"NameTitle": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The title of the passenger."
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "PassengerKey" ]
+}

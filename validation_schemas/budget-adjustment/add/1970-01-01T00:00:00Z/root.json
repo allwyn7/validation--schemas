@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "budget-adjustment-add.json",
+  "title": "Budget Adjustment Add Schema",
+  "description": "Schema for validating a budget adjustment object",
+  "type": "object",
+  "properties": {
+    "companyUuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "company UUID",
+      "dataClassification":[]
+    },
+    "entityId": {
+      "type": "string",
+      "description": "The unique identifier of the entity associated with the adjustment",
+      "dataClassification":[]
+    },
+    "reason": {
+      "type": "string",
+      "description": "The reason for adding or updating the adjustment",
+      "dataClassification":[]
+    },
+    "syncTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time when the adjustment was synchronized",
+      "dataClassification":[]
+    },
+    "budgetItemAdjustmentSyncGuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier for the budget item adjustment sync",
+      "dataClassification":[]
+    },
+    "budgetItemDetailSyncGuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier for the budget item detail sync",
+      "dataClassification":[]
+    },
+    "budgetItemSyncGuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier for the budget item sync",
+      "dataClassification":[]
+    },
+    "adjustmentType": {
+      "type": "string",
+      "enum": [
+        "BUDGET_BALANCE",
+        "FUND_TRANSFER",
+        "EXPENSE",
+        "PAYMENT_REQUEST",
+        "PURCHASE_REQUEST",
+        "REQUEST",
+        "PURGE_ADJUSTMENT"
+      ],
+      "description": "The type of adjustment being made",
+      "dataClassification":[]
+    },
+    "amountType": {
+      "type": "string",
+      "description": "The type of amount being adjusted, either credit or debit",
+      "dataClassification":[]
+    },
+    "amount": {
+      "type": "number",
+      "description": "The amount of the adjustment",
+      "dataClassification":[]
+    },
+    "transactionDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The date of the transaction associated with the adjustment",
+      "dataClassification":[]
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of the budget adjustment",
+      "dataClassification":[]
+    },
+    "adjustmentStatus": {
+      "type": "string",
+      "enum": ["OPEN", "CLOSED", "REMOVED", "MERGED"],
+      "description": "The status of the budget adjustment",
+      "dataClassification":[]
+    },
+    "lastModifiedUser": {
+      "type": "string",
+      "description": "The user who last modified the budget adjustment",
+      "dataClassification":[]
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the budget adjustment was last modified",
+      "dataClassification":[]
+    }
+  },
+  "required": [
+    "companyUuid",
+    "entityId",
+    "reason",
+    "syncTime",
+    "budgetItemAdjustmentSyncGuid",
+    "budgetItemDetailSyncGuid",
+    "budgetItemSyncGuid",
+    "adjustmentType",
+    "amountType",
+    "amount",
+    "transactionDate",
+    "description",
+    "adjustmentStatus",
+    "lastModifiedUser",
+    "lastModifiedDate"
+  ],
+  "additionalProperties": false
+}

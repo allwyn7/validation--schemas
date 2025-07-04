@@ -1,0 +1,29 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "CustomDataModelV4.json",
+	"type": "object",
+	"required": [
+		"id"
+	],
+	"properties": {
+		"id": {
+			"type": "string",
+			"example": "custom1",
+			"description": "Id of the custom field",
+			"dataClassification": []
+		},
+		"label": {
+			"type": ["string","null"],
+			"example": "My Employee ID",
+			"description": "Label as configured - only available if schema 'customDataLabel' is provided",
+			"dataClassification": []
+		},
+		"value": {
+			"type": ["string","null"],
+			"example": 123456,
+			"description": "Value of the custom field",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,69 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "PurchaseDetailModelV4.json",
+	"type": "object",
+	"properties": {
+		"description": {
+			"type": ["string","null"],
+			"example": "Staples",
+			"description": "Item description",
+			"dataClassification": []
+		},
+		"extendedAmount": {
+			"description": "Usually contains the total net amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"quantity": {
+			"description": "Item quantity",
+			"$ref": "PurchaseQuantityModelV4.json#"
+		},
+		"totalAmount": {
+			"description": "Total line item amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"unitAmount": {
+			"description": "Amount per unit",
+			"$ref": "AmountModelV4.json#"
+		},
+		"commodityCode": {
+			"type": "string",
+			"example": "120-00",
+			"description": "Commodity Code",
+			"dataClassification": []
+		},
+		"customData": {
+			"type": "array",
+			"description": "Custom data of the purchase item",
+			"items": {
+				"$ref": "CustomDataModelV4Post.json#"
+			}
+		},
+		"discountAmount": {
+			"description": "Discount amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"discountApplied": {
+			"type": "boolean",
+			"description": "Indicating whether a discount is granted",
+			"dataClassification": []
+		},
+		"itemId": {
+			"type": "string",
+			"description": "Identifier of the item",
+			"dataClassification": []
+		},
+		"sequenceNumber": {
+			"type": "integer",
+			"format": "int32",
+			"example": 1,
+			"description": "Sequence Number",
+			"dataClassification": []
+		},
+		"taxIncluded": {
+			"type": "boolean",
+			"description": "Indicating whether tax is included in the amount",
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "metadata.json",
+  "title": "Receipt Meta Data Schema Definitions",
+  "type": "object",
+  "description": "Receipt Meta data schema. This includes the metadata fields for a receipt",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "User's UUID",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "dataClassification": []
+    },
+    "forwardId": {
+      "type": "string",
+      "description": "Forward Id that clients provide",
+      "dataClassification": []
+    },
+    "imageId": {
+      "type": "string",
+      "description": "Imaging Id in Imaging Service",
+      "dataClassification": []
+    },
+    "id": {
+      "type": "string",
+      "description": "Receipt Id",
+      "dataClassification": []
+    },
+    "companyId": {
+      "type": "string",
+      "description": "Company UUID",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "dataClassification": []
+    },
+    "dateTimeReceived": {
+      "type": "string",
+      "description": "date time of receipt uploaded",
+      "format": "date-time",
+      "dataClassification": []
+    },
+    "origin": {
+      "type": "string",
+      "description": "Origin of the request - supported origins listed below",
+      "enum": [
+        "web",
+        "mobile",
+        "email",
+        "vendor"
+      ],
+      "dataClassification": []
+    },
+    "captureMethod": {
+      "type": "string",
+      "description": "type of the receipt capture method",
+      "enum": [
+        "upload",
+        "cameraCapture"
+      ],
+      "dataClassification": []
+    },
+    "provider": {
+      "type": "string",
+      "description": "Provider of the request - supported providers listed below",
+      "enum": [
+        "user",
+        "vendor"
+      ],
+      "dataClassification": []
+    },
+    "complianceCountryCode": {
+      "type": "string",
+      "description": "Compliance country code based on user group configuration. Example CN, FR, ES, JP, MX",
+      "dataClassification": [],
+      "group": "internalOnly"
+    },
+    "feature": {
+      "type": "string",
+      "description": "Feature enrichment for the receipt",
+      "enum": [
+        "simpleReceipt",
+        "expenseIt",
+        "cfdi",
+        "compliance",
+        "eReceipt"
+      ],
+      "dataClassification": []
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "accepted",
+        "processing",
+        "processed",
+        "failed"
+      ],
+      "dataClassification": []
+    },
+    "isReceiptPromoted": {
+      "type": "boolean",
+      "description": "This is set to true if the receipt has been promoted",
+      "dataClassification": [],
+      "group": "internalOnly"
+    },
+    "compliance": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "noProcessingRequired",
+            "processing",
+            "failed",
+            "processed"
+          ],
+          "dataClassification": []
+        },
+        "errorType": {
+          "type": "string",
+          "enum": [
+            "processing",
+            "validation"
+          ],
+          "dataClassification": []
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "error message",
+          "dataClassification": []
+        },
+        "certificationDateTime": {
+          "type": "string",
+          "description": "certification date time",
+          "dataClassification": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "entityId": {
+      "type": "string",
+      "description": "Entity Code",
+      "dataClassification": []
+    },
+    "category": {
+      "type": "string",
+      "description": "document category",
+      "enum": [
+        "general",
+        "groundTransport",
+        "receipt",
+        "confirm-message",
+        "credit-statement",
+        "mra",
+        "approval",
+        "other"
+      ],
+      "dataClassification": []
+    }
+  },
+  "required": [
+    "id",
+    "userId",
+    "companyId",
+    "feature",
+    "dateTimeReceived"
+  ],
+  "additionalProperties": false
+}
+

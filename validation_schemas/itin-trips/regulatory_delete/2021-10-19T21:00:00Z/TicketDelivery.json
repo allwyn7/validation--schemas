@@ -1,0 +1,18 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "TicketDelivery.json",
+	"type": "object",
+	"properties": {
+		"Type": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"Data": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

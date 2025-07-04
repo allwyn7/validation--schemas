@@ -1,0 +1,157 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "LodgingModelV4.json",
+	"description": "Lodging Addendum Data of the transaction - addendumType = LODG",
+	"type": "object",
+	"properties": {
+		"adjustmentAmount": {
+			"description": "Adjustment Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"charges": {
+			"type": ["null","array"],
+			"description": "Charges incurred for the lodging transaction aggregated per charge type. Note that each charge type can only be listed once.",
+			"items": {
+				"$ref": "LodgingChargeModelV4.json#"
+			}
+		},
+		"checkInDate": {
+			"type": ["string","null"],
+			"example": "2018-08-16",
+			"description": "Date that the customer checked in to the lodging location",
+			"dataClassification": ["PII"]
+		},
+		"checkOutDate": {
+			"type": ["string","null"],
+			"example": "2018-08-15",
+			"description": "Date that the customer checked out of the lodging location",
+			"dataClassification": ["PII"]
+		},
+		"dailyRoomRate": {
+			"description": "(Average) room rate",
+			"$ref": "AmountModelV4.json#"
+		},
+		"dailyRoomTax": {
+			"description": "(Average) room tax per day",
+			"$ref": "AmountModelV4.json#"
+		},
+		"folioLineItems": {
+			"type": ["null","array"],
+			"description": "Folio line items - only available if schema 'addendumDetails' or 'lodgingDetails' is provided",
+			"items": {
+				"$ref": "LodgingDetailModelV4.json#"
+			}
+		},
+		"folioNumber": {
+			"type": ["string","null"],
+			"example": "F344145-51VD",
+			"description": "Folio Number",
+			"dataClassification": ["PII"]
+		},
+		"guestName": {
+			"type": ["string","null"],
+			"example": "DOE,JOHN",
+			"description": "Name of registered guest",
+			"dataClassification": ["PII"]
+		},
+		"lodgingAddress": {
+			"description": "Lodging address",
+			"$ref": "AddressModelV4.json#"
+		},
+		"numberInParty": {
+			"type": ["null","integer"],
+			"format": "int32",
+			"example": 1,
+			"description": "Number of guests staying in the room",
+			"dataClassification": []
+		},
+		"numberOfRoomNights": {
+			"type": ["null","integer"],
+			"format": "int32",
+			"example": 3,
+			"description": "Total number of rooms times number of nights",
+			"dataClassification": []
+		},
+		"prepaidAmount": {
+			"description": "Pre-Paid Amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"programCode": {
+			"type": ["string","null"],
+			"example": "BS",
+			"description": "Code used to identify special circumstances",
+			"dataClassification": []
+		},
+		"roomType": {
+			"type": ["string","null"],
+			"example": "Business",
+			"description": "Room Type",
+			"dataClassification": []
+		},
+		"taxes": {
+			"type": ["null","array"],
+			"description": "Taxes incurred for the lodging transaction",
+			"items": {
+				"$ref": "LodgingTaxModelV4.json#"
+			}
+		},
+		"totalLodgingAmount": {
+			"description": "Total amount incurred for lodging",
+			"$ref": "AmountModelV4.json#"
+		},
+		"totalNonRoomChargeAmount": {
+			"description": "Total amount incurred for non-room charges",
+			"$ref": "AmountModelV4.json#"
+		},
+		"chargesDescription": {
+		  "type": "string",
+		  "description": "Charges description",
+		  "dataClassification": []
+		},
+		"commodityCode": {
+		  "type": "string",
+		  "example": "120-00",
+		  "description": "Standard coding structure for the description of goods and services",
+		  "dataClassification": []
+		},
+		"customData": {
+		  "type": "array",
+		  "description": "Custom data for travel",
+		  "items": {
+		    "$ref": "CustomDataModelV4Post.json#"
+		  }
+		},	
+		"merchantOrderNumber": {
+		  "type": "string",
+		  "description": "Merchant Order Number",
+		  "dataClassification": ["PII"]
+		},		
+		"numberOfRooms": {
+		  "type": "integer",
+		  "format": "int32",
+		  "example": 1,
+		  "description": "Number of rooms reserved",
+		  "dataClassification": []
+		},
+		"otherServicesCode": {
+		  "type": "string",
+		  "description": "A code to explain other miscellaneous charges",
+		  "dataClassification": []
+		},
+		"propertyId": {
+		  "type": "string",
+		  "description": "Property Id",
+		  "dataClassification": ["PII"]
+		},
+		"propertyPhoneNumber": {
+		  "type": "string",
+		  "description": "Phone number of the property",
+		  "dataClassification": []
+		},	
+		"totalTaxAmount": {
+		  "description": "Total Tax Amount",
+		  "$ref": "AmountModelV4.json#"
+		}
+	},
+	"additionalProperties": false
+}

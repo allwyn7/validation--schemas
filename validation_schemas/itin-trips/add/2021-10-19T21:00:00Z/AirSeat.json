@@ -1,0 +1,28 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "AirSeat.json",
+	"type": "object",
+	"properties": {
+		"SeatNumber": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "none",
+			"description": "The number of the seat."
+		},
+		"PassengerRph": {
+			"type": "integer",
+			"group": "external",
+			"classification": "personal",
+			"description": "The passenger assigned to the seat."
+		},
+		"Status": {
+			"type": "string",
+			"maxLength": 16,
+			"group": "external",
+			"classification": "none",
+			"description": "The status for the seat."
+		}
+	},
+	"additionalProperties": false
+}

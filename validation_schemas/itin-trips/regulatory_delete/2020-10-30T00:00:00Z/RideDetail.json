@@ -1,0 +1,98 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "RideDetail.json",
+	"type": "object",
+	"properties": {
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"RideId": {
+			"type": "string"
+		},
+		"DriverName": {
+			"type": "string"
+		},
+		"VehicleNumber": {
+			"type": "string"
+		},
+		"BookingAmount": {
+			"type": "number"
+		},
+		"EstimatedAmount": {
+			"type": "number"
+		},
+		"EstimatedSeconds": {
+			"type": "integer"
+		},
+		"ActualSeconds": {
+			"type": "integer"
+		},
+		"PaymentType": {
+			"type": "string"
+		},
+		"DropoffLatitude": {
+			"type": "number"
+		},
+		"DropoffLongitude": {
+			"type": "number"
+		},
+		"LastModifiedUTC": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"EndLocationCode": {
+			"type": "string"
+		},
+		"EndLocationDescription": {
+			"type": "string"
+		},
+		"EndLocationAddress": {
+			"type": "string"
+		},
+		"EndLocationAddress2": {
+			"type": "string"
+		},
+		"EndLocationCity": {
+			"type": "string"
+		},
+		"EndLocationState": {
+			"type": "string"
+		},
+		"EndLocationZip": {
+			"type": "string"
+		},
+		"EndLocationCountry": {
+			"type": "string"
+		},
+		"IsEndLocationInAirport": {
+			"type": "boolean"
+		},
+		"EndLocationAirportCode": {
+			"type": "string"
+		},
+		"EndLocationPhone": {
+			"type": "string"
+		},
+		"EndLocationFax": {
+			"type": "string"
+		},
+		"EndLocationEmail": {
+			"type": "string"
+		},
+		"EndLocationUrl": {
+			"type": "string"
+		},
+		"ChargeBackCode": {
+			"type": "string"
+		},
+		"Events": {
+			"type": "array",
+			"items": {
+				"$ref": "RideEvent.json#"
+			}
+		}
+	},
+	"additionalProperties": false
+}

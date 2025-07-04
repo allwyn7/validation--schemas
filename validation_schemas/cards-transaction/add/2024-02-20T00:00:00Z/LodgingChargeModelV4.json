@@ -1,0 +1,38 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "LodgingChargeModelV4.json",
+	"type": "object",
+	"required": [
+		"amount",
+		"name"
+	],
+	"properties": {
+		"amount": {
+			"description": "Charge amount",
+			"$ref": "AmountModelV4.json#"
+		},
+		"name": {
+			"type": "string",
+			"example": "INTNT",
+			"description": "Charge name / type\nBZCNT - Business center charges (copies, faxes, etc.)\nCAADV - Cash advances charged against the folio\nCONFR - Conference charges\nFOODX - Food charges (excludes mini-bar)\nGIFTX - Gift shop charges\nHELTH - Health club, pool, court, golf charges\nINTNT - Internet charges, online fees\nLNDRY - Laundry charges\nMNBAR - In room mini-bar charges\nMOVIE - Movie/in room entertainment\nOTHER - Other miscellaneous charges\nPRKNG - Parking/Valet charges\nTIPSX - Charges for Gratuities and Tips\nTLPHN - Telephone charges",
+			"enum": [
+				"BZCNT",
+				"CAADV",
+				"CONFR",
+				"FOODX",
+				"GIFTX",
+				"HELTH",
+				"INTNT",
+				"LNDRY",
+				"MNBAR",
+				"MOVIE",
+				"OTHER",
+				"PRKNG",
+				"TIPSX",
+				"TLPHN"
+			],
+			"dataClassification": []
+		}
+	},
+	"additionalProperties": false
+}

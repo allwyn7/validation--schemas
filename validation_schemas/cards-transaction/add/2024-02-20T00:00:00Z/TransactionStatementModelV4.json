@@ -1,0 +1,21 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "TransactionStatementModelV4.json",
+	"description": "Contains details of the billing statement to which the transaction belongs to",
+	"type": "object",
+	"properties": {
+		"billingDate": {
+			"type": ["string","null"],
+			"example": "2018-08-17",
+			"description": "Billing (end) date of the statement to which the transaction belongs",
+			"dataClassification": ["PII"]
+		},
+		"referenceNumber": {
+			"type": ["string","null"],
+			"example": 927265431,
+			"description": "Reference number of the statement to which this transaction belongs",
+			"dataClassification": ["PII"]
+		}
+	},
+	"additionalProperties": false
+}

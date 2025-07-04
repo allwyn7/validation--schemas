@@ -1,0 +1,417 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "booking-data-car.json",
+    "type": "object",
+    "title": "car booking data",
+    "goType": "CarBookingData",
+    "x-java-type": "com.concur.t2.schema.itinerary.CarData",
+    "additionalProperties": false,
+    "properties": {
+        "collectionAddress": {
+            "$ref": "shared.json#/definitions/address",
+            "description": "Address selected for collection",
+            "classification": "personal"
+        },
+        "confirmationNumber": {
+            "type": "string",
+            "description": "The confirmation number from the external system",
+            "classification": "personal",
+            "dataClassification": ["PII"]
+        },
+        "corporateDiscount": {
+            "$ref": "car-shared.json#/definitions/corporateDiscount",
+            "description": "Corporate discount code used in the booking",
+            "classification": "none"
+        },
+        "deliveryAddress": {
+            "$ref": "shared.json#/definitions/address",
+            "description": "Address selected for delivery",
+            "classification": "personal"
+        },
+        "dropoffDateTime": {
+            "$ref": "shared.json#/definitions/local-date-time",
+            "description": "The local drop off date and time of the car segment",
+            "classification": "none"
+        },
+        "dropoffDateTimeUtc": {
+            "$ref": "shared.json#/definitions/date-time",
+            "description": "The drop off date and time of the car segment in UTC+0 (Zulu time)",
+            "classification": "none"
+        },
+        "dropoffLocation": {
+            "$ref": "#/definitions/location",
+            "description": "Details on the drop off location",
+            "classification": "none"
+        },
+        "emailAddress": {
+            "type": "string",
+            "description": "The traveler's email address used for the booking",
+            "classification": "personal",
+            "dataClassification": ["PII"]
+        },
+        "flightNumber": {
+            "$ref": "car-shared.json#/definitions/flightNumber",
+            "description": "Number of the flight that is related to car reservation",
+            "classification": "none"
+        },
+        "loyaltyCard": {
+            "$ref": "car-shared.json#/definitions/loyaltyCard",
+            "description": "Car or air loyalty card used in the booking",
+            "classification": "sensitive"
+        },
+        "passengerId": {
+            "type": "string",
+            "description": "The passenger reference from the external system",
+            "classification": "personal",
+            "dataClassification": ["PII"]
+        },
+        "pickupDateTime": {
+            "$ref": "shared.json#/definitions/local-date-time",
+            "description": "The local pick up date and time of the car segment",
+            "classification": "none"
+        },
+        "pickupDateTimeUtc": {
+            "$ref": "shared.json#/definitions/date-time",
+            "description": "The pick up date and time of the car segment in UTC+0 (Zulu time)",
+            "classification": "none"
+        },
+        "pickupLocation": {
+            "$ref": "#/definitions/location",
+            "description": "Details on the pick up location",
+            "classification": "none"
+        },
+        "policyCompliance": {
+            "$ref": "policy.json#/definitions/policyCompliance",
+            "description": "Compliance information for this rate",
+            "classification": "none"
+        },
+        "rate": {
+            "$ref": "#/definitions/rate",
+            "description": "Details on the booked rate",
+            "classification": "none"
+        },
+        "segmentNumber": {
+            "type": "integer",
+            "description": "Segment number as represented in the GDS",
+            "classification": "none"
+        },
+        "itemId": {
+            "type": "string",
+            "description": "itemId as represented in the GDS",
+            "classification": "none",
+            "dataClassification": []
+        },
+        "shoppingSessionId": {
+            "$ref": "shared.json#/definitions/uuid",
+            "description": "Internal identifier of the shopping session associated with the booking",
+            "classification": "none"
+        },
+        "status": {
+            "$ref": "#/definitions/status",
+            "description": "Enumeration of status values",
+            "classification": "none"
+        },
+        "statusCode": {
+            "type": "string",
+            "description": "The status code from the external system",
+            "classification": "none",
+            "dataClassification": []
+        },
+        "travelerComment": {
+            "type": "string",
+            "description": "Additional remarks given by the traveler",
+            "classification": "none",
+            "dataClassification": []
+        },
+        "vehicle": {
+            "$ref": "#/definitions/vehicle",
+            "description": "Details on the booked vehicle",
+            "classification": "none"
+        },
+        "vendor": {
+            "$ref": "#/definitions/vendor",
+            "description": "Details on the vendor providing the rental",
+            "classification": "none"
+        }
+    },
+    "definitions": {
+        "location": {
+            "type": "object",
+            "title": "Car Itinerary Location",
+            "description": "Contains information about the rental car pick up or drop off location",
+            "goType": "CarItineraryLocation",
+            "x-java-type": "com.concur.t2.schema.itinerary.car.Location",
+            "additionalProperties": false,
+            "properties": {
+                "address": {
+                    "$ref": "shared.json#/definitions/address",
+                    "description": "Address of the rental car location",
+                    "classification": "none"
+                },
+                "altKey": {
+                    "$ref": "car-shared.json#/definitions/locationKey",
+                    "description": "Alternative identifier of the location in the 3rd-party system, e.g. vendor's identifier",
+                    "classification": "none"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Rental car office location description",
+                    "classification": "none"
+                },
+                "directions": {
+                    "type": "string",
+                    "description": "Directions on how to reach the rental car company counter",
+                    "classification": "none"
+                },
+                "geolocation": {
+                    "$ref": "shared.json#/definitions/geolocation",
+                    "description": "Geo coordinates of the location",
+                    "classification": "none"
+                },
+                "iataCode": {
+                    "type": "string",
+                    "description": "IATA code of the airport or train station",
+                    "maxLength": 3,
+                    "minLength": 3,
+                    "classification": "none",
+                    "groups": [
+                        "search"
+                    ]
+                },
+                "key": {
+                    "$ref": "car-shared.json#/definitions/locationKey",
+                    "description": "Identifier of the location in the 3rd-party system",
+                    "classification": "none"
+                },
+                "operationTimes": {
+                    "type": "array",
+                    "description": "List of operation times by this vendor, multiple occurrences of the same day are allowed",
+                    "items": {
+                        "$ref": "car-shared.json#/definitions/operationTime"
+                    },
+                    "classification": "none"
+                },
+                "phone": {
+                    "type": "string",
+                    "description": "Phone number associated with this rental location",
+                    "classification": "none"
+                },
+                "shuttleInformation": {
+                    "$ref": "car-shared.json#/definitions/shuttleInformation",
+                    "description": "The shuttle offering available at the airport, if applicable",
+                    "classification": "none"
+                },
+                "termsAndConditionsCategories": {
+                    "$ref": "car-shared.json#/definitions/termsAndConditionsCategories",
+                    "description": "Terms and Conditions for this rental location, split into categories",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "address",
+                "key",
+                "operationTimes"
+            ]
+        },
+        "rate": {
+            "type": "object",
+            "title": "Car Itinerary Rate",
+            "description": "Contains information about the booked rate",
+            "goType": "CarItineraryRate",
+            "x-java-type": "com.concur.t2.schema.itinerary.car.Rate",
+            "additionalProperties": false,
+            "properties": {
+                "charges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "car-shared.json#/definitions/chargeItem"
+                    },
+                    "description": "Charges or fees or special equipment associated with the rate. Those items could be included within estimatedTotalPrice or could be booked in addition",
+                    "classification": "none"
+                },
+                "co2Emissions": {
+                    "$ref": "car-shared.json#/definitions/co2Emissions",
+                    "description": "Information about the CO2 emissions for this rate",
+                    "classification": "none"
+                },
+                "code": {
+                    "type": "string",
+                    "description": "Reference of the booked rate in the 3rd-party system",
+                    "classification": "sensitive"
+                },
+                "estimatedDailyAmount": {
+                    "$ref": "car-shared.json#/definitions/price",
+                    "description": "Estimated daily amount of the car rental",
+                    "classification": "none"
+                },
+                "estimatedTotalAmount": {
+                    "$ref": "car-shared.json#/definitions/price",
+                    "description": "Estimated total amount including all charges or fees and taxes that cannot be avoided",
+                    "classification": "none"
+                },
+                "isCorporateRate": {
+                    "type": "boolean",
+                    "description": "Indicates if this is a corporate rate",
+                    "classification": "none"
+                },
+                "mileage": {
+                    "$ref": "car-shared.json#/definitions/rateMileage",
+                    "description": "Rate mileage information",
+                    "classification": "none"
+                },
+                "rentalDuration": {
+                    "type": "integer",
+                    "description": "Car rental duration in days",
+                    "classification": "none"
+                },
+                "supplier": {
+                    "$ref": "shared.json#/definitions/source",
+                    "description": "Supplier system of the rate, e.g. Amadeus",
+                    "classification": "none"
+                },
+                "termsAndConditionsUrl": {
+                    "type": "string",
+                    "description": "URL to the website showing terms and conditions applicable for this rate",
+                    "classification": "none"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the rate in the 3rd-party system, e.g. Daily, Weekly, Weekend",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "charges",
+                "estimatedDailyAmount",
+                "estimatedTotalAmount",
+                "mileage",
+                "rentalDuration",
+                "supplier"
+            ]
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "CANCELED",
+                "CONFIRMED",
+                "FAILED",
+                "ON_REQUEST"
+            ],
+            "title": "Car Booking Status",
+            "description": "Enumeration of status values of a car booking",
+            "goType": "CarItineraryBookingStatus",
+            "x-java-type": "com.concur.t2.schema.itinerary.car.BookingStatus"
+        },
+        "vehicle": {
+            "type": "object",
+            "title": "Car Itinerary Vehicle",
+            "description": "Contains information about the booked vehicle",
+            "goType": "CarItineraryVehicle",
+            "x-java-type": "com.concur.t2.schema.itinerary.car.Vehicle",
+            "additionalProperties": false,
+            "properties": {
+                "acrissCode": {
+                    "type": "string",
+                    "description": "Acriss code of the vehicle",
+                    "classification": "none"
+                },
+                "baggage": {
+                    "type": "integer",
+                    "description": "Number of bags that usually fit into the vehicle",
+                    "classification": "none"
+                },
+                "doors": {
+                    "type": "integer",
+                    "description": "Number of doors of the vehicle",
+                    "classification": "none"
+                },
+                "hasSatNav": {
+                    "type": "boolean",
+                    "description": "Indicates if the vehicle has a built-in navigation system",
+                    "classification": "none"
+                },
+                "makeModel": {
+                    "type": "string",
+                    "description": "Make and model of the vehicle, e.g. BMW 3 series",
+                    "classification": "none"
+                },
+                "mediaItems": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "car-shared.json#/definitions/mediaItem"
+                    },
+                    "description": "Descriptive media of the vehicle, such as images",
+                    "classification": "none"
+                },
+                "modelGuaranteed": {
+                    "type": "boolean",
+                    "description": "Indicates whether make and model is guaranteed or if it could be a comparable vehicle",
+                    "classification": "none"
+                },
+                "passengers": {
+                    "type": "integer",
+                    "description": "Number of passengers the vehicle can carry",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "acrissCode",
+                "hasSatNav",
+                "mediaItems",
+                "modelGuaranteed"
+            ]
+        },
+        "vendor": {
+            "type": "object",
+            "title": "Car Itinerary Vendor",
+            "description": "Contains information about the the vendor providing the rental",
+            "goType": "CarItineraryVendor",
+            "x-java-type": "com.concur.t2.schema.itinerary.car.Vendor",
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Two-letter identifier of the vendor",
+                    "classification": "none",
+                    "groups": [
+                        "search"
+                    ]
+                },
+                "logo": {
+                    "$ref": "car-shared.json#/definitions/mediaItem",
+                    "description": "URL to the vendor's logo",
+                    "classification": "none"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the vendor",
+                    "classification": "none",
+                    "groups": [
+                        "search"
+                    ]
+                },
+                "preferenceRanking": {
+                    "type": "integer",
+                    "description": "Representation of the vendor's preference ranking configured through Corporate Discounts (0 = not preferred, 4 = less preferred, 5 = preferred. 10 = most preferred)",
+                    "classification": "none"
+                }
+            },
+            "required": [
+                "code",
+                "logo",
+                "name"
+            ]
+        }
+    },
+    "required": [
+        "dropoffDateTime",
+        "dropoffLocation",
+        "emailAddress",
+        "pickupDateTime",
+        "pickupLocation",
+        "rate",
+        "statusCode",
+        "vehicle",
+        "vendor"
+    ]
+}

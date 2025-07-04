@@ -1,0 +1,15 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "TripLinkRemarks.json",
+	"type": "object",
+	"properties": {
+		"TripLinkRemark": {
+			"type": "array",
+			"items": {
+				"$ref": "TripLinkRemark.json#"
+			},
+			"group": "external"
+		}
+	},
+	"additionalProperties": false
+}

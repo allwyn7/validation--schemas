@@ -1,0 +1,1199 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "Booking.json",
+	"$defs": {
+		"BaseAirlineTicket": {
+			"type": "object",
+			"properties": {
+				"AirlineTicket": {
+					"type": "array",
+					"items": {
+						"$ref": "AirlineTicket.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "The airline ticket for the booking. For information about the child elements of AirlineTicket, see the AirlineTicket Elements table."
+				},
+				"AirlineAdjustment": {
+					"type": "array",
+					"items": {
+						"$ref": "AirlineAdjustment.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Any adjustment made to the booking. For information about the child elements of AirlineAdjustmentType, see the AirlineAdjustmentType Elements table."
+				},
+				"ManualAirlineTicket": {
+					"type": "array",
+					"items": {
+						"$ref": "ManualAirlineTicket.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "The manual airline ticket for the booking. For information about the child elements of ManualAirlineTicket, see the ManualAirlineTicket Elements table."
+				}
+			},
+			"additionalProperties": false
+		},
+		"BaseRailPayment": {
+			"type": "object",
+			"properties": {
+				"RailPayment": {
+					"type": "array",
+					"items": {
+						"$ref": "RailPayment.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "The payment information for a rail booking. For information about the RailPayment child elements, see the Rail Payment Element table."
+				},
+				"RailAdjustment": {
+					"type": "array",
+					"items": {
+						"$ref": "RailAdjustment.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "The amount adjusted for a rail booking. For information about the RailAdjustment child elements, see the Rail Adjustment Element table."
+				}
+			},
+			"additionalProperties": false
+		},
+		"CalculatedAirCharge": {
+			"type": "object",
+			"properties": {
+				"BaseFareCurrency": {
+					"type": "string",
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code for the base fare."
+				},
+				"Charges": {
+					"type": "array",
+					"items": {
+						"$ref": "Booking.json#/$defs/Charge"
+					},
+					"classification": "none",
+					"description": "Charges associated to the ticket."
+				},
+				"Text": {
+					"type": "string",
+					"classification": "none",
+					"description": ""
+				},
+				"BaseFare": {
+					"type": "number",
+					"classification": "none",
+					"description": "Fare without any tax penalties."
+				},
+				"TotalFareCurrency": {
+					"type": "string",
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code of ticket."
+				},
+				"TotalFare": {
+					"type": "number",
+					"classification": "none",
+					"description": "Total cost of ticket."
+				},
+				"NetFare": {
+					"type": "number",
+					"classification": "none",
+					"description": "Wholesale price that is marked up for sale to the customer"
+				},
+				"TicketNumber": {
+					"type": "string",
+					"classification": "personal",
+					"description": "The ticket number."
+				},
+				"FareType": {
+					"type": "string",
+					"classification": "none",
+					"description": "The type of fare for the charge"
+				},
+				"Tax": {
+					"type": "number",
+					"classification": "none",
+					"description": "Tax on the ticket."
+				}
+			},
+			"additionalProperties": false
+		},
+		"Charge": {
+			"type": "object",
+			"properties": {
+				"Description": {
+					"type": "string",
+					"classification": "none",
+					"description": "The description for the charge."
+				},
+				"Currency": {
+					"type": "string",
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code for the charge."
+				},
+				"Amount": {
+					"type": "number",
+					"classification": "none",
+					"description": "The charge amount."
+				}
+			},
+			"additionalProperties": false
+		},
+		"ChargeDetail": {
+			"id": "ChargeDetail",
+			"type": "object",
+			"properties": {
+				"Fixed": {
+					"type": "array",
+					"items": {
+						"$ref": "Fixed.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "The fixed charges."
+				},
+				"Percent": {
+					"type": "array",
+					"items": {
+						"$ref": "Percent.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "The percent of fixed charges."
+				},
+				"Rate": {
+					"type": "array",
+					"items": {
+						"$ref": "Rate.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "The rate for the booking."
+				},
+				"RateWithAllowance": {
+					"type": "array",
+					"items": {
+						"$ref": "RateWithAllowance.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "The rate for the booking, including any travel allowances."
+				}
+			},
+			"additionalProperties": false
+		},
+		"FrequentTravelerProgram": {
+			"type": "object",
+			"properties": {
+				"FrequentFlyer": {
+					"type": "array",
+					"items": {
+						"$ref": "FrequentFlyer.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Frequent flyer information"
+				},
+				"RailProgram": {
+					"type": "array",
+					"items": {
+						"$ref": "RailProgram.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Advantage program information"
+				}
+			},
+			"additionalProperties": false
+		},
+		"MiscellaneousChargeOrder": {
+			"id": "MiscellaneousChargeOrder",
+			"type": "object",
+			"properties": {
+				"PlatingCarrierNumericCode": {
+					"type": "string",
+					"maxLength": 3,
+					"group": "external",
+					"classification": "personal",
+					"description": "The three-digit ticket number that indicates the airline code. Examples: 001 - American, 005 - Continental, 006 - Delta, 012 - Northwest"
+				},
+				"PlatingControlNumber": {
+					"type": "string",
+					"maxLength": 10,
+					"group": "external",
+					"classification": "personal",
+					"description": "Ten digits of the ticket number that indicates the ticket control number."
+				},
+				"TotalAmount": {
+					"type": "number",
+					"group": "external",
+					"classification": "none",
+					"description": "The total amount of charge orders for the ticket."
+				},
+				"TotalAmountCurrency": {
+					"type": "string",
+					"maxLength": 3,
+					"group": "external",
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code for the total charge order amount."
+				},
+				"IssueDate": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external",
+					"classification": "none",
+					"description": "The date the charge order was issued."
+				},
+				"ChargeLocator": {
+					"type": "integer",
+					"format": "int64",
+					"classification": "none",
+					"description": "Unique ID for the Charge"
+				},
+				"DateCreatedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external",
+					"classification": "none",
+					"description": "The date the charge order was created, in UTC."
+				},
+				"DateModifiedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external",
+					"classification": "none",
+					"description": "The date the charge order was last modified, in UTC."
+				},
+				"UseCurrentRailPayment": {
+					"type": "boolean",
+					"classification": "none",
+					"description": ""
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"PlatingCarrierNumericCode",
+				"PlatingControlNumber",
+				"TotalAmount",
+				"TotalAmountCurrency"
+			]
+		},
+		"Quote": {
+			"id": "Quote",
+			"type": "object",
+			"properties": {
+				"Taxes": {
+					"type": "array",
+					"items": {
+						"$ref": "Tax.json#"
+					},
+					"classification": "none",
+					"description": "Taxes on the quote."
+				},
+				"AirlineCharges": {
+					"$ref": "ChargeDetail.json#",
+					"group": "external",
+					"classification": "none",
+					"description": "Charges associated to the ticket."
+				},
+				"BaseFare": {
+					"type": "number",
+					"group": "external",
+					"classification": "none",
+					"description": "The base fare of the quote."
+				},
+				"BaseFareCurrency": {
+					"type": "string",
+					"maxLength": 3,
+					"group": "external",
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code for the base fare."
+				},
+				"BaseFareNuc": {
+					"type": "number",
+					"group": "external",
+					"classification": "none",
+					"description": "The base fare in NUC."
+				},
+				"BaseFareNucCurrency": {
+					"type": "string",
+					"minLength": 3,
+					"maxLength": 3,
+					"group": "external",
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code for the base fare in NUC."
+				},
+				"TotalFare": {
+					"type": "number",
+					"group": "external",
+					"classification": "none",
+					"description": "The total price of the booking."
+				},
+				"TotalFareCurrency": {
+					"type": "string",
+					"maxLength": 3,
+					"group": "external",
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code for the total fare."
+				},
+				"IssueByDate": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external",
+					"classification": "none",
+					"description": "The date the quote must be issued by."
+				},
+				"Endorsements": {
+					"type": "string",
+					"maxLength": 500,
+					"group": "external",
+					"classification": "personal",
+					"description": "Notes from the airline if it endorses the ticket as acceptable on a different airline."
+				},
+				"ChargeLocator": {
+					"type": "integer",
+					"format": "int64",
+					"classification": "none",
+					"description": "Unique ID for the Quote"
+				},
+				"DateCreatedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external",
+					"classification": "none",
+					"description": "The date that this airfare quote was created, in UTC."
+				},
+				"DateModifiedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"group": "external",
+					"classification": "none",
+					"description": "The UTC date that this airfare quote was last modified."
+				},
+				"UseCurrentRailPayment": {
+					"type": "boolean",
+					"classification": "none",
+					"description": ""
+				}
+			},
+			"additionalProperties": false
+		},
+		"RailQuote": {
+			"id": "RailQuote",
+			"type": "object",
+			"properties": {
+				"Taxes": {
+					"type": "array",
+					"items": {
+						"$ref": "Tax.json#"
+					},
+					"classification": "none",
+					"description": "Taxes applied to the airline ticket."
+				},
+				"RailCharges": {
+					"$ref": "ChargeDetail.json#",
+					"classification": "none",
+					"description": "This parent element contains a Fixed and a Percent child element for each fixed charge and percent of fixed charge associated with this rail quote. For information about these child elements, see the Fixed Elements table and the Percent Elements table."
+				},
+				"BaseFare": {
+					"type": "number",
+					"classification": "none",
+					"description": "The base fare of the rail quote."
+				},
+				"BaseFareCurrency": {
+					"type": "string",
+					"maxLength": 3,
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code for the base fare."
+				},
+				"BaseFareNuc": {
+					"type": "number",
+					"classification": "none",
+					"description": "The base fare in NUC."
+				},
+				"BaseFareNucCurrency": {
+					"type": "string",
+					"minLength": 3,
+					"maxLength": 3,
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code for the base fare in NUC."
+				},
+				"TotalFare": {
+					"type": "number",
+					"classification": "none",
+					"description": "The total price of the booking."
+				},
+				"TotalFareCurrency": {
+					"type": "string",
+					"maxLength": 3,
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code for the total fare."
+				},
+				"IssueByDate": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"classification": "none",
+					"description": "The date the quote must be issued by."
+				},
+				"Endorsements": {
+					"type": "string",
+					"maxLength": 500,
+					"classification": "personal",
+					"description": "Notes from the rail vendor if it endorses the ticket as acceptable on a different rail vendor."
+				},
+				"ChargeLocator": {
+					"type": "integer",
+					"format": "int64",
+					"classification": "none",
+					"description": "Unique ID for the rail quote"
+				},
+				"DateCreatedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"classification": "none",
+					"description": "The date that this rail quote was created, in UTC."
+				},
+				"DateModifiedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"classification": "none",
+					"description": "The UTC date that this rail quote was last modified."
+				},
+				"UseCurrentRailPayment": {
+					"type": "boolean",
+					"classification": "none",
+					"description": ""
+				}
+			},
+			"additionalProperties": false
+		},
+		"Remarks": {
+			"id": "Remarks",
+			"type": "object",
+			"properties": {
+				"GeneralRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "GeneralRemarks.json#"
+					},
+					"classification": "none",
+					"description": ""
+				},
+				"HistoryRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "HistoryRemarks.json#"
+					},
+					"classification": "none",
+					"description": ""
+				},
+				"TicketingRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "TicketingRemarks.json#"
+					},
+					"classification": "none",
+					"description": ""
+				},
+				"InvoiceRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "InvoiceRemarks.json#"
+					},
+					"classification": "none",
+					"description": ""
+				},
+				"ItineraryRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "ItineraryRemarks.json#"
+					},
+					"classification": "none",
+					"description": ""
+				},
+				"TripLinkRemarks": {
+					"type": "array",
+					"items": {
+						"$ref": "TripLinkRemarks.json#"
+					},
+					"group": "external",
+					"classification": "personal",
+					"description": ""
+				}
+			},
+			"additionalProperties": false
+		},
+		"RuleViolation": {
+			"type": "object",
+			"properties": {
+				"SegmentType": {
+					"type": "string",
+					"classification": "none",
+					"description": "The type of the segment, i.e. Air, Car, Hotel, etc."
+				},
+				"VendorCode": {
+					"type": "string",
+					"classification": "none",
+					"description": ""
+				},
+				"VendorName": {
+					"type": "string",
+					"classification": "none",
+					"description": "The name of the vendor."
+				},
+				"StartCity": {
+					"type": "string",
+					"classification": "none",
+					"description": "The starting address for the booking."
+				},
+				"EndCity": {
+					"type": "string",
+					"classification": "none",
+					"description": "The ending address for the booking."
+				},
+				"BestGdsPrice": {
+					"type": "number",
+					"classification": "none",
+					"description": ""
+				},
+				"BestInternetPrice": {
+					"type": "number",
+					"classification": "none",
+					"description": ""
+				},
+				"TariffPrice": {
+					"type": "number",
+					"classification": "none",
+					"description": ""
+				},
+				"NumberOfStops": {
+					"type": "integer",
+					"classification": "none",
+					"description": ""
+				},
+				"CreditCardId": {
+					"type": "integer",
+					"classification": "none",
+					"description": "Reference to card in OUTTASK_CREDIT_CARD"
+				},
+				"SelectedOtherAmount": {
+					"type": "number",
+					"classification": "none",
+					"description": ""
+				},
+				"SelectedOtherAmountType": {
+					"type": "string",
+					"classification": "none",
+					"description": ""
+				},
+				"CompanyReasonCode": {
+					"type": "string",
+					"group": "external",
+					"classification": "none",
+					"description": "Internal Only. The reason code configured by the Travel Admin to identify the violation of policy for the booked trip"
+				},
+				"CompanyRuleText": {
+					"type": "string",
+					"group": "external",
+					"classification": "personal",
+					"description": "Internal Only. The rule text configured by the Travel Admin."
+				},
+				"TravelerComments": {
+					"type": "string",
+					"classification": "personal",
+					"description": ""
+				},
+				"RuleAction": {
+					"type": "integer",
+					"classification": "none",
+					"description": ""
+				},
+				"DateEntered": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"classification": "none",
+					"description": ""
+				},
+				"GdsId": {
+					"type": "integer",
+					"classification": "none",
+					"description": ""
+				},
+				"StartDate": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"classification": "none",
+					"description": "The booking starting time and date."
+				},
+				"EndDate": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"classification": "none",
+					"description": "The booking ending time and date."
+				},
+				"QuotedPrice": {
+					"type": "number",
+					"classification": "none",
+					"description": ""
+				},
+				"Currency": {
+					"type": "string",
+					"classification": "none",
+					"description": "The 3-letter ISO 4217 currency code"
+				},
+				"ViolationReasonCode": {
+					"type": "integer",
+					"group": "external",
+					"classification": "none",
+					"description": "Internal Only. The integer identifier for the reason code selected when the user violates the rules/policy configured by the Travel Admin."
+				},
+				"BestInternetVendor": {
+					"type": "string",
+					"classification": "none",
+					"description": ""
+				},
+				"BestGdsVendor": {
+					"type": "string",
+					"classification": "none",
+					"description": ""
+				},
+				"RuleValueID": {
+					"type": "integer",
+					"classification": "none",
+					"description": ""
+				},
+				"RuleTemplateId": {
+					"type": "integer",
+					"classification": "none",
+					"description": ""
+				},
+				"RuleName": {
+					"type": "string",
+					"classification": "none",
+					"description": ""
+				},
+				"IsCostBased": {
+					"type": "boolean",
+					"classification": "none",
+					"description": ""
+				},
+				"DateModifiedUtc": {
+					"$ref": "Shared.json#/$defs/date-time",
+					"classification": "none",
+					"description": "The UTC timestamp of ticket modification."
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"DateEntered",
+				"StartDate",
+				"EndDate"
+			]
+		},
+		"Segment": {
+			"type": "object",
+			"properties": {
+				"Air": {
+					"type": "array",
+					"items": {
+						"$ref": "Air.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Air segment."
+				},
+				"Car": {
+					"type": "array",
+					"items": {
+						"$ref": "Car.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Car segment."
+				},
+				"Hotel": {
+					"type": "array",
+					"items": {
+						"$ref": "Hotel.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Hotel segment."
+				},
+				"Dining": {
+					"type": "array",
+					"items": {
+						"$ref": "Dining.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Dining segment."
+				},
+				"Ride": {
+					"type": "array",
+					"items": {
+						"$ref": "Ride.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Ride segment."
+				},
+				"Rail": {
+					"type": "array",
+					"items": {
+						"$ref": "Rail.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Rail segment."
+				},
+				"Parking": {
+					"type": "array",
+					"items": {
+						"$ref": "Parking.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Parking segment."
+				},
+				"Travel": {
+					"type": "array",
+					"items": {
+						"$ref": "Travel.json#"
+					},
+					"group": "external",
+					"classification": "none",
+					"description": "Travel segment."
+				},
+				"Event": {
+					"type": "array",
+					"items": {
+						"$ref": "Event.json#"
+					},
+					"classification": "none",
+					"description": "Event segment."
+				},
+				"Undefined": {
+					"type": "array",
+					"items": {
+						"$ref": "Undefined.json#"
+					},
+					"classification": "none",
+					"description": "Undefined segment."
+				}
+			},
+			"additionalProperties": false
+		},
+		"Tax": {
+			"$ref": "Tax.json#",
+			"classification": "none",
+			"description": "Total tax applied to the booking."
+		},
+		"WebAddressData": {
+			"id": "WebAddressData",
+			"type": "object",
+			"properties": {
+				"WebAddress": {
+					"type": "string",
+					"maxLength": 250,
+					"group": "external",
+					"classification": "none",
+					"description": ""
+				},
+				"Type": {
+					"type": "string",
+					"maxLength": 3,
+					"group": "external",
+					"classification": "none",
+					"description": ""
+				},
+				"Description": {
+					"type": "string",
+					"maxLength": 50,
+					"group": "external",
+					"classification": "none",
+					"description": ""
+				},
+				"Format": {
+					"type": "string",
+					"maxLength": 1,
+					"group": "external",
+					"classification": "none",
+					"description": ""
+				},
+				"PassengerRPH": {
+					"type": "integer",
+					"group": "external",
+					"classification": "none",
+					"description": "The pasenger identifier on the booking"
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"type": "object",
+	"properties": {
+		"Segments": {
+			"$ref": "Booking.json#/$defs/Segment",
+			"group": "external",
+			"classification": "none",
+			"description": "List of segments in this booking. The child elements included in this element vary depending on whether a TMC, SAP Concur client, third-party developer, or TripLink supplier is requesting the itinerary details: For TMCs, clients, and third-party developers, the Segments element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. For TripLink suppliers, the Segments element contains one or more Air, Car, Hotel, or Ride parent elements."
+		},
+		"AirlineTickets": {
+			"$ref": "Booking.json#/$defs/BaseAirlineTicket",
+			"group": "external",
+			"classification": "none",
+			"description": "List of airline tickets. This parent element contains Airline Tickets Child Elements."
+		},
+		"AirfareQuotes": {
+			"type": "array",
+			"items": {
+				"$ref": "#/$defs/Quote"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "List of stored airfare quotes. This parent element has a Quote child element for each airfare quote. The Quote parent element contains the Airfare Quotes Child Elements."
+		},
+		"MiscChargeOrders": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/MiscellaneousChargeOrder"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "This parent element has a MiscellaneousChargeOrder child element for each included miscellaneous charge. The MiscellaneousChargeOrder parent element contains Miscellaneous Charge Order Child Elements."
+		},
+		"RailPayments": {
+			"$ref": "Booking.json#/$defs/BaseRailPayment",
+			"group": "external",
+			"classification": "none",
+			"description": "List of rail payments associated with rail segments in this booking. It has the following child elements: RailPayment that represents the payment information for a rail booking and RailAdjustment for the amount adjusted for a rail booking."
+		},
+		"RailQuotes": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/RailQuote"
+			},
+			"classification": "none",
+			"description": "List of rail quotes associated with rail segments in this booking."
+		},
+		"Passengers": {
+			"type": "array",
+			"items": {
+				"$ref": "Passenger.json#"
+			},
+			"group": "external",
+			"classification": "personal",
+			"description": "Contains a Passenger child element for each included passenger."
+		},
+		"PhoneNumbers": {
+			"type": "array",
+			"items": {
+				"$ref": "PhoneNumberData.json#"
+			},
+			"group": "external",
+			"classification": "personal",
+			"description": "List of phone numbers associated with this booking. This parent element has a PhoneNumberData child element for each phone number associated with the booking. The PhoneNumberData parent element has the following child elements: PassengerRPH, PhoneNumber, Type, and Description."
+		},
+		"WebAddresses": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/WebAddressData"
+			},
+			"group": "external",
+			"classification": "personal",
+			"description": "List of web addresses such as emails, pick-up URLs, and so on associated with this booking."
+		},
+		"PassPrograms": {
+			"type": "array",
+			"items": {
+				"$ref": "PassProgram.json#"
+			},
+			"group": "external",
+			"classification": "personal",
+			"description": "This parent element has Pass Program child elements for each pass program associated with the booking."
+		},
+		"Remarks": {
+			"$ref": "Booking.json#/$defs/Remarks",
+			"group": "external",
+			"classification": "none",
+			"description": "Remarks on the booking."
+		},
+		"Charges": {
+			"$ref": "ChargeDetail.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "List of charges for this booking."
+		},
+		"RecordLocator": {
+			"type": "string",
+			"maxLength": 50,
+			"group": "external",
+			"classification": "personal",
+			"description": "The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source."
+		},
+		"TravelConfigId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "ID for the travel config associated with this booking."
+		},
+		"BookingSource": {
+			"type": "string",
+			"maxLength": 32,
+			"group": "external",
+			"classification": "none",
+			"description": "The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place."
+		},
+		"BookingData": {
+			"type": "string",
+			"classification": "personal",
+			"description": ""
+		},
+		"HasGdsPassive": {
+			"type": "boolean",
+			"classification": "none",
+			"description": "Indicates if the booking has a GDS passive."
+		},
+		"DateCreatedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date that this booking was created, in UTC."
+		},
+		"DateModifiedUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The UTC date that this booking was last modified."
+		},
+		"AgencyPCC": {
+			"type": "string",
+			"maxLength": 9,
+			"group": "external",
+			"classification": "none",
+			"description": "Pseudo city code for the agency."
+		},
+		"AgencyName": {
+			"type": "string",
+			"maxLength": 256,
+			"group": "external",
+			"classification": "none",
+			"description": "The name of the agency."
+		},
+		"CompanyAccountingCode": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Accounting code for the company associated with this booking."
+		},
+		"DateBookedLocal": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "The date the booking was created, in the local time of the booking’s location."
+		},
+		"RetrievedDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": "UTC Date this booking was retrieved."
+		},
+		"IsCliqbookSystemOfRecord": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"FormOfPaymentType": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The type of the form of payment."
+		},
+		"FormOfPaymentName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The name of the form of payment for the booking."
+		},
+		"CreditCardId": {
+			"type": "integer",
+			"classification": "personal",
+			"description": ""
+		},
+		"IsGhostCard": {
+			"type": "boolean",
+			"group": "external",
+			"classification": "none",
+			"description": "If true, the payment was made using a shared corporate credit card."
+		},
+		"OriginalItinLocator": {
+			"type": "integer",
+			"format": "int64",
+			"classification": "personal",
+			"description": "Original ItinLocator if the booking was created via TripLink, and then updated by the OBT."
+		},
+		"OriginalClientLocator": {
+			"type": "string",
+			"classification": "personal",
+			"description": "Original ClientLocator if the booking was created via TripLink and then updated by the OBT."
+		},
+		"CreditCardLastFour": {
+			"type": "string",
+			"classification": "sensitive",
+			"description": "Last 4 digits of the credit card provided for the booking."
+		},
+		"CreditCardType": {
+			"type": "string",
+			"classification": "none",
+			"description": "The type of the credit card used for the booking"
+		},
+		"TicketPickupLocation": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The pick-up location for the booked ticket, if available."
+		},
+		"TicketPickupNumber": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The confirmation number for the booked ticket, if available."
+		},
+		"TicketMailingAddress": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The mailing address for the booked ticket, if available."
+		},
+		"LastTicketDateUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"group": "external",
+			"classification": "none",
+			"description": "UTC timestamp of the latest ticket."
+		},
+		"FareExpiresEmailDatetimeUtc": {
+			"$ref": "Shared.json#/$defs/date-time",
+			"classification": "none",
+			"description": ""
+		},
+		"ItinSourceId": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Id for the itinerary source."
+		},
+		"BookedVia": {
+			"type": "string",
+			"classification": "none",
+			"description": "The booking method for the trip."
+		},
+		"ItinSourceName": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "The itinerary source."
+		},
+		"BestGdsRate": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"BestInternetPrice": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"BookingReferrer": {
+			"type": "string",
+			"maxLength": 32,
+			"classification": "none",
+			"description": ""
+		},
+		"HasT2Segment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": "Indicates if a booking was booked via T2."
+		},
+		"RetrievedVia": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"LastModBy": {
+			"type": "integer",
+			"classification": "personal",
+			"description": "The user ID of the last person to modify this booking."
+		},
+		"PassengerCount": {
+			"type": "integer",
+			"classification": "none",
+			"description": "Number of passengers."
+		},
+		"Delivery": {
+			"$ref": "Delivery.json#",
+			"group": "external",
+			"classification": "none",
+			"description": "The method this booking was delivered."
+		},
+		"LeastLogicalFare": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"LeastLogicalFareCurrency": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"HasRedeemedTravelPointsAir": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"AdjustedPriceToBeatRate": {
+			"type": "number",
+			"classification": "none",
+			"description": ""
+		},
+		"AdjustedPriceToBeatCurrency": {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		},
+		"AdjustedPriceToBeatUsedHub": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"UseCurrentRailPayment": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"IsAltTicketVendor": {
+			"type": "boolean",
+			"classification": "none",
+			"description": ""
+		},
+		"CalculatedAirCharges": {
+			"type": "array",
+			"items": {
+				"$ref": "Booking.json#/$defs/CalculatedAirCharge"
+			},
+			"classification": "none",
+			"description": ""
+		},
+		"Warnings": {
+			"type": "array",
+			"items": {
+				"$ref": "Warning.json#"
+			},
+			"group": "external",
+			"classification": "none",
+			"description": "The warnings associated with the booking."
+		},
+		"WaitListSegments": {
+			"$ref": "WaitListSegments.json#",
+			"group": "external",
+			"classification": "personal",
+			"description": "The segments that the traveler is waitlisted for this booking."
+		},
+		"BookingOwner": {
+			"type": "string",
+			"group": "external",
+			"classification": "none",
+			"description": "Indicates the tool that supplied the booking to Concur Travel."
+		},
+		"Source" : {
+			"type": "string",
+			"classification": "none",
+			"description": ""
+		}
+	},
+	"additionalProperties": false
+}

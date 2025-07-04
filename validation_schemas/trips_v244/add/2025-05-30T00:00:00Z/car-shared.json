@@ -1,0 +1,556 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "car-shared.json",
+  "definitions": {
+    "amountQualifier": {
+      "type": "string",
+      "enum": [
+        "DAILY",
+        "MONTHLY",
+        "PER_RENTAL",
+        "WEEKLY"
+      ],
+      "title": "Car Amount Qualifier",
+      "description": "Enumeration of amount qualifiers",
+      "goType": "CarAmountQualifier",
+      "x-java-type": "com.concur.t2.schema.car.AmountQualifier"
+    },
+    "chargeItem": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Car Charge Item",
+      "description": "Charge, fee or special equipment which can be explicitly bookable or included in the rate",
+      "goType": "CarChargeItem",
+      "x-java-type": "com.concur.t2.schema.car.ChargeItem",
+      "properties": {
+        "amountQualifier": {
+          "$ref": "#/definitions/amountQualifier",
+          "description": "Determines the time period the price of this charge or fee or special equipment applies to",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "chargeType": {
+          "$ref": "#/definitions/chargeType",
+          "description": "Indicates the type of the charge item",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "code": {
+          "type": "string",
+          "description": "The code or identifier in the 3rd-party system",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description or name of the charge or fee or special equipment",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "isIncluded": {
+          "type": "boolean",
+          "description": "Indicates if this charge is part of the rate or can be added manually",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "localPrice": {
+          "$ref": "#/definitions/price",
+          "description": "Price of the charge or fee or special equipment in local currency",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "price": {
+          "$ref": "#/definitions/price",
+          "description": "Price of the charge or fee or special equipment",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "quantity": {
+          "type": "number",
+          "description": "The quantity this charge item comes in (e.g. multiple child seats)",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "chargeType",
+        "code",
+        "description",
+        "isIncluded"
+      ]
+    },
+    "chargeType": {
+      "type": "string",
+      "enum": [
+        "INSURANCE",
+        "SPECIAL_EQUIPMENT",
+        "SURCHARGE",
+        "TAX"
+      ],
+      "title": "Car Charge Type",
+      "description": "Enumeration of charge types",
+      "goType": "CarChargeType",
+      "x-java-type": "com.concur.t2.schema.car.ChargeType"
+    },
+    "co2Emissions": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "CO2 Emissions",
+      "description": "Information about the CO2 emissions for this rate",
+      "goType": "CarCO2Emissions",
+      "x-java-type": "com.concur.t2.schema.car.CO2Emissions",
+      "properties": {
+        "gramsPerKilometer": {
+          "dataClassification": [],
+          "classification": "none",
+          "description": "How many grams of CO2 the vehicle in this rate emits per kilometer driven",
+          "type": "number"
+        },
+        "amountInTonnes": {
+          "dataClassification": [],
+          "classification": "none",
+          "description": "The total amount of CO2 equivalent emissions for the entire rental duration in tonnes",
+          "type": "number"
+        },
+        "distanceInKilometers": {
+          "dataClassification": [],
+          "classification": "none",
+          "description": "The total (assumed) distance in kilometers for the entire rental duration",
+          "type": "number"
+        }
+      }
+    },
+    "corporateDiscount": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Car Corporate Discount",
+      "description": "Corporate discount code or preferred vendor information",
+      "goType": "CarCorporateDiscount",
+      "x-java-type": "com.concur.t2.schema.car.CorporateDiscount",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The corporate discount code or an empty string for preferred vendors",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "rateCode": {
+          "type": "string",
+          "description": "Code indicating the rate preferences (e.g. BEST)",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "vendorCode": {
+          "type": "string",
+          "description": "Two-letter code of the vendor in the 3rd-party system",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "vendorCode"
+      ]
+    },
+    "flightNumber": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Flight Number",
+      "description": "Flight Number, split into carrier and number",
+      "goType": "CarFlightNumber",
+      "x-java-type": "com.concur.t2.schema.car.FlightNumber",
+      "properties": {
+        "carrier": {
+          "type": "string",
+          "description": "Carrier part of the flight number",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "number": {
+          "type": "integer",
+          "description": "Numeric part of the flight number",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "carrier",
+        "number"
+      ]
+    },
+    "locationKey": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Car Location Key",
+      "description": "Identifier of a location in the 3rd-party system",
+      "goType": "CarLocationKey",
+      "x-java-type": "com.concur.t2.schema.car.LocationKey",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the location",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "listId": {
+          "type": "string",
+          "description": "Identifier of the list the location identifier belongs to",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "loyaltyCard": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Car Loyalty Card",
+      "description": "Car or air loyalty card information",
+      "goType": "CarLoyaltyCard",
+      "x-java-type": "com.concur.t2.schema.car.LoyaltyCard",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the loyalty card",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "isAir": {
+          "type": "boolean",
+          "description": "Indicates whether this is an air loyalty card as opposed to a car loyalty card",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "last4": {
+          "type": "string",
+          "description": "The last 4 digits of the loyalty card number",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "programName": {
+          "type": "string",
+          "description": "Name of the loyalty program",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "vendorCode": {
+          "type": "string",
+          "description": "Two-letter code of the vendor in the 3rd-party system",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "vendorName": {
+          "type": "string",
+          "description": "Name of the vendor",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "isAir",
+        "last4",
+        "programName",
+        "vendorCode",
+        "vendorName"
+      ]
+    },
+    "mediaItem": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Car Media Item",
+      "description": "Media information, e.g. a vehicle image url",
+      "goType": "CarMediaItem",
+      "x-java-type": "com.concur.t2.schema.car.MediaItem",
+      "properties": {
+        "url": {
+          "type": "string",
+          "x-java-type": "java.net.URL",
+          "description": "URL of the media item",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "url"
+      ]
+    },
+    "operationTime": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Car Operation Time",
+      "description": "Structure to store operation times",
+      "goType": "CarOperationTime",
+      "x-java-type": "com.concur.t2.schema.car.OperationTime",
+      "properties": {
+        "day": {
+          "type": "integer",
+          "description": "The day of the week in ISO 8601 (Monday as the first day of the week)",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "end": {
+          "type": "string",
+          "description": "End time in hours and minutes, specified in ISO 8601 format (24-hour clock system [hh:mm])",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "start": {
+          "type": "string",
+          "description": "Start time in hours and minutes, specified in ISO 8601 format (24-hour clock system [hh:mm])",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "type": {
+          "$ref": "#/definitions/operationTimeType",
+          "description": "Type of operation time eg. opening time or after hours",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "day",
+        "end",
+        "start",
+        "type"
+      ]
+    },
+    "operationTimeType": {
+      "type": "string",
+      "title": "Car Operation Time Type",
+      "description": "Enumeration of all operation time types",
+      "goType": "CarOperationTimeType",
+      "x-java-type": "com.concur.t2.schema.car.OperationTimeType",
+      "enum": [
+        "AFTER_HOURS",
+        "OPENING_TIME"
+      ]
+    },
+    "price": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Car Price",
+      "description": "Price details",
+      "goType": "CarPrice",
+      "x-java-type": "com.concur.t2.schema.car.Price",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "The amount of the price",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency code ( ISO 4217 )",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ]
+    },
+    "rateKey": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Car Rate Key",
+      "description": "Identifier of a rate in the 3rd-party system",
+      "goType": "CarRateKey",
+      "x-java-type": "com.concur.t2.schema.car.RateKey",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the rate",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "dateTime": {
+          "type": "string",
+          "description": "Timestamp associated with the rate identifier as string",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "token": {
+          "type": "string",
+          "description": "Token associated with the rate identifier",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "rateMileage": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Car Rate Mileage",
+      "description": "Rate mileage information",
+      "goType": "CarRateMileage",
+      "x-java-type": "com.concur.t2.schema.car.RateMileage",
+      "properties": {
+        "limitPeriod": {
+          "type": "string",
+          "enum": [
+            "DAILY",
+            "PER_RENTAL"
+          ],
+          "description": "Mileage limit period: per day or per rental",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "limitQuantity": {
+          "type": "integer",
+          "description": "Mileage limit quantity",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "limitUnit": {
+          "type": "string",
+          "enum": [
+            "mile",
+            "km"
+          ],
+          "description": "Unit of mileage limit quantity",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "unlimited": {
+          "type": "boolean",
+          "description": "Indicates if this rate has unlimited mileage",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      },
+      "required": [
+        "unlimited"
+      ]
+    },
+    "shuttleInformation": {
+      "type": "string",
+      "enum": [
+        "OUTSIDE_TERMINAL",
+        "IN_TERMINAL",
+        "SHUTTLE_TO_CAR",
+        "CAR_RENTAL_SHUTTLE",
+        "AIRPORT_SHUTTLE",
+        "CALL_FOR_SHUTTLE",
+        "AIRPORT_SHUTTLE_THEN_RENTAL_SHUTTLE",
+        "MEET_AND_GREET",
+        "CAR_AND_DRIVER"
+      ],
+      "title": "Car Shuttle Information",
+      "description": "Enumeration of possible shuttle offerings available at an airport",
+      "goType": "CarShuttleInformation",
+      "x-java-type": "com.concur.t2.schema.car.ShuttleInformation"
+    },
+    "termsAndConditionsCategories": {
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Terms And Conditions Categories",
+      "description": "Terms and Conditions for a rental location, split into categories",
+      "goType": "CarTermsAndConditionsCategories",
+      "x-java-type": "com.concur.t2.schema.car.TermsAndConditionsCategories",
+      "properties": {
+        "additionalDriver": {
+          "type": "string",
+          "description": "Additional driver information",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "age": {
+          "type": "string",
+          "description": "Age restriction information",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "cancellationNoShow": {
+          "type": "string",
+          "description": "Cancellation policy for when the customer doesn't show up",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "crossBorder": {
+          "type": "string",
+          "description": "Rules and restrictions for crossing borders",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "deposit": {
+          "type": "string",
+          "description": "Deposit related information",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "driversLicense": {
+          "type": "string",
+          "description": "Requirements regarding drivers licenses",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "dropoff": {
+          "type": "string",
+          "description": "Drop off information",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "formsOfPayment": {
+          "type": "string",
+          "description": "Forms of payment information",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "fuel": {
+          "type": "string",
+          "description": "Fuel information",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "insurance": {
+          "type": "string",
+          "description": "Insurance information",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "mileage": {
+          "type": "string",
+          "description": "Mileage limitations information",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "optionalEquipment": {
+          "type": "string",
+          "description": "Optional equipment information",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "other": {
+          "type": "string",
+          "description": "Other information not belonging to one of the existing categories",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "outOfHours": {
+          "type": "string",
+          "description": "Information for picking up and returning the vehicle outside of station operation hours",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "safetyPractices": {
+          "type": "string",
+          "description": "General safety practices (e.g. cleaning, sanitizing, wearing masks...)",
+          "dataClassification": [],
+          "classification": "none"
+        },
+        "tolls": {
+          "type": "string",
+          "description": "Toll related information",
+          "dataClassification": [],
+          "classification": "none"
+        }
+      }
+    }
+  }
+}

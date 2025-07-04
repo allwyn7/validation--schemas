@@ -1,0 +1,38 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "PassProgram.json",
+	"type": "object",
+	"properties": {
+		"Name": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The program name."
+		},
+		"Type": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The program type."
+		},
+		"Amount": {
+			"type": "number",
+			"group": "external",
+			"classification": "none",
+			"description": "The program amount."
+		},
+		"UserFirstName": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The first name of the passenger."
+		},
+		"UserLastName": {
+			"type": "string",
+			"group": "external",
+			"classification": "personal",
+			"description": "The last name of the passenger."
+		}
+	},
+	"additionalProperties": false
+}

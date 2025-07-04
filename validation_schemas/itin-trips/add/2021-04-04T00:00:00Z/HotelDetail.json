@@ -1,0 +1,56 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "HotelDetail.json",
+	"type": "object",
+	"properties": {
+		"HotelDetailId": {
+			"type": "integer"
+		},
+		"FolioNumber": {
+			"type": "string"
+		},
+		"StartDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"EndDateLocal": {
+			"$ref": "Shared.json#/$defs/date-time"
+		},
+		"ProviderParentChainCode": {
+			"type": "string"
+		},
+		"NumberInParty": {
+			"type": "integer"
+		},
+		"RoomNumber": {
+			"type": "string"
+		},
+		"RoomType": {
+			"type": "string"
+		},
+		"RatePlanId": {
+			"type": "string"
+		},
+		"RatePlanType": {
+			"type": "string"
+		},
+		"GNRNum": {
+			"type": "string"
+		},
+		"StayId": {
+			"type": "string"
+		},
+		"StayStatus": {
+			"type": "string"
+		},
+		"RoomRate": {
+			"type": "number"
+		},
+		"TaxExemptIndicator": {
+			"type": "string"
+		},
+		"MerchantOrderNumber": {
+			"type": "string"
+		}
+	},
+	"additionalProperties": false
+}
